@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>repl | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-repl">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl active" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="repl" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/repl.json">JSON格式</a> |-->
+            <!--<a href="/api/en/repl.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#repl_repl">repl (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#repl_design_and_features">&#x8BBE;&#x8BA1;&#x4E0E;&#x7279;&#x6027;</a></span><ul>
+<li><span class="stability_undefined"><a href="#repl_commands_and_special_keys">&#x547D;&#x4EE4;&#x4E0E;&#x7279;&#x6B8A;&#x952E;</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_default_evaluation">&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;</a></span><ul>
+<li><span class="stability_undefined"><a href="#repl_javascript_expressions">JavaScript &#x8868;&#x8FBE;&#x5F0F;</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_global_and_local_scope">&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E0E;&#x5C40;&#x90E8;&#x4F5C;&#x7528;&#x57DF;</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_accessing_core_node_js_modules">&#x8BBF;&#x95EE; Node.js &#x6838;&#x5FC3;&#x6A21;&#x5757;</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_assignment_of_the_underscore_variable"><code>_</code>&#xFF08;&#x4E0B;&#x5212;&#x7EBF;&#xFF09;&#x53D8;&#x91CF;&#x7684;&#x8D4B;&#x503C;</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#repl_custom_evaluation_functions">&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x89E3;&#x91CA;&#x51FD;&#x6570;</a></span><ul>
+<li><span class="stability_undefined"><a href="#repl_recoverable_errors">&#x53EF;&#x6062;&#x590D;&#x7684;&#x9519;&#x8BEF;</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#repl_customizing_repl_output">&#x81EA;&#x5B9A;&#x4E49; REPL &#x8F93;&#x51FA;</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#repl_class_replserver">REPLServer &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#repl_event_exit">&apos;exit&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_event_reset">&apos;reset&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_replserver_definecommand_keyword_cmd">replServer.defineCommand(keyword, cmd)</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_replserver_displayprompt_preservecursor">replServer.displayPrompt([preserveCursor])</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#repl_repl_start_options">repl.start([options])</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_the_node_js_repl">Node.js &#x7684; REPL</a></span><ul>
+<li><span class="stability_undefined"><a href="#repl_environment_variable_options">&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x9009;&#x9879;</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_persistent_history">&#x5386;&#x53F2;&#x8BB0;&#x5F55;</a></span><ul>
+<li><span class="stability_0"><a href="#repl_node_repl_history_file">NODE_REPL_HISTORY_FILE</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#repl_using_the_node_js_repl_with_advanced_line_editors">&#x5728;&#x9AD8;&#x7EA7;&#x7684;&#x884C;&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x4F7F;&#x7528; Node.js REPL</a></span></li>
+<li><span class="stability_undefined"><a href="#repl_starting_multiple_repl_instances_against_a_single_running_instance">&#x5728;&#x4E00;&#x4E2A; Node.js &#x5B9E;&#x4F8B;&#x4E2D;&#x542F;&#x52A8;&#x591A;&#x4E2A; REPL &#x5B9E;&#x4F8B;</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>repl (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)<span><a class="mark" href="#repl_repl" id="repl_repl">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_repl">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/repl.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><p><code>repl</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x201C;&#x8BFB;&#x53D6;-&#x6C42;&#x503C;-&#x8F93;&#x51FA;&#x201D;&#x5FAA;&#x73AF;&#xFF08;REPL&#xFF09;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5B83;&#x53EF;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x7A0B;&#x5E8F;&#x6216;&#x5D4C;&#x5165;&#x5230;&#x5176;&#x4ED6;&#x5E94;&#x7528;&#x4E2D;&#x3002;
+&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-js">const repl = require(&apos;repl&apos;);
+</code></pre>
+<h2>&#x8BBE;&#x8BA1;&#x4E0E;&#x7279;&#x6027;<span><a class="mark" href="#repl_design_and_features" id="repl_design_and_features">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_design_and_features">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/design_and_features.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p><code>repl</code> &#x6A21;&#x5757;&#x5BFC;&#x51FA;&#x4E86; <code>repl.REPLServer</code> &#x7C7B;&#x3002;
+&#x5F53; <code>repl.REPLServer</code> &#x5B9E;&#x4F8B;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x5B83;&#x63A5;&#x6536;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x6BCF;&#x4E00;&#x884C;&#xFF0C;&#x6839;&#x636E;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x89E3;&#x91CA;&#x51FD;&#x6570;&#x89E3;&#x91CA;&#x8FD9;&#x4E9B;&#x8F93;&#x5165;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x3002;
+&#x8F93;&#x5165;&#x53EF;&#x4EE5;&#x662F; <code>stdin</code>&#xFF0C;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x662F; <code>stdout</code>&#xFF0C;&#x6216;&#x8005;&#x4E5F;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x5230;&#x5176;&#x4ED6;&#x4EFB;&#x4F55; Node.js <a href="stream.html">&#x6D41;</a>&#x3002;</p>
+<p><code>repl.REPLServer</code> &#x5B9E;&#x4F8B;&#x652F;&#x6301;&#x8F93;&#x5165;&#x7684;&#x81EA;&#x52A8;&#x8865;&#x5168;&#x3001;&#x7CBE;&#x7B80; Emacs &#x98CE;&#x683C;&#x7684;&#x884C;&#x7F16;&#x8F91;&#x3001;&#x591A;&#x884C;&#x8F93;&#x5165;&#x3001;ANSI &#x98CE;&#x683C;&#x7684;&#x8F93;&#x51FA;&#x3001;&#x5F53;&#x524D; REPL &#x4F1A;&#x8BDD;&#x72B6;&#x6001;&#x7684;&#x4FDD;&#x5B58;&#x4E0E;&#x6062;&#x590D;&#x3001;&#x9519;&#x8BEF;&#x6821;&#x6B63;&#x3001;&#x4EE5;&#x53CA;&#x53EF;&#x5B9A;&#x5236;&#x7684;&#x89E3;&#x91CA;&#x51FD;&#x6570;&#x3002;</p>
+<h3>&#x547D;&#x4EE4;&#x4E0E;&#x7279;&#x6B8A;&#x952E;<span><a class="mark" href="#repl_commands_and_special_keys" id="repl_commands_and_special_keys">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_commands_and_special_keys">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/commands_and_special_keys.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x6240;&#x6709; REPL &#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x652F;&#x6301;&#x4E0B;&#x5217;&#x7279;&#x6B8A;&#x547D;&#x4EE4;&#xFF1A;</p>
+<ul>
+<li><code>.break</code> - &#x5728;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x591A;&#x884C;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x8F93;&#x5165; <code>.break</code> &#x547D;&#x4EE4;&#xFF08;&#x6216;&#x6309;&#x4E0B; <code>&lt;ctrl&gt;-C</code> &#x7EC4;&#x5408;&#x952E;&#xFF09;&#x5C06;&#x7EC8;&#x6B62;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7EE7;&#x7EED;&#x8F93;&#x5165;&#x3002;</li>
+<li><code>.clear</code> - &#x91CD;&#x7F6E; REPL &#x7684; <code>context</code> &#x4E3A;&#x4E00;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x6E05;&#x9664;&#x5F53;&#x524D;&#x6B63;&#x8F93;&#x5165;&#x7684;&#x6240;&#x6709;&#x591A;&#x884C;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</li>
+<li><code>.exit</code> - &#x5173;&#x95ED;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6D41;&#xFF0C;&#x9000;&#x51FA; REPL&#x3002;</li>
+<li><code>.help</code> - &#x663E;&#x793A;&#x7279;&#x5B9A;&#x547D;&#x4EE4;&#x7684;&#x5E2E;&#x52A9;&#x5217;&#x8868;&#x3002;</li>
+<li><code>.save</code> - &#x4FDD;&#x5B58;&#x5F53;&#x524D; REPL &#x4F1A;&#x8BDD;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;
+<code>&gt; .save ./file/to/save.js</code></li>
+<li><code>.load</code> - &#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5230;&#x5F53;&#x524D; REPL &#x4F1A;&#x8BDD;&#x3002;
+<code>&gt; .load ./file/to/load.js</code></li>
+<li><code>.editor</code> &#x8FDB;&#x5165;&#x7F16;&#x8F91;&#x6A21;&#x5F0F;&#xFF08;<code>&lt;ctrl&gt;-D</code> &#x5B8C;&#x6210;&#xFF0C;<code>&lt;ctrl&gt;-C</code> &#x53D6;&#x6D88;&#xFF09;</li>
+</ul>
+<pre><code class="lang-js">&gt; .editor
+// &#x8FDB;&#x5165;&#x7F16;&#x8F91;&#x6A21;&#x5F0F;&#xFF08;^D &#x5B8C;&#x6210;&#xFF0C;^C &#x53D6;&#x6D88;&#xFF09;
+function welcome(name) {
+  return `&#x4F60;&#x597D; ${name}&#xFF01;`;
+}
+
+welcome(&apos;Node.js &#x7528;&#x6237;&apos;);
+
+// ^D
+&apos;&#x4F60;&#x597D; Node.js &#x7528;&#x6237;&#xFF01;&apos;
+&gt;
+</code></pre>
+<p>REPL &#x4E2D;&#x4E0B;&#x5217;&#x6309;&#x952E;&#x7EC4;&#x5408;&#x6709;&#x7279;&#x6B8A;&#x4F5C;&#x7528;&#xFF1A;</p>
+<ul>
+<li><code>&lt;ctrl&gt;-C</code> - &#x5F53;&#x6309;&#x4E0B;&#x4E00;&#x6B21;&#x65F6;&#xFF0C;&#x4E0E; <code>.break</code> &#x547D;&#x4EE4;&#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;&#x5F53;&#x5728;&#x7A7A;&#x767D;&#x884C;&#x6309;&#x4E0B;&#x4E24;&#x6B21;&#x65F6;&#xFF0C;&#x4E0E; <code>.exit</code> &#x547D;&#x4EE4;&#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;</li>
+<li><code>&lt;ctrl&gt;-D</code> - &#x4E0E; <code>.exit</code> &#x547D;&#x4EE4;&#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;</li>
+<li><code>&lt;tab&gt;</code> - &#x5F53;&#x5728;&#x7A7A;&#x767D;&#x884C;&#x6309;&#x4E0B;&#x65F6;&#xFF0C;&#x663E;&#x793A;&#x5168;&#x5C40;&#x548C;&#x672C;&#x5730;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x5F53;&#x5728;&#x8F93;&#x5165;&#x65F6;&#x6309;&#x4E0B;&#xFF0C;&#x663E;&#x793A;&#x76F8;&#x5173;&#x7684;&#x81EA;&#x52A8;&#x8865;&#x5168;&#x9009;&#x9879;&#x3002;</li>
+</ul>
+<h3>&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;<span><a class="mark" href="#repl_default_evaluation" id="repl_default_evaluation">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_default_evaluation">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/default_evaluation.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6240;&#x6709; <code>repl.REPLServer</code> &#x5B9E;&#x4F8B;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x89E3;&#x91CA; JavaScript &#x8868;&#x8FBE;&#x5F0F;&#x3001;&#x63D0;&#x4F9B;&#x5BF9; Node.js &#x5185;&#x7F6E;&#x6A21;&#x5757;&#x7684;&#x8BBF;&#x95EE;&#x3002;
+&#x5F53; <code>repl.REPLServer</code> &#x5B9E;&#x4F8B;&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x66FF;&#x6362;&#x7684;&#x89E3;&#x91CA;&#x51FD;&#x6570;&#xFF0C;&#x8986;&#x76D6;&#x5176;&#x9ED8;&#x8BA4;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<h4>JavaScript &#x8868;&#x8FBE;&#x5F0F;<span><a class="mark" href="#repl_javascript_expressions" id="repl_javascript_expressions">#</a></span></h4><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_javascript_expressions">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/javascript_expressions.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x652F;&#x6301;&#x76F4;&#x63A5;&#x89E3;&#x91CA; JavaScript &#x8868;&#x8FBE;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-js">&gt; 1 + 1
+2
+&gt; var m = 2
+undefined
+&gt; m + 1
+3
+</code></pre>
+<p>&#x9664;&#x975E;&#x5728;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#xFF08;&#x5982; <code>{...}</code>&#xFF09;&#x6216;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5426;&#x5219;&#x53D8;&#x91CF;&#x4E0D;&#x7BA1;&#x662F;&#x9690;&#x5F0F;&#x5730;&#x58F0;&#x660E;&#x8FD8;&#x662F;&#x4F7F;&#x7528; <code>var</code> &#x5173;&#x952E;&#x5B57;&#x58F0;&#x660E;&#xFF0C;&#x90FD;&#x662F;&#x58F0;&#x660E;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x3002;</p>
+<h4>&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E0E;&#x5C40;&#x90E8;&#x4F5C;&#x7528;&#x57DF;<span><a class="mark" href="#repl_global_and_local_scope" id="repl_global_and_local_scope">#</a></span></h4><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_global_and_local_scope">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/global_and_local_scope.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x63D0;&#x4F9B;&#x4E86;&#x83B7;&#x53D6;&#x5B58;&#x5728;&#x4E8E;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x7684;&#x9014;&#x5F84;&#x3002;
+&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7ED9;&#x6BCF;&#x4E2A; <code>REPLServer</code> &#x7ED1;&#x5B9A;&#x7684; <code>context</code> &#x5BF9;&#x8C61;&#x6307;&#x5B9A;&#x53D8;&#x91CF;&#xFF0C;&#x6765;&#x663E;&#x5F0F;&#x5730;&#x628A;&#x53D8;&#x91CF;&#x66B4;&#x9732;&#x7ED9; REPL&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">const repl = require(&apos;repl&apos;);
+var msg = &apos;message&apos;;
+
+repl.start(&apos;&gt; &apos;).context.m = msg;
+</code></pre>
+<p><code>context</code> &#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x8868;&#x73B0;&#x4E3A; REPL &#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-js">$ node repl_test.js
+&gt; m
+&apos;message&apos;
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B; <code>context</code> &#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x662F;&#x53EA;&#x8BFB;&#x7684;&#x3002;
+&#x8981;&#x6307;&#x5B9A;&#x53EA;&#x8BFB;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;<code>context</code> &#x7684;&#x5C5E;&#x6027;&#x5FC5;&#x987B;&#x4F7F;&#x7528; <code>Object.defineProperty()</code> &#x6765;&#x5B9A;&#x4E49;:</p>
+<pre><code class="lang-js">const repl = require(&apos;repl&apos;);
+var msg = &apos;message&apos;;
+
+const r = repl.start(&apos;&gt; &apos;);
+Object.defineProperty(r.context, &apos;m&apos;, {
+  configurable: false,
+  enumerable: true,
+  value: msg
+});
+</code></pre>
+<h4>&#x8BBF;&#x95EE; Node.js &#x6838;&#x5FC3;&#x6A21;&#x5757;<span><a class="mark" href="#repl_accessing_core_node_js_modules" id="repl_accessing_core_node_js_modules">#</a></span></h4><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_accessing_core_node_js_modules">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/accessing_core_node_js_modules.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x88AB;&#x8C03;&#x7528;&#x7684; Node.js &#x6838;&#x5FC3;&#x6A21;&#x5757;&#x5230; REPL &#x73AF;&#x5883;&#x4E2D;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x9664;&#x975E;&#x88AB;&#x58F0;&#x660E;&#x4E3A;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x6216;&#x4E00;&#x4E2A;&#x6709;&#x9650;&#x8303;&#x56F4;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5426;&#x5219;&#x8F93;&#x5165; <code>fs</code> &#x4F1A;&#x88AB;&#x89E3;&#x91CA;&#x4E3A; <code>global.fs = require(&apos;fs&apos;)</code>&#x3002;</p>
+<pre><code class="lang-js">&gt; fs.createReadStream(&apos;./some/file&apos;);
+</code></pre>
+<h4><code>_</code>&#xFF08;&#x4E0B;&#x5212;&#x7EBF;&#xFF09;&#x53D8;&#x91CF;&#x7684;&#x8D4B;&#x503C;<span><a class="mark" href="#repl_assignment_of_the_underscore_variable" id="repl_assignment_of_the_underscore_variable">#</a></span></h4><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_assignment_of_the_underscore_variable">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/assignment_of_the_underscore_variable.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x628A;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x89E3;&#x91CA;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7ED3;&#x679C;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF; <code>_</code> &#xFF08;&#x4E0B;&#x5212;&#x7EBF;&#xFF09;&#x3002;</p>
+<pre><code class="lang-js">&gt; [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ]
+[ &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ]
+&gt; _.length
+3
+&gt; _ += 1
+4
+</code></pre>
+<p>&#x663E;&#x5F0F;&#x5730;&#x8BBE;&#x7F6E; <code>_</code> &#x4E3A;&#x67D0;&#x4E2A;&#x503C;&#x80FD;&#x7981;&#x7528;&#x8BE5;&#x7279;&#x6027;&#x3002;</p>
+<h3>&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x89E3;&#x91CA;&#x51FD;&#x6570;<span><a class="mark" href="#repl_custom_evaluation_functions" id="repl_custom_evaluation_functions">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_custom_evaluation_functions">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/custom_evaluation_functions.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x5F53;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>repl.REPLServer</code> &#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x89E3;&#x91CA;&#x51FD;&#x6570;&#x3002;
+&#x8FD9;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x5B8C;&#x5168;&#x5B9A;&#x5236;&#x5316;&#x7684; REPL &#x5E94;&#x7528;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x6587;&#x672C;&#x7FFB;&#x8BD1;&#x7684; REPL&#xFF1A;</p>
+<pre><code class="lang-js">const repl = require(&apos;repl&apos;);
+const Translator = require(&apos;translator&apos;).Translator;
+
+const myTranslator = new Translator(&apos;en&apos;, &apos;fr&apos;);
+
+function myEval(cmd, context, filename, callback) {
+  callback(null, myTranslator.translate(cmd));
+}
+
+repl.start({prompt: &apos;&gt; &apos;, eval: myEval});
+</code></pre>
+<h4>&#x53EF;&#x6062;&#x590D;&#x7684;&#x9519;&#x8BEF;<span><a class="mark" href="#repl_recoverable_errors" id="repl_recoverable_errors">#</a></span></h4><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_recoverable_errors">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/recoverable_errors.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x5F53;&#x7528;&#x6237;&#x6B63;&#x5728; REPL &#x4E2D;&#x8F93;&#x5165;&#x65F6;&#xFF0C;&#x6309;&#x4E0B; <code>&lt;enter&gt;</code> &#x952E;&#x4F1A;&#x628A;&#x5F53;&#x524D;&#x884C;&#x7684;&#x8F93;&#x5165;&#x53D1;&#x9001;&#x5230; <code>eval</code> &#x51FD;&#x6570;&#x3002;
+&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x591A;&#x884C;&#x8F93;&#x5165;&#xFF0C;<code>eval</code> &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>repl.Recoverable</code> &#x5B9E;&#x4F8B;&#x7ED9;&#x63D0;&#x4F9B;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-js">function eval(cmd, context, filename, callback) {
+  var result;
+  try {
+    result = vm.runInThisContext(cmd);
+  } catch (e) {
+    if (isRecoverableError(e)) {
+      return callback(new repl.Recoverable(e));
+    }
+  }
+  callback(null, result);
+}
+
+function isRecoverableError(error) {
+  if (error.name === &apos;SyntaxError&apos;) {
+    return /^(Unexpected end of input|Unexpected token)/.test(error.message);
+  }
+  return false;
+}
+</code></pre>
+<h3>&#x81EA;&#x5B9A;&#x4E49; REPL &#x8F93;&#x51FA;<span><a class="mark" href="#repl_customizing_repl_output" id="repl_customizing_repl_output">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_customizing_repl_output">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/customizing_repl_output.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;&#x628A;&#x8F93;&#x51FA;&#x5199;&#x5165;&#x5230;&#x63D0;&#x4F9B;&#x7684;&#x53EF;&#x5199;&#x6D41;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A; <code>process.stdout</code>&#xFF09;&#x4E4B;&#x524D;&#xFF0C;<code>repl.REPLServer</code> &#x5B9E;&#x4F8B;&#x4F1A;&#x4F7F;&#x7528; <a href="util.html#util_util_inspect_object_options"><code>util.inspect()</code></a> &#x65B9;&#x6CD5;&#x5BF9;&#x8F93;&#x51FA;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x3002;
+&#x4F7F;&#x7528; <code>util.inspect()</code> &#x65B9;&#x6CD5;&#x65F6;&#xFF0C;<code>useColors</code> &#x9009;&#x9879;&#x53EF;&#x88AB;&#x6307;&#x5B9A;&#x662F;&#x5426;&#x5728;&#x5EFA;&#x7ACB;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x5668;&#x65F6;&#x4F7F;&#x7528; ANSI &#x98CE;&#x683C;&#x7684;&#x4EE3;&#x7801;&#x7ED9;&#x8F93;&#x51FA;&#x4E0A;&#x8272;&#x3002;</p>
+<p>&#x5728;&#x6784;&#x9020;&#x65F6;&#xFF0C;&#x901A;&#x8FC7;&#x5728; <code>writer</code> &#x9009;&#x9879;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x5730;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; <code>repl.REPLServer</code> &#x5B9E;&#x4F8B;&#x7684;&#x8F93;&#x51FA;&#x3002;
+&#x4F8B;&#x5B50;&#xFF0C;&#x628A;&#x8F93;&#x5165;&#x7684;&#x4EFB;&#x4F55;&#x6587;&#x672C;&#x8F6C;&#x6362;&#x4E3A;&#x5927;&#x5199;&#xFF1A;</p>
+<pre><code class="lang-js">const repl = require(&apos;repl&apos;);
+
+const r = repl.start({prompt: &apos;&gt;&apos;, eval: myEval, writer: myWriter});
+
+function myEval(cmd, context, filename, callback) {
+  callback(null,cmd);
+}
+
+function myWriter(output) {
+  return output.toUpperCase();
+}
+</code></pre>
+<h2>REPLServer &#x7C7B;<span><a class="mark" href="#repl_class_replserver" id="repl_class_replserver">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_class_replserver">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/class_replserver.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.91</span>
+</div><p><code>repl.REPLServer</code> &#x7C7B;&#x7EE7;&#x627F;&#x81EA; <a href="readline.html#readline_class_interface"><code>readline.Interface</code></a> &#x7C7B;&#x3002;
+<code>repl.REPLServer</code> &#x7684;&#x5B9E;&#x4F8B;&#x7531; <code>repl.start()</code> &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528; JavaScript &#x7684; <code>new</code> &#x5173;&#x952E;&#x5B57;&#x521B;&#x5EFA;&#x3002;</p>
+<h3>&apos;exit&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#repl_event_exit" id="repl_event_exit">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_event_exit">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/event_exit.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><p>&#x5F53;&#x63A5;&#x6536;&#x5230; <code>.exit</code> &#x547D;&#x4EE4;&#x3001;&#x6216;&#x6309;&#x4E0B;&#x4E24;&#x6B21; <code>&lt;ctrl&gt;-C</code> &#x53D1;&#x51FA; <code>SIGINT</code> &#x4FE1;&#x53F7;&#x3001;&#x6216;&#x6309;&#x4E0B; <code>&lt;ctrl&gt;-D</code> &#x53D1;&#x51FA; <code>&apos;end&apos;</code> &#x4FE1;&#x53F7;&#x800C;&#x4F7F; REPL &#x88AB;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x89E6;&#x53D1; <code>&apos;exit&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x76D1;&#x542C;&#x5668;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x5E26;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p>
+<pre><code class="lang-js">replServer.on(&apos;exit&apos;, () =&gt; {
+  console.log(&apos;&#x4ECE; REPL &#x63A5;&#x6536;&#x5230; &quot;exit&quot; &#x4E8B;&#x4EF6;&#xFF01;&apos;);
+  process.exit();
+});
+</code></pre>
+<h3>&apos;reset&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#repl_event_reset" id="repl_event_reset">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_event_reset">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/event_reset.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.0</span>
+</div><p>&#x5F53; REPL &#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x88AB;&#x91CD;&#x7F6E;&#x65F6;&#xFF0C;&#x89E6;&#x53D1; <code>&apos;reset&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x6BCF;&#x5F53;&#x63A5;&#x6536;&#x5230; <code>.clear</code> &#x547D;&#x4EE4;&#x65F6;&#x4F1A;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#xFF0C;&#x9664;&#x975E; REPL &#x6B63;&#x5728;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x5E76;&#x4E14; <code>repl.REPLServer</code> &#x5B9E;&#x4F8B;&#x88AB;&#x521B;&#x5EFA;&#x65F6; <code>useGlobal</code> &#x9009;&#x9879;&#x88AB;&#x8BBE;&#x4E3A; <code>true</code>&#x3002;
+&#x76D1;&#x542C;&#x5668;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4F1A;&#x5E26;&#x4E0A; <code>context</code> &#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x60DF;&#x4E00;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x8FD9;&#x4E3B;&#x8981;&#x88AB;&#x7528;&#x4E8E;&#x91CD;&#x65B0;&#x521D;&#x59CB;&#x5316; REPL &#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x4F7F;&#x4E4B;&#x8FBE;&#x5230;&#x67D0;&#x4E9B;&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">const repl = require(&apos;repl&apos;);
+
+function initializeContext(context) {
+  context.m = &apos;test&apos;;
+}
+
+var r = repl.start({prompt: &apos;&gt;&apos;});
+initializeContext(r.context);
+
+r.on(&apos;reset&apos;, initializeContext);
+</code></pre>
+<p>&#x5F53;&#x4EE3;&#x7801;&#x88AB;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x5168;&#x5C40;&#x7684; <code>&apos;m&apos;</code> &#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x968F;&#x540E;&#x7684; <code>.clear</code> &#x547D;&#x4EE4;&#x4F1A;&#x628A;&#x5B83;&#x91CD;&#x7F6E;&#x56DE;&#x521D;&#x59CB;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-js">$ ./node example.js
+&gt;m
+&apos;test&apos;
+&gt;m = 1
+1
+&gt;m
+1
+&gt;.clear
+Clearing context...
+&gt;m
+&apos;test&apos;
+&gt;
+</code></pre>
+<h3>replServer.defineCommand(keyword, cmd)<span><a class="mark" href="#repl_replserver_definecommand_keyword_cmd" id="repl_replserver_definecommand_keyword_cmd">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_replserver_definecommand_keyword_cmd">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/replserver_definecommand_keyword_cmd.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><code>keyword</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x547D;&#x4EE4;&#x5173;&#x952E;&#x5B57;&#xFF08;&#x5F00;&#x5934;&#x4E0D;&#x5E26; <code>.</code> &#x5B57;&#x7B26;&#xFF09;&#x3002;</li>
+<li><code>cmd</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5F53;&#x547D;&#x4EE4;&#x88AB;&#x6267;&#x884C;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+</ul>
+<p><code>replServer.defineCommand()</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x524D;&#x7F00;&#x4E3A; <code>.</code> &#x7684;&#x547D;&#x4EE4;&#x5230; REPL &#x5B9E;&#x4F8B;&#x3002;
+&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x901A;&#x8FC7;&#x8F93;&#x5165;&#x4E00;&#x4E2A; <code>.</code> &#x52A0; <code>keyword</code> &#x6765;&#x8C03;&#x7528;&#x3002;
+<code>cmd</code> &#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6216;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<ul>
+<li><code>help</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x5F53;&#x952E;&#x5165; <code>.help</code> &#x65F6;&#x663E;&#x793A;&#x7684;&#x5E2E;&#x52A9;&#x8BF4;&#x660E;&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x3002;</li>
+<li><code>action</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x8981;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x6DFB;&#x52A0;&#x4E24;&#x4E2A;&#x65B0;&#x547D;&#x4EE4;&#x5230; REPL &#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-js">const repl = require(&apos;repl&apos;);
+
+var replServer = repl.start({prompt: &apos;&gt; &apos;});
+replServer.defineCommand(&apos;sayhello&apos;, {
+  help: &apos;&#x6253;&#x62DB;&#x547C;&apos;,
+  action: function(name) {
+    this.lineParser.reset();
+    this.bufferedCommand = &apos;&apos;;
+    console.log(`&#x4F60;&#x597D;&#xFF0C;${name}&#xFF01;`);
+    this.displayPrompt();
+  }
+});
+replServer.defineCommand(&apos;saybye&apos;, function() {
+  console.log(&apos;&#x518D;&#x89C1;&#xFF01;&apos;);
+  this.close();
+});
+</code></pre>
+<p>&#x5728; REPL &#x5B9E;&#x4F8B;&#x4E2D;&#x4F7F;&#x7528;&#x65B0;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-txt">&gt; .sayhello Node.js&#x4E2D;&#x6587;&#x7F51;
+&#x4F60;&#x597D;&#xFF0C;Node.js&#x4E2D;&#x6587;&#x7F51;&#xFF01;
+&gt; .saybye
+&#x518D;&#x89C1;&#xFF01;
+</code></pre>
+<h3>replServer.displayPrompt([preserveCursor])<span><a class="mark" href="#repl_replserver_displayprompt_preservecursor" id="repl_replserver_displayprompt_preservecursor">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_replserver_displayprompt_preservecursor">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/replserver_displayprompt_preservecursor.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.91</span>
+</div><ul>
+<li><code>preserveCursor</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p><code>replServer.displayPrompt()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x8BA9; REPL &#x5B9E;&#x4F8B;&#x505A;&#x597D;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x51C6;&#x5907;&#xFF0C;&#x6253;&#x5370;&#x914D;&#x7F6E;&#x7684; <code>prompt</code> &#x5230; <code>output</code> &#x4E2D;&#x65B0;&#x7684;&#x4E00;&#x884C;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE; <code>input</code> &#x7B49;&#x5F85;&#x65B0;&#x7684;&#x8F93;&#x5165;&#x3002;</p>
+<p>&#x5F53;&#x6B63;&#x5728;&#x952E;&#x5165;&#x591A;&#x884C;&#x8F93;&#x5165;&#x65F6;&#xFF0C;&#x4F1A;&#x6253;&#x5370;&#x7701;&#x7565;&#x53F7;&#x800C;&#x4E0D;&#x662F;&#x63D0;&#x793A;&#x7B26;&#x3002;</p>
+<p>&#x5F53; <code>preserveCursor</code> &#x4E3A; <code>true</code> &#x65F6;&#xFF0C;&#x6E38;&#x6807;&#x4F4D;&#x7F6E;&#x4E0D;&#x4F1A;&#x88AB;&#x590D;&#x4F4D;&#x5230; <code>0</code>&#x3002;</p>
+<p><code>replServer.displayPrompt</code> &#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x88AB;&#x4F7F;&#x7528; <code>replServer.defineCommand()</code> &#x65B9;&#x6CD5;&#x6CE8;&#x518C;&#x7684;&#x547D;&#x4EE4;&#x7684; <code>action</code> &#x51FD;&#x6570;&#x8C03;&#x7528;&#x3002;</p>
+<h2>repl.start([options])<span><a class="mark" href="#repl_repl_start_options" id="repl_repl_start_options">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_repl_start_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/repl_start_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.91</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a><ul>
+<li><code>prompt</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x8981;&#x663E;&#x793A;&#x7684;&#x8F93;&#x5165;&#x63D0;&#x793A;&#x7B26;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&gt;</code>&#x3002;</li>
+<li><code>input</code> <span class="type">&lt;Readable&gt;</span> REPL &#x8F93;&#x5165;&#x8981;&#x88AB;&#x8BFB;&#x53D6;&#x7684;&#x53EF;&#x8BFB;&#x6D41;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>process.stdin</code>&#x3002;</li>
+<li><code>output</code> <span class="type">&lt;Writable&gt;</span> REPL &#x8F93;&#x51FA;&#x8981;&#x88AB;&#x5199;&#x5165;&#x7684;&#x53EF;&#x5199;&#x6D41;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>process.stdout</code>&#x3002;</li>
+<li><code>terminal</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6307;&#x5B9A; <code>output</code> &#x5E94;&#x88AB;&#x5F53;&#x4F5C;&#x4E00;&#x4E2A; TTY &#x7EC8;&#x7AEF;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; ANSI/VT100 &#x8F6C;&#x4E49;&#x7801;&#x5199;&#x5165;&#x3002;
+&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#x65F6; <code>output</code> &#x6D41;&#x7684; <code>isTTY</code> &#x5C5E;&#x6027;&#x7684;&#x503C;&#x3002;</li>
+<li><code>eval</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5F53;&#x89E3;&#x91CA;&#x6BCF;&#x884C;&#x8F93;&#x5165;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; JavaScript <code>eval()</code> &#x51FD;&#x6570;&#x7684;&#x5F02;&#x6B65;&#x5C01;&#x88C5;&#x3002;
+<code>eval</code> &#x51FD;&#x6570;&#x51FA;&#x9519;&#x65F6;&#x4F1A;&#x8FD4;&#x56DE; <code>repl.Recoverable</code>&#xFF0C;&#x8868;&#x660E;&#x8F93;&#x5165;&#x4E0D;&#x5B8C;&#x6574;&#x5E76;&#x63D0;&#x793A;&#x7528;&#x6237;&#x5B8C;&#x6210;&#x8F93;&#x5165;&#x3002;</li>
+<li><code>useColors</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x7684; <code>writer</code> &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5728; REPL &#x8F93;&#x51FA;&#x4E2D;&#x5305;&#x542B; ANSI &#x989C;&#x8272;&#x98CE;&#x683C;&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>writer</code> &#x51FD;&#x6570;&#xFF0C;&#x5219;&#x8BE5;&#x53C2;&#x6570;&#x65E0;&#x6548;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; REPL &#x5B9E;&#x4F8B;&#x7684; <code>terminal</code> &#x5C5E;&#x6027;&#x7684;&#x503C;&#x3002;</li>
+<li><code>useGlobal</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x51FD;&#x6570;&#x4F7F;&#x7528; JavaScript <code>global</code> &#x4F5C;&#x4E3A;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E3A; REPL &#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x72EC;&#x7ACB;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</li>
+<li><code>ignoreUndefined</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x7684;&#x8F93;&#x51FA;&#x5668;&#x4E0D;&#x4F1A;&#x8F93;&#x51FA;&#x547D;&#x4EE4;&#x8FD4;&#x56DE;&#x7684; <code>undefined</code> &#x503C;&#x3002;
+ &#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</li>
+<li><code>writer</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5728;&#x5199;&#x5165;&#x5230; <code>output</code> &#x4E4B;&#x524D;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x7528;&#x6765;&#x683C;&#x5F0F;&#x5316;&#x6BCF;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x51FA;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <a href="util.html#util_util_inspect_object_options"><code>util.inspect()</code></a>&#x3002;</li>
+<li><code>completer</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x53EF;&#x9009;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x81EA;&#x5B9A;&#x4E49; Tab &#x952E;&#x7684;&#x81EA;&#x52A8;&#x8865;&#x5168;&#x3002;
+&#x8BE6;&#x89C1; <a href="readline.html#readline_use_of_the_completer_function"><code>readline.InterfaceCompleter</code></a>&#x3002;</li>
+<li><code>replMode</code> - &#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x4F4D;&#xFF0C;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x3001;&#x9ED8;&#x8BA4;&#x6A21;&#x5F0F;&#x3001;&#x6216;&#x6DF7;&#x5408;&#x6A21;&#x5F0F;&#x4E2D;&#x7684;&#x54EA;&#x4E00;&#x79CD;&#x6765;&#x6267;&#x884C; JavaScript &#x547D;&#x4EE4;&#x3002;
+&#x53EF;&#x9009;&#x7684;&#x503C;&#x6709;&#xFF1A;<ul>
+<li><code>repl.REPL_MODE_SLOPPY</code> - &#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x6A21;&#x5F0F;&#x89E3;&#x91CA;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</li>
+<li><code>repl.REPL_MODE_STRICT</code> - &#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x89E3;&#x91CA;&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x8BE5;&#x6A21;&#x5F0F;&#x7B49;&#x540C;&#x4E8E;&#x5728;&#x6BCF;&#x4E2A; repl &#x58F0;&#x660E;&#x524D;&#x52A0;&#x4E0A; <code>&apos;use strict&apos;</code>&#x3002;</li>
+<li><code>repl.REPL_MODE_MAGIC</code> - &#x5148;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x6A21;&#x5F0F;&#x89E3;&#x91CA;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x8868;&#x8FBE;&#x5F0F;&#x89E3;&#x91CA;&#x51FA;&#x9519;&#xFF0C;&#x518D;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x91CD;&#x8BD5;&#x3002;</li>
+</ul>
+</li>
+<li><code>breakEvalOnSigint</code> - &#x5F53;&#x63A5;&#x6536;&#x5230; <code>SIGINT</code> &#x65F6;&#x505C;&#x6B62;&#x89E3;&#x91CA;&#x5F53;&#x524D;&#x4EE3;&#x7801;&#xFF0C;&#x6BD4;&#x5982;&#x6309;&#x4E0B; <code>Ctrl+C</code>&#x3002;
+&#x4E0D;&#x80FD;&#x4E0E;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>eval</code> &#x51FD;&#x6570;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p><code>repl.start()</code> &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x5E76;&#x542F;&#x52A8;&#x4E00;&#x4E2A; <code>repl.REPLServer</code> &#x5B9E;&#x4F8B;&#x3002;</p>
+<h2>Node.js &#x7684; REPL<span><a class="mark" href="#repl_the_node_js_repl" id="repl_the_node_js_repl">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_the_node_js_repl">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/the_node_js_repl.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>Node.js &#x81EA;&#x8EAB;&#x4E5F;&#x4F7F;&#x7528; <code>repl</code> &#x6A21;&#x5757;&#x4E3A;&#x6267;&#x884C; JavaScript &#x4EE3;&#x7801;&#x63D0;&#x4F9B;&#x4EA4;&#x4E92;&#x63A5;&#x53E3;&#x3002;
+&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0D;&#x5E26;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#xFF08;&#x6216;&#x4F7F;&#x7528; <code>-i</code> &#x53C2;&#x6570;&#xFF09;&#x5730;&#x6267;&#x884C; Node.js &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x6765;&#x4F7F;&#x7528;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-js">$ node
+&gt; a = [1, 2, 3];
+[ 1, 2, 3 ]
+&gt; a.forEach((v) =&gt; {
+...   console.log(v);
+...   });
+1
+2
+3
+</code></pre>
+<h3>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x9009;&#x9879;<span><a class="mark" href="#repl_environment_variable_options" id="repl_environment_variable_options">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_environment_variable_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/environment_variable_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49; Node.js REPL &#x7684;&#x5404;&#x79CD;&#x884C;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li><code>NODE_REPL_HISTORY</code> - &#x5F53;&#x7ED9;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5219; REPL &#x7684;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x5C06;&#x88AB;&#x4FDD;&#x5B58;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7528;&#x6237;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>.node_repl_history</code> &#x6587;&#x4EF6;&#x3002;
+&#x8BBE;&#x4E3A; <code>&quot;&quot;</code> &#x5C06;&#x7981;&#x7528; REPL &#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x3002;
+&#x503C;&#x4E24;&#x5934;&#x7684;&#x7A7A;&#x683C;&#x952E;&#x4F1A;&#x88AB;&#x53BB;&#x6389;&#x3002;</li>
+<li><code>NODE_REPL_HISTORY_SIZE</code> - &#x9ED8;&#x8BA4;&#x4E3A; <code>1000</code>&#x3002;&#x63A7;&#x5236;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x7684;&#x6700;&#x5927;&#x884C;&#x6570;&#x3002;&#x5FC5;&#x987B;&#x662F;&#x6B63;&#x6570;&#x3002;</li>
+<li><code>NODE_REPL_MODE</code> - &#x53EF;&#x4EE5;&#x662F; <code>sloppy</code>&#x3001;<code>strict</code> &#x6216; <code>magic</code>&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>magic</code>&#xFF0C;&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E2D;&#x4F1A;&#x81EA;&#x52A8;&#x8FD0;&#x884C; &quot;strict mode only&quot; &#x58F0;&#x660E;&#x3002;</li>
+</ul>
+<h3>&#x5386;&#x53F2;&#x8BB0;&#x5F55;<span><a class="mark" href="#repl_persistent_history" id="repl_persistent_history">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_persistent_history">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/persistent_history.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Node.js REPL &#x6A21;&#x5757;&#x4F1A;&#x628A; <code>node</code> REPL &#x4F1A;&#x8BDD;&#x4E4B;&#x95F4;&#x7684;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x4FDD;&#x5B58;&#x5230;&#x7528;&#x6237;&#x76EE;&#x5F55;&#x4E2D;&#x7684; <code>.node_repl_history</code> &#x6587;&#x4EF6;&#x3002;
+&#x4FEE;&#x6539;&#x73AF;&#x5883;&#x53D8;&#x91CF; <code>NODE_REPL_HISTORY=&quot;&quot;</code> &#x53EF;&#x4EE5;&#x7981;&#x7528;&#x8BE5;&#x529F;&#x80FD;&#x3002;</p>
+<h4>NODE_REPL_HISTORY_FILE<span><a class="mark" href="#repl_node_repl_history_file" id="repl_node_repl_history_file">#</a></span></h4><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_node_repl_history_file">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/node_repl_history_file.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v2.0.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v3.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528; <a href="#repl_environment_variable_options">NODE_REPL_HISTORY</a> &#x4EE3;&#x66FF;&#x3002;</pre><p>Node.js/io.js v2.x &#x4E4B;&#x524D;&#xFF0C;REPL &#x7684;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x4F7F;&#x7528; <code>NODE_REPL_HISTORY_FILE</code> &#x53D8;&#x91CF;&#x6765;&#x63A7;&#x5236;&#xFF0C;&#x4E14;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x4EE5; JSON &#x683C;&#x5F0F;&#x4FDD;&#x5B58;&#x3002;
+&#x8BE5;&#x53D8;&#x91CF;&#x5DF2;&#x88AB;&#x5E9F;&#x5F03;&#xFF0C;&#x65E7;&#x7684; JSON &#x683C;&#x5F0F;&#x7684; REPL &#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x79CD;&#x7CBE;&#x7B80;&#x7684;&#x7EAF;&#x6587;&#x672C;&#x683C;&#x5F0F;&#x3002;
+&#x8FD9;&#x4E2A;&#x65B0;&#x7684;&#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x4FDD;&#x5B58;&#x5230;&#x7528;&#x6237;&#x76EE;&#x5F55;&#x4E0B;&#x6216;&#x7531; <code>NODE_REPL_HISTORY</code> &#x53D8;&#x91CF;&#x5B9A;&#x4E49;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x8BE6;&#x89C1;<a href="#repl_environment_variable_options">&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x9009;&#x9879;</a>&#x3002;</p>
+<h3>&#x5728;&#x9AD8;&#x7EA7;&#x7684;&#x884C;&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x4F7F;&#x7528; Node.js REPL<span><a class="mark" href="#repl_using_the_node_js_repl_with_advanced_line_editors" id="repl_using_the_node_js_repl_with_advanced_line_editors">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_using_the_node_js_repl_with_advanced_line_editors">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/using_the_node_js_repl_with_advanced_line_editors.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x5BF9;&#x4E8E;&#x9AD8;&#x7EA7;&#x7684;&#x884C;&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x73AF;&#x5883;&#x53D8;&#x91CF; <code>NODE_NO_READLINE=1</code> &#x6765;&#x542F;&#x52A8; Node.js&#x3002;
+&#x8FD9;&#x4F1A;&#x4EE5;&#x6807;&#x51C6;&#x7684;&#x7EC8;&#x7AEF;&#x914D;&#x7F6E;&#x6765;&#x542F;&#x52A8;&#x4E3B; REPL &#x548C;&#x8C03;&#x8BD5; REPL&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>rlwrap</code>&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4F60;&#x7684; bashrc &#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#xFF1A;</p>
+<pre><code class="lang-text">alias node=&quot;env NODE_NO_READLINE=1 rlwrap node&quot;
+</code></pre>
+<h3>&#x5728;&#x4E00;&#x4E2A; Node.js &#x5B9E;&#x4F8B;&#x4E2D;&#x542F;&#x52A8;&#x591A;&#x4E2A; REPL &#x5B9E;&#x4F8B;<span><a class="mark" href="#repl_starting_multiple_repl_instances_against_a_single_running_instance" id="repl_starting_multiple_repl_instances_against_a_single_running_instance">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/repl.html#repl_starting_multiple_repl_instances_against_a_single_running_instance">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/repl/starting_multiple_repl_instances_against_a_single_running_instance.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A; Node.js &#x5B9E;&#x4F8B;&#x4E2D;&#x521B;&#x5EFA;&#x5E76;&#x8FD0;&#x884C;&#x591A;&#x4E2A; REPL &#x5B9E;&#x4F8B;&#xFF0C;&#x5B83;&#x4EEC;&#x5171;&#x4EAB;&#x4E00;&#x4E2A; <code>global</code> &#x5BF9;&#x8C61;&#x4F46;&#x6709;&#x72EC;&#x7ACB;&#x7684; I/O &#x63A5;&#x53E3;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x5728; <code>stdin</code>&#x3001;Unix socket&#x3001;&#x548C; TCP socket &#x4E0A;&#x5206;&#x522B;&#x63D0;&#x4F9B;&#x4E86;&#x72EC;&#x7ACB;&#x7684; REPL&#xFF1A;</p>
+<pre><code class="lang-js">const net = require(&apos;net&apos;);
+const repl = require(&apos;repl&apos;);
+var connections = 0;
+
+repl.start({
+  prompt: &apos;Node.js &#x4F7F;&#x7528; stdin&gt; &apos;,
+  input: process.stdin,
+  output: process.stdout
+});
+
+net.createServer((socket) =&gt; {
+  connections += 1;
+  repl.start({
+    prompt: &apos;Node.js &#x4F7F;&#x7528; Unix socket&gt; &apos;,
+    input: socket,
+    output: socket
+  }).on(&apos;exit&apos;, () =&gt; {
+    socket.end();
+  });
+}).listen(&apos;/tmp/node-repl-sock&apos;);
+
+net.createServer((socket) =&gt; {
+  connections += 1;
+  repl.start({
+    prompt: &apos;Node.js &#x4F7F;&#x7528; TCP socket&gt; &apos;,
+    input: socket,
+    output: socket
+  }).on(&apos;exit&apos;, () =&gt; {
+    socket.end();
+  });
+}).listen(5001);
+</code></pre>
+<p>&#x4ECE;&#x547D;&#x4EE4;&#x884C;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x4F1A;&#x5728; stdin &#x4E0A;&#x542F;&#x52A8;&#x4E00;&#x4E2A; REPL&#x3002;
+&#x5176;&#x4ED6; REPL &#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Unix socket &#x6216; TCP socket &#x8FDB;&#x884C;&#x8FDE;&#x63A5;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>telnet</code> &#x8FDE;&#x63A5;&#x5230; TCP socket&#xFF0C;&#x4F7F;&#x7528; <code>socat</code> &#x8FDE;&#x63A5;&#x5230; Unix socket &#x6216; TCP socket&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x4ECE;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; Unix socket &#x7684;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x800C;&#x4E0D;&#x662F; stdin&#xFF09;&#x542F;&#x52A8;&#x4E00;&#x4E2A; REPL&#xFF0C;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x4E2A;&#x957F;&#x671F;&#x8FD0;&#x884C;&#x7684; Node.js &#x8FDB;&#x7A0B;&#x800C;&#x65E0;&#x9700;&#x91CD;&#x542F;&#x5B83;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x5728;&#x4E00;&#x4E2A; <code>net.Server</code> &#x5B9E;&#x4F8B;&#x548C;&#x4E00;&#x4E2A; <code>net.Socket</code> &#x5B9E;&#x4F8B;&#x4E0A;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x5168;&#x7279;&#x6027;&#x7684;&#xFF08;<code>terminal</code>&#xFF09;REPL&#xFF0C;&#x8BE6;&#x89C1;&#xFF1A;<a href="https://gist.github.com/2209310">https://gist.github.com/2209310</a></p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x5728; <a href="http://man7.org/linux/man-pages/man1/curl.1.html">curl(1)</a> &#x4E0A;&#x8FD0;&#x884C;&#x4E00;&#x4E2A; REPL &#x5B9E;&#x4F8B;&#xFF0C;&#x8BE6;&#x89C1;&#xFF1A;<a href="https://gist.github.com/2053342">https://gist.github.com/2053342</a></p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50; | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-synopsis">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis active" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="synopsis" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/synopsis.json">JSON格式</a> |-->
+            <!--<a href="/api/en/synopsis.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_undefined"><a href="#synopsis_usage">&#x7528;&#x6CD5;</a></span><ul>
+<li><span class="stability_undefined"><a href="#synopsis_example">&#x4F8B;&#x5B50;</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>&#x7528;&#x6CD5;<span><a class="mark" href="#synopsis_usage" id="synopsis_usage">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/synopsis.html#synopsis_usage">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/synopsis/usage.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p><code>node [options] [v8 options] [script.js | -e &quot;script&quot;] [arguments]</code></p>
+<p>&#x53EF;&#x67E5;&#x770B; <a href="cli.html#cli_command_line_options">&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;</a> &#x6587;&#x6863;&#xFF0C;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x4F7F;&#x7528; Node.js &#x8FD0;&#x884C;&#x811A;&#x672C;&#x7684;&#x9009;&#x9879;&#x4E0E;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2>&#x4F8B;&#x5B50;<span><a class="mark" href="#synopsis_example" id="synopsis_example">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/synopsis.html#synopsis_example">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/synopsis/example.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; Node.js &#x7F16;&#x5199;&#x7684; <a href="http.html">web &#x670D;&#x52A1;&#x5668;</a>&#xFF0C;&#x54CD;&#x5E94;&#x8FD4;&#x56DE; <code>&apos;Hello World&apos;</code>&#xFF1A;</p>
+<pre><code class="lang-js">const http = require(&apos;http&apos;);
+
+const hostname = &apos;127.0.0.1&apos;;
+const port = 3000;
+
+const server = http.createServer((req, res) =&gt; {
+  res.statusCode = 200;
+  res.setHeader(&apos;Content-Type&apos;, &apos;text/plain&apos;);
+  res.end(&apos;Hello World\n&apos;);
+});
+
+server.listen(port, hostname, () =&gt; {
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x5728; http://${hostname}:${port}/`);
+});
+</code></pre>
+<p>&#x8981;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x9700;&#x5C06;&#x4EE3;&#x7801;&#x4FDD;&#x5B58;&#x5230;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>example.js</code> &#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x7528; Node.js &#x6267;&#x884C;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-txt">$ node example.js
+&#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x5728; http://127.0.0.1:3000/
+</code></pre>
+<p>&#x6587;&#x6863;&#x4E2D;&#x6240;&#x6709;&#x4F8B;&#x5B50;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x3002;</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

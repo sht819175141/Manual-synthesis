@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>querystring | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-querystring">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring active" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="querystring" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/querystring.json">JSON格式</a> |-->
+            <!--<a href="/api/en/querystring.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#querystring_query_string">querystring (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#querystring_querystring_escape_str">querystring.escape(str)</a></span></li>
+<li><span class="stability_undefined"><a href="#querystring_querystring_parse_str_sep_eq_options">querystring.parse(str[, sep[, eq[, options]]])</a></span></li>
+<li><span class="stability_undefined"><a href="#querystring_querystring_stringify_obj_sep_eq_options">querystring.stringify(obj[, sep[, eq[, options]]])</a></span></li>
+<li><span class="stability_undefined"><a href="#querystring_querystring_unescape_str">querystring.unescape(str)</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>querystring (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)<span><a class="mark" href="#querystring_query_string" id="querystring_query_string">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/querystring.html#querystring_query_string">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/querystring/query_string.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">Stability: 2 - Stable</pre><!--name=querystring-->
+<p><code>querystring</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x5B9E;&#x7528;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x89E3;&#x6790;&#x4E0E;&#x683C;&#x5F0F;&#x5316; URL &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x88AB;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">const querystring = require(&apos;querystring&apos;);
+</code></pre>
+<h2>querystring.escape(str)<span><a class="mark" href="#querystring_querystring_escape_str" id="querystring_querystring_escape_str">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/querystring.html#querystring_querystring_escape_str">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/querystring/querystring_escape_str.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.25</span>
+</div><ul>
+<li><code>str</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>querystring.escape()</code> &#x65B9;&#x6CD5;&#x5BF9;&#x7ED9;&#x5B9A;&#x7684; <code>str</code> &#x6267;&#x884C; URL &#x767E;&#x5206;&#x53F7;&#x7F16;&#x7801;&#x3002;</p>
+<p><code>querystring.escape()</code> &#x65B9;&#x6CD5;&#x662F;&#x4F9B; <code>querystring.stringify()</code> &#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x4E14;&#x901A;&#x5E38;&#x4E0D;&#x88AB;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;
+&#x5B83;&#x4E4B;&#x6240;&#x4EE5;&#x5BF9;&#x5916;&#x5F00;&#x653E;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x5728;&#x9700;&#x8981;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7ED9; <code>querystring.escape</code> &#x8D4B;&#x503C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x91CD;&#x5199;&#x7F16;&#x7801;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<h2>querystring.parse(str[, sep[, eq[, options]]])<span><a class="mark" href="#querystring_querystring_parse_str_sep_eq_options" id="querystring_querystring_parse_str_sep_eq_options">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/querystring.html#querystring_querystring_parse_str_sep_eq_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/querystring/querystring_parse_str_sep_eq_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.25</span>
+</div><ul>
+<li><code>str</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x8981;&#x89E3;&#x6790;&#x7684; URL &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li><code>sep</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x7528;&#x4E8E;&#x754C;&#x5B9A;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;&amp;&apos;</code>&#x3002;</li>
+<li><code>eq</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x7528;&#x4E8E;&#x754C;&#x5B9A;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x952E;&#x4E0E;&#x503C;&#x7684;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;=&apos;</code>&#x3002;</li>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a><ul>
+<li><code>decodeURIComponent</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5F53;&#x89E3;&#x7801;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x767E;&#x5206;&#x53F7;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>querystring.unescape()</code>&#x3002;</li>
+<li><code>maxKeys</code> <span class="type">&lt;number&gt;</span> &#x6307;&#x5B9A;&#x8981;&#x89E3;&#x6790;&#x7684;&#x952E;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>1000</code>&#x3002;&#x6307;&#x5B9A;&#x4E3A; <code>0</code> &#x5219;&#x79FB;&#x9664;&#x952E;&#x6570;&#x7684;&#x9650;&#x5236;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p><code>querystring.parse()</code> &#x65B9;&#x6CD5;&#x80FD;&#x628A;&#x4E00;&#x4E2A; URL &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#xFF08;<code>str</code>&#xFF09;&#x89E3;&#x6790;&#x6210;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x96C6;&#x5408;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32; <code>&apos;foo=bar&amp;abc=xyz&amp;abc=123&apos;</code> &#x88AB;&#x89E3;&#x6790;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-js">{
+  foo: &apos;bar&apos;,
+  abc: [&apos;xyz&apos;, &apos;123&apos;]
+}
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;<code>querystring.parse()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E0D;&#x7EE7;&#x627F;&#x81EA; JavaScript &#x7684; <code>Object</code>&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5178;&#x578B;&#x7684; <code>Object</code> &#x65B9;&#x6CD5;&#x5982; <code>obj.toString()</code>&#x3001;<code>obj.hasOwnProperty()</code> &#x7B49;&#x6CA1;&#x6709;&#x88AB;&#x5B9A;&#x4E49;&#x4E14;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x767E;&#x5206;&#x53F7;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x4F7F;&#x7528;&#x4E86; UTF-8 &#x7F16;&#x7801;&#x3002;
+&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x79CD;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF0C;&#x5219; <code>decodeURIComponent</code> &#x9009;&#x9879;&#x9700;&#x8981;&#x88AB;&#x6307;&#x5B9A;&#xFF0C;&#x5982;&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">// &#x5047;&#x8BBE; gbkDecodeURIComponent &#x51FD;&#x6570;&#x5DF2;&#x5B58;&#x5728;&#x3002;
+
+querystring.parse(&apos;w=%D6%D0%CE%C4&amp;foo=bar&apos;, null, null,
+  { decodeURIComponent: gbkDecodeURIComponent })
+</code></pre>
+<h2>querystring.stringify(obj[, sep[, eq[, options]]])<span><a class="mark" href="#querystring_querystring_stringify_obj_sep_eq_options" id="querystring_querystring_stringify_obj_sep_eq_options">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/querystring.html#querystring_querystring_stringify_obj_sep_eq_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/querystring/querystring_stringify_obj_sep_eq_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.25</span>
+</div><ul>
+<li><code>obj</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> &#x8981;&#x5E8F;&#x5217;&#x5316;&#x6210;&#x4E00;&#x4E2A; URL &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+<li><code>sep</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x7528;&#x4E8E;&#x754C;&#x5B9A;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;&amp;&apos;</code>&#x3002;</li>
+<li><code>eq</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x7528;&#x4E8E;&#x754C;&#x5B9A;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x952E;&#x4E0E;&#x503C;&#x7684;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;=&apos;</code>&#x3002;</li>
+<li><code>options</code><ul>
+<li><code>encodeURIComponent</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5F53;&#x628A;&#x5BF9; URL &#x4E0D;&#x5B89;&#x5168;&#x7684;&#x5B57;&#x7B26;&#x8F6C;&#x6362;&#x6210;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x767E;&#x5206;&#x53F7;&#x7F16;&#x7801;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>querystring.escape()</code>&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p><code>querystring.stringify()</code> &#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x904D;&#x5386;&#x5BF9;&#x8C61;&#x7684;&#x81EA;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x4ECE;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684; <code>obj</code> &#x4EA7;&#x751F;&#x4E00;&#x4E2A; URL &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">querystring.stringify({ foo: &apos;bar&apos;, baz: [&apos;qux&apos;, &apos;quux&apos;], corge: &apos;&apos; })
+// &#x8FD4;&#x56DE; &apos;foo=bar&amp;baz=qux&amp;baz=quux&amp;corge=&apos;
+
+querystring.stringify({foo: &apos;bar&apos;, baz: &apos;qux&apos;}, &apos;;&apos;, &apos;:&apos;)
+// &#x8FD4;&#x56DE; &apos;foo:bar;baz:qux&apos;
+</code></pre>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x9700;&#x8981;&#x767E;&#x5206;&#x53F7;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4F1A;&#x4F5C;&#x4E3A; UTF-8 &#x88AB;&#x7F16;&#x7801;&#x3002;
+&#x5982;&#x679C;&#x9700;&#x8981;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x79CD;&#x7F16;&#x7801;&#xFF0C;&#x5219; <code>encodeURIComponent</code> &#x9009;&#x9879;&#x9700;&#x8981;&#x88AB;&#x6307;&#x5B9A;&#xFF0C;&#x5982;&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">// &#x5047;&#x8BBE; gbkEncodeURIComponent &#x51FD;&#x6570;&#x5DF2;&#x5B58;&#x5728;&#x3002;
+
+querystring.stringify({ w: &apos;&#x4E2D;&#x6587;&apos;, foo: &apos;bar&apos; }, null, null,
+  { encodeURIComponent: gbkEncodeURIComponent })
+</code></pre>
+<h2>querystring.unescape(str)<span><a class="mark" href="#querystring_querystring_unescape_str" id="querystring_querystring_unescape_str">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/querystring.html#querystring_querystring_unescape_str">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/querystring/querystring_unescape_str.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.25</span>
+</div><ul>
+<li><code>str</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>querystring.unescape()</code> &#x65B9;&#x6CD5;&#x5BF9;&#x7ED9;&#x5B9A;&#x7684; <code>str</code> &#x4E0A;&#x7684; URL &#x767E;&#x5206;&#x53F7;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x6267;&#x884C;&#x89E3;&#x7801;&#x3002;</p>
+<p><code>querystring.unescape()</code> &#x65B9;&#x6CD5;&#x662F;&#x4F9B; <code>querystring.parse()</code> &#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x4E14;&#x901A;&#x5E38;&#x4E0D;&#x88AB;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;
+&#x5B83;&#x4E4B;&#x6240;&#x4EE5;&#x5BF9;&#x5916;&#x5F00;&#x653E;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x5728;&#x9700;&#x8981;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7ED9; <code>querystring.unescape</code> &#x8D4B;&#x503C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x91CD;&#x5199;&#x89E3;&#x7801;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<p><code>querystring.unescape()</code> &#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528; JavaScript &#x5185;&#x7F6E;&#x7684; <code>decodeURIComponent()</code> &#x65B9;&#x6CD5;&#x6765;&#x89E3;&#x7801;&#x3002;</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863; | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-documentation">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation active" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="documentation" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/documentation.json">JSON格式</a> |-->
+            <!--<a href="/api/en/documentation.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_undefined"><a href="#documentation_about_this_documentation">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></span><ul>
+<li><span class="stability_undefined"><a href="#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;&#x6307;&#x6570;</a></span></li>
+<li><span class="stability_1"><a href="#documentation_json_output">JSON &#x8F93;&#x51FA;</a></span></li>
+<li><span class="stability_undefined"><a href="#documentation_syscalls_and_man_pages">&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x4E0E;&#x5E2E;&#x52A9;&#x6587;&#x6863;</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;<span><a class="mark" href="#documentation_about_this_documentation" id="documentation_about_this_documentation">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/documentation.html#documentation_about_this_documentation">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/documentation/about_this_documentation.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!-- type=misc -->
+<p>&#x672C;&#x6587;&#x6863;&#x7684;&#x76EE;&#x7684;&#x662F;&#x5168;&#x9762;&#x5730;&#x8BB2;&#x89E3; Node.js &#x7684; API&#xFF0C;&#x65E2;&#x4ECE;&#x53C2;&#x8003;&#x89D2;&#x5EA6;&#x4E5F;&#x4ECE;&#x6982;&#x5FF5;&#x89D2;&#x5EA6;&#x3002;
+&#x6BCF;&#x4E2A;&#x7AE0;&#x8282;&#x4ECB;&#x7ECD;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;&#x6A21;&#x5757;&#x6216;&#x9AD8;&#x7EA7;&#x6982;&#x5FF5;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x65F6;&#xFF0C;&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x3001;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x3001;&#x4EE5;&#x53CA;&#x63D0;&#x4F9B;&#x7ED9;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x90FD;&#x4F1A;&#x5728;&#x4E3B;&#x9898;&#x6807;&#x9898;&#x4E0B;&#x7684;&#x5217;&#x8868;&#x4E2D;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</p>
+<h2>&#x7A33;&#x5B9A;&#x6027;&#x6307;&#x6570;<span><a class="mark" href="#documentation_stability_index" id="documentation_stability_index">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/documentation.html#documentation_stability_index">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/documentation/stability_index.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p>&#x8D2F;&#x7A7F;&#x6574;&#x4E2A;&#x6587;&#x6863;&#xFF0C;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x6BCF;&#x4E2A;&#x7AE0;&#x8282;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x6807;&#x5FD7;&#x3002;
+Node.js &#x7684; API &#x4ECD;&#x4F1A;&#x6709;&#x5C11;&#x91CF;&#x53D8;&#x5316;&#xFF0C;&#x4F46;&#x968F;&#x7740;&#x53D1;&#x5C55;&#xFF0C;&#x90E8;&#x5206; API &#x4F1A;&#x66F4;&#x7A33;&#x5B9A;&#x53EF;&#x9760;&#x3002;
+&#x6709;&#x4E9B; API &#x4E45;&#x7ECF;&#x9A8C;&#x8BC1;&#x3001;&#x4E14;&#x88AB;&#x5927;&#x91CF;&#x4F9D;&#x8D56;&#xFF0C;&#x5B83;&#x4EEC;&#x51E0;&#x4E4E;&#x4E0D;&#x4F1A;&#x518D;&#x53D8;&#x5316;&#x3002;
+&#x4E5F;&#x6709;&#x4E9B; API &#x662F;&#x65B0;&#x589E;&#x7684;&#x3001;&#x6216;&#x8BD5;&#x9A8C;&#x7684;&#x3001;&#x6216;&#x88AB;&#x8BA4;&#x5B9A;&#x4E3A;&#x6709;&#x98CE;&#x9669;&#x4E14;&#x6B63;&#x5728;&#x88AB;&#x91CD;&#x65B0;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x3002;</p>
+<p>&#x7A33;&#x5B9A;&#x6027;&#x6307;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;
+&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x88AB;&#x8BA4;&#x5B9A;&#x4E3A;&#x5B58;&#x5728;&#x95EE;&#x9898;&#xFF0C;&#x4E14;&#x6B63;&#x8BA1;&#x5212;&#x4FEE;&#x6539;&#x3002;
+&#x4E0D;&#x8981;&#x4F9D;&#x8D56;&#x8BE5;&#x7279;&#x6027;&#x3002;
+&#x4F7F;&#x7528;&#x8BE5;&#x7279;&#x6027;&#x53EF;&#x80FD;&#x4F1A;&#x4EA7;&#x751F;&#x8B66;&#x544A;&#x4FE1;&#x606F;&#x3002;
+&#x4E0D;&#x8981;&#x6307;&#x671B;&#x8BE5;&#x7279;&#x6027;&#x4F1A;&#x5411;&#x540E;&#x517C;&#x5BB9;&#x3002;</pre><pre class="api_stability api_stability_1">&#x7A33;&#x5B9A;&#x6027;: 1 - &#x8BD5;&#x9A8C;&#x7684;
+&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x53EF;&#x80FD;&#x4F1A;&#x53D8;&#x5316;&#xFF0C;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x4F1A;&#x6709;&#x6807;&#x8BB0;&#x63D0;&#x793A;&#x3002;
+&#x5728;&#x5C06;&#x6765;&#x7684;&#x7248;&#x672C;&#x4E2D;&#x8BE5;&#x7279;&#x6027;&#x53EF;&#x80FD;&#x4F1A;&#x53D8;&#x5316;&#x6216;&#x88AB;&#x79FB;&#x9664;&#x3002;</pre><pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;
+&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x5DF2;&#x88AB;&#x8BC1;&#x660E;&#x662F;&#x7B26;&#x5408;&#x8981;&#x6C42;&#x7684;&#x3002;
+&#x4E0E; npm &#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x9664;&#x975E;&#x7EDD;&#x5BF9;&#x5FC5;&#x8981;&#x5426;&#x5219;&#x4E0D;&#x4F1A;&#x53D8;&#x5316;&#x3002;</pre><pre class="api_stability api_stability_3">&#x7A33;&#x5B9A;&#x6027;: 3 - &#x9501;&#x5B9A;&#x7684;
+&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x53EA;&#x63A5;&#x53D7;&#x4E0E;&#x5B89;&#x5168;&#x6027;&#x3001;&#x6027;&#x80FD;&#x3001;&#x6216;&#x7F3A;&#x9677;&#x4FEE;&#x590D;&#x6709;&#x5173;&#x7684;&#x4FEE;&#x6539;&#x3002;
+&#x8BF7;&#x4E0D;&#x8981;&#x5728;&#x8BE5;&#x7279;&#x6027;&#x63D0;&#x51FA;&#x4FEE;&#x6539; API &#x7684;&#x5EFA;&#x8BAE;&#xFF0C;&#x8FD9;&#x4E9B;&#x5EFA;&#x8BAE;&#x4F1A;&#x88AB;&#x62D2;&#x7EDD;&#x3002;</pre><h2>JSON &#x8F93;&#x51FA;<span><a class="mark" href="#documentation_json_output" id="documentation_json_output">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/documentation.html#documentation_json_output">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/documentation/json_output.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_1">&#x7A33;&#x5B9A;&#x6027;: 1 - &#x8BD5;&#x9A8C;&#x7684;</pre><p>&#x6BCF;&#x4E2A;&#x901A;&#x8FC7; markdown &#x751F;&#x6210;&#x7684; HTML &#x6587;&#x4EF6;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x7684;&#x5177;&#x6709;&#x76F8;&#x540C;&#x6570;&#x636E;&#x7684; JSON &#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#x662F; Node.js v0.6.12 &#x65B0;&#x589E;&#x7684;&#x3002;
+&#x8BE5;&#x7279;&#x6027;&#x662F;&#x8BD5;&#x9A8C;&#x7684;&#x3002;</p>
+<h2>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x4E0E;&#x5E2E;&#x52A9;&#x6587;&#x6863;<span><a class="mark" href="#documentation_syscalls_and_man_pages" id="documentation_syscalls_and_man_pages">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/documentation.html#documentation_syscalls_and_man_pages">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/documentation/syscalls_and_man_pages.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5B9A;&#x4E49;&#x4E86;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x548C;&#x5E95;&#x5C42;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x4F8B;&#x5982; <a href="http://man7.org/linux/man-pages/man2/open.2.html">open(2)</a>&#x3001; <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a>&#x3002;
+Node &#x51FD;&#x6570;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x5730;&#x5C01;&#x88C5;&#x4E86;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x4F8B;&#x5982; <code>fs.open()</code>&#x3002;
+&#x76F8;&#x5E94;&#x7684;&#x5E2E;&#x52A9;&#x6587;&#x6863;&#x4F1A;&#x63CF;&#x8FF0;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x6709;&#x4E9B;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x662F; BSD &#x7CFB;&#x7EDF;&#x7279;&#x6709;&#x7684;&#xFF0C;&#x4F8B;&#x5982; <a href="http://man7.org/linux/man-pages/man2/lchown.2.html">lchown(2)</a>&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740; <code>fs.lchown()</code> &#x53EA;&#x9002;&#x7528;&#x4E8E; Mac OS X &#x548C;&#x5176;&#x4ED6; BSD &#x884D;&#x751F;&#x7CFB;&#x7EDF;&#xFF0C;&#x5728; Linux &#x4E0A;&#x4E0D;&#x53EF;&#x7528;&#x3002;</p>
+<p>&#x5927;&#x90E8;&#x5206; Unix &#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x90FD;&#x6709;&#x5BF9;&#x5E94;&#x7684; Windows &#x7248;&#x672C;&#xFF0C;&#x4F46; Windows &#x7248;&#x672C;&#x8FD0;&#x884C;&#x8D77;&#x6765;&#x53EF;&#x80FD;&#x4E0E; Linux &#x548C; OS X &#x7684;&#x6709;&#x4E9B;&#x5DEE;&#x5F02;&#x3002;
+&#x6709;&#x4E9B; Unix &#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x65E0;&#x6CD5;&#x5728; Windows &#x4E2D;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#x8BED;&#x4E49;&#xFF0C;&#x8BE6;&#x89C1;<a href="https://github.com/nodejs/node/issues/4760">&#x8BAE;&#x9898;4760</a>&#x3002;</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

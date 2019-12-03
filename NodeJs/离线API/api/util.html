@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>util | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-util">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util active" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="util" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/util.json">JSON格式</a> |-->
+            <!--<a href="/api/en/util.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#util_util">util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#util_util_debuglog_section">util.debuglog(section)</a></span></li>
+<li><span class="stability_undefined"><a href="#util_util_deprecate_function_string">util.deprecate(function, string)</a></span></li>
+<li><span class="stability_undefined"><a href="#util_util_format_format_args">util.format(format[, ...args])</a></span></li>
+<li><span class="stability_undefined"><a href="#util_util_inherits_constructor_superconstructor">util.inherits(constructor, superConstructor)</a></span></li>
+<li><span class="stability_undefined"><a href="#util_util_inspect_object_options">util.inspect(object[, options])</a></span><ul>
+<li><span class="stability_undefined"><a href="#util_customizing_util_inspect_colors">&#x81EA;&#x5B9A;&#x4E49; <code>util.inspect</code> &#x989C;&#x8272;</a></span></li>
+<li><span class="stability_undefined"><a href="#util_custom_inspection_functions_on_objects">&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x7684;&#x67E5;&#x770B;&#x51FD;&#x6570;</a></span></li>
+<li><span class="stability_undefined"><a href="#util_util_inspect_defaultoptions">util.inspect.defaultOptions</a></span></li>
+<li><span class="stability_undefined"><a href="#util_util_inspect_custom">util.inspect.custom</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#util_deprecated_apis">&#x5E9F;&#x5F03;&#x7684; API</a></span><ul>
+<li><span class="stability_0"><a href="#util_util_debug_string">util.debug(string)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_error_strings">util.error([...strings])</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isarray_object">util.isArray(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isboolean_object">util.isBoolean(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isbuffer_object">util.isBuffer(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isdate_object">util.isDate(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_iserror_object">util.isError(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isfunction_object">util.isFunction(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isnull_object">util.isNull(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isnullorundefined_object">util.isNullOrUndefined(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isnumber_object">util.isNumber(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isobject_object">util.isObject(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isprimitive_object">util.isPrimitive(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isregexp_object">util.isRegExp(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isstring_object">util.isString(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_issymbol_object">util.isSymbol(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_isundefined_object">util.isUndefined(object)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_log_string">util.log(string)</a></span></li>
+<li><span class="stability_0"><a href="#util_util_print_strings">util.print([...strings])</a></span></li>
+<li><span class="stability_0"><a href="#util_util_puts_strings">util.puts([...strings])</a></span></li>
+<li><span class="stability_0"><a href="#util_util_extend_target_source">util._extend(target, source)</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)<span><a class="mark" href="#util_util" id="util_util">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><p><code>util</code> &#x6A21;&#x5757;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x652F;&#x6301; Node.js &#x5185;&#x90E8; API &#x7684;&#x9700;&#x6C42;&#x3002;
+&#x5927;&#x90E8;&#x5206;&#x5B9E;&#x7528;&#x5DE5;&#x5177;&#x4E5F;&#x53EF;&#x7528;&#x4E8E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E0E;&#x6A21;&#x5757;&#x5F00;&#x53D1;&#x8005;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+</code></pre>
+<h2>util.debuglog(section)<span><a class="mark" href="#util_util_debuglog_section" id="util_util_debuglog_section">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_debuglog_section">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_debuglog_section.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.3</span>
+</div><ul>
+<li><code>section</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6307;&#x5B9A;&#x8981;&#x4E3A;&#x5E94;&#x7528;&#x7684;&#x54EA;&#x4E9B;&#x90E8;&#x5206;&#x521B;&#x5EFA; <code>debuglog</code> &#x51FD;&#x6570;&#x3002;
+<code>debuglog</code> &#x51FD;&#x6570;&#x8981;&#x4E3A;&#x54EA;&#x4E9B;&#x5E94;&#x7528;&#x521B;&#x5EFA;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x65E5;&#x5FD7;&#x51FD;&#x6570;</li>
+</ul>
+<p><code>util.debuglog()</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x57FA;&#x4E8E; <code>NODE_DEBUG</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x5B58;&#x5728;&#x4E0E;&#x5426;&#x6709;&#x6761;&#x4EF6;&#x5730;&#x5199;&#x5165;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;&#x5230; <code>stderr</code>&#x3002;
+&#x5982;&#x679C; <code>section</code> &#x540D;&#x79F0;&#x5728;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x4E2D;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#x4E8E; <a href="console.html#console_console_error_data_args"><code>console.error()</code></a>&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+const debuglog = util.debuglog(&apos;foo&apos;);
+
+debuglog(&apos;hello from foo [%d]&apos;, 123);
+</code></pre>
+<p>&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x5728;&#x73AF;&#x5883;&#x4E2D;&#x8FD0;&#x884C;&#x65F6;&#x5E26;&#x4E0A; <code>NODE_DEBUG=foo</code>&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x7C7B;&#x4F3C;&#x5982;&#x4E0B;&#xFF1A; </p>
+<pre><code class="lang-txt">FOO 3245: hello from foo [123]
+</code></pre>
+<p>&#x5176;&#x4E2D; <code>3245</code> &#x662F;&#x8FDB;&#x7A0B; id&#x3002;
+&#x5982;&#x679C;&#x8FD0;&#x884C;&#x65F6;&#x6CA1;&#x5E26;&#x4E0A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x96C6;&#x5408;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x6253;&#x5370;&#x4EFB;&#x4F55;&#x4E1C;&#x897F;&#x3002;</p>
+<p><code>NODE_DEBUG</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x53EF;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x7531;&#x9017;&#x53F7;&#x5206;&#x9694;&#x7684; <code>section</code> &#x540D;&#x79F0;&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;<code>NODE_DEBUG=fs,net,tls</code>&#x3002;</p>
+<h2>util.deprecate(function, string)<span><a class="mark" href="#util_util_deprecate_function_string" id="util_util_deprecate_function_string">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_deprecate_function_string">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_deprecate_function_string.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.8.0</span>
+</div><p><code>util.deprecate()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x5305;&#x88C5;&#x7ED9;&#x5B9A;&#x7684; <code>function</code> &#x6216;&#x7C7B;&#xFF0C;&#x5E76;&#x6807;&#x8BB0;&#x4E3A;&#x5E9F;&#x5F03;&#x7684;&#x3002;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+exports.puts = util.deprecate(function() {
+  for (var i = 0, len = arguments.length; i &lt; len; ++i) {
+    process.stdout.write(arguments[i] + &apos;\n&apos;);
+  }
+}, &apos;util.puts: &#x4F7F;&#x7528; console.log &#x4EE3;&#x66FF;&apos;);
+</code></pre>
+<p>&#x5F53;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;<code>util.deprecate()</code> &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F1A;&#x4F7F;&#x7528; <code>process.on(&apos;warning&apos;)</code> &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; <code>DeprecationWarning</code>&#x3002;
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8B66;&#x544A;&#x53EA;&#x5728;&#x9996;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x624D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x5E76;&#x6253;&#x5370;&#x5230; <code>stderr</code>&#x3002;
+&#x8B66;&#x544A;&#x88AB;&#x89E6;&#x53D1;&#x4E4B;&#x540E;&#xFF0C;&#x88AB;&#x5305;&#x88C5;&#x7684; <code>function</code> &#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86; <code>--no-deprecation</code> &#x6216; <code>--no-warnings</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x8BB0;&#xFF0C;&#x6216; <code>process.noDeprecation</code> &#x5C5E;&#x6027;&#x5728;&#x9996;&#x6B21;&#x5E9F;&#x5F03;&#x8B66;&#x544A;&#x4E4B;&#x524D;&#x88AB;&#x8BBE;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>util.deprecate()</code> &#x65B9;&#x6CD5;&#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x505A;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86; <code>--trace-deprecation</code> &#x6216; <code>--trace-warnings</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x8BB0;&#xFF0C;&#x6216; <code>process.traceDeprecation</code> &#x5C5E;&#x6027;&#x88AB;&#x8BBE;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5E9F;&#x5F03;&#x7684;&#x51FD;&#x6570;&#x9996;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4F1A;&#x628A;&#x8B66;&#x544A;&#x4E0E;&#x5806;&#x6808;&#x8FFD;&#x8E2A;&#x6253;&#x5370;&#x5230; <code>stderr</code>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86; <code>--throw-deprecation</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x8BB0;&#xFF0C;&#x6216; <code>process.throwDeprecation</code> &#x5C5E;&#x6027;&#x88AB;&#x8BBE;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5F53;&#x5E9F;&#x5F03;&#x7684;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x3002;</p>
+<p><code>--throw-deprecation</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x8BB0;&#x548C; <code>process.throwDeprecation</code> &#x5C5E;&#x6027;&#x4F18;&#x5148;&#x4E8E; <code>--trace-deprecation</code> &#x548C; <code>process.traceDeprecation</code>&#x3002;</p>
+<h2>util.format(format[, ...args])<span><a class="mark" href="#util_util_format_format_args" id="util_util_format_format_args">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_format_format_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_format_format_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.3</span>
+</div><ul>
+<li><code>format</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x4E00;&#x4E2A;&#x7C7B;&#x4F3C; <code>printf</code> &#x7684;&#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+</ul>
+<p><code>util.format()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x683C;&#x5F0F;&#x5316;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F7F;&#x7528;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C; <code>printf</code> &#x7684;&#x683C;&#x5F0F;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5305;&#x542B;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5360;&#x4F4D;&#x7B26;&#x3002;
+&#x6BCF;&#x4E2A;&#x5360;&#x4F4D;&#x7B26;&#x4F1A;&#x88AB;&#x5BF9;&#x5E94;&#x53C2;&#x6570;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x503C;&#x6240;&#x66FF;&#x6362;&#x3002;
+&#x652F;&#x6301;&#x7684;&#x5360;&#x4F4D;&#x7B26;&#x6709;&#xFF1A;</p>
+<ul>
+<li><code>%s</code> - &#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li><code>%d</code> - &#x6570;&#x503C;&#xFF08;&#x5305;&#x62EC;&#x6574;&#x6570;&#x548C;&#x6D6E;&#x70B9;&#x6570;&#xFF09;&#x3002;</li>
+<li><code>%j</code> - JSON&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x5305;&#x542B;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF0C;&#x5219;&#x7528;&#x5B57;&#x7B26;&#x4E32; <code>&apos;[Circular]&apos;</code> &#x66FF;&#x6362;&#x3002;</li>
+<li><code>%%</code> - &#x5355;&#x4E2A;&#x767E;&#x5206;&#x53F7;&#xFF08;<code>&apos;%&apos;</code>&#xFF09;&#x3002;&#x4E0D;&#x6D88;&#x8017;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x5360;&#x4F4D;&#x7B26;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5360;&#x4F4D;&#x7B26;&#x4E0D;&#x88AB;&#x66FF;&#x6362;&#x3002;</p>
+<pre><code class="lang-js">util.format(&apos;%s:%s&apos;, &apos;foo&apos;);
+// &#x8FD4;&#x56DE;: &apos;foo:%s&apos;
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F20;&#x5165; <code>util.format()</code> &#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x6BD4;&#x5360;&#x4F4D;&#x7B26;&#x7684;&#x6570;&#x91CF;&#x591A;&#xFF0C;&#x5219;&#x591A;&#x51FA;&#x7684;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF08;&#x5BF9;&#x4E8E;&#x5BF9;&#x8C61;&#x548C;&#x7B26;&#x53F7;&#xFF0C;&#x4F7F;&#x7528; <code>util.inspect()</code>&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x62FC;&#x63A5;&#x5230;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x53C2;&#x6570;&#x4E4B;&#x95F4;&#x7528;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;&#x5206;&#x9694;&#x3002;</p>
+<pre><code class="lang-js">util.format(&apos;%s:%s&apos;, &apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;); // &apos;foo:bar baz&apos;
+</code></pre>
+<p>&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219; <code>util.format()</code> &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6240;&#x6709;&#x53C2;&#x6570;&#x7528;&#x7A7A;&#x683C;&#x5206;&#x9694;&#x5E76;&#x8FDE;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x6BCF;&#x4E2A;&#x53C2;&#x6570;&#x90FD;&#x4F7F;&#x7528; <code>util.inspect()</code> &#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<pre><code class="lang-js">util.format(1, 2, 3); // &apos;1 2 3&apos;
+</code></pre>
+<h2>util.inherits(constructor, superConstructor)<span><a class="mark" href="#util_util_inherits_constructor_superconstructor" id="util_util_inherits_constructor_superconstructor">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_inherits_constructor_superconstructor">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_inherits_constructor_superconstructor.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><p>&#x6CE8;&#x610F;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <code>util.inherits()</code>&#x3002;
+&#x8BF7;&#x4F7F;&#x7528; ES6 &#x7684; <code>class</code> &#x548C; <code>extends</code> &#x5173;&#x952E;&#x8BCD;&#x83B7;&#x5F97;&#x8BED;&#x8A00;&#x5C42;&#x9762;&#x7684;&#x7EE7;&#x627F;&#x652F;&#x6301;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x662F;<a href="https://github.com/nodejs/node/issues/4179">&#x8BED;&#x4E49;&#x4E0A;&#x4E0D;&#x517C;&#x5BB9;&#x7684;</a>&#x3002;</p>
+<ul>
+<li><code>constructor</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+<li><code>superConstructor</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x4ECE;&#x4E00;&#x4E2A;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/constructor">&#x6784;&#x9020;&#x51FD;&#x6570;</a>&#x4E2D;&#x7EE7;&#x627F;&#x539F;&#x578B;&#x65B9;&#x6CD5;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x3002;
+<code>constructor</code> &#x7684;&#x539F;&#x578B;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x5230;&#x4E00;&#x4E2A;&#x4ECE; <code>superConstructor</code> &#x521B;&#x5EFA;&#x7684;&#x65B0;&#x5BF9;&#x8C61;&#x4E0A;&#x3002;</p>
+<p><code>superConstructor</code> &#x53EF;&#x901A;&#x8FC7; <code>constructor.super_</code> &#x5C5E;&#x6027;&#x8BBF;&#x95EE;&#x3002;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+const EventEmitter = require(&apos;events&apos;);
+
+function MyStream() {
+  EventEmitter.call(this);
+}
+
+util.inherits(MyStream, EventEmitter);
+
+MyStream.prototype.write = function(data) {
+  this.emit(&apos;data&apos;, data);
+};
+
+const stream = new MyStream();
+
+console.log(stream instanceof EventEmitter); // true
+console.log(MyStream.super_ === EventEmitter); // true
+
+stream.on(&apos;data&apos;, (data) =&gt; {
+  console.log(`&#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#xFF1A;&quot;${data}&quot;`);
+});
+stream.write(&apos;&#x8FD0;&#x4F5C;&#x826F;&#x597D;&#xFF01;&apos;); // &#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#xFF1A;&quot;&#x8FD0;&#x4F5C;&#x826F;&#x597D;&#xFF01;&quot;
+</code></pre>
+<p>&#x4F8B;&#x5B50;&#xFF1A;&#x4F7F;&#x7528; ES6 &#x7684; <code>class</code> &#x548C; <code>extends</code>&#xFF1A;</p>
+<pre><code class="lang-js">const EventEmitter = require(&apos;events&apos;);
+
+class MyStream extends EventEmitter {
+  constructor() {
+    super();
+  }
+  write(data) {
+    this.emit(&apos;data&apos;, data);
+  }
+}
+
+const stream = new MyStream();
+
+stream.on(&apos;data&apos;, (data) =&gt; {
+  console.log(`&#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#xFF1A;&quot;${data}&quot;`);
+});
+stream.write(&apos;&#x4F7F;&#x7528; ES6&apos;);
+</code></pre>
+<h2>util.inspect(object[, options])<span><a class="mark" href="#util_util_inspect_object_options" id="util_util_inspect_object_options">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_inspect_object_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_inspect_object_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span> &#x4EFB;&#x4F55; JavaScript &#x539F;&#x59CB;&#x503C;&#x6216;&#x5BF9;&#x8C61;&#x3002;</li>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a><ul>
+<li><code>showHidden</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>object</code> &#x7684;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x7B26;&#x53F7;&#x4E0E;&#x5C5E;&#x6027;&#x4E5F;&#x4F1A;&#x88AB;&#x5305;&#x62EC;&#x5728;&#x683C;&#x5F0F;&#x5316;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</li>
+<li><code>depth</code> <span class="type">&lt;number&gt;</span> &#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x5316; <code>object</code> &#x65F6;&#x9012;&#x5F52;&#x7684;&#x6B21;&#x6570;&#x3002;
+&#x8FD9;&#x5BF9;&#x67E5;&#x770B;&#x5927;&#x578B;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x5F88;&#x6709;&#x7528;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>2</code>&#x3002;
+&#x82E5;&#x8981;&#x65E0;&#x9650;&#x5730;&#x9012;&#x5F52;&#x5219;&#x4F20;&#x5165; <code>null</code>&#x3002;</li>
+<li><code>colors</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x6837;&#x5F0F;&#x4F7F;&#x7528; ANSI &#x989C;&#x8272;&#x4EE3;&#x7801;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;
+&#x989C;&#x8272;&#x53EF;&#x81EA;&#x5B9A;&#x4E49;&#xFF0C;&#x8BE6;&#x89C1;<a href="#util_customizing_util_inspect_colors">&#x81EA;&#x5B9A;&#x4E49; <code>util.inspect</code> &#x989C;&#x8272;</a>&#x3002;</li>
+<li><code>customInspect</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>false</code>&#xFF0C;&#x5219; <code>object</code> &#x4E0A;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>inspect(depth, opts)</code> &#x51FD;&#x6570;&#x4E0D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>true</code>&#x3002;</li>
+<li><code>showProxy</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>Proxy</code> &#x5BF9;&#x8C61;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#x51FD;&#x6570;&#x4F1A;&#x5C55;&#x793A;&#x5B83;&#x4EEC;&#x7684; <code>target</code> &#x548C; <code>handler</code> &#x5BF9;&#x8C61;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</li>
+<li><code>maxArrayLength</code> <span class="type">&lt;number&gt;</span> &#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x5316;&#x65F6;&#x6570;&#x7EC4;&#x548C; <code>TypedArray</code> &#x5143;&#x7D20;&#x80FD;&#x5305;&#x542B;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>100</code>&#x3002;
+&#x8BBE;&#x4E3A; <code>null</code> &#x5219;&#x663E;&#x5F0F;&#x5168;&#x90E8;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x3002;
+&#x8BBE;&#x4E3A; <code>0</code> &#x6216;&#x8D1F;&#x6570;&#x5219;&#x4E0D;&#x663E;&#x5F0F;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x3002;</li>
+<li><code>breakLength</code> <span class="type">&lt;number&gt;</span> &#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x952E;&#x88AB;&#x62C6;&#x5206;&#x6210;&#x591A;&#x884C;&#x7684;&#x957F;&#x5EA6;&#x3002;
+&#x8BBE;&#x4E3A; <code>Infinity</code> &#x5219;&#x683C;&#x5F0F;&#x5316;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E3A;&#x5355;&#x884C;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>60</code>&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p><code>util.inspect()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE; <code>object</code> &#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x8C03;&#x8BD5;&#x3002;
+&#x9644;&#x52A0;&#x7684; <code>options</code> &#x53EF;&#x7528;&#x4E8E;&#x6539;&#x53D8;&#x683C;&#x5F0F;&#x5316;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x67D0;&#x4E9B;&#x65B9;&#x9762;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x67E5;&#x770B; <code>util</code> &#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+console.log(util.inspect(util, { showHidden: true, depth: null }));
+</code></pre>
+<p>&#x5F53;&#x8C03;&#x7528;&#x5230;&#x8FBE;&#x9012;&#x5F52;&#x67E5;&#x770B;&#x7684;&#x5F53;&#x524D; <code>depth</code> &#x65F6;&#xFF0C;&#x503C;&#x652F;&#x6301;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>inspect(depth, opts)</code> &#x51FD;&#x6570;&#xFF0C;&#x4F20;&#x5165; <code>util.inspect()</code> &#x7684;&#x9009;&#x9879;&#x5BF9;&#x8C61;&#x4E5F;&#x4E00;&#x6837;&#x3002;</p>
+<h3>&#x81EA;&#x5B9A;&#x4E49; <code>util.inspect</code> &#x989C;&#x8272;<span><a class="mark" href="#util_customizing_util_inspect_colors" id="util_customizing_util_inspect_colors">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_customizing_util_inspect_colors">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/customizing_util_inspect_colors.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!-- type=misc -->
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>util.inspect.styles</code> &#x548C; <code>util.inspect.colors</code> &#x5C5E;&#x6027;&#x5168;&#x5C40;&#x5730;&#x81EA;&#x5B9A;&#x4E49; <code>util.inspect</code> &#x7684;&#x989C;&#x8272;&#x8F93;&#x51FA;&#xFF08;&#x5982;&#x679C;&#x5DF2;&#x542F;&#x7528;&#xFF09;&#x3002;</p>
+<p><code>util.inspect.styles</code> &#x662F;&#x4E00;&#x4E2A;&#x6620;&#x5C04;&#xFF0C;&#x5173;&#x8054;&#x4E00;&#x4E2A;&#x6837;&#x5F0F;&#x540D;&#x5230;&#x4E00;&#x4E2A; <code>util.inspect.colors</code> &#x989C;&#x8272;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x7684;&#x6837;&#x5F0F;&#x4E0E;&#x5173;&#x8054;&#x7684;&#x989C;&#x8272;&#x6709;&#xFF1A;</p>
+<ul>
+<li><code>number</code> - <code>yellow</code></li>
+<li><code>boolean</code> - <code>yellow</code></li>
+<li><code>string</code> - <code>green</code></li>
+<li><code>date</code> - <code>magenta</code></li>
+<li><code>regexp</code> - <code>red</code></li>
+<li><code>null</code> - <code>bold</code></li>
+<li><code>undefined</code> - <code>grey</code></li>
+<li><code>special</code> - <code>cyan</code> &#xFF08;&#x6682;&#x65F6;&#x53EA;&#x7528;&#x4E8E;&#x51FD;&#x6570;&#xFF09;</li>
+<li><code>name</code> - &#xFF08;&#x65E0;&#x6837;&#x5F0F;&#xFF09;</li>
+</ul>
+<p>&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x989C;&#x8272;&#x4EE3;&#x7801;&#x6709;&#xFF1A;<code>white</code>&#x3001;<code>grey</code>&#x3001;<code>black</code>&#x3001;<code>blue</code>&#x3001;<code>cyan</code>&#x3001;<code>green</code>&#x3001;<code>magenta``red</code> &#x548C; <code>yellow</code>&#x3002;
+&#x8FD8;&#x6709; <code>bold</code>&#x3001;<code>italic</code>&#x3001;<code>underline</code> &#x548C; <code>inverse</code> &#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x989C;&#x8272;&#x6837;&#x5F0F;&#x4F7F;&#x7528; ANSI &#x63A7;&#x5236;&#x7801;&#xFF0C;&#x53EF;&#x80FD;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7EC8;&#x7AEF;&#x90FD;&#x652F;&#x6301;&#x3002;</p>
+<h3>&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x7684;&#x67E5;&#x770B;&#x51FD;&#x6570;<span><a class="mark" href="#util_custom_inspection_functions_on_objects" id="util_custom_inspection_functions_on_objects">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_custom_inspection_functions_on_objects">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/custom_inspection_functions_on_objects.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!-- type=misc -->
+<p>&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684; <code>[util.inspect.custom](depth, opts)</code>&#xFF08;&#x6216; <code>inspect(depth, opts)</code>&#xFF09; &#x51FD;&#x6570;&#xFF0C;<code>util.inspect()</code> &#x4F1A;&#x8C03;&#x7528;&#x5E76;&#x4F7F;&#x7528;&#x67E5;&#x770B;&#x5BF9;&#x8C61;&#x65F6;&#x7684;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+class Box {
+  constructor(value) {
+    this.value = value;
+  }
+
+  inspect(depth, options) {
+    if (depth &lt; 0) {
+      return options.stylize(&apos;[Box]&apos;, &apos;special&apos;);
+    }
+
+    const newOptions = Object.assign({}, options, {
+      depth: options.depth === null ? null : options.depth - 1
+    });
+
+    // &#x4E94;&#x4E2A;&#x7A7A;&#x683C;&#x7684;&#x586B;&#x5145;&#xFF0C;&#x56E0;&#x4E3A;&#x90A3;&#x662F; &quot;Box&lt; &quot; &#x7684;&#x5927;&#x5C0F;&#x3002;
+    const padding = &apos; &apos;.repeat(5);
+    const inner = util.inspect(this.value, newOptions).replace(/\n/g, &apos;\n&apos; + padding);
+    return options.stylize(&apos;Box&apos;, &apos;special&apos;) + &apos;&lt; &apos; + inner + &apos; &gt;&apos;;
+  }
+}
+
+const box = new Box(true);
+
+util.inspect(box);
+// &#x8FD4;&#x56DE;: &quot;Box&lt; true &gt;&quot;
+</code></pre>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>[util.inspect.custom](depth, opts)</code> &#x51FD;&#x6570;&#x901A;&#x5E38;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F46;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF0C;&#x5B83;&#x4F1A;&#x76F8;&#x5E94;&#x5730;&#x88AB; <code>util.inspect()</code> &#x683C;&#x5F0F;&#x5316;&#x3002;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+const obj = { foo: &apos;&#x8FD9;&#x4E2A;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5728; inspect() &#x7684;&#x8F93;&#x51FA;&#x4E2D;&apos; };
+obj[util.inspect.custom] = function(depth) {
+  return { bar: &apos;baz&apos; };
+};
+
+util.inspect(obj);
+// &#x8FD4;&#x56DE;: &quot;{ bar: &apos;baz&apos; }&quot;
+</code></pre>
+<p>&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x67E5;&#x770B;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x5F00;&#x653E;&#x4E00;&#x4E2A; <code>inspect(depth, opts)</code> &#x65B9;&#x6CD5;&#x6765;&#x63D0;&#x4F9B;&#xFF1A;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+const obj = { foo: &apos;&#x8FD9;&#x4E2A;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5728; inspect() &#x7684;&#x8F93;&#x51FA;&#x4E2D;&apos; };
+obj.inspect = function(depth) {
+  return { bar: &apos;baz&apos; };
+};
+
+util.inspect(obj);
+// &#x8FD4;&#x56DE;: &quot;{ bar: &apos;baz&apos; }&quot;
+</code></pre>
+<h3>util.inspect.defaultOptions<span><a class="mark" href="#util_util_inspect_defaultoptions" id="util_util_inspect_defaultoptions">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_inspect_defaultoptions">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_inspect_defaultoptions.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.4.0</span>
+</div><p><code>defaultOptions</code> &#x503C;&#x5141;&#x8BB8;&#x5BF9;&#x88AB; <code>util.inspect</code> &#x4F7F;&#x7528;&#x7684;&#x9ED8;&#x8BA4;&#x9009;&#x9879;&#x8FDB;&#x884C;&#x81EA;&#x5B9A;&#x4E49;&#x3002;
+&#x8FD9;&#x5BF9; <code>console.log</code> &#x6216; <code>util.format</code> &#x7B49;&#x663E;&#x5F0F;&#x8C03;&#x7528; <code>util.inspect</code> &#x7684;&#x51FD;&#x6570;&#x5F88;&#x6709;&#x7528;&#x3002;
+&#x5B83;&#x9700;&#x88AB;&#x8BBE;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6709;&#x6548;&#x7684; <a href="#util_util_inspect_object_options"><code>util.inspect()</code></a> &#x9009;&#x9879;&#x3002;
+&#x4E5F;&#x652F;&#x6301;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x9009;&#x9879;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+const arr = Array(101);
+
+console.log(arr); // &#x6253;&#x5370;&#x622A;&#x65AD;&#x7684;&#x6570;&#x7EC4;
+util.inspect.defaultOptions.maxArrayLength = null;
+console.log(arr); // &#x6253;&#x5370;&#x5B8C;&#x6574;&#x7684;&#x6570;&#x7EC4;
+</code></pre>
+<h3>util.inspect.custom<span><a class="mark" href="#util_util_inspect_custom" id="util_util_inspect_custom">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_inspect_custom">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_inspect_custom.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.6.0</span>
+</div><p>&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#xFF0C;&#x53EF;&#x88AB;&#x7528;&#x4E8E;&#x58F0;&#x660E;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x67E5;&#x770B;&#x51FD;&#x6570;&#xFF0C;&#x8BE6;&#x89C1;<a href="#util_custom_inspection_functions_on_objects">&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x7684;&#x67E5;&#x770B;&#x51FD;&#x6570;</a>&#x3002;</p>
+<h2>&#x5E9F;&#x5F03;&#x7684; API<span><a class="mark" href="#util_deprecated_apis" id="util_deprecated_apis">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_deprecated_apis">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/deprecated_apis.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x4EE5;&#x4E0B; API &#x5DF2;&#x88AB;&#x5E9F;&#x5F03;&#xFF0C;&#x4E0D;&#x5E94;&#x8BE5;&#x518D;&#x88AB;&#x4F7F;&#x7528;&#x3002;
+&#x73B0;&#x5B58;&#x7684;&#x5E94;&#x7528;&#x548C;&#x6A21;&#x5757;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x66F4;&#x65B0;&#x3002;</p>
+<h3>util.debug(string)<span><a class="mark" href="#util_util_debug_string" id="util_util_debug_string">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_debug_string">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_debug_string.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v0.11.3 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528; <a href="console.html#console_console_error_data_args"><code>console.error()</code></a> &#x4EE3;&#x66FF;&#x3002;</pre><ul>
+<li><code>string</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> The message to print to <code>stderr</code></li>
+</ul>
+<p>Deprecated predecessor of <code>console.error</code>.</p>
+<h3>util.error([...strings])<span><a class="mark" href="#util_util_error_strings" id="util_util_error_strings">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_error_strings">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_error_strings.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v0.11.3 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528; <a href="console.html#console_console_error_data_args"><code>console.error()</code></a> &#x4EE3;&#x66FF;&#x3002;</pre><ul>
+<li><code>...strings</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> The message to print to <code>stderr</code></li>
+</ul>
+<p>Deprecated predecessor of <code>console.error</code>.</p>
+<h3>util.isArray(object)<span><a class="mark" href="#util_util_isarray_object" id="util_util_isarray_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isarray_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isarray_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Internal alias for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray"><code>Array.isArray</code></a>.</p>
+<p>Returns <code>true</code> if the given <code>object</code> is an <code>Array</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isArray([]);
+// Returns: true
+util.isArray(new Array);
+// Returns: true
+util.isArray({});
+// Returns: false
+</code></pre>
+<h3>util.isBoolean(object)<span><a class="mark" href="#util_util_isboolean_object" id="util_util_isboolean_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isboolean_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isboolean_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Boolean</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isBoolean(1);
+// Returns: false
+util.isBoolean(0);
+// Returns: false
+util.isBoolean(false);
+// Returns: true
+</code></pre>
+<h3>util.isBuffer(object)<span><a class="mark" href="#util_util_isbuffer_object" id="util_util_isbuffer_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isbuffer_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isbuffer_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528; <a href="buffer.html#buffer_class_method_buffer_isbuffer_obj"><code>Buffer.isBuffer()</code></a> &#x4EE3;&#x66FF;&#x3002;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Buffer</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isBuffer({ length: 0 });
+// Returns: false
+util.isBuffer([]);
+// Returns: false
+util.isBuffer(Buffer.from(&apos;hello world&apos;));
+// Returns: true
+</code></pre>
+<h3>util.isDate(object)<span><a class="mark" href="#util_util_isdate_object" id="util_util_isdate_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isdate_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isdate_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Date</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isDate(new Date());
+// Returns: true
+util.isDate(Date());
+// false (without &apos;new&apos; returns a String)
+util.isDate({});
+// Returns: false
+</code></pre>
+<h3>util.isError(object)<span><a class="mark" href="#util_util_iserror_object" id="util_util_iserror_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_iserror_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_iserror_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is an <a href="errors.html#errors_class_error"><code>Error</code></a>. Otherwise, returns
+<code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isError(new Error());
+// Returns: true
+util.isError(new TypeError());
+// Returns: true
+util.isError({ name: &apos;Error&apos;, message: &apos;an error occurred&apos; });
+// Returns: false
+</code></pre>
+<p>Note that this method relies on <code>Object.prototype.toString()</code> behavior. It is
+possible to obtain an incorrect result when the <code>object</code> argument manipulates
+<code>@@toStringTag</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+const obj = { name: &apos;Error&apos;, message: &apos;an error occurred&apos; };
+
+util.isError(obj);
+// Returns: false
+obj[Symbol.toStringTag] = &apos;Error&apos;;
+util.isError(obj);
+// Returns: true
+</code></pre>
+<h3>util.isFunction(object)<span><a class="mark" href="#util_util_isfunction_object" id="util_util_isfunction_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isfunction_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isfunction_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Function</code>. Otherwise, returns
+<code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+function Foo() {}
+const Bar = function() {};
+
+util.isFunction({});
+// Returns: false
+util.isFunction(Foo);
+// Returns: true
+util.isFunction(Bar);
+// Returns: true
+</code></pre>
+<h3>util.isNull(object)<span><a class="mark" href="#util_util_isnull_object" id="util_util_isnull_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isnull_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isnull_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is strictly <code>null</code>. Otherwise, returns
+<code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isNull(0);
+// Returns: false
+util.isNull(undefined);
+// Returns: false
+util.isNull(null);
+// Returns: true
+</code></pre>
+<h3>util.isNullOrUndefined(object)<span><a class="mark" href="#util_util_isnullorundefined_object" id="util_util_isnullorundefined_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isnullorundefined_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isnullorundefined_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is <code>null</code> or <code>undefined</code>. Otherwise,
+returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isNullOrUndefined(0);
+// Returns: false
+util.isNullOrUndefined(undefined);
+// Returns: true
+util.isNullOrUndefined(null);
+// Returns: true
+</code></pre>
+<h3>util.isNumber(object)<span><a class="mark" href="#util_util_isnumber_object" id="util_util_isnumber_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isnumber_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isnumber_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Number</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isNumber(false);
+// Returns: false
+util.isNumber(Infinity);
+// Returns: true
+util.isNumber(0);
+// Returns: true
+util.isNumber(NaN);
+// Returns: true
+</code></pre>
+<h3>util.isObject(object)<span><a class="mark" href="#util_util_isobject_object" id="util_util_isobject_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isobject_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isobject_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is strictly an <code>Object</code> <strong>and</strong> not a
+<code>Function</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isObject(5);
+// Returns: false
+util.isObject(null);
+// Returns: false
+util.isObject({});
+// Returns: true
+util.isObject(function(){});
+// Returns: false
+</code></pre>
+<h3>util.isPrimitive(object)<span><a class="mark" href="#util_util_isprimitive_object" id="util_util_isprimitive_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isprimitive_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isprimitive_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a primitive type. Otherwise, returns
+<code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isPrimitive(5);
+// Returns: true
+util.isPrimitive(&apos;foo&apos;);
+// Returns: true
+util.isPrimitive(false);
+// Returns: true
+util.isPrimitive(null);
+// Returns: true
+util.isPrimitive(undefined);
+// Returns: true
+util.isPrimitive({});
+// Returns: false
+util.isPrimitive(function() {});
+// Returns: false
+util.isPrimitive(/^$/);
+// Returns: false
+util.isPrimitive(new Date());
+// Returns: false
+</code></pre>
+<h3>util.isRegExp(object)<span><a class="mark" href="#util_util_isregexp_object" id="util_util_isregexp_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isregexp_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isregexp_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>RegExp</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isRegExp(/some regexp/);
+// Returns: true
+util.isRegExp(new RegExp(&apos;another regexp&apos;));
+// Returns: true
+util.isRegExp({});
+// Returns: false
+</code></pre>
+<h3>util.isString(object)<span><a class="mark" href="#util_util_isstring_object" id="util_util_isstring_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isstring_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isstring_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>string</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isString(&apos;&apos;);
+// Returns: true
+util.isString(&apos;foo&apos;);
+// Returns: true
+util.isString(String(&apos;foo&apos;));
+// Returns: true
+util.isString(5);
+// Returns: false
+</code></pre>
+<h3>util.isSymbol(object)<span><a class="mark" href="#util_util_issymbol_object" id="util_util_issymbol_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_issymbol_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_issymbol_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is a <code>Symbol</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.isSymbol(5);
+// Returns: false
+util.isSymbol(&apos;foo&apos;);
+// Returns: false
+util.isSymbol(Symbol(&apos;foo&apos;));
+// Returns: true
+</code></pre>
+<h3>util.isUndefined(object)<span><a class="mark" href="#util_util_isundefined_object" id="util_util_isundefined_object">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_isundefined_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_isundefined_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v4.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;</pre><ul>
+<li><code>object</code> <span class="type">&lt;any&gt;</span></li>
+</ul>
+<p>Returns <code>true</code> if the given <code>object</code> is <code>undefined</code>. Otherwise, returns <code>false</code>.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+const foo = undefined;
+util.isUndefined(5);
+// Returns: false
+util.isUndefined(foo);
+// Returns: true
+util.isUndefined(null);
+// Returns: false
+</code></pre>
+<h3>util.log(string)<span><a class="mark" href="#util_util_log_string" id="util_util_log_string">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_log_string">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_log_string.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v6.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#x4EE3;&#x66FF;&#x3002;</pre><ul>
+<li><code>string</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>The <code>util.log()</code> method prints the given <code>string</code> to <code>stdout</code> with an included
+timestamp.</p>
+<pre><code class="lang-js">const util = require(&apos;util&apos;);
+
+util.log(&apos;Timestamped message.&apos;);
+</code></pre>
+<h3>util.print([...strings])<span><a class="mark" href="#util_util_print_strings" id="util_util_print_strings">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_print_strings">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_print_strings.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v0.11.3 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528; <a href="console.html#console_console_log_data_args"><code>console.log()</code></a> &#x4EE3;&#x66FF;&#x3002;</pre><p>Deprecated predecessor of <code>console.log</code>.</p>
+<h3>util.puts([...strings])<span><a class="mark" href="#util_util_puts_strings" id="util_util_puts_strings">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_puts_strings">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_puts_strings.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v0.11.3 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528; <a href="console.html#console_console_log_data_args"><code>console.log()</code></a> &#x4EE3;&#x66FF;&#x3002;</pre><p>Deprecated predecessor of <code>console.log</code>.</p>
+<h3>util._extend(target, source)<span><a class="mark" href="#util_util_extend_target_source" id="util_util_extend_target_source">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/util.html#util_util_extend_target_source">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_extend_target_source.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v6.0.0 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528; <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign()</code></a> &#x4EE3;&#x66FF;&#x3002;</pre><p>The <code>util._extend()</code> method was never intended to be used outside of internal
+Node.js modules. The community found and used it anyway.</p>
+<p>It is deprecated and should not be used in new code. JavaScript comes with very
+similar built-in functionality through <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign()</code></a>.</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

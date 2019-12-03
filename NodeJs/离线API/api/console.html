@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>console | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-console">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console active" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="console" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/console.json">JSON格式</a> |-->
+            <!--<a href="/api/en/console.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#console_console">console (&#x63A7;&#x5236;&#x53F0;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#console_asynchronous_vs_synchronous_consoles">&#x5F02;&#x6B65;&#x4E0E;&#x540C;&#x6B65;&#x7684;&#x63A7;&#x5236;&#x53F0;</a></span></li>
+<li><span class="stability_undefined"><a href="#console_class_console">Console &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#console_new_console_stdout_stderr">new Console(stdout[, stderr])</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_assert_value_message_args">console.assert(value[, message][, ...args])</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_dir_obj_options">console.dir(obj[, options])</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_error_data_args">console.error([data][, ...args])</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_info_data_args">console.info([data][, ...args])</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_log_data_args">console.log([data][, ...args])</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_time_label">console.time(label)</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_timeend_label">console.timeEnd(label)</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_trace_message_args">console.trace(message[, ...args])</a></span></li>
+<li><span class="stability_undefined"><a href="#console_console_warn_data_args">console.warn([data][, ...args])</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>console (&#x63A7;&#x5236;&#x53F0;)<span><a class="mark" href="#console_console" id="console_console">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><p><code>console</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8C03;&#x8BD5;&#x63A7;&#x5236;&#x53F0;&#xFF0C;&#x5B83;&#x4E0E; Web &#x6D4F;&#x89C8;&#x5668;&#x63D0;&#x4F9B;&#x7684; JavaScript &#x63A7;&#x5236;&#x53F0;&#x7684;&#x673A;&#x5236;&#x7C7B;&#x4F3C;&#x3002;</p>
+<p>&#x8BE5;&#x6A21;&#x5757;&#x5BFC;&#x51FA;&#x4E24;&#x4E2A;&#x7279;&#x5B9A;&#x7EC4;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x4E2A; <code>Console</code> &#x7C7B;&#xFF0C;&#x5305;&#x542B; <code>console.log()</code> &#x3001; <code>console.error()</code> &#x548C; <code>console.warn()</code> &#x7B49;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5199;&#x5165;&#x5230;&#x4EFB;&#x4F55; Node.js &#x6D41;&#x3002;</li>
+<li>&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684; <code>console</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x7528;&#x4E8E;&#x5199;&#x5165; <code>stdout</code> &#x548C; <code>stderr</code>&#x3002;
+&#x56E0;&#x4E3A;&#x8BE5;&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x65F6;&#x65E0;&#x9700;&#x8C03;&#x7528; <code>require(&apos;console&apos;)</code>&#x3002;</li>
+</ul>
+<p>&#x4F8B;&#x5B50;&#xFF1A;&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x7684; <code>console</code>&#xFF1A;</p>
+<pre><code class="lang-js">console.log(&apos;hello world&apos;);
+// &#x6253;&#x5370;: hello world &#x5230; stdout
+console.log(&apos;hello %s&apos;, &apos;world&apos;);
+// &#x6253;&#x5370;: hello world &#x5230; stdout
+console.error(new Error(&apos;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&apos;));
+// &#x6253;&#x5370;: [Error: &#x9519;&#x8BEF;&#x4FE1;&#x606F;] &#x5230; stderr
+
+const name = &apos;Will Robinson&apos;;
+console.warn(`Danger ${name}! Danger!`);
+// &#x6253;&#x5370;: Danger Will Robinson! Danger! &#x5230; stderr
+</code></pre>
+<p>&#x4F8B;&#x5B50;&#xFF1A;&#x4F7F;&#x7528; <code>Console</code> &#x7C7B;&#xFF1A;</p>
+<pre><code class="lang-js">const out = getStreamSomehow();
+const err = getStreamSomehow();
+const myConsole = new console.Console(out, err);
+
+myConsole.log(&apos;hello world&apos;);
+// &#x6253;&#x5370;: hello world &#x5230; out
+myConsole.log(&apos;hello %s&apos;, &apos;world&apos;);
+// &#x6253;&#x5370;: hello world &#x5230; out
+myConsole.error(new Error(&apos;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&apos;));
+// &#x6253;&#x5370;: [Error: &#x9519;&#x8BEF;&#x4FE1;&#x606F;] &#x5230; err
+
+const name = &apos;Will Robinson&apos;;
+myConsole.warn(`Danger ${name}! Danger!`);
+// &#x6253;&#x5370;: Danger Will Robinson! Danger! &#x5230; err
+</code></pre>
+<p>&#x867D;&#x7136; <code>Console</code> &#x7C7B;&#x7684; API &#x662F;&#x6839;&#x636E;&#x6D4F;&#x89C8;&#x5668;&#x7684; <code>console</code> &#x5BF9;&#x8C61;&#x8BBE;&#x8BA1;&#x7684;&#xFF0C;&#x4F46; Node.js &#x4E2D;&#x7684; <code>Console</code> &#x5E76;&#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x590D;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<h2>&#x5F02;&#x6B65;&#x4E0E;&#x540C;&#x6B65;&#x7684;&#x63A7;&#x5236;&#x53F0;<span><a class="mark" href="#console_asynchronous_vs_synchronous_consoles" id="console_asynchronous_vs_synchronous_consoles">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_asynchronous_vs_synchronous_consoles">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/asynchronous_vs_synchronous_consoles.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p><code>console</code> &#x51FD;&#x6570;&#x901A;&#x5E38;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x9664;&#x975E;&#x76EE;&#x6807;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x3002;
+&#x5E26;&#x6709;&#x9AD8;&#x901F;&#x78C1;&#x76D8;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x901A;&#x5E38;&#x91C7;&#x7528;&#x56DE;&#x5199;&#x7F13;&#x5B58;&#xFF1B;&#x5199;&#x5165;&#x963B;&#x585E;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x7F55;&#x89C1;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F46;&#x5B58;&#x5728;&#x53EF;&#x80FD;&#x6027;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x5F53;&#x8F93;&#x51FA;&#x5230; OS X &#x7684; TTY&#xFF08;&#x7EC8;&#x7AEF;&#xFF09;&#x65F6;&#xFF0C;&#x56E0;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8F83;&#x5C0F;&#x7684; 1kb &#x7684;&#x7F13;&#x5B58;&#x5927;&#x5C0F;&#xFF0C;<code>console</code> &#x51FD;&#x6570;&#x4F1A;&#x906D;&#x5230;&#x963B;&#x585E;&#x3002;
+&#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62; <code>stdout</code> &#x548C; <code>stderr</code> &#x7684;&#x4EA4;&#x53C9;&#x5B58;&#x53D6;&#x3002;</p>
+<h2>Console &#x7C7B;<span><a class="mark" href="#console_class_console" id="console_class_console">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_class_console">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/class_console.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=class-->
+<p><code>Console</code> &#x7C7B;&#x53EF;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x53EF;&#x914D;&#x7F6E;&#x7684;&#x8F93;&#x51FA;&#x6D41;&#x7684;&#x7B80;&#x5355;&#x8BB0;&#x5F55;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>require(&apos;console&apos;).Console</code> &#x6216; <code>console.Console</code> &#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">const Console = require(&apos;console&apos;).Console;
+const Console = console.Console;
+</code></pre>
+<h3>new Console(stdout[, stderr])<span><a class="mark" href="#console_new_console_stdout_stderr" id="console_new_console_stdout_stderr">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_new_console_stdout_stderr">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/new_console_stdout_stderr.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x6216;&#x4E24;&#x4E2A;&#x53EF;&#x5199;&#x6D41;&#x5B9E;&#x4F8B;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>Console</code> &#x5BF9;&#x8C61;&#x3002;
+<code>stdout</code> &#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x5199;&#x6D41;&#xFF0C;&#x7528;&#x4E8E;&#x6253;&#x5370;&#x65E5;&#x5FD7;&#x6216;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x3002;
+<code>stderr</code> &#x7528;&#x4E8E;&#x8F93;&#x51FA;&#x8B66;&#x544A;&#x6216;&#x9519;&#x8BEF;&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F20;&#x5165; <code>stderr</code> &#xFF0C;&#x5219;&#x8B66;&#x544A;&#x6216;&#x9519;&#x8BEF;&#x8F93;&#x51FA;&#x4F1A;&#x88AB;&#x53D1;&#x9001;&#x5230; <code>stdout</code> &#x3002;</p>
+<pre><code class="lang-js">const output = fs.createWriteStream(&apos;./stdout.log&apos;);
+const errorOutput = fs.createWriteStream(&apos;./stderr.log&apos;);
+// &#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x7B80;&#x5355;&#x8BB0;&#x5F55;&#x5668;
+const logger = new Console(output, errorOutput);
+// &#x50CF; console &#x4E00;&#x6837;&#x4F7F;&#x7528;
+const count = 5;
+logger.log(&apos;count: %d&apos;, count);
+// stdout.log &#x4E2D;&#x6253;&#x5370;: count 5
+</code></pre>
+<p>&#x5168;&#x5C40;&#x7684; <code>console</code> &#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684; <code>Console</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x5B83;&#x7684;&#x8F93;&#x51FA;&#x4F1A;&#x53D1;&#x9001;&#x5230; <a href="process.html#process_process_stdout"><code>process.stdout</code></a> &#x548C; <a href="process.html#process_process_stderr"><code>process.stderr</code></a>&#x3002;
+&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">new Console(process.stdout, process.stderr);
+</code></pre>
+<h3>console.assert(value[, message][, ...args])<span><a class="mark" href="#console_console_assert_value_message_args" id="console_console_assert_value_message_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_assert_value_message_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_assert_value_message_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.101</span>
+</div><p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x65AD;&#x8A00;&#x6D4B;&#x8BD5;&#xFF0C;&#x9A8C;&#x8BC1; <code>value</code> &#x662F;&#x5426;&#x4E3A;&#x771F;&#x3002;
+&#x5982;&#x679C;&#x4E0D;&#x4E3A;&#x771F;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86; <code>message</code>&#xFF0C;&#x5219;&#x4F7F;&#x7528; <a href="util.html#util_util_format_format_args"><code>util.format()</code></a> &#x683C;&#x5F0F;&#x5316;&#x5E76;&#x4F5C;&#x4E3A;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code class="lang-js">console.assert(true, &apos;does nothing&apos;);
+// &#x901A;&#x8FC7;
+console.assert(false, &apos;Whoops %s&apos;, &apos;didn\&apos;t work&apos;);
+// AssertionError: Whoops didn&apos;t work
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;Node.js &#x4E2D;&#x7684; <code>console.assert()</code> &#x65B9;&#x6CD5;&#x4E0E;<a href="https://developer.mozilla.org/en-US/docs/Web/API/console/assert">&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;</a>&#x7684; <code>console.assert()</code> &#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x5730;&#x8BF4;&#xFF0C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#xFF0C;&#x7528;&#x975E;&#x771F;&#x7684;&#x65AD;&#x8A00;&#x8C03;&#x7528; <code>console.assert()</code> &#x4F1A;&#x5BFC;&#x81F4; <code>message</code> &#x88AB;&#x6253;&#x5370;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x4F46;&#x4E0D;&#x4F1A;&#x4E2D;&#x65AD;&#x540E;&#x7EED;&#x4EE3;&#x7801;&#x7684;&#x6267;&#x884C;&#x3002;
+&#x800C;&#x5728; Node.js &#x4E2D;&#xFF0C;&#x975E;&#x771F;&#x7684;&#x65AD;&#x8A00;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA; <code>AssertionError</code>&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6269;&#x5C55; Node.js &#x7684; <code>console</code> &#x5E76;&#x91CD;&#x5199; <code>console.assert()</code> &#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x4E0E;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7C7B;&#x4F3C;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x5E76;&#x6269;&#x5C55;&#x4E0E;&#x91CD;&#x5199;&#x4E86; Node.js &#x4E2D; <code>console</code> &#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;</p>
+<pre><code class="lang-js">&apos;use strict&apos;;
+
+// &#x7528;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4E0D;&#x5E26;&#x8865;&#x4E01;&#x7684; assert &#x5B9E;&#x73B0;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; console &#x6269;&#x5C55;&#x3002;
+const myConsole = Object.create(console, {
+  assert: {
+    value: function assert(assertion, message, ...args) {
+      try {
+        console.assert(assertion, message, ...args);
+      } catch (err) {
+        console.error(err.stack);
+      }
+    },
+    configurable: true,
+    enumerable: true,
+    writable: true,
+  },
+});
+
+module.exports = myConsole;
+</code></pre>
+<p>&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x76F4;&#x63A5;&#x66FF;&#x6362;&#x5185;&#x7F6E;&#x7684; console&#xFF1A;</p>
+<pre><code class="lang-js">const console = require(&apos;./myConsole&apos;);
+console.assert(false, &apos;&#x4F1A;&#x6253;&#x5370;&#x8FD9;&#x4E2A;&#x6D88;&#x606F;&#xFF0C;&#x4F46;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&apos;);
+console.log(&apos;&#x8FD9;&#x4E2A;&#x4E5F;&#x4F1A;&#x6253;&#x5370;&apos;);
+</code></pre>
+<h3>console.dir(obj[, options])<span><a class="mark" href="#console_console_dir_obj_options" id="console_console_dir_obj_options">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_dir_obj_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_dir_obj_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.101</span>
+</div><p>&#x5728; <code>obj</code> &#x4E0A;&#x4F7F;&#x7528; <a href="util.html#util_util_inspect_object_options"><code>util.inspect()</code></a> &#x5E76;&#x6253;&#x5370;&#x7ED3;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x5230; <code>stdout</code>&#x3002;
+&#x8BE5;&#x51FD;&#x6570;&#x4F1A;&#x7ED5;&#x8FC7;&#x4EFB;&#x4F55;&#x5B9A;&#x4E49;&#x5728; <code>obj</code> &#x4E0A;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>inspect()</code> &#x51FD;&#x6570;&#x3002;
+&#x53EF;&#x9009;&#x7684; <code>options</code> &#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x7528;&#x4E8E;&#x6539;&#x53D8;&#x88AB;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p>
+<ul>
+<li><p><code>showHidden</code> - &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x8BE5;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x548C; symbol &#x5C5E;&#x6027;&#x4E5F;&#x4F1A;&#x663E;&#x793A;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</p>
+</li>
+<li><p><code>depth</code> - &#x544A;&#x8BC9; <a href="util.html#util_util_inspect_object_options"><code>util.inspect()</code></a> &#x51FD;&#x6570;&#x5F53;&#x683C;&#x5F0F;&#x5316;&#x5BF9;&#x8C61;&#x65F6;&#x8981;&#x9012;&#x5F52;&#x591A;&#x5C11;&#x6B21;&#x3002;
+&#x8FD9;&#x5BF9;&#x4E8E;&#x68C0;&#x67E5;&#x8F83;&#x5927;&#x7684;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x5F88;&#x6709;&#x7528;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>2</code>&#x3002;
+&#x8BBE;&#x4E3A; <code>null</code> &#x53EF;&#x65E0;&#x9650;&#x9012;&#x5F52;&#x3002;</p>
+</li>
+<li><p><code>colors</code> - &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x4F1A;&#x5E26;&#x6709; ANSI &#x989C;&#x8272;&#x4EE3;&#x7801;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;
+&#x989C;&#x8272;&#x662F;&#x53EF;&#x5B9A;&#x5236;&#x7684;&#xFF0C;&#x8BE6;&#x89C1;<a href="util.html#util_customizing_util_inspect_colors">&#x5B9A;&#x5236; <code>util.inspect()</code> &#x989C;&#x8272;</a>&#x3002;</p>
+</li>
+</ul>
+<h3>console.error([data][, ...args])<span><a class="mark" href="#console_console_error_data_args" id="console_console_error_data_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_error_data_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_error_data_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.100</span>
+</div><p>&#x6253;&#x5370;&#x5230; <code>stderr</code>&#xFF0C;&#x5E76;&#x5E26;&#x4E0A;&#x6362;&#x884C;&#x7B26;&#x3002;
+&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x4E3B;&#x8981;&#x4FE1;&#x606F;&#xFF0C;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x7C7B;&#x4F3C;&#x4E8E; <a href="http://man7.org/linux/man-pages/man3/printf.3.html">printf(3)</a> &#x4E2D;&#x7684;&#x4EE3;&#x66FF;&#x503C;&#xFF08;&#x53C2;&#x6570;&#x90FD;&#x4F1A;&#x4F20;&#x7ED9; <a href="util.html#util_util_format_format_args"><code>util.format()</code></a>&#xFF09;&#x3002;</p>
+<pre><code class="lang-js">const code = 5;
+console.error(&apos;error #%d&apos;, code);
+// &#x6253;&#x5370;: error #5 &#x5230; stderr
+console.error(&apos;error&apos;, code);
+// &#x6253;&#x5370;: error 5 &#x5230; stderr
+</code></pre>
+<p>&#x5982;&#x679C;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x683C;&#x5F0F;&#x5316;&#x5143;&#x7D20;&#xFF08;&#x5982; <code>%d</code>&#xFF09;&#xFF0C;&#x5219;&#x5728;&#x6BCF;&#x4E2A;&#x53C2;&#x6570;&#x4E0A;&#x8C03;&#x7528; <a href="util.html#util_util_inspect_object_options"><code>util.inspect()</code></a> &#x5E76;&#x5C06;&#x7ED3;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x503C;&#x62FC;&#x5728;&#x4E00;&#x8D77;&#x3002;
+&#x8BE6;&#x89C1; <a href="util.html#util_util_format_format_args"><code>util.format()</code></a>&#x3002;</p>
+<h3>console.info([data][, ...args])<span><a class="mark" href="#console_console_info_data_args" id="console_console_info_data_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_info_data_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_info_data_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.100</span>
+</div><p><code>console.info()</code> &#x51FD;&#x6570;&#x662F; <a href="#console_console_log_data_args"><code>console.log()</code></a> &#x7684;&#x4E00;&#x4E2A;&#x522B;&#x540D;&#x3002;</p>
+<h3>console.log([data][, ...args])<span><a class="mark" href="#console_console_log_data_args" id="console_console_log_data_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_log_data_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_log_data_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.100</span>
+</div><p>&#x6253;&#x5370;&#x5230; <code>stdout</code>&#xFF0C;&#x5E76;&#x5E26;&#x4E0A;&#x6362;&#x884C;&#x7B26;&#x3002;
+&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x4E3B;&#x8981;&#x4FE1;&#x606F;&#xFF0C;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x7C7B;&#x4F3C;&#x4E8E; <a href="http://man7.org/linux/man-pages/man3/printf.3.html">printf(3)</a> &#x4E2D;&#x7684;&#x4EE3;&#x66FF;&#x503C;&#xFF08;&#x53C2;&#x6570;&#x90FD;&#x4F1A;&#x4F20;&#x7ED9; <a href="util.html#util_util_format_format_args"><code>util.format()</code></a>&#xFF09;&#x3002;</p>
+<pre><code class="lang-js">const count = 5;
+console.log(&apos;count: %d&apos;, count);
+// &#x6253;&#x5370;: count: 5 &#x5230; stdout
+console.log(&apos;count:&apos;, count);
+// &#x6253;&#x5370;: count: 5 &#x5230; stdout
+</code></pre>
+<p>&#x5982;&#x679C;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x683C;&#x5F0F;&#x5316;&#x5143;&#x7D20;&#xFF08;&#x5982; <code>%d</code>&#xFF09;&#xFF0C;&#x5219;&#x5728;&#x6BCF;&#x4E2A;&#x53C2;&#x6570;&#x4E0A;&#x8C03;&#x7528; <a href="util.html#util_util_inspect_object_options"><code>util.inspect()</code></a> &#x5E76;&#x5C06;&#x7ED3;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x503C;&#x62FC;&#x5728;&#x4E00;&#x8D77;&#x3002;
+&#x8BE6;&#x89C1; <a href="util.html#util_util_format_format_args"><code>util.format()</code></a>&#x3002;</p>
+<h3>console.time(label)<span><a class="mark" href="#console_console_time_label" id="console_console_time_label">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_time_label">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_time_label.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.104</span>
+</div><p>&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x7528;&#x4EE5;&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x3002;
+&#x5B9A;&#x65F6;&#x5668;&#x7531;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684; <code>label</code> &#x6807;&#x8BC6;&#x3002;
+&#x5F53;&#x8C03;&#x7528; <a href="#console_console_timeend_label"><code>console.timeEnd()</code></a> &#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684; <code>label</code> &#x6765;&#x505C;&#x6B62;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x5E76;&#x4EE5;&#x6BEB;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x5C06;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x8F93;&#x51FA;&#x5230; <code>stdout</code>&#x3002;
+&#x5B9A;&#x65F6;&#x5668;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x7CBE;&#x786E;&#x5230;&#x4E9A;&#x6BEB;&#x79D2;&#x3002;</p>
+<h3>console.timeEnd(label)<span><a class="mark" href="#console_console_timeend_label" id="console_console_timeend_label">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_timeend_label">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_timeend_label.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.104</span>
+</div><p>&#x505C;&#x6B62;&#x4E4B;&#x524D;&#x901A;&#x8FC7;&#x8C03;&#x7528; <a href="#console_console_time_label"><code>console.time()</code></a> &#x542F;&#x52A8;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x5E76;&#x6253;&#x5370;&#x7ED3;&#x679C;&#x5230; <code>stdout</code>&#xFF1A;</p>
+<pre><code class="lang-js">console.time(&apos;100-elements&apos;);
+for (let i = 0; i &lt; 100; i++) {
+  ;
+}
+console.timeEnd(&apos;100-elements&apos;);
+// &#x6253;&#x5370; 100-elements: 225.438ms
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4ECE; Node.js v6.0.0 &#x5F00;&#x59CB;&#xFF0C;<code>console.timeEnd()</code> &#x5220;&#x9664;&#x4E86;&#x8BA1;&#x65F6;&#x5668;&#x4EE5;&#x907F;&#x514D;&#x6CC4;&#x6F0F;&#x3002;
+&#x5728;&#x65E7;&#x7248;&#x672C;&#x4E0A;&#xFF0C;&#x8BA1;&#x65F6;&#x5668;&#x4F9D;&#x7136;&#x4FDD;&#x7559;&#x3002;
+&#x5B83;&#x5141;&#x8BB8; <code>console.timeEnd()</code> &#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x540C;&#x4E00;&#x6807;&#x7B7E;&#x3002;
+&#x6B64;&#x529F;&#x80FD;&#x662F;&#x975E;&#x8BA1;&#x5212;&#x4E2D;&#x7684;&#xFF0C;&#x4E0D;&#x518D;&#x88AB;&#x652F;&#x6301;&#x3002;</p>
+<h3>console.trace(message[, ...args])<span><a class="mark" href="#console_console_trace_message_args" id="console_console_trace_message_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_trace_message_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_trace_message_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.104</span>
+</div><p>&#x6253;&#x5370;&#x5B57;&#x7B26;&#x4E32; <code>&apos;Trace :&apos;</code> &#x5230; <code>stderr</code> &#xFF0C;&#x5E76;&#x901A;&#x8FC7; <a href="util.html#util_util_format_format_args"><code>util.format()</code></a> &#x683C;&#x5F0F;&#x5316;&#x6D88;&#x606F;&#x4E0E;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre><code class="lang-js">console.trace(&apos;Show me&apos;);
+// &#x6253;&#x5370;: (&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x4F1A;&#x6839;&#x636E;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x8DDF;&#x8E2A;&#x7684;&#x4F4D;&#x7F6E;&#x800C;&#x53D8;&#x5316;)
+//  Trace: Show me
+//    at repl:2:9
+//    at REPLServer.defaultEval (repl.js:248:27)
+//    at bound (domain.js:287:14)
+//    at REPLServer.runBound [as eval] (domain.js:300:12)
+//    at REPLServer.&lt;anonymous&gt; (repl.js:412:12)
+//    at emitOne (events.js:82:20)
+//    at REPLServer.emit (events.js:169:7)
+//    at REPLServer.Interface._onLine (readline.js:210:10)
+//    at REPLServer.Interface._line (readline.js:549:8)
+//    at REPLServer.Interface._ttyWrite (readline.js:826:14)
+</code></pre>
+<h3>console.warn([data][, ...args])<span><a class="mark" href="#console_console_warn_data_args" id="console_console_warn_data_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/console.html#console_console_warn_data_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_warn_data_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.100</span>
+</div><p><code>console.warn()</code> &#x51FD;&#x6570;&#x662F; <a href="#console_console_error_data_args"><code>console.error()</code></a> &#x7684;&#x4E00;&#x4E2A;&#x522B;&#x540D;&#x3002;</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

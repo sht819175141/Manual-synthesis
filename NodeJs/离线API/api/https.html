@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>https | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-https">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https active" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="https" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/https.json">JSON格式</a> |-->
+            <!--<a href="/api/en/https.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#https_https">https</a></span><ul>
+<li><span class="stability_undefined"><a href="#https_class_https_agent">https.Agent &#x7C7B;</a></span></li>
+<li><span class="stability_undefined"><a href="#https_class_https_server">https.Server &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#https_server_settimeout_msecs_callback">server.setTimeout(msecs, callback)</a></span></li>
+<li><span class="stability_undefined"><a href="#https_server_timeout">server.timeout</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#https_https_createserver_options_requestlistener">https.createServer(options[, requestListener])</a></span><ul>
+<li><span class="stability_undefined"><a href="#https_server_close_callback">server.close([callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#https_server_listen_handle_callback">server.listen(handle[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#https_server_listen_path_callback">server.listen(path[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#https_server_listen_port_host_backlog_callback">server.listen(port[, host][, backlog][, callback])</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#https_https_get_options_callback">https.get(options, callback)</a></span></li>
+<li><span class="stability_undefined"><a href="#https_https_globalagent">https.globalAgent</a></span></li>
+<li><span class="stability_undefined"><a href="#https_https_request_options_callback">https.request(options, callback)</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>https<span><a class="mark" href="#https_https" id="https_https">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_https">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/https.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><p>HTTPS &#x662F; HTTP &#x57FA;&#x4E8E; TLS/SSL &#x7684;&#x7248;&#x672C;&#x3002;&#x5728; Node.js &#x4E2D;&#xFF0C;&#x5B83;&#x88AB;&#x5B9E;&#x73B0;&#x4E3A;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<h2>https.Agent &#x7C7B;<span><a class="mark" href="#https_class_https_agent" id="https_class_https_agent">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_class_https_agent">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/class_https_agent.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.4.5</span>
+</div><p>HTTPS &#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E8E; <a href="http.html#http_class_http_agent"><code>http.Agent</code></a> &#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x3002;&#x67E5;&#x770B; <a href="#https_https_request_options_callback"><code>https.request()</code></a> &#x83B7;&#x53D6;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;</p>
+<h2>https.Server &#x7C7B;<span><a class="mark" href="#https_class_https_server" id="https_class_https_server">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_class_https_server">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/class_https_server.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><p>&#x8FD9;&#x4E2A;&#x7C7B;&#x662F; <code>tls.Server</code> &#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x8DDF; <a href="http.html#http_class_http_server"><code>http.Server</code></a> &#x4E00;&#x6837;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;&#x67E5;&#x770B;<a href="http.html#http_class_http_server"><code>http.Server</code></a> &#x83B7;&#x53D6;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;</p>
+<h3>server.setTimeout(msecs, callback)<span><a class="mark" href="#https_server_settimeout_msecs_callback" id="https_server_settimeout_msecs_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_server_settimeout_msecs_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/server_settimeout_msecs_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.2</span>
+</div><p>&#x67E5;&#x770B; <a href="http.html#http_server_settimeout_msecs_callback"><code>http.Server#setTimeout()</code></a>&#x3002;</p>
+<h3>server.timeout<span><a class="mark" href="#https_server_timeout" id="https_server_timeout">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_server_timeout">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/server_timeout.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.2</span>
+</div><p>&#x67E5;&#x770B; <a href="http.html#http_server_timeout"><code>http.Server#timeout</code></a>&#x3002;</p>
+<h2>https.createServer(options[, requestListener])<span><a class="mark" href="#https_https_createserver_options_requestlistener" id="https_https_createserver_options_requestlistener">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_https_createserver_options_requestlistener">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/https_createserver_options_requestlistener.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; HTTPS &#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x5668;&#x5BF9;&#x8C61;&#x3002;
+&#x53C2;&#x6570; <code>options</code> &#x7C7B;&#x4F3C;&#x4E8E; <a href="tls.html#tls_tls_createserver_options_secureconnectionlistener"><code>tls.createServer()</code></a>&#x3002;
+&#x53C2;&#x6570; <code>requestListener</code> &#x662F;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x88AB;&#x52A0;&#x5230; <code>&apos;request&apos;</code> &#x4E8B;&#x4EF6;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-js">// curl -k https://localhost:8000/
+const https = require(&apos;https&apos;);
+const fs = require(&apos;fs&apos;);
+
+const options = {
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;)
+};
+
+https.createServer(options, (req, res) =&gt; {
+  res.writeHead(200);
+  res.end(&apos;hello world\n&apos;);
+}).listen(8000);
+</code></pre>
+<p>&#x6216;&#x8005;</p>
+<pre><code class="lang-js">const https = require(&apos;https&apos;);
+const fs = require(&apos;fs&apos;);
+
+const options = {
+  pfx: fs.readFileSync(&apos;server.pfx&apos;)
+};
+
+https.createServer(options, (req, res) =&gt; {
+  res.writeHead(200);
+  res.end(&apos;hello world\n&apos;);
+}).listen(8000);
+</code></pre>
+<h3>server.close([callback])<span><a class="mark" href="#https_server_close_callback" id="https_server_close_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_server_close_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/server_close_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><p>&#x67E5;&#x770B; <a href="http.html#http_server_close_callback"><code>http.close()</code></a> &#x83B7;&#x53D6;&#x7EC6;&#x8282;&#x3002;</p>
+<h3>server.listen(handle[, callback])<span><a class="mark" href="#https_server_listen_handle_callback" id="https_server_listen_handle_callback">#</a></span></h3>
+<h3>server.listen(path[, callback])<span><a class="mark" href="#https_server_listen_path_callback" id="https_server_listen_path_callback">#</a></span></h3>
+<h3>server.listen(port[, host][, backlog][, callback])<span><a class="mark" href="#https_server_listen_port_host_backlog_callback" id="https_server_listen_port_host_backlog_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_server_listen_port_host_backlog_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/server_listen_port_host_backlog_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x67E5;&#x770B; <a href="http.html#http_server_listen_port_hostname_backlog_callback"><code>http.listen()</code></a> &#x83B7;&#x53D6;&#x7EC6;&#x8282;&#x3002;</p>
+<h2>https.get(options, callback)<span><a class="mark" href="#https_https_get_options_callback" id="https_https_get_options_callback">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_https_get_options_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/https_get_options_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span>
+</div><p>&#x7C7B;&#x4F3C; <a href="http.html#http_http_get_options_callback"><code>http.get()</code></a>&#xFF0C;&#x4F46;&#x662F;&#x7528;&#x4E8E; HTTPS&#x3002;</p>
+<p>&#x53C2;&#x6570; <code>options</code> &#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6216;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5982;&#x679C;&#x53C2;&#x6570; <code>options</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;, &#x5B83;&#x81EA;&#x52A8;&#x88AB; <a href="url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost"><code>url.parse()</code></a> &#x6240;&#x89E3;&#x6790;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-js">const https = require(&apos;https&apos;);
+
+https.get(&apos;https://encrypted.google.com/&apos;, (res) =&gt; {
+  console.log(&apos;&#x72B6;&#x6001;&#x7801;&#xFF1A;&apos;, res.statusCode);
+  console.log(&apos;&#x8BF7;&#x6C42;&#x5934;&#xFF1A;&apos;, res.headers);
+
+  res.on(&apos;data&apos;, (d) =&gt; {
+    process.stdout.write(d);
+  });
+
+}).on(&apos;error&apos;, (e) =&gt; {
+  console.error(e);
+});
+</code></pre>
+<h2>https.globalAgent<span><a class="mark" href="#https_https_globalagent" id="https_https_globalagent">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_https_globalagent">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/https_globalagent.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div><p><a href="#https_class_https_agent"><code>https.Agent</code></a> &#x7684;&#x5168;&#x5C40;&#x5B9E;&#x4F8B;&#xFF0C;&#x7528;&#x4E8E;&#x6240;&#x6709; HTTPS &#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x3002;</p>
+<h2>https.request(options, callback)<span><a class="mark" href="#https_https_request_options_callback" id="https_https_request_options_callback">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/https.html#https_https_request_options_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/https/https_request_options_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span>
+</div><p>&#x5411;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x7684;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x53C2;&#x6570; <code>options</code> &#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6216;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5982;&#x679C;&#x53C2;&#x6570; <code>options</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;, &#x5B83;&#x81EA;&#x52A8;&#x88AB; <a href="url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost"><code>url.parse()</code></a> &#x6240;&#x89E3;&#x6790;&#x3002;</p>
+<p>&#x6240;&#x6709;&#x6765;&#x81EA; <a href="http.html#http_http_request_options_callback"><code>http.request()</code></a> &#x7684;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x53EF;&#x7528;&#x7684;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-js">const https = require(&apos;https&apos;);
+
+var options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;
+};
+
+var req = https.request(options, (res) =&gt; {
+  console.log(&apos;&#x72B6;&#x6001;&#x7801;&#xFF1A;&apos;, res.statusCode);
+  console.log(&apos;&#x8BF7;&#x6C42;&#x5934;&#xFF1A;&apos;, res.headers);
+
+  res.on(&apos;data&apos;, (d) =&gt; {
+    process.stdout.write(d);
+  });
+});
+
+req.on(&apos;error&apos;, (e) =&gt; {
+  console.error(e);
+});
+req.end();
+</code></pre>
+<p><code>options</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x6709;&#x4EE5;&#x4E0B;&#x9009;&#x62E9;&#xFF1A;</p>
+<ul>
+<li><code>host</code>: &#x4E00;&#x4E2A;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7684;&#x57DF;&#x540D;&#x6216;&#x8005;IP&#x5730;&#x5740;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F; <code>loaclhost</code>&#x3002;</li>
+<li><code>hostname</code>: <code>host</code> &#x7684;&#x522B;&#x540D;&#x3002;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x5730;&#x652F;&#x6301; <code>url.parse()</code>&#xFF0C;<code>hostname</code> &#x6BD4; <code>host</code> &#x66F4;&#x88AB;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x3002;</li>
+<li><code>family</code>: &#x7528;&#x4E8E;&#x89E3;&#x6790; <code>host</code> and <code>hostname</code> &#x7684; IP &#x5730;&#x5740;&#x65CF;&#x3002;
+<code>4</code> &#x6216;&#x8005; <code>6</code> &#x90FD;&#x662F;&#x6709;&#x6548;&#x6570;&#x503C;&#x3002;&#x5F53;&#x4E0D;&#x88AB;&#x6307;&#x5B9A;&#x65F6;&#xFF0C;IPv4 &#x548C; IPv6 &#x90FD;&#x5C06;&#x88AB;&#x4F7F;&#x7528;&#x3002;</li>
+<li><code>port</code>: &#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x662F; 443&#x3002;</li>
+<li><code>localAddress</code>: &#x7528;&#x6765;&#x7ED1;&#x5B9A;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x7684;&#x672C;&#x5730;&#x63A5;&#x53E3;&#x3002;</li>
+<li><code>socketPath</code>: Unix &#x57DF; Socket&#xFF08;&#x4F7F;&#x7528; host:port &#x6216;&#x8005; socketPath&#xFF09;&#x3002;</li>
+<li><code>method</code>: &#x4E00;&#x4E2A;&#x7528;&#x6765;&#x6307;&#x5B9A; HTTP &#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x9ED8;&#x8BA4;&#x662F; <code>&apos;GET&apos;</code>&#x3002;</li>
+<li><code>path</code>: &#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>&apos;/&apos;</code>&#x3002;&#x5982;&#x679C;&#x6709;&#x7684;&#x8BDD;&#xFF0C;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x8BF7;&#x6C42;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x4F8B;&#x5982; <code>&apos;/index.html?page=12&apos;</code>&#x3002;&#x5F53;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x5305;&#x542B;&#x975E;&#x6CD5;&#x5B57;&#x7B26;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;&#x76EE;&#x524D;&#x53EA;&#x6709;&#x7A7A;&#x683C;&#x5B57;&#x7B26;&#x88AB;&#x62D2;&#x7EDD;&#xFF0C;&#x4F46;&#x662F;&#x672A;&#x6765;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x6539;&#x53D8;&#x3002;</li>
+<li><code>headers</code>: &#x4E00;&#x4E2A;&#x5305;&#x542B;&#x8BF7;&#x6C42;&#x5934;&#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+<li><code>auth</code>: &#x57FA;&#x672C;&#x8BA4;&#x8BC1;&#xFF0C;&#x4F8B;&#x5982; <code>&apos;user:password&apos;</code> &#x6765;&#x8BA1;&#x7B97;&#x8BA4;&#x8BC1;&#x5934;&#x3002;</li>
+<li><code>agent</code>: &#x63A7;&#x5236; <a href="#https_class_https_agent"><code>Agent</code></a> &#x7684;&#x884C;&#x4E3A;&#x3002;&#x5F53;&#x7528;&#x4EE3;&#x7406;&#x65F6;&#xFF0C;&#x8BF7;&#x6C42;&#x9ED8;&#x8BA4;&#x662F;<code>Connection: keep-alive</code>&#x3002;&#x53EF;&#x80FD;&#x7684;&#x503C;&#x6709;:<ul>
+<li><code>undefined</code> (&#x9ED8;&#x8BA4;): &#x8FD9;&#x4E2A;&#x4E3B;&#x673A;&#x548C;&#x7AEF;&#x53E3;&#x4F7F;&#x7528; <a href="#https_https_globalagent"><code>globalAgent</code></a>&#x3002;</li>
+<li><code>Agent</code> &#x5BF9;&#x8C61;: &#x663E;&#x5F0F;&#x5730;&#x5728; <code>Agent</code> &#x4E2D;&#x7528;&#x4F20;&#x8FDB;&#x6765;&#x7684;&#x53C2;&#x6570;&#x3002;</li>
+<li><code>false</code>: &#x4E0D;&#x5BF9;&#x8FDE;&#x63A5;&#x6C60;&#x4F7F;&#x7528; Agent, &#x9ED8;&#x8BA4;&#x662F; <code>Connection: close</code>&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x662F;&#x6765;&#x81EA; <a href="tls.html#tls_tls_connect_options_callback"><code>tls.connect()</code></a> &#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;:</p>
+<ul>
+<li><code>pfx</code>: &#x8BC1;&#x4E66;, &#x7528;&#x4E8E; SSL &#x7684;&#x79C1;&#x94A5;&#x548C; CA &#x8BC1;&#x4E66;&#x3002;&#x9ED8;&#x8BA4;&#x662F; <code>null</code>&#x3002;</li>
+<li><code>key</code>: &#x7528;&#x4E8E; SSL &#x7684;&#x79C1;&#x94A5;&#x3002;&#x9ED8;&#x8BA4;&#x662F; <code>null</code>&#x3002;</li>
+<li><code>passphrase</code>: &#x7528;&#x4E8E;&#x79C1;&#x94A5;&#x6216;&#x662F; pfx &#x7684;&#x5BC6;&#x7801;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x9ED8;&#x8BA4;&#x662F; <code>null</code>&#x3002;</li>
+<li><code>cert</code>: &#x516C;&#x5171; x509 &#x8BC1;&#x4E66;&#x3002;&#x9ED8;&#x8BA4;&#x662F; <code>null</code>&#x3002;</li>
+<li><code>ca</code>: &#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3001;<a href="buffer.html#buffer_buffer"><code>Buffer</code></a>&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x3001;&#x6216; PEM &#x683C;&#x5F0F;&#x7684;&#x53EF;&#x4FE1;&#x8D56;&#x8BC1;&#x4E66;&#x7684; <a href="buffer.html#buffer_buffer"><code>Buffer</code></a>&#x3002; 
+&#x5982;&#x679C;&#x8FD9;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x90A3;&#x4E48;&#x8457;&#x540D;&#x7684;&#x6839;&#x8BC1;&#x4E66;&#x5C06;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4; VeriSign &#x6570;&#x5B57;&#x8BC1;&#x4E66;&#x3002;&#x8FD9;&#x4E9B;&#x88AB;&#x7528;&#x6765;&#x6388;&#x6743;&#x8FDE;&#x63A5;&#x3002;</li>
+<li><code>ciphers</code>: &#x4E00;&#x4E2A;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x8981;&#x4F7F;&#x7528;&#x6216;&#x6392;&#x9664;&#x7684;&#x5BC6;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x67E5;&#x770B; <a href="https://www.openssl.org/docs/man1.0.2/apps/ciphers.html#CIPHER-LIST-FORMAT">https://www.openssl.org/docs/man1.0.2/apps/ciphers.html#CIPHER-LIST-FORMAT</a> &#x83B7;&#x53D6;&#x683C;&#x5F0F;&#x7684;&#x7EC6;&#x8282;&#x3002;</li>
+<li><code>rejectUnauthorized</code>: &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>, &#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x6839;&#x636E;CA&#x63D0;&#x4F9B;&#x7684;&#x5217;&#x8868;&#x6765;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#x3002; 
+&#x5982;&#x679C;&#x9A8C;&#x8BC1;&#x5931;&#x8D25;&#x7684;&#x8BDD;&#xFF0C;&#x4E00;&#x4E2A; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#x5C06;&#x88AB;&#x89E6;&#x53D1;&#x3002;
+&#x9A8C;&#x8BC1;&#x53D1;&#x751F;&#x5728;&#x8FDE;&#x63A5;&#x5C42;&#x6B21;, <em>&#x65E9;&#x4E8E;</em> HTTP&#x8BF7;&#x6C42;&#x7684;&#x53D1;&#x9001;&#x3002;&#x9ED8;&#x8BA4;&#x662F; <code>true</code>&#x3002;</li>
+<li><code>secureProtocol</code>: &#x4F7F;&#x7528;&#x7684; SSL &#x65B9;&#x6CD5;&#xFF0C;
+&#x4F8B;&#x5982; <code>SSLv3_method</code> &#x6765;&#x5F3A;&#x5236;&#x4F7F;&#x7528; SSL &#x7248;&#x672C; 3&#x3002;
+&#x53EF;&#x80FD;&#x7684;&#x503C;&#x53D6;&#x51B3;&#x4E8E;&#x5B89;&#x88C5;&#x7684; OpenSSL &#x7684;&#x7248;&#x672C;&#xFF0C;&#x5B83;&#x88AB;&#x5B9A;&#x4E49;&#x5728; <a href="https://www.openssl.org/docs/man1.0.2/ssl/ssl.html#DEALING-WITH-PROTOCOL-METHODS"><code>SSL_METHODS</code></a> &#x5E38;&#x6570;&#x4E2D;&#x3002;</li>
+<li><code>servername</code>: SNI (Server Name Indication) TLS &#x6269;&#x5C55;&#x7684;&#x670D;&#x52A1;&#x5668;&#x540D;&#x3002;</li>
+</ul>
+<p>&#x4E3A;&#x4E86;&#x786E;&#x5B9A;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;, &#x7528;&#x4E00;&#x4E2A;&#x5B9A;&#x5236;&#x7684; <a href="#https_class_https_agent"><code>Agent</code></a>&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-js">var options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;,
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;)
+};
+options.agent = new https.Agent(options);
+
+var req = https.request(options, (res) =&gt; {
+  ...
+});
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x5BF9;&#x8FDE;&#x63A5;&#x6C60;&#x4F7F;&#x7528; <code>Agent</code>&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-js">var options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;,
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;),
+  agent: false
+};
+
+var req = https.request(options, (res) =&gt; {
+  ...
+});
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>tty | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-tty">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty active" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="tty" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/tty.json">JSON格式</a> |-->
+            <!--<a href="/api/en/tty.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#tty_tty">tty (&#x7EC8;&#x7AEF;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#tty_class_tty_readstream">tty.ReadStream &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#tty_readstream_israw">readStream.isRaw</a></span></li>
+<li><span class="stability_undefined"><a href="#tty_readstream_setrawmode_mode">readStream.setRawMode(mode)</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#tty_class_tty_writestream">tty.WriteStream &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#tty_event_resize">&apos;resize&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#tty_writestream_columns">writeStream.columns</a></span></li>
+<li><span class="stability_undefined"><a href="#tty_writestream_rows">writeStream.rows</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#tty_tty_isatty_fd">tty.isatty(fd)</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>tty (&#x7EC8;&#x7AEF;)<span><a class="mark" href="#tty_tty" id="tty_tty">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_tty">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/tty.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><p><code>tty</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86; <code>tty.ReadStream</code> &#x7C7B;&#x548C; <code>tty.WriteStream</code> &#x7C7B;&#x3002;
+&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x65E0;&#x9700;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6B64;&#x6A21;&#x5757;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">const tty = require(&apos;tty&apos;);
+</code></pre>
+<p>&#x5F53; Node.js &#x68C0;&#x6D4B;&#x5230;&#x5B83;&#x6B63;&#x88AB;&#x8FD0;&#x884C;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x672C;&#x7EC8;&#x7AEF;&#xFF08;TTY&#xFF09;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x65F6;&#xFF0C;&#x5219; <code>process.stdin</code> &#x9ED8;&#x8BA4;&#x4F1A;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x4E00;&#x4E2A; <code>tty.ReadStream</code> &#x5B9E;&#x4F8B;&#xFF0C;<code>process.stdout</code> &#x548C; <code>process.stderr</code> &#x9ED8;&#x8BA4;&#x4F1A;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x4E00;&#x4E2A; <code>tty.WriteStream</code> &#x5B9E;&#x4F8B;&#x3002;
+&#x5224;&#x65AD; Node.js &#x662F;&#x5426;&#x6B63;&#x88AB;&#x8FD0;&#x884C;&#x5728;&#x4E00;&#x4E2A; TTY &#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7684;&#x9996;&#x9009;&#x65B9;&#x6CD5;&#x662F;&#x53BB;&#x68C0;&#x67E5; <code>process.stdout.isTTY</code> &#x5C5E;&#x6027;&#x7684;&#x503C;&#x662F;&#x5426;&#x4E3A; <code>true</code>&#xFF1A;</p>
+<pre><code class="lang-sh">$ node -p -e &quot;Boolean(process.stdout.isTTY)&quot;
+true
+$ node -p -e &quot;Boolean(process.stdout.isTTY)&quot; | cat
+false
+</code></pre>
+<p>&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x7406;&#x7531;&#x521B;&#x5EFA; <code>tty.ReadStream</code> &#x7C7B;&#x548C; <code>tty.WriteStream</code> &#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<h2>tty.ReadStream &#x7C7B;<span><a class="mark" href="#tty_class_tty_readstream" id="tty_class_tty_readstream">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_class_tty_readstream">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/class_tty_readstream.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.8</span>
+</div><p><code>tty.ReadStream</code> &#x7C7B;&#x662F; <code>net.Socket</code> &#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x4E2A; TTY &#x7684;&#x53EF;&#x8BFB;&#x90E8;&#x5206;&#x3002;
+&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>process.stdin</code> &#x662F;&#x4E00;&#x4E2A; Node.js &#x8FDB;&#x7A0B;&#x4E2D;&#x552F;&#x4E00;&#x7684; <code>tty.ReadStream</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x6CA1;&#x6709;&#x7406;&#x7531;&#x521B;&#x5EFA;&#x66F4;&#x591A;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<h3>readStream.isRaw<span><a class="mark" href="#tty_readstream_israw" id="tty_readstream_israw">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_readstream_israw">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/readstream_israw.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><p>&#x4E00;&#x4E2A; <code>boolean</code> &#x503C;&#xFF0C;&#x5982;&#x679C; TTY &#x5F53;&#x524D;&#x88AB;&#x914D;&#x7F6E;&#x6210;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x8BBE;&#x5907;&#x6765;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>true</code>&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</p>
+<h3>readStream.setRawMode(mode)<span><a class="mark" href="#tty_readstream_setrawmode_mode" id="tty_readstream_setrawmode_mode">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_readstream_setrawmode_mode">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/readstream_setrawmode_mode.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><p>&#x5141;&#x8BB8;&#x914D;&#x7F6E; <code>tty.ReadStream</code> &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x8BBE;&#x5907;&#x6765;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x5F53;&#x5728;&#x539F;&#x59CB;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x8F93;&#x5165;&#x603B;&#x662F;&#x6309;&#x5B57;&#x7B26;&#x751F;&#x6548;&#xFF0C;&#x4F46;&#x4E0D;&#x5305;&#x62EC;&#x4FEE;&#x9970;&#x7B26;&#x3002;
+&#x6B64;&#x5916;&#xFF0C;&#x7EC8;&#x7AEF;&#x5BF9;&#x5B57;&#x7B26;&#x7684;&#x6240;&#x6709;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x4F1A;&#x88AB;&#x7981;&#x7528;&#xFF0C;&#x5305;&#x62EC;&#x5E94;&#x7B54;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x6A21;&#x5F0F;&#x4E2D; <code>CTRL</code>+<code>C</code> &#x4E0D;&#x518D;&#x4EA7;&#x751F;&#x4E00;&#x4E2A; <code>SIGINT</code>&#x3002;</p>
+<ul>
+<li><code>mode</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x914D;&#x7F6E; <code>tty.ReadStream</code> &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x8BBE;&#x5907;&#x6765;&#x64CD;&#x4F5C;&#x3002;
+&#x5982;&#x679C;&#x4E3A; <code>false</code>&#xFF0C;&#x5219;&#x914D;&#x7F6E; <code>tty.ReadStream</code> &#x4EE5;&#x9ED8;&#x8BA4;&#x6A21;&#x5F0F;&#x6765;&#x64CD;&#x4F5C;&#x3002;
+<code>readStream.isRaw</code> &#x5C5E;&#x6027;&#x4F1A;&#x88AB;&#x8BBE;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x3002;</li>
+</ul>
+<h2>tty.WriteStream &#x7C7B;<span><a class="mark" href="#tty_class_tty_writestream" id="tty_class_tty_writestream">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_class_tty_writestream">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/class_tty_writestream.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.8</span>
+</div><p><code>tty.WriteStream</code> &#x7C7B;&#x662F; <code>net.Socket</code> &#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x4E2A; TTY &#x7684;&#x53EF;&#x5199;&#x90E8;&#x5206;&#x3002;
+&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>process.stdout</code> &#x548C; <code>process.stderr</code> &#x662F;&#x4E00;&#x4E2A; Node.js &#x8FDB;&#x7A0B;&#x4E2D;&#x552F;&#x4E00;&#x7684; <code>tty.WriteStream</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x6CA1;&#x6709;&#x7406;&#x7531;&#x521B;&#x5EFA;&#x66F4;&#x591A;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<h3>&apos;resize&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#tty_event_resize" id="tty_event_resize">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_event_resize">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/event_resize.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><p>&#x5F53; <code>writeStream.columns</code> &#x5C5E;&#x6027;&#x6216; <code>writeStream.rows</code> &#x5C5E;&#x6027;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#x89E6;&#x53D1; <code>&apos;resize&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x76D1;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x3002;</p>
+<pre><code class="lang-js">process.stdout.on(&apos;resize&apos;, () =&gt; {
+  console.log(&apos;&#x5C4F;&#x5E55;&#x5927;&#x5C0F;&#x5DF2;&#x6539;&#x53D8;&#xFF01;&apos;);
+  console.log(`${process.stdout.columns}x${process.stdout.rows}`);
+});
+</code></pre>
+<h3>writeStream.columns<span><a class="mark" href="#tty_writestream_columns" id="tty_writestream_columns">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_writestream_columns">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/writestream_columns.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><p>&#x4E00;&#x4E2A; <code>number</code>&#xFF0C;&#x6307;&#x660E; TTY &#x5F53;&#x524D;&#x5177;&#x6709;&#x7684;&#x5217;&#x6570;&#x3002;
+&#x5F53; <code>&apos;resize&apos;</code> &#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x4F1A;&#x88AB;&#x66F4;&#x65B0;&#x3002;</p>
+<h3>writeStream.rows<span><a class="mark" href="#tty_writestream_rows" id="tty_writestream_rows">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_writestream_rows">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/writestream_rows.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><p>&#x4E00;&#x4E2A; <code>number</code>&#xFF0C;&#x6307;&#x660E; TTY &#x5F53;&#x524D;&#x5177;&#x6709;&#x7684;&#x884C;&#x6570;&#x3002;
+&#x5F53; <code>&apos;resize&apos;</code> &#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x4F1A;&#x88AB;&#x66F4;&#x65B0;&#x3002;</p>
+<h2>tty.isatty(fd)<span><a class="mark" href="#tty_tty_isatty_fd" id="tty_tty_isatty_fd">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/tty.html#tty_tty_isatty_fd">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/tty/tty_isatty_fd.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.8</span>
+</div><ul>
+<li><code>fd</code> <span class="type">&lt;number&gt;</span> &#x4E00;&#x4E2A;&#x6570;&#x503C;&#x578B;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684; <code>fd</code> &#x4E0E;&#x4E00;&#x4E2A; TTY &#x76F8;&#x5173;&#x8054;&#xFF0C;&#x5219; <code>tty.isatty()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

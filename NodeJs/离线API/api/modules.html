@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>module | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-modules">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules active" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="modules" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/modules.json">JSON格式</a> |-->
+            <!--<a href="/api/en/modules.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_3"><a href="#modules_modules">module (&#x6A21;&#x5757;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#modules_accessing_the_main_module">&#x8BBF;&#x95EE;&#x4E3B;&#x6A21;&#x5757;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_addenda_package_manager_tips">&#x9644;&#x5F55;&#xFF1A;&#x5305;&#x7BA1;&#x7406;&#x5668;&#x7684;&#x6280;&#x5DE7;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_all_together">&#x603B;&#x7ED3;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_caching">&#x7F13;&#x5B58;</a></span><ul>
+<li><span class="stability_undefined"><a href="#modules_module_caching_caveats">&#x6A21;&#x5757;&#x7F13;&#x5B58;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#modules_core_modules">&#x6838;&#x5FC3;&#x6A21;&#x5757;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_cycles">&#x5FAA;&#x73AF;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_file_modules">&#x6587;&#x4EF6;&#x6A21;&#x5757;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_folders_as_modules">&#x76EE;&#x5F55;&#x4F5C;&#x4E3A;&#x6A21;&#x5757;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_loading_from_node_modules_folders">&#x4ECE; <code>node_modules</code> &#x76EE;&#x5F55;&#x52A0;&#x8F7D;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_loading_from_the_global_folders">&#x4ECE;&#x5168;&#x5C40;&#x76EE;&#x5F55;&#x52A0;&#x8F7D;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_the_module_wrapper">&#x6A21;&#x5757;&#x5305;&#x88C5;&#x5668;</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_the_module_object">module &#x5BF9;&#x8C61;</a></span><ul>
+<li><span class="stability_undefined"><a href="#modules_module_children">module.children</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_module_exports">module.exports</a></span><ul>
+<li><span class="stability_undefined"><a href="#modules_exports_shortcut">exports &#x5FEB;&#x6377;&#x65B9;&#x5F0F;</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#modules_module_filename">module.filename</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_module_id">module.id</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_module_loaded">module.loaded</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_module_parent">module.parent</a></span></li>
+<li><span class="stability_undefined"><a href="#modules_module_require_id">module.require(id)</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>module (&#x6A21;&#x5757;)<span><a class="mark" href="#modules_modules" id="modules_modules">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_modules">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/modules.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_3">&#x7A33;&#x5B9A;&#x6027;: 3 - &#x9501;&#x5B9A;&#x7684;</pre><!--name=module-->
+<p>Node.js &#x6709;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x7CFB;&#x7EDF;&#x3002;
+&#x5728; Node.js &#x4E2D;&#xFF0C;&#x6587;&#x4EF6;&#x548C;&#x6A21;&#x5757;&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#xFF08;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x88AB;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x6A21;&#x5757;&#xFF09;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x5047;&#x8BBE;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>foo.js</code> &#x7684;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-js">const circle = require(&apos;./circle.js&apos;);
+console.log(`&#x534A;&#x5F84;&#x4E3A; 4 &#x7684;&#x5706;&#x7684;&#x9762;&#x79EF;&#x662F; ${circle.area(4)}`);
+</code></pre>
+<p>&#x5728;&#x7B2C;&#x4E00;&#x884C;&#x4E2D;&#xFF0C;<code>foo.js</code> &#x52A0;&#x8F7D;&#x4E86;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>circle.js</code> &#x6A21;&#x5757;&#x3002;</p>
+<p><code>circle.js</code> &#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-js">const PI = Math.PI;
+
+exports.area = (r) =&gt; PI * r * r;
+
+exports.circumference = (r) =&gt; 2 * PI * r;
+</code></pre>
+<p><code>circle.js</code> &#x6A21;&#x5757;&#x5BFC;&#x51FA;&#x4E86; <code>area()</code> &#x548C; <code>circumference()</code> &#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x3002;
+&#x8981;&#x60F3;&#x6DFB;&#x52A0;&#x51FD;&#x6570;&#x548C;&#x5BF9;&#x8C61;&#x5230;&#x6A21;&#x5757;&#x6839;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x4EEC;&#x6DFB;&#x52A0;&#x5230;&#x7279;&#x6B8A;&#x7684; <code>exports</code> &#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x6A21;&#x5757;&#x5185;&#x7684;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x662F;&#x79C1;&#x6709;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6A21;&#x5757;&#x88AB; Node.js &#x5305;&#x88C5;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#xFF08;&#x8BE6;&#x89C1;<a href="#modules_the_module_wrapper">&#x6A21;&#x5757;&#x5305;&#x88C5;&#x5668;</a>&#xFF09;&#x3002;
+&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x53D8;&#x91CF; <code>PI</code> &#x662F; <code>circle.js</code> &#x79C1;&#x6709;&#x7684;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5E0C;&#x671B;&#x6A21;&#x5757;&#x6839;&#x5BFC;&#x51FA;&#x4E3A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF08;&#x6BD4;&#x5982;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF09;&#x6216;&#x4E00;&#x6B21;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x5BF9;&#x8C61;&#x800C;&#x4E0D;&#x662F;&#x6BCF;&#x6B21;&#x90FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x8D4B;&#x503C;&#x7ED9; <code>module.exports</code> &#x800C;&#x4E0D;&#x662F; <code>exports</code>&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#xFF0C;<code>bar.js</code> &#x4F1A;&#x7528;&#x5230; <code>square</code> &#x6A21;&#x5757;&#xFF0C;<code>square</code> &#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-js">const square = require(&apos;./square.js&apos;);
+var mySquare = square(2);
+console.log(`&#x6B63;&#x65B9;&#x5F62;&#x7684;&#x9762;&#x79EF;&#x662F; ${mySquare.area()}`);
+</code></pre>
+<p><code>square</code> &#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x5728; <code>square.js</code> &#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-js">// &#x8D4B;&#x503C;&#x7ED9; `exports` &#x4E0D;&#x4F1A;&#x4FEE;&#x6539;&#x6A21;&#x5757;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528; `module.exports`
+module.exports = (width) =&gt; {
+  return {
+    area: () =&gt; width * width
+  };
+}
+</code></pre>
+<p>&#x6A21;&#x5757;&#x7CFB;&#x7EDF;&#x5728; <code>require(&quot;module&quot;)</code> &#x6A21;&#x5757;&#x4E2D;&#x5B9E;&#x73B0;&#x3002;</p>
+<h2>&#x8BBF;&#x95EE;&#x4E3B;&#x6A21;&#x5757;<span><a class="mark" href="#modules_accessing_the_main_module" id="modules_accessing_the_main_module">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_accessing_the_main_module">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/accessing_the_main_module.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!-- type=misc -->
+<p>&#x5F53; Node.js &#x76F4;&#x63A5;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;<code>require.main</code> &#x4F1A;&#x88AB;&#x8BBE;&#x4E3A;&#x5B83;&#x7684; <code>module</code>&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x68C0;&#x6D4B;&#x76F4;&#x63A5;&#x786E;&#x5B9A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5DF2;&#x8FD0;&#x884C;&#xFF1A;</p>
+<pre><code class="lang-js">require.main === module
+</code></pre>
+<p>&#x5BF9;&#x4E8E; <code>foo.js</code> &#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x901A;&#x8FC7; <code>node foo.js</code> &#x8FD0;&#x884C;&#x5219;&#x4E3A; <code>true</code>&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x901A;&#x8FC7; <code>require(&apos;./foo&apos;)</code> &#x8FD0;&#x884C;&#x5219;&#x4E3A; <code>false</code>&#x3002;</p>
+<p>&#x56E0;&#x4E3A; <code>module</code> &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A; <code>filename</code> &#x5C5E;&#x6027;&#xFF08;&#x901A;&#x5E38;&#x7B49;&#x540C;&#x4E8E; <code>__filename</code>&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x68C0;&#x67E5; <code>require.main.filename</code> &#x6765;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x5165;&#x53E3;&#x70B9;&#x3002;</p>
+<h2>&#x9644;&#x5F55;&#xFF1A;&#x5305;&#x7BA1;&#x7406;&#x5668;&#x7684;&#x6280;&#x5DE7;<span><a class="mark" href="#modules_addenda_package_manager_tips" id="modules_addenda_package_manager_tips">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_addenda_package_manager_tips">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/addenda_package_manager_tips.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!-- type=misc -->
+<p>Node.js &#x7684; <code>require()</code> &#x51FD;&#x6570;&#x7684;&#x8BED;&#x4E49;&#x88AB;&#x8BBE;&#x8BA1;&#x5F97;&#x8DB3;&#x591F;&#x901A;&#x7528;&#x5316;&#xFF0C;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x8BB8;&#x591A;&#x5408;&#x7406;&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x3002;
+&#x5305;&#x7BA1;&#x7406;&#x5668;&#x7A0B;&#x5E8F;&#xFF08;&#x5982; <code>dpkg</code>&#x3001;<code>rpm</code> &#x548C; <code>npm</code>&#xFF09;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x4FEE;&#x6539;&#x5C31;&#x80FD;&#x591F;&#x4ECE; Node.js &#x6A21;&#x5757;&#x6784;&#x5EFA;&#x672C;&#x5730;&#x5305;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E2A;&#x63A8;&#x8350;&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#xFF1A;</p>
+<p>&#x5047;&#x8BBE;&#x60F3;&#x8981;&#x5728; <code>/usr/lib/node/&lt;some-package&gt;/&lt;some-version&gt;</code> &#x76EE;&#x5F55;&#x4E2D;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7248;&#x672C;&#x7684;&#x5305;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x5305;&#x53EF;&#x4EE5;&#x4F9D;&#x8D56;&#x4E8E;&#x5176;&#x4ED6;&#x5305;&#x3002;
+&#x4E3A;&#x4E86;&#x5B89;&#x88C5;&#x5305; <code>foo</code>&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7248;&#x672C;&#x7684; <code>bar</code> &#x5305;&#x3002;
+<code>bar</code> &#x5305;&#x4E5F;&#x53EF;&#x80FD;&#x6709;&#x4F9D;&#x8D56;&#xFF0C;&#x4E14;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F9D;&#x8D56;&#x53EF;&#x80FD;&#x6709;&#x51B2;&#x7A81;&#x6216;&#x5F62;&#x6210;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>&#x56E0;&#x4E3A; Node.js &#x4F1A;&#x67E5;&#x627E;&#x5B83;&#x6240;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x7684;&#x5B9E;&#x9645;&#x8DEF;&#x5F84;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x4F1A;&#x89E3;&#x6790;&#x7B26;&#x53F7;&#x94FE;&#x63A5;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5728; <code>node_modules</code> &#x76EE;&#x5F55;&#x4E2D;&#x5BFB;&#x627E;&#x5B83;&#x4EEC;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;<a href="#modules_loading_from_node_modules_folders">&#x5982;&#x4E0B;&#x6240;&#x8FF0;</a>&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x5F88;&#x5BB9;&#x6613;&#x89E3;&#x51B3;&#xFF1A;</p>
+<ul>
+<li><code>/usr/lib/node/foo/1.2.3/</code> - <code>foo</code> &#x5305;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7248;&#x672C; 1.2.3&#x3002;</li>
+<li><code>/usr/lib/node/bar/4.3.2/</code> - <code>foo</code> &#x4F9D;&#x8D56;&#x7684; <code>bar</code> &#x5305;&#x7684;&#x5185;&#x5BB9;&#x3002;</li>
+<li><code>/usr/lib/node/foo/1.2.3/node_modules/bar</code> - <code>/usr/lib/node/bar/4.3.2/</code> &#x7684;&#x7B26;&#x53F7;&#x94FE;&#x63A5;&#x3002;</li>
+<li><code>/usr/lib/node/bar/4.3.2/node_modules/*</code> - <code>bar</code> &#x6240;&#x4F9D;&#x8D56;&#x7684;&#x5305;&#x7684;&#x7B26;&#x53F7;&#x94FE;&#x63A5;</li>
+</ul>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x5373;&#x4FBF;&#x5B58;&#x5728;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x6216;&#x4F9D;&#x8D56;&#x51B2;&#x7A81;&#xFF0C;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x5B83;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x5305;&#x7684;&#x4E00;&#x4E2A;&#x53EF;&#x7528;&#x7248;&#x672C;&#x3002;</p>
+<p>&#x5F53; <code>foo</code> &#x5305;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x8C03;&#x7528; <code>require(&apos;bar&apos;)</code>&#xFF0C;&#x5B83;&#x4F1A;&#x83B7;&#x5F97;&#x7B26;&#x53F7;&#x94FE;&#x63A5; <code>/usr/lib/node/foo/1.2.3/node_modules/bar</code> &#x6307;&#x5411;&#x7684;&#x7248;&#x672C;&#x3002;
+&#x7136;&#x540E;&#xFF0C;&#x5F53; <code>bar</code> &#x5305;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x8C03;&#x7528; <code>require(&apos;queue&apos;)</code>&#xFF0C;&#x5B83;&#x4F1A;&#x83B7;&#x5F97;&#x7B26;&#x53F7;&#x94FE;&#x63A5; <code>/usr/lib/node/bar/4.3.2/node_modules/quux</code> &#x6307;&#x5411;&#x7684;&#x7248;&#x672C;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x4E3A;&#x4E86;&#x8FDB;&#x4E00;&#x6B65;&#x4F18;&#x5316;&#x6A21;&#x5757;&#x67E5;&#x627E;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E0D;&#x8981;&#x5C06;&#x5305;&#x76F4;&#x63A5;&#x653E;&#x5728; <code>/usr/lib/node</code> &#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x800C;&#x662F;&#x5C06;&#x5B83;&#x4EEC;&#x653E;&#x5728; <code>/usr/lib/node_modules/&lt;name&gt;/&lt;version&gt;</code> &#x76EE;&#x5F55;&#x4E2D;&#x3002;
+&#x8FD9;&#x6837; Node.js &#x5C31;&#x4E0D;&#x4F1A;&#x5728; <code>/usr/node_modules</code> &#x6216; <code>/node_modules</code> &#x76EE;&#x5F55;&#x4E2D;&#x67E5;&#x627E;&#x7F3A;&#x5931;&#x7684;&#x4F9D;&#x8D56;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x4F7F;&#x6A21;&#x5757;&#x5728; Node.js &#x7684; REPL &#x4E2D;&#x53EF;&#x7528;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5C06; <code>/usr/lib/node_modules</code> &#x76EE;&#x5F55;&#x6DFB;&#x52A0;&#x5230; <code>$NODE_PATH</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x3002;
+&#x7531;&#x4E8E;&#x5728; <code>node_modules</code> &#x76EE;&#x5F55;&#x4E2D;&#x67E5;&#x627E;&#x6A21;&#x5757;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x800C;&#x8C03;&#x7528; <code>require()</code> &#x7684;&#x6587;&#x4EF6;&#x662F;&#x57FA;&#x4E8E;&#x5B9E;&#x9645;&#x8DEF;&#x5F84;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5305;&#x672C;&#x8EAB;&#x53EF;&#x4EE5;&#x653E;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x3002;</p>
+<h2>&#x603B;&#x7ED3;<span><a class="mark" href="#modules_all_together" id="modules_all_together">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_all_together">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/all_together.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!-- type=misc -->
+<p>&#x60F3;&#x8981;&#x83B7;&#x5F97;&#x8C03;&#x7528; <code>require()</code> &#x65F6;&#x52A0;&#x8F7D;&#x7684;&#x786E;&#x5207;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x4F7F;&#x7528; <code>require.resolve()</code> &#x51FD;&#x6570;&#x3002;</p>
+<p>&#x7EFC;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x4EE5;&#x4E0B;&#x7528;&#x4F2A;&#x4EE3;&#x7801;&#x63CF;&#x8FF0;&#x7684;&#x9AD8;&#x7EA7;&#x7B97;&#x6CD5;&#xFF0C;&#x89E3;&#x91CA; require.resolve &#x505A;&#x4E86;&#x4E9B;&#x4EC0;&#x4E48;&#xFF1A;</p>
+<pre><code class="lang-txt">&#x4ECE; Y &#x8DEF;&#x5F84;&#x7684;&#x6A21;&#x5757; require(X)
+1. &#x5982;&#x679C; X &#x662F;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF0C;
+   a. &#x8FD4;&#x56DE;&#x6838;&#x5FC3;&#x6A21;&#x5757;
+   b. &#x7ED3;&#x675F;
+2. &#x5982;&#x679C; X &#x662F;&#x4EE5; &apos;./&apos; &#x6216; &apos;/&apos; &#x6216; &apos;../&apos; &#x5F00;&#x5934;
+   a. &#x52A0;&#x8F7D;&#x6587;&#x4EF6;(Y + X)
+   b. &#x52A0;&#x8F7D;&#x76EE;&#x5F55;(Y + X)
+3. &#x52A0;&#x8F7D;Node&#x6A21;&#x5757;(X, dirname(Y))
+4. &#x629B;&#x51FA; &quot;&#x672A;&#x627E;&#x5230;&quot;
+
+&#x52A0;&#x8F7D;&#x6587;&#x4EF6;(X)
+1. &#x5982;&#x679C; X &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x52A0;&#x8F7D; X &#x4F5C;&#x4E3A; JavaScript &#x6587;&#x672C;&#x3002;&#x7ED3;&#x675F;
+2. &#x5982;&#x679C; X.js &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x52A0;&#x8F7D; X.js &#x4F5C;&#x4E3A; JavaScript &#x6587;&#x672C;&#x3002;&#x7ED3;&#x675F;
+3. &#x5982;&#x679C; X.json &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x89E3;&#x6790; X.json &#x6210;&#x4E00;&#x4E2A; JavaScript &#x5BF9;&#x8C61;&#x3002;&#x7ED3;&#x675F;
+4. &#x5982;&#x679C; X.node &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x52A0;&#x8F7D; X.node &#x4F5C;&#x4E3A;&#x4E8C;&#x8FDB;&#x5236;&#x63D2;&#x4EF6;&#x3002;&#x7ED3;&#x675F;
+
+&#x52A0;&#x8F7D;&#x76EE;&#x5F55;(X)
+1. &#x5982;&#x679C; X/package.json &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;
+   a. &#x89E3;&#x6790; X/package.json&#xFF0C;&#x67E5;&#x627E; &quot;main&quot; &#x5B57;&#x6BB5;
+   b. let M = X + (json main &#x5B57;&#x6BB5;)
+   c. &#x52A0;&#x8F7D;&#x6587;&#x4EF6;(M)
+2. &#x5982;&#x679C; X/index.js &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x52A0;&#x8F7D;  X/index.js &#x4F5C;&#x4E3A; JavaScript &#x6587;&#x672C;&#x3002;&#x7ED3;&#x675F;
+3. &#x5982;&#x679C; X/index.json &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x89E3;&#x6790; X/index.json &#x6210;&#x4E00;&#x4E2A; JavaScript &#x5BF9;&#x8C61;&#x3002;&#x7ED3;&#x675F;
+4. &#x5982;&#x679C; X/index.node &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x52A0;&#x8F7D;  X/index.node &#x4F5C;&#x4E3A;&#x4E8C;&#x8FDB;&#x5236;&#x63D2;&#x4EF6;&#x3002;&#x7ED3;&#x675F;
+
+&#x52A0;&#x8F7D;Node&#x6A21;&#x5757;(X, START)
+1. let DIRS=NODE_MODULES_PATHS(START)
+2. for each DIR in DIRS:
+   a. &#x52A0;&#x8F7D;&#x6587;&#x4EF6;(DIR/X)
+   b. &#x52A0;&#x8F7D;&#x76EE;&#x5F55;(DIR/X)
+
+NODE_MODULES_PATHS(START)
+1. let PARTS = path split(START)
+2. let I = count of PARTS - 1
+3. let DIRS = []
+4. while I &gt;= 0,
+   a. if PARTS[I] = &quot;node_modules&quot; CONTINUE
+   b. DIR = path join(PARTS[0 .. I] + &quot;node_modules&quot;)
+   c. DIRS = DIRS + DIR
+   d. let I = I - 1
+5. return DIRS
+</code></pre>
+<h2>&#x7F13;&#x5B58;<span><a class="mark" href="#modules_caching" id="modules_caching">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_caching">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/caching.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p>&#x6A21;&#x5757;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x540E;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#x3002;
+&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#xFF08;&#x7C7B;&#x4F3C;&#x5176;&#x4ED6;&#x7F13;&#x5B58;&#x673A;&#x5236;&#xFF09;&#x5982;&#x679C;&#x6BCF;&#x6B21;&#x8C03;&#x7528; <code>require(&apos;foo&apos;)</code> &#x90FD;&#x89E3;&#x6790;&#x5230;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x76F8;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x591A;&#x6B21;&#x8C03;&#x7528; <code>require(foo)</code> &#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;&#x88AB;&#x6267;&#x884C;&#x591A;&#x6B21;&#x3002;
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x7279;&#x6027;&#x3002;
+&#x501F;&#x52A9;&#x5B83;, &#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x201C;&#x90E8;&#x5206;&#x5B8C;&#x6210;&#x201D;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4ECE;&#x800C;&#x5141;&#x8BB8;&#x52A0;&#x8F7D;&#x4F20;&#x9012;&#x7684;&#x4F9D;&#x8D56;, &#x5373;&#x4F7F;&#x5B83;&#x4EEC;&#x4F1A;&#x5BFC;&#x81F4;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x591A;&#x6B21;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x3002;</p>
+<h3>&#x6A21;&#x5757;&#x7F13;&#x5B58;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;<span><a class="mark" href="#modules_module_caching_caveats" id="modules_module_caching_caveats">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_module_caching_caveats">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_caching_caveats.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p>&#x6A21;&#x5757;&#x662F;&#x57FA;&#x4E8E;&#x5176;&#x89E3;&#x6790;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#x7684;&#x3002;
+&#x7531;&#x4E8E;&#x8C03;&#x7528;&#x6A21;&#x5757;&#x7684;&#x4F4D;&#x7F6E;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x6A21;&#x5757;&#x53EF;&#x80FD;&#x88AB;&#x89E3;&#x6790;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF08;&#x6BD4;&#x5982;&#x4ECE; <code>node_modules</code> &#x76EE;&#x5F55;&#x52A0;&#x8F7D;&#xFF09;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1; <code>require(&apos;foo&apos;)</code> &#x603B;&#x80FD;&#x8FD4;&#x56DE;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x5728;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6216;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x88AB;&#x89E3;&#x6790;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x53EF;&#x4EE5;&#x6307;&#x5411;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x7F13;&#x5B58;&#x4ECD;&#x7136;&#x4F1A;&#x5C06;&#x5B83;&#x4EEC;&#x89C6;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x5E76;&#x591A;&#x6B21;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<code>require(&apos;./foo&apos;)</code> &#x548C; <code>require(&apos;./FOO&apos;)</code> &#x8FD4;&#x56DE;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x7BA1; <code>./foo</code> &#x548C; <code>./FOO</code> &#x662F;&#x5426;&#x662F;&#x76F8;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
+<h2>&#x6838;&#x5FC3;&#x6A21;&#x5757;<span><a class="mark" href="#modules_core_modules" id="modules_core_modules">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_core_modules">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/core_modules.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p>Node.js &#x6709;&#x4E9B;&#x6A21;&#x5757;&#x4F1A;&#x88AB;&#x7F16;&#x8BD1;&#x6210;&#x4E8C;&#x8FDB;&#x5236;&#x3002;
+&#x8FD9;&#x4E9B;&#x6A21;&#x5757;&#x522B;&#x7684;&#x5730;&#x65B9;&#x6709;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x63CF;&#x8FF0;&#x3002;</p>
+<p>&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x5728; Node.js &#x6E90;&#x4EE3;&#x7801;&#x7684; <code>lib/</code> &#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
+<p><code>require()</code> &#x603B;&#x662F;&#x4F1A;&#x4F18;&#x5148;&#x52A0;&#x8F7D;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<code>require(&apos;http&apos;)</code> &#x59CB;&#x7EC8;&#x8FD4;&#x56DE;&#x5185;&#x7F6E;&#x7684; HTTP &#x6A21;&#x5757;&#xFF0C;&#x5373;&#x4F7F;&#x6709;&#x540C;&#x540D;&#x6587;&#x4EF6;&#x3002;</p>
+<h2>&#x5FAA;&#x73AF;<span><a class="mark" href="#modules_cycles" id="modules_cycles">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_cycles">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/cycles.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p>&#x5F53;&#x5FAA;&#x73AF;&#x8C03;&#x7528; <code>require()</code> &#x65F6;&#xFF0C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x53EF;&#x80FD;&#x5728;&#x672A;&#x5B8C;&#x6210;&#x6267;&#x884C;&#x65F6;&#x88AB;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;:</p>
+<p><code>a.js</code>:</p>
+<pre><code class="lang-js">console.log(&apos;a &#x5F00;&#x59CB;&apos;);
+exports.done = false;
+const b = require(&apos;./b.js&apos;);
+console.log(&apos;&#x5728; a &#x4E2D;&#xFF0C;b.done = %j&apos;, b.done);
+exports.done = true;
+console.log(&apos;a &#x7ED3;&#x675F;&apos;);
+</code></pre>
+<p><code>b.js</code>:</p>
+<pre><code class="lang-js">console.log(&apos;b &#x5F00;&#x59CB;&apos;);
+exports.done = false;
+const a = require(&apos;./a.js&apos;);
+console.log(&apos;&#x5728; b &#x4E2D;&#xFF0C;a.done = %j&apos;, a.done);
+exports.done = true;
+console.log(&apos;b &#x7ED3;&#x675F;&apos;);
+</code></pre>
+<p><code>main.js</code>:</p>
+<pre><code class="lang-js">console.log(&apos;main &#x5F00;&#x59CB;&apos;);
+const a = require(&apos;./a.js&apos;);
+const b = require(&apos;./b.js&apos;);
+console.log(&apos;&#x5728; main &#x4E2D;&#xFF0C;a.done=%j&#xFF0C;b.done=%j&apos;, a.done, b.done);
+</code></pre>
+<p>&#x5F53; <code>main.js</code> &#x52A0;&#x8F7D; <code>a.js</code> &#x65F6;&#xFF0C;<code>a.js</code> &#x53C8;&#x52A0;&#x8F7D; <code>b.js</code>&#x3002;
+&#x6B64;&#x65F6;&#xFF0C;<code>b.js</code> &#x4F1A;&#x5C1D;&#x8BD5;&#x53BB;&#x52A0;&#x8F7D; <code>a.js</code>&#x3002;
+&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x65E0;&#x9650;&#x7684;&#x5FAA;&#x73AF;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>a.js</code> &#x7684; <code>exports</code> &#x5BF9;&#x8C61;&#x7684; <strong>&#x672A;&#x5B8C;&#x6210;&#x7684;&#x526F;&#x672C;</strong> &#x7ED9; <code>b.js</code> &#x6A21;&#x5757;&#x3002;
+&#x7136;&#x540E; <code>b.js</code> &#x5B8C;&#x6210;&#x52A0;&#x8F7D;&#xFF0C;&#x5E76;&#x5C06; <code>exports</code> &#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x7ED9; <code>a.js</code> &#x6A21;&#x5757;&#x3002;</p>
+<p>&#x5F53; <code>main.js</code> &#x52A0;&#x8F7D;&#x8FD9;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x52A0;&#x8F7D;&#x3002;
+&#x56E0;&#x6B64;&#xFF0C;&#x8BE5;&#x7A0B;&#x5E8F;&#x7684;&#x8F93;&#x51FA;&#x4F1A;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-txt">$ node main.js
+main &#x5F00;&#x59CB;
+a &#x5F00;&#x59CB;
+b &#x5F00;&#x59CB;
+&#x5728; b &#x4E2D;&#xFF0C;a.done = false
+b &#x7ED3;&#x675F;
+&#x5728; a &#x4E2D;&#xFF0C;b.done = true
+a &#x7ED3;&#x675F;
+&#x5728; main &#x4E2D;&#xFF0C;a.done=true&#xFF0C;b.done=true
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x91CC;&#x6709;&#x5FAA;&#x73AF;&#x7684;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#xFF0C;&#x786E;&#x4FDD;&#x5B83;&#x4EEC;&#x6309;&#x8BA1;&#x5212;&#x6267;&#x884C;&#x3002;</p>
+<h2>&#x6587;&#x4EF6;&#x6A21;&#x5757;<span><a class="mark" href="#modules_file_modules" id="modules_file_modules">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_file_modules">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/file_modules.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p>&#x5982;&#x679C;&#x6309;&#x786E;&#x5207;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x6A21;&#x5757;&#xFF0C;&#x5219; Node.js &#x4F1A;&#x5C1D;&#x8BD5;&#x5E26;&#x4E0A; <code>.js</code>&#x3001;<code>.json</code> &#x6216; <code>.node</code> &#x62D3;&#x5C55;&#x540D;&#x518D;&#x52A0;&#x8F7D;&#x3002;</p>
+<p><code>.js</code> &#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A; JavaScript &#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;<code>.json</code> &#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A; JSON &#x6587;&#x672C;&#x6587;&#x4EF6;&#x3002;
+<code>.node</code> &#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#x901A;&#x8FC7; <code>dlopen</code> &#x52A0;&#x8F7D;&#x7684;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x63D2;&#x4EF6;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x4EE5; <code>&apos;/&apos;</code> &#x4E3A;&#x524D;&#x7F00;&#x7684;&#x6A21;&#x5757;&#x662F;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<code>require(&apos;/home/marco/foo.js&apos;)</code> &#x4F1A;&#x52A0;&#x8F7D; <code>/home/marco/foo.js</code> &#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x4EE5; <code>&apos;./&apos;</code> &#x4E3A;&#x524D;&#x7F00;&#x7684;&#x6A21;&#x5757;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x8C03;&#x7528; <code>require()</code> &#x7684;&#x6587;&#x4EF6;&#x7684;&#x3002;
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;<code>circle.js</code> &#x5FC5;&#x987B;&#x548C; <code>foo.js</code> &#x5728;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x4EE5;&#x4FBF;&#x4E8E; <code>require(&apos;./circle&apos;)</code> &#x627E;&#x5230;&#x5B83;&#x3002;</p>
+<p>&#x5F53;&#x6CA1;&#x6709;&#x4EE5; <code>&apos;/&apos;</code>&#x3001;<code>&apos;./&apos;</code> &#x6216; <code>&apos;../&apos;</code> &#x5F00;&#x5934;&#x6765;&#x8868;&#x793A;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x6216;&#x52A0;&#x8F7D;&#x81EA; <code>node_modules</code> &#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219; <code>require()</code> &#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A; <code>code</code> &#x5C5E;&#x6027;&#x4E3A; <code>&apos;MODULE_NOT_FOUND&apos;</code> &#x7684; <a href="errors.html#errors_class_error"><code>Error</code></a>&#x3002;</p>
+<h2>&#x76EE;&#x5F55;&#x4F5C;&#x4E3A;&#x6A21;&#x5757;<span><a class="mark" href="#modules_folders_as_modules" id="modules_folders_as_modules">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_folders_as_modules">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/folders_as_modules.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p>&#x53EF;&#x4EE5;&#x628A;&#x7A0B;&#x5E8F;&#x548C;&#x5E93;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x5165;&#x53E3;&#x6765;&#x6307;&#x5411;&#x5B83;&#x3002;
+&#x628A;&#x76EE;&#x5F55;&#x9012;&#x7ED9; <code>require()</code> &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6709;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <code>package.json</code> &#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x4E00;&#x4E2A; <code>main</code> &#x6A21;&#x5757;&#x3002;
+&#x4F8B;&#x5B50;&#xFF0C;<code>package.json</code> &#x6587;&#x4EF6;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<pre><code class="lang-json">{ &quot;name&quot; : &quot;some-library&quot;,
+  &quot;main&quot; : &quot;./lib/some-library.js&quot; }
+</code></pre>
+<p>&#x5982;&#x679C;&#x8FD9;&#x662F;&#x5728; <code>./some-library</code> &#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x5219; <code>require(&apos;./some-library&apos;)</code> &#x4F1A;&#x8BD5;&#x56FE;&#x52A0;&#x8F7D; <code>./some-library/lib/some-library.js</code>&#x3002;</p>
+<p>&#x8FD9;&#x5C31;&#x662F; Node.js &#x5904;&#x7406; <code>package.json</code> &#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C; <code>package.json</code> &#x4E2D; <code>&quot;main&quot;</code> &#x5165;&#x53E3;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x65E0;&#x6CD5;&#x89E3;&#x6790;&#xFF0C;Node.js &#x4F1A;&#x5C06;&#x6A21;&#x5757;&#x89C6;&#x4E3A;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5E76;&#x629B;&#x51FA;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#xFF1A;</p>
+<pre><code class="lang-txt">Error: Cannot find module &apos;some-library&apos;
+</code></pre>
+<p>&#x5982;&#x679C;&#x76EE;&#x5F55;&#x91CC;&#x6CA1;&#x6709; <code>package.json</code> &#x6587;&#x4EF6;&#xFF0C;&#x5219; Node.js &#x5C31;&#x4F1A;&#x8BD5;&#x56FE;&#x52A0;&#x8F7D;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>index.js</code> &#x6216; <code>index.node</code> &#x6587;&#x4EF6;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6CA1;&#x6709; <code>package.json</code> &#x6587;&#x4EF6;&#xFF0C;&#x5219; <code>require(&apos;./some-library&apos;)</code> &#x4F1A;&#x8BD5;&#x56FE;&#x52A0;&#x8F7D;&#xFF1A;</p>
+<ul>
+<li><code>./some-library/index.js</code></li>
+<li><code>./some-library/index.node</code></li>
+</ul>
+<h2>&#x4ECE; <code>node_modules</code> &#x76EE;&#x5F55;&#x52A0;&#x8F7D;<span><a class="mark" href="#modules_loading_from_node_modules_folders" id="modules_loading_from_node_modules_folders">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_loading_from_node_modules_folders">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/loading_from_node_modules_folders.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!--type=misc-->
+<p>&#x5982;&#x679C;&#x4F20;&#x9012;&#x7ED9; <code>require()</code> &#x7684;&#x6A21;&#x5757;&#x6807;&#x8BC6;&#x7B26;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;<a href="#modules_core_modules">&#x6838;&#x5FC3;&#x6A21;&#x5757;</a>&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x4EE5; <code>&apos;/&apos;</code> &#x3001; <code>&apos;../&apos;</code> &#x6216; <code>&apos;./&apos;</code> &#x5F00;&#x5934;&#xFF0C;&#x5219; Node.js &#x4F1A;&#x4ECE;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x7684;&#x7236;&#x76EE;&#x5F55;&#x5F00;&#x59CB;&#xFF0C;&#x5C1D;&#x8BD5;&#x4ECE;&#x5B83;&#x7684; <code>/node_modules</code> &#x76EE;&#x5F55;&#x91CC;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x3002;
+Node.js &#x4E0D;&#x4F1A;&#x9644;&#x52A0; <code>node_modules</code> &#x5230;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x4EE5; <code>node_modules</code> &#x7ED3;&#x5C3E;&#x7684;&#x8DEF;&#x5F84;&#x4E0A;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8FD8;&#x662F;&#x6CA1;&#x6709;&#x627E;&#x5230;&#xFF0C;&#x5219;&#x79FB;&#x52A8;&#x5230;&#x518D;&#x4E0A;&#x4E00;&#x5C42;&#x7236;&#x76EE;&#x5F55;&#xFF0C;&#x76F4;&#x5230;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x5982;&#x679C;&#x5728; <code>&apos;/home/ry/projects/foo.js&apos;</code> &#x6587;&#x4EF6;&#x91CC;&#x8C03;&#x7528;&#x4E86; <code>require(&apos;bar.js&apos;)</code>&#xFF0C;&#x5219; Node.js &#x4F1A;&#x6309;&#x4EE5;&#x4E0B;&#x987A;&#x5E8F;&#x67E5;&#x627E;&#xFF1A;</p>
+<ul>
+<li><code>/home/ry/projects/node_modules/bar.js</code></li>
+<li><code>/home/ry/node_modules/bar.js</code></li>
+<li><code>/home/node_modules/bar.js</code></li>
+<li><code>/node_modules/bar.js</code></li>
+</ul>
+<p>&#x8FD9;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x672C;&#x5730;&#x5316;&#x5B83;&#x4EEC;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x907F;&#x514D;&#x5B83;&#x4EEC;&#x4EA7;&#x751F;&#x51B2;&#x7A81;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x5728;&#x6A21;&#x5757;&#x540D;&#x540E;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x540E;&#x7F00;&#xFF0C;&#x53EF;&#x4EE5;&#x8BF7;&#x6C42;&#x7279;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x5B50;&#x6A21;&#x5757;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<code>require(&apos;example-module/path/to/file&apos;)</code> &#x4F1A;&#x628A; <code>path/to/file</code> &#x89E3;&#x6790;&#x6210;&#x76F8;&#x5BF9;&#x4E8E; <code>example-module</code> &#x7684;&#x4F4D;&#x7F6E;&#x3002;
+&#x540E;&#x7F00;&#x8DEF;&#x5F84;&#x540C;&#x6837;&#x9075;&#x5FAA;&#x6A21;&#x5757;&#x7684;&#x89E3;&#x6790;&#x8BED;&#x6CD5;&#x3002;</p>
+<h2>&#x4ECE;&#x5168;&#x5C40;&#x76EE;&#x5F55;&#x52A0;&#x8F7D;<span><a class="mark" href="#modules_loading_from_the_global_folders" id="modules_loading_from_the_global_folders">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_loading_from_the_global_folders">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/loading_from_the_global_folders.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!-- type=misc -->
+<p>&#x5982;&#x679C; <code>NODE_PATH</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x88AB;&#x8BBE;&#x4E3A;&#x4E00;&#x4E2A;&#x4EE5;&#x5192;&#x53F7;&#x5206;&#x5272;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x5217;&#x8868;&#xFF0C;&#x5219;&#x5F53;&#x5728;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x627E;&#x4E0D;&#x5230;&#x6A21;&#x5757;&#x65F6; Node.js &#x4F1A;&#x641C;&#x7D22;&#x8FD9;&#x4E9B;&#x8DEF;&#x5F84;&#x3002;
+&#xFF08;&#x6CE8;&#x610F;&#xFF1A;&#x5728; Windows &#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;<code>NODE_PATH</code> &#x662F;&#x4EE5;&#x5206;&#x53F7;&#x95F4;&#x9694;&#x7684;&#x3002;&#xFF09;</p>
+<p>&#x5728;&#x5F53;&#x524D;&#x7684;<a href="#modules_all_together">&#x6A21;&#x5757;&#x89E3;&#x6790;</a>&#x7B97;&#x6CD5;&#x8FD0;&#x884C;&#x4E4B;&#x524D;&#xFF0C;<code>NODE_PATH</code> &#x6700;&#x521D;&#x662F;&#x521B;&#x5EFA;&#x6765;&#x652F;&#x6301;&#x4ECE;&#x4E0D;&#x540C;&#x8DEF;&#x5F84;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x3002;</p>
+<p>&#x867D;&#x7136; <code>NODE_PATH</code> &#x4ECD;&#x7136;&#x88AB;&#x652F;&#x6301;&#xFF0C;&#x4F46;&#x73B0;&#x5728;&#x4E0D;&#x592A;&#x9700;&#x8981;&#xFF0C;&#x56E0;&#x4E3A; Node.js &#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x5DF2;&#x5236;&#x5B9A;&#x4E86;&#x4E00;&#x5957;&#x5B58;&#x653E;&#x4F9D;&#x8D56;&#x6A21;&#x5757;&#x7684;&#x7EA6;&#x5B9A;&#x3002;
+&#x6709;&#x65F6;&#x5F53;&#x4EBA;&#x4EEC;&#x6CA1;&#x610F;&#x8BC6;&#x5230; <code>NODE_PATH</code> &#x5FC5;&#x987B;&#x88AB;&#x8BBE;&#x7F6E;&#x65F6;&#xFF0C;&#x4F9D;&#x8D56; <code>NODE_PATH</code> &#x7684;&#x90E8;&#x7F72;&#x4F1A;&#x51FA;&#x73B0;&#x610F;&#x6599;&#x4E4B;&#x5916;&#x7684;&#x884C;&#x4E3A;&#x3002;
+&#x6709;&#x65F6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x4F9D;&#x8D56;&#x4F1A;&#x6539;&#x53D8;&#xFF0C;&#x5BFC;&#x81F4;&#x5728;&#x641C;&#x7D22; <code>NODE_PATH</code> &#x65F6;&#x52A0;&#x8F7D;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x7248;&#x672C;&#xFF08;&#x751A;&#x81F3;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#xFF09;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;Node.js &#x8FD8;&#x4F1A;&#x641C;&#x7D22;&#x4EE5;&#x4E0B;&#x4F4D;&#x7F6E;&#xFF1A;</p>
+<ul>
+<li>1: <code>$HOME/.node_modules</code></li>
+<li>2: <code>$HOME/.node_libraries</code></li>
+<li>3: <code>$PREFIX/lib/node</code></li>
+</ul>
+<p>&#x5176;&#x4E2D; <code>$HOME</code> &#x662F;&#x7528;&#x6237;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#xFF0C;<code>$PREFIX</code> &#x662F; Node.js &#x91CC;&#x914D;&#x7F6E;&#x7684; <code>node_prefix</code>&#x3002;</p>
+<p>&#x8FD9;&#x4E9B;&#x4E3B;&#x8981;&#x662F;&#x5386;&#x53F2;&#x539F;&#x56E0;&#x3002;
+<strong>&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x5C06;&#x6240;&#x6709;&#x7684;&#x4F9D;&#x8D56;&#x653E;&#x5728; <code>node_modules</code> &#x76EE;&#x5F55;&#x3002;</strong>
+&#x5B83;&#x4EEC;&#x5C06;&#x4F1A;&#x66F4;&#x5FEB;&#x5730;&#x52A0;&#x8F7D;&#xFF0C;&#x4E14;&#x66F4;&#x53EF;&#x9760;&#x3002;</p>
+<h2>&#x6A21;&#x5757;&#x5305;&#x88C5;&#x5668;<span><a class="mark" href="#modules_the_module_wrapper" id="modules_the_module_wrapper">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_the_module_wrapper">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/the_module_wrapper.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<!-- type=misc -->
+<p>&#x5728;&#x6267;&#x884C;&#x6A21;&#x5757;&#x4EE3;&#x7801;&#x4E4B;&#x524D;&#xFF0C;Node.js &#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5982;&#x4E0B;&#x7684;&#x51FD;&#x6570;&#x5305;&#x88C5;&#x5668;&#x5C06;&#x5176;&#x5305;&#x88C5;&#xFF1A;</p>
+<pre><code class="lang-js">(function (exports, require, module, __filename, __dirname) {
+// &#x4F60;&#x7684;&#x6A21;&#x5757;&#x4EE3;&#x7801;&#x5B9E;&#x9645;&#x4E0A;&#x5728;&#x8FD9;&#x91CC;
+});
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x505A;&#xFF0C;Node.js &#x5B9E;&#x73B0;&#x4E86;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x5B83;&#x4FDD;&#x6301;&#x4E86;&#x9876;&#x5C42;&#x7684;&#x53D8;&#x91CF;&#xFF08;&#x7528; <code>var</code>&#x3001;<code>const</code> &#x6216; <code>let</code> &#x5B9A;&#x4E49;&#xFF09;&#x4F5C;&#x7528;&#x5728;&#x6A21;&#x5757;&#x8303;&#x56F4;&#x5185;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x5B83;&#x6709;&#x52A9;&#x4E8E;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x770B;&#x4F3C;&#x5168;&#x5C40;&#x7684;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x6A21;&#x5757;&#x7279;&#x5B9A;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;<ul>
+<li>&#x5B9E;&#x73B0;&#x8005;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>module</code> &#x548C; <code>exports</code> &#x5BF9;&#x8C61;&#x4ECE;&#x6A21;&#x5757;&#x4E2D;&#x5BFC;&#x51FA;&#x503C;&#x3002;</li>
+<li>&#x5FEB;&#x6377;&#x53D8;&#x91CF; <code>__filename</code> &#x548C; <code>__dirname</code> &#x5305;&#x542B;&#x6A21;&#x5757;&#x7684;&#x7EDD;&#x5BF9;&#x6587;&#x4EF6;&#x540D;&#x548C;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2>module &#x5BF9;&#x8C61;<span><a class="mark" href="#modules_the_module_object" id="modules_the_module_object">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_the_module_object">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/the_module_object.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><!-- type=var -->
+<!-- name=module -->
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x5728;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#xFF0C;<code>module</code> &#x7684;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x8868;&#x793A;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;
+&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#xFF0C;<code>module.exports</code> &#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5168;&#x5C40;&#x6A21;&#x5757;&#x7684; <code>exports</code> &#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x3002;
+<code>module</code> &#x5B9E;&#x9645;&#x4E0A;&#x4E0D;&#x662F;&#x5168;&#x5C40;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x672C;&#x5730;&#x7684;&#x3002;</p>
+<h3>module.children<span><a class="mark" href="#modules_module_children" id="modules_module_children">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_module_children">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_children.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="type">&lt;Array&gt;</a></li>
+</ul>
+<p>&#x88AB;&#x8BE5;&#x6A21;&#x5757;&#x5F15;&#x7528;&#x7684;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x3002;</p>
+<h3>module.exports<span><a class="mark" href="#modules_module_exports" id="modules_module_exports">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_module_exports">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_exports.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p><code>module.exports</code> &#x5BF9;&#x8C61;&#x662F;&#x7531;&#x6A21;&#x5757;&#x7CFB;&#x7EDF;&#x521B;&#x5EFA;&#x7684;&#x3002;
+&#x6709;&#x65F6;&#x8FD9;&#x662F;&#x96BE;&#x4EE5;&#x63A5;&#x53D7;&#x7684;&#xFF1B;&#x8BB8;&#x591A;&#x4EBA;&#x5E0C;&#x671B;&#x4ED6;&#x4EEC;&#x7684;&#x6A21;&#x5757;&#x6210;&#x4E3A;&#x67D0;&#x4E2A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;
+&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x671F;&#x671B;&#x5BFC;&#x51FA;&#x7684;&#x5BF9;&#x8C61;&#x8D4B;&#x503C;&#x7ED9; <code>module.exports</code>&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x5C06;&#x671F;&#x671B;&#x7684;&#x5BF9;&#x8C61;&#x8D4B;&#x503C;&#x7ED9; <code>exports</code> &#x4F1A;&#x7B80;&#x5355;&#x5730;&#x91CD;&#x65B0;&#x7ED1;&#x5B9A;&#x5230;&#x672C;&#x5730; <code>exports</code> &#x53D8;&#x91CF;&#x4E0A;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x4E0D;&#x662F;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x5047;&#x8BBE;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>a.js</code> &#x7684;&#x6A21;&#x5757;&#xFF1A;</p>
+<pre><code class="lang-js">const EventEmitter = require(&apos;events&apos;);
+
+module.exports = new EventEmitter();
+
+// &#x5904;&#x7406;&#x4E00;&#x4E9B;&#x5DE5;&#x4F5C;&#xFF0C;&#x5E76;&#x5728;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#x4ECE;&#x6A21;&#x5757;&#x81EA;&#x8EAB;&#x89E6;&#x53D1; &apos;ready&apos; &#x4E8B;&#x4EF6;&#x3002;
+setTimeout(() =&gt; {
+  module.exports.emit(&apos;ready&apos;);
+}, 1000);
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x505A;&#xFF1A;</p>
+<pre><code class="lang-js">const a = require(&apos;./a&apos;);
+a.on(&apos;ready&apos;, () =&gt; {
+  console.log(&apos;&#x6A21;&#x5757; a &#x5DF2;&#x51C6;&#x5907;&#x597D;&apos;);
+});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5BF9; <code>module.expors</code> &#x7684;&#x8D4B;&#x503C;&#x5FC5;&#x987B;&#x7ACB;&#x5373;&#x5B8C;&#x6210;&#x3002;
+&#x4E0D;&#x80FD;&#x5728;&#x4EFB;&#x4F55;&#x56DE;&#x8C03;&#x4E2D;&#x5B8C;&#x6210;&#x3002;
+&#x4EE5;&#x4E0B;&#x662F;&#x65E0;&#x6548;&#x7684;&#xFF1A;</p>
+<p>x.js:</p>
+<pre><code class="lang-js">setTimeout(() =&gt; {
+  module.exports = { a: &apos;hello&apos; };
+}, 0);
+</code></pre>
+<p>y.js:</p>
+<pre><code class="lang-js">const x = require(&apos;./x&apos;);
+console.log(x.a);
+</code></pre>
+<h4>exports &#x5FEB;&#x6377;&#x65B9;&#x5F0F;<span><a class="mark" href="#modules_exports_shortcut" id="modules_exports_shortcut">#</a></span></h4><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_exports_shortcut">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/exports_shortcut.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><p><code>exports</code> &#x53D8;&#x91CF;&#x662F;&#x5728;&#x6A21;&#x5757;&#x7684;&#x6587;&#x4EF6;&#x7EA7;&#x522B;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x5B83;&#x5728;&#x6A21;&#x5757;&#x88AB;&#x6267;&#x884C;&#x524D;&#x88AB;&#x8D4B;&#x4E8E; <code>module.exports</code> &#x7684;&#x503C;&#x3002;</p>
+<p>&#x5B83;&#x6709;&#x4E00;&#x4E2A;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#xFF0C;&#x4EE5;&#x4FBF; <code>module.exports.f = ...</code> &#x53EF;&#x4EE5;&#x88AB;&#x66F4;&#x7B80;&#x6D01;&#x5730;&#x5199;&#x6210; <code>exports.f = ...</code>&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x5C31;&#x50CF;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x503C;&#x88AB;&#x8D4B;&#x503C;&#x7ED9; <code>exports</code>&#xFF0C;&#x5B83;&#x5C31;&#x4E0D;&#x518D;&#x7ED1;&#x5B9A;&#x5230; <code>module.exports</code>&#xFF1A;</p>
+<pre><code class="lang-js">module.exports.hello = true; // &#x4ECE;&#x88AB;&#x5F15;&#x7528;&#x7684;&#x6A21;&#x5757;&#x5BFC;&#x51FA;
+exports = { hello: false };  // &#x4E0D;&#x5BFC;&#x51FA;&#xFF0C;&#x53EA;&#x5728;&#x6A21;&#x5757;&#x5185;&#x6709;&#x6548;
+</code></pre>
+<p>&#x5F53; <code>module.exports</code> &#x5C5E;&#x6027;&#x88AB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x5B8C;&#x5168;&#x66FF;&#x4EE3;&#x65F6;&#xFF0C;&#x4E5F;&#x4F1A;&#x91CD;&#x65B0;&#x8D4B;&#x503C; <code>exports</code>&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">module.exports = exports = function Constructor() {
+    // ... &#x53CA;&#x5176;&#x4ED6;
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x91CA;&#x8FD9;&#x4E2A;&#x884C;&#x4E3A;&#xFF0C;&#x60F3;&#x8C61;&#x5BF9; <code>require()</code> &#x7684;&#x5047;&#x8BBE;&#x5B9E;&#x73B0;&#xFF0C;&#x5B83;&#x8DDF; <code>require()</code> &#x7684;&#x5B9E;&#x9645;&#x5B9E;&#x73B0;&#x76F8;&#x7B49;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<pre><code class="lang-js">function require(...) {
+  var module = { exports: {} };
+  ((module, exports) =&gt; {
+    // &#x4F60;&#x7684;&#x6A21;&#x5757;&#x4EE3;&#x7801;&#x5728;&#x8FD9;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;
+    function some_func() {};
+    exports = some_func;
+    // &#x6B64;&#x65F6;&#xFF0C;exports &#x4E0D;&#x518D;&#x662F;&#x4E00;&#x4E2A; module.exports &#x7684;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#xFF0C;
+    // &#x4E14;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x4F9D;&#x7136;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x9ED8;&#x8BA4;&#x5BF9;&#x8C61;&#x3002;
+    module.exports = some_func;
+    // &#x6B64;&#x65F6;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x5BFC;&#x51FA; some_func&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x5BF9;&#x8C61;&#x3002;
+  })(module, module.exports);
+  return module.exports;
+}
+</code></pre>
+<h3>module.filename<span><a class="mark" href="#modules_module_filename" id="modules_module_filename">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_module_filename">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_filename.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x6A21;&#x5757;&#x7684;&#x5B8C;&#x5168;&#x89E3;&#x6790;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</p>
+<h3>module.id<span><a class="mark" href="#modules_module_id" id="modules_module_id">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_module_id">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_id.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x6A21;&#x5757;&#x7684;&#x6807;&#x8BC6;&#x7B26;&#x3002;
+&#x901A;&#x5E38;&#x662F;&#x5B8C;&#x5168;&#x89E3;&#x6790;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</p>
+<h3>module.loaded<span><a class="mark" href="#modules_module_loaded" id="modules_module_loaded">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_module_loaded">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_loaded.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>&#x6A21;&#x5757;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#xFF0C;&#x6216;&#x6B63;&#x5728;&#x52A0;&#x8F7D;&#x4E2D;&#x3002;</p>
+<h3>module.parent<span><a class="mark" href="#modules_module_parent" id="modules_module_parent">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_module_parent">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_parent.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> &#x6A21;&#x5757;&#x5BF9;&#x8C61;</li>
+</ul>
+<p>&#x6700;&#x5148;&#x5F15;&#x7528;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<h3>module.require(id)<span><a class="mark" href="#modules_module_require_id" id="modules_module_require_id">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/modules.html#modules_module_require_id">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_require_id.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.1</span>
+</div><ul>
+<li><code>id</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> &#x5DF2;&#x89E3;&#x6790;&#x7684;&#x6A21;&#x5757;&#x7684; <code>module.exports</code></li>
+</ul>
+<p><code>module.require</code> &#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x7C7B;&#x4F3C; <code>require()</code> &#x4ECE;&#x539F;&#x59CB;&#x6A21;&#x5757;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x4E3A;&#x4E86;&#x505A;&#x5230;&#x8FD9;&#x4E2A;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x83B7;&#x5F97;&#x4E00;&#x4E2A; <code>module</code> &#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;
+&#x56E0;&#x4E3A; <code>require()</code> &#x4F1A;&#x8FD4;&#x56DE; <code>module.exports</code>&#xFF0C;&#x4E14; <code>module</code> <strong>&#x53EA;</strong>&#x5728;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x6A21;&#x5757;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x6548;&#xFF0C;&#x6240;&#x4EE5;&#x4E3A;&#x4E86;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x5FC5;&#x987B;&#x663E;&#x5F0F;&#x5730;&#x5BFC;&#x51FA;&#x3002;</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

@@ -1,0 +1,1333 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>http | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-http">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http active" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="http" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/http.json">JSON格式</a> |-->
+            <!--<a href="/api/en/http.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#http_http">http</a></span><ul>
+<li><span class="stability_undefined"><a href="#http_class_http_agent">http.Agent &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#http_new_agent_options">new Agent([options])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_agent_createconnection_options_callback">agent.createConnection(options[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_agent_destroy">agent.destroy()</a></span></li>
+<li><span class="stability_undefined"><a href="#http_agent_freesockets">agent.freeSockets</a></span></li>
+<li><span class="stability_undefined"><a href="#http_agent_getname_options">agent.getName(options)</a></span></li>
+<li><span class="stability_undefined"><a href="#http_agent_maxfreesockets">agent.maxFreeSockets</a></span></li>
+<li><span class="stability_undefined"><a href="#http_agent_maxsockets">agent.maxSockets</a></span></li>
+<li><span class="stability_undefined"><a href="#http_agent_requests">agent.requests</a></span></li>
+<li><span class="stability_undefined"><a href="#http_agent_sockets">agent.sockets</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#http_class_http_clientrequest">http.ClientRequest &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#http_event_abort">&apos;abort&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_aborted">&apos;aborted&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_connect">&apos;connect&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_continue">&apos;continue&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_response">&apos;response&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_socket">&apos;socket&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_upgrade">&apos;upgrade&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_request_abort">request.abort()</a></span></li>
+<li><span class="stability_undefined"><a href="#http_request_end_data_encoding_callback">request.end([data][, encoding][, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_request_flushheaders">request.flushHeaders()</a></span></li>
+<li><span class="stability_undefined"><a href="#http_request_setnodelay_nodelay">request.setNoDelay([noDelay])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_request_setsocketkeepalive_enable_initialdelay">request.setSocketKeepAlive([enable][, initialDelay])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_request_settimeout_timeout_callback">request.setTimeout(timeout[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_request_write_chunk_encoding_callback">request.write(chunk[, encoding][, callback])</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#http_class_http_server">http.Server &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#http_event_checkcontinue">&apos;checkContinue&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_checkexpectation">&apos;checkExpectation&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_clienterror">&apos;clientError&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_close">&apos;close&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_connect_1">&apos;connect&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_connection">&apos;connection&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_request">&apos;request&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_upgrade_1">&apos;upgrade&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_server_close_callback">server.close([callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_server_listen_handle_callback">server.listen(handle[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_server_listen_path_callback">server.listen(path[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_server_listen_port_hostname_backlog_callback">server.listen([port][, hostname][, backlog][, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_server_listening">server.listening</a></span></li>
+<li><span class="stability_undefined"><a href="#http_server_maxheaderscount">server.maxHeadersCount</a></span></li>
+<li><span class="stability_undefined"><a href="#http_server_settimeout_msecs_callback">server.setTimeout(msecs, callback)</a></span></li>
+<li><span class="stability_undefined"><a href="#http_server_timeout">server.timeout</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#http_class_http_serverresponse">http.ServerResponse &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#http_event_close_1">&apos;close&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_finish">&apos;finish&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_addtrailers_headers">response.addTrailers(headers)</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_end_data_encoding_callback">response.end([data][, encoding][, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_finished">response.finished</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_getheader_name">response.getHeader(name)</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_headerssent">response.headersSent</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_removeheader_name">response.removeHeader(name)</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_senddate">response.sendDate</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_setheader_name_value">response.setHeader(name, value)</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_settimeout_msecs_callback">response.setTimeout(msecs, callback)</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_statuscode">response.statusCode</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_statusmessage">response.statusMessage</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_write_chunk_encoding_callback">response.write(chunk[, encoding][, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_writecontinue">response.writeContinue()</a></span></li>
+<li><span class="stability_undefined"><a href="#http_response_writehead_statuscode_statusmessage_headers">response.writeHead(statusCode[, statusMessage][, headers])</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#http_class_http_incomingmessage">http.IncomingMessage &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#http_event_aborted_1">&apos;aborted&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_event_close_2">&apos;close&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_destroy_error">message.destroy([error])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_headers">message.headers</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_httpversion">message.httpVersion</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_method">message.method</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_rawheaders">message.rawHeaders</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_rawtrailers">message.rawTrailers</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_settimeout_msecs_callback">message.setTimeout(msecs, callback)</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_statuscode">message.statusCode</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_statusmessage">message.statusMessage</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_socket">message.socket</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_trailers">message.trailers</a></span></li>
+<li><span class="stability_undefined"><a href="#http_message_url">message.url</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#http_http_methods">http.METHODS</a></span></li>
+<li><span class="stability_undefined"><a href="#http_http_status_codes">http.STATUS_CODES</a></span></li>
+<li><span class="stability_0"><a href="#http_http_createclient_port_host">http.createClient([port][, host])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_http_createserver_requestlistener">http.createServer([requestListener])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_http_get_options_callback">http.get(options[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#http_http_globalagent">http.globalAgent</a></span></li>
+<li><span class="stability_undefined"><a href="#http_http_request_options_callback">http.request(options[, callback])</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>http<span><a class="mark" href="#http_http" id="http_http">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_http">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/http.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><p>&#x4F7F;&#x7528; HTTP &#x670D;&#x52A1;&#x5668;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x5FC5;&#x987B; <code>require(&apos;http&apos;)</code>&#x3002;</p>
+<p>Node.js &#x4E2D;&#x7684; HTTP &#x63A5;&#x53E3;&#x88AB;&#x8BBE;&#x8BA1;&#x4E3A;&#x652F;&#x6301;&#x4EE5;&#x5F80;&#x8F83;&#x96BE;&#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#x7684;&#x8BB8;&#x591A;&#x7279;&#x6027;&#x3002;
+&#x6BD4;&#x5982;&#xFF0C;&#x5927;&#x5757;&#x7F16;&#x7801;&#x7684;&#x6D88;&#x606F;&#x3002;
+&#x8BE5;&#x63A5;&#x53E3;&#x4ECE;&#x4E0D;&#x7F13;&#x5B58;&#x6574;&#x4E2A;&#x8BF7;&#x6C42;&#x6216;&#x54CD;&#x5E94;&#xFF0C;&#x6240;&#x4EE5;&#x7528;&#x6237;&#x80FD;&#x591F;&#x6D41;&#x5316;&#x6570;&#x636E;&#x3002;</p>
+<p>HTTP &#x6D88;&#x606F;&#x5934;&#x7531;&#x7C7B;&#x4F3C;&#x4EE5;&#x4E0B;&#x7684;&#x5BF9;&#x8C61;&#x8868;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-js">{ &apos;content-length&apos;: &apos;123&apos;,
+  &apos;content-type&apos;: &apos;text/plain&apos;,
+  &apos;connection&apos;: &apos;keep-alive&apos;,
+  &apos;host&apos;: &apos;mysite.com&apos;,
+  &apos;accept&apos;: &apos;*/*&apos; }
+</code></pre>
+<p>&#x952E;&#x540D;&#x662F;&#x5C0F;&#x5199;&#x7684;&#xFF0C;&#x503C;&#x662F;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x7684;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x5168;&#x90E8;&#x53EF;&#x80FD;&#x7684; HTTP &#x5E94;&#x7528;&#xFF0C;Node.js &#x7684; HTTP API &#x662F;&#x975E;&#x5E38;&#x5E95;&#x5C42;&#x7684;&#x3002;
+&#x5B83;&#x53EA;&#x6D89;&#x53CA;&#x6D41;&#x5904;&#x7406;&#x548C;&#x6D88;&#x606F;&#x89E3;&#x6790;&#x3002;
+&#x5B83;&#x628A;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x89E3;&#x6790;&#x6210;&#x5934;&#x90E8;&#x548C;&#x4E3B;&#x4F53;&#xFF0C;&#x4F46;&#x5B83;&#x4E0D;&#x89E3;&#x6790;&#x5177;&#x4F53;&#x7684;&#x5934;&#x90E8;&#x6216;&#x4E3B;&#x4F53;&#x3002;</p>
+<p>&#x8BE6;&#x89C1; <a href="#http_message_headers"><code>message.headers</code></a> &#x4E86;&#x89E3;&#x5982;&#x4F55;&#x5904;&#x7406;&#x91CD;&#x590D;&#x7684;&#x5934;&#x90E8;&#x3002;</p>
+<p>&#x6536;&#x5230;&#x7684;&#x539F;&#x59CB;&#x6D88;&#x606F;&#x5934;&#x4FDD;&#x5B58;&#x5728; <code>rawHeaders</code> &#x5C5E;&#x6027;&#x4E2D;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A; <code>[key, value, key2, value2, ...]</code> &#x7684;&#x6570;&#x7EC4;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x6D88;&#x606F;&#x5934;&#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4EE5;&#x4E0B;&#x7684; <code>rawHeaders</code> &#x5217;&#x8868;&#xFF1A;</p>
+<pre><code class="lang-js">[ &apos;ConTent-Length&apos;, &apos;123456&apos;,
+  &apos;content-LENGTH&apos;, &apos;123&apos;,
+  &apos;content-type&apos;, &apos;text/plain&apos;,
+  &apos;CONNECTION&apos;, &apos;keep-alive&apos;,
+  &apos;Host&apos;, &apos;mysite.com&apos;,
+  &apos;accepT&apos;, &apos;*/*&apos; ]
+</code></pre>
+<h2>http.Agent &#x7C7B;<span><a class="mark" href="#http_class_http_agent" id="http_class_http_agent">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_class_http_agent">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/class_http_agent.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><p>HTTP Agent &#x7528;&#x4E8E;&#x6C60;&#x5316;&#x5728; HTTP &#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E2D;&#x4F7F;&#x7528;&#x7684; socket&#x3002;</p>
+<p>HTTP Agent &#x4E5F;&#x9ED8;&#x8BA4;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4F7F;&#x7528; <code>Connection:keep-alive</code>&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6302;&#x8D77;&#x7684; HTTP &#x8BF7;&#x6C42;&#x6B63;&#x5728;&#x7B49;&#x5F85; socket &#x53D8;&#x6210;&#x7A7A;&#x95F2;&#x7684;&#xFF0C;&#x5219; socket &#x4F1A;&#x88AB;&#x5173;&#x95ED;&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5F53;&#x5728;&#x8D1F;&#x8F7D;&#x72B6;&#x6001;&#x4E0B;&#x4F46;&#x4ECD;&#x4E0D;&#x8981;&#x6C42;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528; KeepAlive &#x624B;&#x52A8;&#x5173;&#x95ED; HTTP &#x5BA2;&#x6237;&#x7AEF;&#x65F6;&#xFF0C;Node.js &#x6C60;&#x6709; keep-alive &#x7684;&#x597D;&#x5904;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x9009;&#x62E9;&#x4F7F;&#x7528; HTTP &#x7684; KeepAlive&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5C06;&#x6807;&#x5FD7;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code> &#x7684; Agent &#x5BF9;&#x8C61;&#xFF08;&#x8BE6;&#x89C1;<a href="#http_new_agent_options">&#x6784;&#x9020;&#x5668;&#x9009;&#x9879;</a>&#xFF09;&#x3002;
+&#x90A3;&#x4E48;&#xFF0C;&#x8BE5; Agent &#x4F1A;&#x4FDD;&#x7559;&#x6CA1;&#x7528;&#x8FC7;&#x7684; socket &#x5728;&#x6C60;&#x4E2D;&#x7528;&#x4E8E;&#x540E;&#x7EED;&#x7684;&#x4F7F;&#x7528;&#x3002;
+&#x5B83;&#x4EEC;&#x4F1A;&#x88AB;&#x663E;&#x5F0F;&#x5730;&#x6807;&#x8BB0;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E0D;&#x7528;&#x4FDD;&#x6301; Node.js &#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x3002;
+&#x5F53;&#x7136;&#xFF0C;&#x5F53;&#x5B83;&#x4EEC;&#x4E0D;&#x518D;&#x88AB;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x663E;&#x5F0F;&#x5730; <a href="#http_agent_destroy"><code>destroy()</code></a> KeepAlive &#x4EE3;&#x7406;&#xFF0C;&#x4EE5;&#x4FBF; Socket &#x4F1A;&#x88AB;&#x5173;&#x95ED;&#x3002;</p>
+<p>&#x5F53; socket &#x89E6;&#x53D1;&#x4E00;&#x4E2A; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#x6216;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684; <code>&apos;agentRemove&apos;</code> &#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;socket &#x4F1A;&#x4ECE;&#x4EE3;&#x7406;&#x6C60;&#x4E2D;&#x88AB;&#x79FB;&#x9664;&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5982;&#x679C;&#x6253;&#x7B97;&#x4F7F;&#x4E00;&#x4E2A; HTTP &#x8BF7;&#x6C42;&#x4FDD;&#x6301;&#x957F;&#x65F6;&#x95F4;&#x6253;&#x5F00;&#x4E14;&#x4E0D;&#x60F3;&#x8BA9;&#x5B83;&#x7559;&#x5728;&#x6C60;&#x4E2D;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-js">http.get(options, (res) =&gt; {
+  // &#x5904;&#x7406;&#x4E8B;&#x60C5;
+}).on(&apos;socket&apos;, (socket) =&gt; {
+  socket.emit(&apos;agentRemove&apos;);
+});
+</code></pre>
+<p>&#x6216;&#x8005;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F7F;&#x7528; <code>agent:false</code> &#x5B8C;&#x5168;&#x5730;&#x9000;&#x51FA;&#x6C60;&#xFF1A;</p>
+<pre><code class="lang-js">http.get({
+  hostname: &apos;localhost&apos;,
+  port: 80,
+  path: &apos;/&apos;,
+  agent: false  // &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4EE3;&#x7406;&#xFF0C;&#x53EA;&#x7528;&#x4E8E;&#x672C;&#x6B21;&#x8BF7;&#x6C42;
+}, (res) =&gt; {
+  // &#x5BF9;&#x54CD;&#x5E94;&#x8FDB;&#x884C;&#x5904;&#x7406;
+});
+</code></pre>
+<h3>new Agent([options])<span><a class="mark" href="#http_new_agent_options" id="http_new_agent_options">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_new_agent_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/new_agent_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> &#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x7684;&#x914D;&#x7F6E;&#x9009;&#x9879;&#x7684;&#x96C6;&#x5408;&#x3002;&#x53EF;&#x4EE5;&#x6709;&#x4EE5;&#x4E0B;&#x5B57;&#x6BB5;&#xFF1A;<ul>
+<li><code>keepAlive</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a> &#x4FDD;&#x6301;&#x6C60;&#x5468;&#x56F4;&#x7684; socket &#x5728;&#x672A;&#x6765;&#x53EF;&#x88AB;&#x5176;&#x4ED6;&#x8BF7;&#x6C42;&#x4F7F;&#x7528;&#x3002;&#x9ED8;&#x8BA4; = <code>false</code>&#x3002;</li>
+<li><code>keepAliveMsecs</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Integer&gt;</a> &#x5F53;&#x4F7F;&#x7528; HTTP &#x7684; KeepAlive &#x65F6;&#xFF0C;&#x591A;&#x4E45;&#x53D1;&#x9001; TCP KeepAlive &#x6570;&#x636E;&#x5305;&#x4F7F;&#x5F97; socket &#x4FDD;&#x6301;&#x6D3B;&#x8DC3;&#x3002;
+&#x9ED8;&#x8BA4; = <code>1000</code>&#x3002;
+&#x4EC5;&#x5F53; <code>keepAlive</code> &#x88AB;&#x8BBE;&#x4E3A; <code>true</code> &#x6709;&#x6548;&#x3002;</li>
+<li><code>maxSockets</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x6BCF;&#x4E2A;&#x4E3B;&#x673A;&#x5141;&#x8BB8;&#x7684;&#x6700;&#x5927; socket &#x6570;&#x3002;&#x9ED8;&#x8BA4;= <code>Infinity</code>&#x3002;</li>
+<li><code>maxFreeSockets</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x5728;&#x7A7A;&#x95F2;&#x72B6;&#x6001;&#x4E0B;&#x5141;&#x8BB8;&#x6253;&#x5F00;&#x7684;&#x6700;&#x5927; socket &#x6570;&#x3002;
+&#x4EC5;&#x5F53; <code>keepAlive</code> &#x88AB;&#x8BBE;&#x4E3A; <code>true</code> &#x6709;&#x6548;&#x3002;
+&#x9ED8;&#x8BA4; = <code>256</code>.</li>
+</ul>
+</li>
+</ul>
+<p><a href="#http_http_request_options_callback"><code>http.request()</code></a> &#x4F7F;&#x7528;&#x7684;&#x9ED8;&#x8BA4;&#x7684; <a href="#http_http_globalagent"><code>http.globalAgent</code></a> &#x4F1A;&#x5C06;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x503C;&#x8BBE;&#x4E3A;&#x5404;&#x81EA;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x3002;</p>
+<p>&#x8981;&#x914D;&#x7F6E;&#x5176;&#x4E2D;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#xFF0C;&#x5FC5;&#x987B;&#x521B;&#x5EFA;&#x81EA;&#x5DF1;&#x7684; <a href="#http_class_http_agent"><code>http.Agent</code></a> &#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-js">const http = require(&apos;http&apos;);
+var keepAliveAgent = new http.Agent({ keepAlive: true });
+options.agent = keepAliveAgent;
+http.request(options, onResponseCallback);
+</code></pre>
+<h3>agent.createConnection(options[, callback])<span><a class="mark" href="#http_agent_createconnection_options_callback" id="http_agent_createconnection_options_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_agent_createconnection_options_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_createconnection_options_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.4</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> &#x5305;&#x542B;&#x8FDE;&#x63A5;&#x8BE6;&#x60C5;&#x7684;&#x9009;&#x9879;&#x3002;&#x8BE6;&#x89C1; <a href="net.html#net_net_createconnection_options_connectlistener"><code>net.createConnection()</code></a> &#x4E86;&#x89E3;&#x9009;&#x9879;&#x7684;&#x683C;&#x5F0F;</li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x63A5;&#x6536;&#x521B;&#x5EFA;&#x7684; socket &#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li>&#x8FD4;&#x56DE;: <a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a></li>
+</ul>
+<p>&#x751F;&#x4EA7;&#x4E00;&#x4E2A;&#x7528;&#x4E8E; HTTP &#x8BF7;&#x6C42;&#x7684; socket/stream&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#x4E8E; <a href="net.html#net_net_createconnection_options_connectlistener"><code>net.createConnection()</code></a>&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x671F;&#x671B;&#x66F4;&#x5927;&#x7684;&#x7075;&#x6D3B;&#x6027;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x4EE3;&#x7406;&#x53EF;&#x4EE5;&#x91CD;&#x5199;&#x6B64;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>socket/stream &#x53EF;&#x4EE5;&#x7531;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#xFF1A;&#x4ECE;&#x8BE5;&#x51FD;&#x6570;&#x8FD4;&#x56DE; socket/stream&#xFF0C;&#x6216;&#x4F20;&#x5165; <code>callback</code> &#x7684; socket/stream&#x3002;</p>
+<p><code>callback</code> &#x6709; <code>(err, stream)</code> &#x53C2;&#x6570;&#x3002;</p>
+<h3>agent.destroy()<span><a class="mark" href="#http_agent_destroy" id="http_agent_destroy">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_agent_destroy">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_destroy.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.4</span>
+</div><p>&#x9500;&#x6BC1;&#x5F53;&#x524D;&#x6B63;&#x88AB;&#x4EE3;&#x7406;&#x4F7F;&#x7528;&#x7684;&#x4EFB;&#x4F55; socket&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x8FD9;&#x4E48;&#x505A;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x542F;&#x7528; KeepAlive &#x7684;&#x4EE3;&#x7406;&#xFF0C;&#x5219;&#x5F53;&#x77E5;&#x9053;&#x5B83;&#x4E0D;&#x518D;&#x88AB;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x6700;&#x597D;&#x663E;&#x5F0F;&#x5730;&#x5173;&#x95ED;&#x4EE3;&#x7406;&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7EC8;&#x6B62;&#x4E4B;&#x524D;&#xFF0C;socket &#x53EF;&#x80FD;&#x4F1A;&#x6302;&#x8D77;&#x5F00;&#x653E;&#x76F8;&#x5F53;&#x957F;&#x7684;&#x65F6;&#x95F4;&#x3002;</p>
+<h3>agent.freeSockets<span><a class="mark" href="#http_agent_freesockets" id="http_agent_freesockets">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_agent_freesockets">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_freesockets.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.4</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x7B49;&#x5F85;&#x88AB; Agent &#x4F7F;&#x7528;&#x7684; socket &#x6570;&#x7EC4;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x5F53;&#x4F7F;&#x7528; HTTP &#x7684; KeepAlive &#x65F6;&#xFF09;&#x3002;
+&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x3002;</p>
+<h3>agent.getName(options)<span><a class="mark" href="#http_agent_getname_options" id="http_agent_getname_options">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_agent_getname_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_getname_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.4</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> &#x4E00;&#x4E2A;&#x63D0;&#x4F9B;&#x540D;&#x79F0;&#x751F;&#x6210;&#x4FE1;&#x606F;&#x7684;&#x9009;&#x9879;&#x7684;&#x96C6;&#x5408;<ul>
+<li><code>host</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x81F3;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7684;&#x57DF;&#x540D;&#x6216; IP &#x5730;&#x5740;</li>
+<li><code>port</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7AEF;&#x53E3;</li>
+<li><code>localAddress</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x5F53;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x8981;&#x7ED1;&#x5B9A;&#x5230;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x7684;&#x672C;&#x5730;&#x63A5;&#x53E3;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x9009;&#x9879;&#x96C6;&#x5408;&#x7684;&#x552F;&#x4E00;&#x540D;&#x79F0;&#xFF0C;&#x4EE5;&#x786E;&#x5B9A;&#x8FDE;&#x63A5;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x518D;&#x5229;&#x7528;&#x3002;
+&#x5728; http &#x4EE3;&#x7406;&#x4E2D;&#xFF0C;&#x8FD9;&#x4F1A;&#x8FD4;&#x56DE; <code>host:port:localAddress</code>&#x3002;
+&#x5728; https &#x4EE3;&#x7406;&#x4E2D;&#xFF0C;&#x540D;&#x79F0;&#x4F1A;&#x5305;&#x62EC; CA&#x3001;&#x8BC1;&#x4E66;&#x3001;&#x5BC6;&#x7801;&#x548C;&#x5176;&#x4ED6; HTTPS/TLS-specific &#x9009;&#x9879;&#xFF0C;&#x4EE5;&#x786E;&#x5B9A; socket &#x7684;&#x53EF;&#x590D;&#x7528;&#x6027;&#x3002;</p>
+<h3>agent.maxFreeSockets<span><a class="mark" href="#http_agent_maxfreesockets" id="http_agent_maxfreesockets">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_agent_maxfreesockets">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_maxfreesockets.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.7</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+</ul>
+<p>&#x9ED8;&#x8BA4;&#x8BBE;&#x4E3A; 256&#x3002;
+&#x5BF9;&#x4E8E;&#x652F;&#x6301; HTTP KeepAlive &#x7684; Agent&#xFF0C;&#x5B83;&#x8BBE;&#x7F6E;&#x4E86;&#x5728;&#x7A7A;&#x95F2;&#x72B6;&#x6001;&#x4E0B;&#x53EF;&#x6253;&#x5F00;&#x7684; socket &#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;</p>
+<h3>agent.maxSockets<span><a class="mark" href="#http_agent_maxsockets" id="http_agent_maxsockets">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_agent_maxsockets">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_maxsockets.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+</ul>
+<p>&#x9ED8;&#x8BA4;&#x8BBE;&#x4E3A;&#x65E0;&#x7A77;&#x5927;&#x3002;
+&#x51B3;&#x5B9A;&#x6BCF;&#x4E2A;&#x6765;&#x6E90;&#x4E2D;&#x4EE3;&#x7406;&#x53EF;&#x6253;&#x5F00;&#x591A;&#x5C11;&#x4E2A;&#x5E76;&#x53D1;&#x7684; socket&#x3002;
+&#x6765;&#x6E90;&#x662F;&#x4E00;&#x4E2A; <code>&apos;host:port&apos;</code> &#x6216; <code>&apos;host:port:localAddress&apos;</code> &#x7EC4;&#x5408;&#x3002;</p>
+<h3>agent.requests<span><a class="mark" href="#http_agent_requests" id="http_agent_requests">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_agent_requests">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_requests.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x8FD8;&#x672A;&#x88AB;&#x5206;&#x914D;&#x5230; socket &#x7684;&#x8BF7;&#x6C42;&#x961F;&#x5217;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x3002;</p>
+<h3>agent.sockets<span><a class="mark" href="#http_agent_sockets" id="http_agent_sockets">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_agent_sockets">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_sockets.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5F53;&#x524D;&#x88AB; Agent &#x4F7F;&#x7528;&#x7684; socket &#x6570;&#x7EC4;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x3002;</p>
+<h2>http.ClientRequest &#x7C7B;<span><a class="mark" href="#http_class_http_clientrequest" id="http_class_http_clientrequest">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_class_http_clientrequest">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/class_http_clientrequest.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.17</span>
+</div><p>&#x8BE5;&#x5BF9;&#x8C61;&#x5728;&#x5185;&#x90E8;&#x88AB;&#x521B;&#x5EFA;&#xFF0C;&#x5E76;&#x4ECE; <a href="#http_http_request_options_callback"><code>http.request()</code></a> &#x8FD4;&#x56DE;&#x3002;
+&#x5B83;&#x8868;&#x793A;&#x7740;&#x4E00;&#x4E2A;<strong>&#x6B63;&#x5728;&#x5904;&#x7406;</strong>&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5176;&#x8BF7;&#x6C42;&#x5934;&#x5DF2;&#x8FDB;&#x5165;&#x961F;&#x5217;&#x3002;
+&#x8BF7;&#x6C42;&#x5934;&#x4ECD;&#x53EF;&#x4F7F;&#x7528; <code>setHeader(name, value)</code>&#x3001;<code>getHeader(name)</code> &#x548C; <code>removeHeader(name)</code> API &#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x3002;
+&#x5B9E;&#x9645;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x4F1A;&#x4E0E;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x6216;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x65F6;&#x4E00;&#x8D77;&#x88AB;&#x53D1;&#x9001;&#x3002;</p>
+<p>&#x8981;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#xFF0C;&#x9700;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; <a href="#http_event_response"><code>&apos;response&apos;</code></a> &#x76D1;&#x542C;&#x5668;&#x5230;&#x8BF7;&#x6C42;&#x5BF9;&#x8C61;&#x4E0A;&#x3002;
+&#x5F53;&#x54CD;&#x5E94;&#x5934;&#x88AB;&#x63A5;&#x6536;&#x65F6;&#xFF0C;&#x8BF7;&#x6C42;&#x5BF9;&#x8C61;&#x4F1A;&#x89E6;&#x53D1; <a href="#http_event_response"><code>&apos;response&apos;</code></a>&#x3002;
+<a href="#http_event_response"><code>&apos;response&apos;</code></a> &#x4E8B;&#x4EF6;&#x88AB;&#x6267;&#x884C;&#x65F6;&#x5E26;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A; <a href="#http_class_http_incomingmessage"><code>http.IncomingMessage</code></a> &#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x5728; <a href="#http_event_response"><code>&apos;response&apos;</code></a> &#x4E8B;&#x4EF6;&#x671F;&#x95F4;&#xFF0C;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;&#x5230;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#xFF1B;&#x6BD4;&#x5982;&#x76D1;&#x542C; <code>&apos;data&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6DFB;&#x52A0; <a href="#http_event_response"><code>&apos;response&apos;</code></a> &#x53E5;&#x67C4;&#xFF0C;&#x5219;&#x54CD;&#x5E94;&#x4F1A;&#x88AB;&#x5B8C;&#x5168;&#x4E22;&#x5F03;&#x3002;
+&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x6DFB;&#x52A0;&#x4E86; <a href="#http_event_response"><code>&apos;response&apos;</code></a> &#x4E8B;&#x4EF6;&#x53E5;&#x67C4;&#xFF0C;&#x5219;<strong>&#x5FC5;&#x987B;</strong>&#x6D88;&#x8017;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x636E;&#xFF08;&#x5F53;&#x6709; <code>&apos;readable&apos;</code> &#x4E8B;&#x4EF6;&#x65F6;&#x8C03;&#x7528; <code>response.read()</code>&#x3001;&#x6216;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; <code>&apos;data&apos;</code> &#x53E5;&#x67C4;&#x3001;&#x6216;&#x8C03;&#x7528; <code>.resume()</code> &#x65B9;&#x6CD5;&#xFF09;&#x3002;
+<code>&apos;end&apos;</code> &#x4E8B;&#x4EF6;&#x4E0D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x76F4;&#x5230;&#x6570;&#x636E;&#x88AB;&#x6D88;&#x8017;&#x5B8C;&#x3002;
+&#x540C;&#x6837;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x8BFB;&#x5B8C;&#x4E4B;&#x524D;&#xFF0C;&#x5B83;&#x4F1A;&#x6D88;&#x8017;&#x5185;&#x5B58;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210; &apos;process out of memory&apos; &#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;Node.js &#x4E0D;&#x4F1A;&#x68C0;&#x67E5; Content-Length &#x548C;&#x5DF2;&#x53D1;&#x9001;&#x7684;&#x4E3B;&#x4F53;&#x7684;&#x957F;&#x5EA6;&#x662F;&#x5426;&#x76F8;&#x7B49;&#x3002;</p>
+<p>&#x8BF7;&#x6C42;&#x5B9E;&#x73B0;&#x4E86;[&#x53EF;&#x5199;&#x6D41;]&#x63A5;&#x53E3;&#x3002;
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x4E8B;&#x4EF6;&#x7684; <a href="events.html#events_class_eventemitter"><code>EventEmitter</code></a>&#xFF1A;</p>
+<h3>&apos;abort&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_abort" id="http_event_abort">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_abort">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_abort.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v1.4.1</span>
+</div><p>&#x5F53;&#x8BF7;&#x6C42;&#x5DF2;&#x88AB;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x6B62;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x8BE5;&#x4E8B;&#x4EF6;&#x4EC5;&#x5728;&#x9996;&#x6B21;&#x8C03;&#x7528; <code>abort()</code> &#x65F6;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>&apos;aborted&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_aborted" id="http_event_aborted">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_aborted">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_aborted.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.8</span>
+</div><p>&#x5F53;&#x8BF7;&#x6C42;&#x5DF2;&#x88AB;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x6B62;&#x4E14;&#x7F51;&#x7EDC; socket &#x5DF2;&#x5173;&#x95ED;&#x65F6;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>&apos;connect&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_connect" id="http_event_connect">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_connect">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_connect.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.0</span>
+</div><ul>
+<li><code>response</code> <a href="http.html#http_class_http_incomingmessage" class="type">&lt;http.IncomingMessage&gt;</a></li>
+<li><code>socket</code> <a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a></li>
+<li><code>head</code> <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a></li>
+</ul>
+<p>&#x6BCF;&#x5F53;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x4E00;&#x4E2A;&#x5E26;&#x6709; <code>CONNECT</code> &#x65B9;&#x6CD5;&#x7684;&#x8BF7;&#x6C42;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x5982;&#x679C;&#x8BE5;&#x4E8B;&#x4EF6;&#x672A;&#x88AB;&#x76D1;&#x542C;&#xFF0C;&#x5219;&#x63A5;&#x6536;&#x5230; <code>CONNECT</code> &#x65B9;&#x6CD5;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x5173;&#x95ED;&#x5B83;&#x4EEC;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x4E00;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x4F1A;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x76D1;&#x542C; <code>&apos;connect&apos;</code> &#x4E8B;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-js">const http = require(&apos;http&apos;);
+const net = require(&apos;net&apos;);
+const url = require(&apos;url&apos;);
+
+// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; HTTP &#x901A;&#x9053;&#x4EE3;&#x7406;
+var proxy = http.createServer( (req, res) =&gt; {
+  res.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+  res.end(&apos;okay&apos;);
+});
+proxy.on(&apos;connect&apos;, (req, cltSocket, head) =&gt; {
+  // &#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x4E2A;&#x6765;&#x6E90;&#x670D;&#x52A1;&#x5668;
+  var srvUrl = url.parse(`http://${req.url}`);
+  var srvSocket = net.connect(srvUrl.port, srvUrl.hostname, () =&gt; {
+    cltSocket.write(&apos;HTTP/1.1 200 &#x8FDE;&#x63A5;&#x5DF2;&#x5EFA;&#x7ACB;\r\n&apos; +
+                    &apos;&#x59D4;&#x6258;&#x4EE3;&#x7406;: Node.js-&#x4EE3;&#x7406;\r\n&apos; +
+                    &apos;\r\n&apos;);
+    srvSocket.write(head);
+    srvSocket.pipe(cltSocket);
+    cltSocket.pipe(srvSocket);
+  });
+});
+
+// &#x73B0;&#x5728;&#x4EE3;&#x7406;&#x6B63;&#x5728;&#x8FD0;&#x884C;
+proxy.listen(1337, &apos;127.0.0.1&apos;, () =&gt; {
+
+  // &#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5230;&#x901A;&#x9053;&#x4EE3;&#x7406;
+  var options = {
+    port: 1337,
+    hostname: &apos;127.0.0.1&apos;,
+    method: &apos;CONNECT&apos;,
+    path: &apos;www.google.com:80&apos;
+  };
+
+  var req = http.request(options);
+  req.end();
+
+  req.on(&apos;connect&apos;, (res, socket, head) =&gt; {
+    console.log(&apos;got connected!&apos;);
+
+    // &#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5230;&#x4E00;&#x4E2A; HTTP &#x901A;&#x9053;
+    socket.write(&apos;GET / HTTP/1.1\r\n&apos; +
+                 &apos;Host: www.google.com:80\r\n&apos; +
+                 &apos;Connection: close\r\n&apos; +
+                 &apos;\r\n&apos;);
+    socket.on(&apos;data&apos;, (chunk) =&gt; {
+      console.log(chunk.toString());
+    });
+    socket.on(&apos;end&apos;, () =&gt; {
+      proxy.close();
+    });
+  });
+});
+</code></pre>
+<h3>&apos;continue&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_continue" id="http_event_continue">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_continue">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_continue.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.2</span>
+</div><p>&#x5F53;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x4E86;&#x4E00;&#x4E2A; <code>100 Continue</code> &#x7684; HTTP &#x54CD;&#x5E94;&#x65F6;&#x89E6;&#x53D1;&#xFF0C;&#x901A;&#x5E38;&#x56E0;&#x4E3A;&#x8BE5;&#x8BF7;&#x6C42;&#x5305;&#x542B; <code>Expect: 100-continue</code>&#x3002;
+&#x8FD9;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#x7684;&#x6307;&#x4EE4;&#x3002;</p>
+<h3>&apos;response&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_response" id="http_event_response">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_response">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_response.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.0</span>
+</div><ul>
+<li><code>response</code> <a href="http.html#http_class_http_incomingmessage" class="type">&lt;http.IncomingMessage&gt;</a></li>
+</ul>
+<p>&#x5F53;&#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x88AB;&#x63A5;&#x6536;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x8BE5;&#x4E8B;&#x4EF6;&#x53EA;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x3002;</p>
+<h3>&apos;socket&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_socket" id="http_event_socket">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_socket">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_socket.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.3</span>
+</div><ul>
+<li><code>socket</code> <a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a></li>
+</ul>
+<p>&#x5F53; socket &#x88AB;&#x5206;&#x914D;&#x7ED9;&#x8BF7;&#x6C42;&#x540E;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>&apos;upgrade&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_upgrade" id="http_event_upgrade">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_upgrade">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_upgrade.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.94</span>
+</div><ul>
+<li><code>response</code> <a href="http.html#http_class_http_incomingmessage" class="type">&lt;http.IncomingMessage&gt;</a></li>
+<li><code>socket</code> <a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a></li>
+<li><code>head</code> <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a></li>
+</ul>
+<p>&#x6BCF;&#x5F53;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x4E00;&#x4E2A;&#x5347;&#x7EA7;&#x8BF7;&#x6C42;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x5982;&#x679C;&#x8BE5;&#x4E8B;&#x4EF6;&#x672A;&#x88AB;&#x76D1;&#x542C;&#xFF0C;&#x5219;&#x63A5;&#x6536;&#x5230;&#x5347;&#x7EA7;&#x8BF7;&#x6C42;&#x5934;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x5173;&#x95ED;&#x5B83;&#x4EEC;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x4E00;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x4F1A;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x76D1;&#x542C; <code>&apos;upgrade&apos;</code> &#x4E8B;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-js">const http = require(&apos;http&apos;);
+
+// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; HTTP &#x670D;&#x52A1;&#x5668;
+var srv = http.createServer( (req, res) =&gt; {
+  res.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+  res.end(&apos;okay&apos;);
+});
+srv.on(&apos;upgrade&apos;, (req, socket, head) =&gt; {
+  socket.write(&apos;HTTP/1.1 101 Web Socket &#x534F;&#x8BAE;&#x63E1;&#x624B;\r\n&apos; +
+               &apos;&#x5347;&#x7EA7;: WebSocket\r\n&apos; +
+               &apos;&#x8FDE;&#x63A5;: &#x5347;&#x7EA7;\r\n&apos; +
+               &apos;\r\n&apos;);
+
+  socket.pipe(socket); // &#x56DE;&#x58F0;
+});
+
+// &#x73B0;&#x5728;&#x670D;&#x52A1;&#x5668;&#x6B63;&#x5728;&#x8FD0;&#x884C;
+srv.listen(1337, &apos;127.0.0.1&apos;, () =&gt; {
+
+  // &#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;
+  var options = {
+    port: 1337,
+    hostname: &apos;127.0.0.1&apos;,
+    headers: {
+      &apos;Connection&apos;: &apos;Upgrade&apos;,
+      &apos;Upgrade&apos;: &apos;websocket&apos;
+    }
+  };
+
+  var req = http.request(options);
+  req.end();
+
+  req.on(&apos;upgrade&apos;, (res, socket, upgradeHead) =&gt; {
+    console.log(&apos;&#x5DF2;&#x5347;&#x7EA7;&#xFF01;&apos;);
+    socket.end();
+    process.exit(0);
+  });
+});
+</code></pre>
+<h3>request.abort()<span><a class="mark" href="#http_request_abort" id="http_request_abort">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_request_abort">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/request_abort.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.8</span>
+</div><p>&#x6807;&#x8BB0;&#x8BF7;&#x6C42;&#x4E3A;&#x7EC8;&#x6B62;&#x3002;
+&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x5C06;&#x5BFC;&#x81F4;&#x54CD;&#x5E94;&#x4E2D;&#x5269;&#x4F59;&#x7684;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x4E22;&#x5F03;&#xFF0C;&#x4E14; socket &#x4F1A;&#x88AB;&#x9500;&#x6BC1;&#x3002;</p>
+<h3>request.end([data][, encoding][, callback])<span><a class="mark" href="#http_request_end_data_encoding_callback" id="http_request_end_data_encoding_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_request_end_data_encoding_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/request_end_data_encoding_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>data</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> | <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a></li>
+<li><code>encoding</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x5B8C;&#x6210;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x3002;
+&#x5982;&#x679C;&#x4E3B;&#x4F53;&#x7684;&#x4EFB;&#x4F55;&#x90E8;&#x5206;&#x672A;&#x88AB;&#x53D1;&#x9001;&#xFF0C;&#x5219;&#x4F1A;&#x5237;&#x65B0;&#x5B83;&#x4EEC;&#x5230;&#x6D41;&#x4E2D;&#x3002;
+&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x88AB;&#x5206;&#x5757;&#xFF0C;&#x5219;&#x4F1A;&#x53D1;&#x9001;&#x7EC8;&#x6B62; <code>&apos;0\r\n\r\n&apos;</code>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>data</code>&#xFF0C;&#x5219;&#x7B49;&#x540C;&#x4E8E;&#x8C03;&#x7528; <code>request.end(callback)</code> &#x4E4B;&#x540E;&#x8C03;&#x7528; <a href="#http_response_write_chunk_encoding_callback"><code>response.write(data, encoding)</code></a>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>callback</code>&#xFF0C;&#x5219;&#x5F53;&#x8BF7;&#x6C42;&#x6D41;&#x7ED3;&#x675F;&#x65F6;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<h3>request.flushHeaders()<span><a class="mark" href="#http_request_flushheaders" id="http_request_flushheaders">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_request_flushheaders">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/request_flushheaders.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v1.6.0</span>
+</div><p>&#x5237;&#x65B0;&#x8BF7;&#x6C42;&#x5934;&#x3002;</p>
+<p>&#x51FA;&#x4E8E;&#x6548;&#x7387;&#x7684;&#x8003;&#x8651;&#xFF0C;Node.js &#x901A;&#x5E38;&#x7F13;&#x5B58;&#x8BF7;&#x6C42;&#x5934;&#x76F4;&#x5230;&#x8C03;&#x7528; <code>request.end()</code> &#x6216;&#x5199;&#x5165;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x7684;&#x7B2C;&#x4E00;&#x5757;&#x3002;
+&#x7136;&#x540E;&#x8BD5;&#x56FE;&#x5C06;&#x8BF7;&#x6C42;&#x5934;&#x548C;&#x6570;&#x636E;&#x6253;&#x5305;&#x6210;&#x5355;&#x4E00;&#x7684; TCP &#x6570;&#x636E;&#x5305;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x90A3;&#x662F;&#x4F60;&#x60F3;&#x8981;&#x7684;&#xFF08;&#x5B83;&#x8282;&#x7701;&#x4E86; TCP &#x5F80;&#x8FD4;&#xFF09;&#xFF0C;&#x9664;&#x4E86;&#x5F53;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x76F4;&#x5230;&#x5F88;&#x4E45;&#x4E4B;&#x540E;&#x624D;&#x88AB;&#x53D1;&#x9001;&#x3002;
+<code>request.flushHeaders()</code> &#x8BA9;&#x4F60;&#x7ED5;&#x8FC7;&#x6700;&#x4F18;&#x5316;&#x5E76;&#x63D0;&#x524D;&#x5F00;&#x59CB;&#x8BF7;&#x6C42;&#x3002;</p>
+<h3>request.setNoDelay([noDelay])<span><a class="mark" href="#http_request_setnodelay_nodelay" id="http_request_setnodelay_nodelay">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_request_setnodelay_nodelay">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/request_setnodelay_nodelay.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div><ul>
+<li><code>noDelay</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>&#x4E00;&#x65E6; socket &#x88AB;&#x5206;&#x914D;&#x7ED9;&#x8BF7;&#x6C42;&#x4E14;&#x5DF2;&#x8FDE;&#x63A5;&#xFF0C;<a href="net.html#net_socket_setnodelay_nodelay"><code>socket.setNoDelay()</code></a> &#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<h3>request.setSocketKeepAlive([enable][, initialDelay])<span><a class="mark" href="#http_request_setsocketkeepalive_enable_initialdelay" id="http_request_setsocketkeepalive_enable_initialdelay">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_request_setsocketkeepalive_enable_initialdelay">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/request_setsocketkeepalive_enable_initialdelay.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div><ul>
+<li><code>enable</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+<li><code>initialDelay</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+</ul>
+<p>&#x4E00;&#x65E6; socket &#x88AB;&#x5206;&#x914D;&#x7ED9;&#x8BF7;&#x6C42;&#x4E14;&#x5DF2;&#x8FDE;&#x63A5;&#xFF0C;<a href="net.html#net_socket_setkeepalive_enable_initialdelay"><code>socket.setKeepAlive()</code></a> &#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<h3>request.setTimeout(timeout[, callback])<span><a class="mark" href="#http_request_settimeout_timeout_callback" id="http_request_settimeout_timeout_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_request_settimeout_timeout_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/request_settimeout_timeout_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div><ul>
+<li><code>timeout</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x8D85;&#x65F6;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x3002;</li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x53EF;&#x9009;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5F53;&#x53D1;&#x751F;&#x8D85;&#x65F6;&#x65F6;&#x8C03;&#x7528;&#x3002;&#x4E0E;&#x7ED1;&#x5B9A;&#x5230; <code>timeout</code> &#x4E8B;&#x4EF6;&#x7684;&#x76F8;&#x540C;&#x3002;</li>
+</ul>
+<p>&#x4E00;&#x65E6; socket &#x88AB;&#x5206;&#x914D;&#x7ED9;&#x8BF7;&#x6C42;&#x4E14;&#x5DF2;&#x8FDE;&#x63A5;&#xFF0C;<a href="net.html#net_socket_settimeout_timeout_callback"><code>socket.setTimeout()</code></a> &#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x8FD4;&#x56DE; <code>request</code>&#x3002;</p>
+<h3>request.write(chunk[, encoding][, callback])<span><a class="mark" href="#http_request_write_chunk_encoding_callback" id="http_request_write_chunk_encoding_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_request_write_chunk_encoding_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/request_write_chunk_encoding_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.29</span>
+</div><ul>
+<li><code>chunk</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> | <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a></li>
+<li><code>encoding</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x53D1;&#x9001;&#x4E3B;&#x4F53;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x3002;
+&#x901A;&#x8FC7;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4EE5;&#x6D41;&#x7684;&#x5F62;&#x5F0F;&#x5C06;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#x53D1;&#x9001;&#x5230;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F53;&#x521B;&#x5EFA;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <code>[&apos;Transfer-Encoding&apos;, &apos;chunked&apos;]</code> &#x5934;&#x884C;&#x3002;</p>
+<p><code>encoding</code> &#x53C2;&#x6570;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4E14;&#x4EC5;&#x5F53; <code>chunk</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x6709;&#x6548;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;utf8&apos;</code>&#x3002;</p>
+<p><code>callback</code> &#x53C2;&#x6570;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4E14;&#x5F53;&#x6570;&#x636E;&#x5757;&#x88AB;&#x5237;&#x65B0;&#x65F6;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x8FD4;&#x56DE; <code>request</code>&#x3002;</p>
+<h2>http.Server &#x7C7B;<span><a class="mark" href="#http_class_http_server" id="http_class_http_server">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_class_http_server">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/class_http_server.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.17</span>
+</div><p>&#x8BE5;&#x7C7B;&#x7EE7;&#x627F;&#x81EA; <a href="net.html#net_class_net_server"><code>net.Server</code></a>&#xFF0C;&#x4E14;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x989D;&#x5916;&#x7684;&#x4E8B;&#x4EF6;&#xFF1A;</p>
+<h3>&apos;checkContinue&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_checkcontinue" id="http_event_checkcontinue">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_checkcontinue">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_checkcontinue.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><code>request</code> <a href="http.html#http_class_http_incomingmessage" class="type">&lt;http.IncomingMessage&gt;</a></li>
+<li><code>response</code> <a href="http.html#http_class_http_serverresponse" class="type">&lt;http.ServerResponse&gt;</a></li>
+</ul>
+<p>&#x6BCF;&#x5F53;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x5E26;&#x6709; HTTP <code>Expect: 100-continue</code> &#x7684;&#x8BF7;&#x6C42;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x5982;&#x679C;&#x8BE5;&#x4E8B;&#x4EF6;&#x672A;&#x88AB;&#x76D1;&#x542C;&#xFF0C;&#x5219;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x54CD;&#x5E94; <code>100 Continue</code>&#x3002;</p>
+<p>&#x5904;&#x7406;&#x8BE5;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x8BE5;&#x7EE7;&#x7EED;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#xFF0C;&#x5219;&#x8C03; <a href="#http_response_writecontinue"><code>response.writeContinue()</code></a>&#xFF0C;&#x5426;&#x5219;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x9002;&#x5F53;&#x7684; HTTP &#x54CD;&#x5E94;&#xFF08;&#x4F8B;&#x5982; 400 &#x9519;&#x8BEF;&#x8BF7;&#x6C42;&#xFF09;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5F53;&#x8BE5;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x4E14;&#x5904;&#x7406;&#x540E;&#xFF0C;<a href="#http_event_request"><code>&apos;request&apos;</code></a> &#x4E8B;&#x4EF6;&#x4E0D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>&apos;checkExpectation&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_checkexpectation" id="http_event_checkexpectation">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_checkexpectation">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_checkexpectation.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v5.5.0</span>
+</div><ul>
+<li><code>request</code> <a href="http.html#http_class_http_clientrequest" class="type">&lt;http.ClientRequest&gt;</a></li>
+<li><code>response</code> <a href="http.html#http_class_http_serverresponse" class="type">&lt;http.ServerResponse&gt;</a></li>
+</ul>
+<p>&#x6BCF;&#x5F53;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x5E26;&#x6709; HTTP <code>Expect</code> &#x8BF7;&#x6C42;&#x5934;&#x7684;&#x8BF7;&#x6C42;&#x65F6;&#x89E6;&#x53D1;&#xFF0C;&#x5176;&#x4E2D;&#x503C;&#x4E0D;&#x662F; <code>100-continue</code>&#x3002;
+&#x5982;&#x679C;&#x8BE5;&#x4E8B;&#x4EF6;&#x672A;&#x88AB;&#x76D1;&#x542C;&#xFF0C;&#x5219;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x54CD;&#x5E94; <code>417 Expectation Failed</code>&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5F53;&#x8BE5;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x4E14;&#x5904;&#x7406;&#x540E;&#xFF0C;<a href="#http_event_request"><code>&apos;request&apos;</code></a> &#x4E8B;&#x4EF6;&#x4E0D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>&apos;clientError&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_clienterror" id="http_event_clienterror">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_clienterror">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_clienterror.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.94</span>
+</div><ul>
+<li><code>exception</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" class="type">&lt;Error&gt;</a></li>
+<li><code>socket</code> <a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a></li>
+</ul>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x89E6;&#x53D1;&#x4E86;&#x4E00;&#x4E2A; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5219;&#x5B83;&#x4F1A;&#x88AB;&#x4F20;&#x9012;&#x5230;&#x8FD9;&#x91CC;&#x3002;
+&#x8BE5;&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x4F1A;&#x8D1F;&#x8D23;&#x5173;&#x95ED;/&#x9500;&#x6BC1;&#x5E95;&#x5C42;&#x7684; socket&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x66F4;&#x6E29;&#x548C;&#x5730;&#x7528;&#x4E00;&#x4E2A; HTTP <code>&apos;400 Bad Request&apos;</code> &#x54CD;&#x5E94;&#x5173;&#x95ED; socket&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7A81;&#x7136;&#x5730;&#x5207;&#x65AD;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x662F;&#x8BF7;&#x6C42;&#x5F02;&#x5E38;&#x662F;&#x7ACB;&#x5373;&#x9500;&#x6BC1; socket&#x3002;</p>
+<p><code>socket</code> &#x662F;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684; <a href="net.html#net_class_net_socket"><code>net.Socket</code></a> &#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-js">const http = require(&apos;http&apos;);
+
+const server = http.createServer((req, res) =&gt; {
+  res.end();
+});
+server.on(&apos;clientError&apos;, (err, socket) =&gt; {
+  socket.end(&apos;HTTP/1.1 400 Bad Request\r\n\r\n&apos;);
+});
+server.listen(8000);
+</code></pre>
+<p>&#x5F53; <code>&apos;clientError&apos;</code> &#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x662F;&#xFF0C;&#x4E0D;&#x4F1A;&#x6709; <code>request</code> &#x6216; <code>response</code> &#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x53D1;&#x9001;&#x7684;&#x4EFB;&#x4F55; HTTP &#x54CD;&#x5E94;&#xFF0C;&#x5305;&#x62EC;&#x54CD;&#x5E94;&#x5934;&#x548C;&#x5185;&#x5BB9;&#xFF0C;<strong>&#x5FC5;&#x987B;</strong>&#x88AB;&#x76F4;&#x63A5;&#x5199;&#x5165;&#x5230; <code>socket</code> &#x5BF9;&#x8C61;&#x3002;
+&#x5FC5;&#x987B;&#x5C0F;&#x5FC3;&#x786E;&#x4FDD;&#x54CD;&#x5E94;&#x662F;&#x4E00;&#x4E2A;&#x88AB;&#x6B63;&#x786E;&#x683C;&#x5F0F;&#x5316;&#x7684; HTTP &#x54CD;&#x5E94;&#x6D88;&#x606F;&#x3002;</p>
+<h3>&apos;close&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_close" id="http_event_close">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_close">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_close.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.4</span>
+</div><p>&#x5F53;&#x670D;&#x52A1;&#x5668;&#x5173;&#x95ED;&#x65F6;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>&apos;connect&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_connect_1" id="http_event_connect_1">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_connect_1">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_connect_1.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.0</span>
+</div><ul>
+<li><code>request</code> <a href="http.html#http_class_http_incomingmessage" class="type">&lt;http.IncomingMessage&gt;</a> HTTP &#x8BF7;&#x6C42;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E0E; <a href="#http_event_request"><code>&apos;request&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x76F8;&#x540C;</li>
+<li><code>socket</code> <a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a> &#x670D;&#x52A1;&#x5668;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC; socket</li>
+<li><code>head</code> <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a> &#x96A7;&#x9053;&#x6D41;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#xFF08;&#x53EF;&#x80FD;&#x4E3A;&#x7A7A;&#xFF09;</li>
+</ul>
+<p>&#x6BCF;&#x5F53;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A; HTTP <code>CONNECT</code> &#x65B9;&#x6CD5;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x5982;&#x679C;&#x8BE5;&#x4E8B;&#x4EF6;&#x672A;&#x88AB;&#x76D1;&#x542C;&#xFF0C;&#x5219;&#x53D1;&#x9001; <code>CONNECT</code> &#x65B9;&#x6CD5;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x5173;&#x95ED;&#x5B83;&#x4EEC;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x5F53;&#x8BE5;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x540E;&#xFF0C;&#x8BF7;&#x6C42;&#x7684; socket &#x4E0D;&#x4F1A;&#x6709; <code>&apos;data&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x9700;&#x8981;&#x7ED1;&#x5B9A;&#x5B83;&#x4EE5;&#x7528;&#x6765;&#x5904;&#x7406; socket &#x4E0A;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h3>&apos;connection&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_connection" id="http_event_connection">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_connection">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_connection.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.0</span>
+</div><ul>
+<li><code>socket</code> <a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a></li>
+</ul>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x65B0;&#x7684; TCP &#x6D41;&#x88AB;&#x5EFA;&#x7ACB;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+<code>socket</code> &#x662F; <a href="net.html#net_class_net_socket"><code>net.Socket</code></a> &#x7C7B;&#x578B;&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;
+&#x901A;&#x5E38;&#x7528;&#x6237;&#x65E0;&#x9700;&#x8BBF;&#x95EE;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x56E0;&#x4E3A;&#x534F;&#x8BAE;&#x89E3;&#x6790;&#x5668;&#x7ED1;&#x5B9A;&#x5230; socket &#x4E0A;&#xFF0C;socket &#x4E0D;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;readable&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+<code>socket</code> &#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>request.connection</code> &#x8BBF;&#x95EE;&#x3002;</p>
+<h3>&apos;request&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_request" id="http_event_request">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_request">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_request.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.0</span>
+</div><ul>
+<li><code>request</code> <a href="http.html#http_class_http_incomingmessage" class="type">&lt;http.IncomingMessage&gt;</a></li>
+<li><code>response</code> <a href="http.html#http_class_http_serverresponse" class="type">&lt;http.ServerResponse&gt;</a></li>
+</ul>
+<p>&#x6BCF;&#x6B21;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x6BCF;&#x4E2A;&#x8FDE;&#x63A5;&#x53EF;&#x80FD;&#x6709;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;&#xFF08;&#x5728; <code>keep-alive</code> &#x8FDE;&#x63A5;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;&#x3002;</p>
+<h3>&apos;upgrade&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_upgrade_1" id="http_event_upgrade_1">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_upgrade_1">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_upgrade_1.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.94</span>
+</div><ul>
+<li><code>request</code> <a href="http.html#http_class_http_incomingmessage" class="type">&lt;http.IncomingMessage&gt;</a> HTTP &#x8BF7;&#x6C42;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E0E; <a href="#http_event_request"><code>&apos;request&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x76F8;&#x540C;</li>
+<li><code>socket</code> <a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a> &#x670D;&#x52A1;&#x5668;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC; socket</li>
+<li><code>head</code> <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a> &#x5347;&#x7EA7;&#x6D41;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#xFF08;&#x53EF;&#x80FD;&#x4E3A;&#x7A7A;&#xFF09;</li>
+</ul>
+<p>&#x6BCF;&#x5F53;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A; HTTP &#x5347;&#x7EA7;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x5982;&#x679C;&#x8BE5;&#x4E8B;&#x4EF6;&#x672A;&#x88AB;&#x76D1;&#x542C;&#xFF0C;&#x5219;&#x53D1;&#x9001;&#x5347;&#x7EA7;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x5173;&#x95ED;&#x5B83;&#x4EEC;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x5F53;&#x8BE5;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x540E;&#xFF0C;&#x8BF7;&#x6C42;&#x7684; socket &#x4E0D;&#x4F1A;&#x6709; <code>&apos;data&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x9700;&#x8981;&#x7ED1;&#x5B9A;&#x5B83;&#x4EE5;&#x7528;&#x6765;&#x5904;&#x7406; socket &#x4E0A;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h3>server.close([callback])<span><a class="mark" href="#http_server_close_callback" id="http_server_close_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_server_close_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/server_close_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x505C;&#x6B62;&#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x6536;&#x65B0;&#x7684;&#x8FDE;&#x63A5;&#x3002;&#x8BE6;&#x89C1; <a href="net.html#net_server_close_callback"><code>net.Server.close()</code></a>&#x3002;</p>
+<h3>server.listen(handle[, callback])<span><a class="mark" href="#http_server_listen_handle_callback" id="http_server_listen_handle_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_server_listen_handle_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/server_listen_handle_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.10</span>
+</div><ul>
+<li><code>handle</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p><code>handle</code> &#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x88AB;&#x8BBE;&#x4E3A;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x6216; socket (&#x4EFB;&#x4F55;&#x4EE5;&#x4E0B;&#x5212;&#x7EBF;&#x5F00;&#x5934;&#x7684; <code>_handle</code> &#x6210;&#x5458;)&#x3001;&#x6216;&#x4E00;&#x4E2A; <code>{fd: &lt;n&gt;}</code> &#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x8FD9;&#x4F1A;&#x4F7F;&#x670D;&#x52A1;&#x5668;&#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x53E5;&#x67C4;&#x63A5;&#x53D7;&#x8FDE;&#x63A5;&#xFF0C;&#x4F46;&#x5047;&#x5B9A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x6216;&#x53E5;&#x67C4;&#x5DF2;&#x7ECF;&#x88AB;&#x7ED1;&#x5B9A;&#x5230;&#x4E86;&#x7AEF;&#x53E3;&#x6216;&#x8005;&#x57DF; socket&#x3002;</p>
+<p>Windows &#x5E73;&#x53F0;&#x4E0A;&#x4E0D;&#x652F;&#x6301;&#x76D1;&#x542C;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</p>
+<p>&#x8BE5;&#x51FD;&#x6570;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;
+<code>callback</code> &#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x5230; <a href="net.html#net_event_listening"><code>&apos;listening&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x3002;&#x8BE6;&#x89C1; <a href="net.html#net_server_listen_handle_backlog_callback"><code>net.Server.listen()</code></a>&#x3002;</p>
+<p>&#x8FD4;&#x56DE; <code>server</code>&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;<code>server.listen()</code> &#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x3002;
+&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x7684;&#x9009;&#x9879;<strong>&#x91CD;&#x65B0;&#x6253;&#x5F00;</strong>&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<h3>server.listen(path[, callback])<span><a class="mark" href="#http_server_listen_path_callback" id="http_server_listen_path_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_server_listen_path_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/server_listen_path_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x542F;&#x52A8;&#x4E00;&#x4E2A; UNIX socket &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5E76;&#x5728;&#x7ED9;&#x5B9A;&#x7684; <code>path</code> &#x4E0A;&#x76D1;&#x542C;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x8BE5;&#x51FD;&#x6570;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;
+<code>callback</code> &#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x5230; <a href="net.html#net_event_listening"><code>&apos;listening&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x3002;&#x8BE6;&#x89C1; <a href="net.html#net_server_listen_path_backlog_callback"><code>net.Server.listen(path)</code></a>&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;<code>server.listen()</code> &#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x3002;
+&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x7684;&#x9009;&#x9879;<strong>&#x91CD;&#x65B0;&#x6253;&#x5F00;</strong>&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<h3>server.listen([port][, hostname][, backlog][, callback])<span><a class="mark" href="#http_server_listen_port_hostname_backlog_callback" id="http_server_listen_port_hostname_backlog_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_server_listen_port_hostname_backlog_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/server_listen_port_hostname_backlog_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>port</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+<li><code>hostname</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>backlog</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x5F00;&#x59CB;&#x5728;&#x6307;&#x5B9A;&#x7684; <code>port</code> &#x548C; <code>hostname</code> &#x4E0A;&#x63A5;&#x53D7;&#x8FDE;&#x63A5;&#x3002;
+&#x5982;&#x679C;&#x7701;&#x7565;&#x4E86; <code>hostname</code>&#xFF0C;&#x5219;&#x5F53; IPv6 &#x53EF;&#x7528;&#x65F6;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x63A5;&#x53D7;&#x4EFB;&#x4F55; IPv6 &#x5730;&#x5740;&#xFF08;<code>::</code>&#xFF09;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x5426;&#x5219;&#x63A5;&#x53D7;&#x4EFB;&#x4F55; IPv4 &#x5730;&#x5740;&#xFF08;<code>0.0.0.0</code>&#xFF09;&#x7684;&#x8FDE;&#x63A5;&#x3002;
+&#x7701;&#x7565; <code>port</code> &#x53C2;&#x6570;&#x6216;&#x4F7F;&#x7528;&#x7AEF;&#x53E3;&#x503C; <code>0</code>&#xFF0C;&#x5219;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x8BE5;&#x7AEF;&#x53E3;&#x53EF;&#x5728; <code>&apos;listening&apos;</code> &#x4E8B;&#x4EF6;&#x5DF2;&#x88AB;&#x89E6;&#x53D1;&#x540E;&#x901A;&#x8FC7;&#x4F7F;&#x7528; <code>server.address().port</code> &#x83B7;&#x53D6;&#x3002;</p>
+<p>&#x8981;&#x76D1;&#x542C;&#x4E00;&#x4E2A; UNIX socket&#xFF0C;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x6587;&#x4EF6;&#x540D;&#x800C;&#x4E0D;&#x662F;&#x7AEF;&#x53E3;&#x548C;&#x4E3B;&#x673A;&#x540D;&#x3002;</p>
+<p><code>backlog</code> &#x662F;&#x7B49;&#x5F85;&#x8FDE;&#x63A5;&#x7684;&#x961F;&#x5217;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x3002;
+&#x5B9E;&#x9645;&#x957F;&#x5EA6;&#x7531;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x901A;&#x8FC7; sysctl &#x8BBE;&#x7F6E;&#x51B3;&#x5B9A;&#xFF0C;&#x6BD4;&#x5982; Linux &#x4E0A;&#x7684; <code>tcp_max_syn_backlog</code> &#x548C; <code>somaxconn</code>&#x3002;
+&#x8BE5;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x662F; 511&#xFF08;&#x4E0D;&#x662F; 512&#xFF09;&#x3002;</p>
+<p>&#x8BE5;&#x51FD;&#x6570;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;
+<code>callback</code> &#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x5230; <a href="net.html#net_event_listening"><code>&apos;listening&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x3002;&#x8BE6;&#x89C1; <a href="net.html#net_server_listen_port_hostname_backlog_callback"><code>net.Server.listen(port)</code></a>&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;<code>server.listen()</code> &#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x3002;
+&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x7684;&#x9009;&#x9879;<strong>&#x91CD;&#x65B0;&#x6253;&#x5F00;</strong>&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<h3>server.listening<span><a class="mark" href="#http_server_listening" id="http_server_listening">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_server_listening">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/server_listening.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v5.7.0</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>&#x4E00;&#x4E2A;&#x8868;&#x660E;&#x670D;&#x52A1;&#x5668;&#x662F;&#x5426;&#x6B63;&#x5728;&#x76D1;&#x542C;&#x8FDE;&#x63A5;&#x7684;&#x5E03;&#x5C14;&#x503C;&#x3002;</p>
+<h3>server.maxHeadersCount<span><a class="mark" href="#http_server_maxheaderscount" id="http_server_maxheaderscount">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_server_maxheaderscount">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/server_maxheaderscount.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.0</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+</ul>
+<p>&#x9650;&#x5236;&#x6700;&#x5927;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x6570;&#x91CF;, &#x9ED8;&#x8BA4;&#x4E3A; 1000&#x3002;
+&#x5982;&#x679C;&#x8BBE;&#x4E3A; 0&#xFF0C;&#x5219;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x9650;&#x5236;&#x3002;</p>
+<h3>server.setTimeout(msecs, callback)<span><a class="mark" href="#http_server_settimeout_msecs_callback" id="http_server_settimeout_msecs_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_server_settimeout_msecs_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/server_settimeout_msecs_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.12</span>
+</div><ul>
+<li><code>msecs</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x4E3A; socket &#x8BBE;&#x7F6E;&#x8D85;&#x65F6;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8D85;&#x65F6;&#x53D1;&#x751F;&#xFF0C;&#x5219; Server &#x5BF9;&#x8C61;&#x4E0A;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; <code>&apos;timeout&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x8BE5; socket &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x5982;&#x679C; Server &#x5BF9;&#x8C61;&#x4E0A;&#x6709; <code>&apos;timeout&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5219;&#x5B83;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x5E26;&#x4E0A;&#x8D85;&#x65F6;&#x7684; socket &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x662F; 2 &#x5206;&#x949F;&#xFF0C;&#x4E14;&#x8D85;&#x65F6;&#x540E;&#x7684; socket &#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x9500;&#x6BC1;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x7684; <code>&apos;timeout&apos;</code> &#x4E8B;&#x4EF6;&#x5206;&#x914D;&#x4E86;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x4F60;&#x9700;&#x8981;&#x8D1F;&#x8D23;&#x5904;&#x7406; socket &#x7684;&#x8D85;&#x65F6;&#x3002;</p>
+<p>&#x8FD4;&#x56DE; <code>server</code>&#x3002;</p>
+<h3>server.timeout<span><a class="mark" href="#http_server_timeout" id="http_server_timeout">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_server_timeout">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/server_timeout.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.12</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x9ED8;&#x8BA4; = 120000 (2 &#x5206;&#x949F;)</li>
+</ul>
+<p>&#x4E00;&#x4E2A; socket &#x88AB;&#x8BA4;&#x5B9A;&#x4E3A;&#x5DF2;&#x8D85;&#x65F6;&#x7684;&#x7A7A;&#x95F2;&#x6BEB;&#x79D2;&#x6570;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;socket &#x7684;&#x8D85;&#x65F6;&#x903B;&#x8F91;&#x662F;&#x5728;&#x8FDE;&#x63A5;&#x4E0A;&#x8BBE;&#x5B9A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x66F4;&#x6539;&#x8FD9;&#x4E2A;&#x503C;&#x53EA;&#x5F71;&#x54CD;&#x670D;&#x52A1;&#x5668;<strong>&#x65B0;&#x5EFA;</strong>&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x4EFB;&#x4F55;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x8BBE;&#x4E3A; 0 &#x53EF;&#x7981;&#x7528;&#x8BF7;&#x6C42;&#x8FDE;&#x63A5;&#x7684;&#x4E00;&#x5207;&#x81EA;&#x52A8;&#x8D85;&#x65F6;&#x884C;&#x4E3A;&#x3002;</p>
+<h2>http.ServerResponse &#x7C7B;<span><a class="mark" href="#http_class_http_serverresponse" id="http_class_http_serverresponse">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_class_http_serverresponse">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/class_http_serverresponse.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.17</span>
+</div><p>&#x8BE5;&#x5BF9;&#x8C61;&#x662F;&#x7531;&#x4E00;&#x4E2A; HTTP &#x670D;&#x52A1;&#x5668;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x7528;&#x6237;&#xFF09;&#x5185;&#x90E8;&#x521B;&#x5EFA;&#x7684;&#x3002;
+&#x5B83;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x88AB;&#x4F20;&#x5165; <a href="#http_event_request"><code>&apos;request&apos;</code></a> &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x8BE5;&#x54CD;&#x5E94;&#x5B9E;&#x73B0;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x7EE7;&#x627F;&#x81EA;&#xFF09;[&#x53EF;&#x5199;&#x6D41;]&#x63A5;&#x53E3;&#x3002;
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x4EE5;&#x4E0B;&#x4E8B;&#x4EF6;&#x7684; <a href="events.html#events_class_eventemitter"><code>EventEmitter</code></a>&#xFF1A;</p>
+<h3>&apos;close&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_close_1" id="http_event_close_1">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_close_1">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_close_1.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.7</span>
+</div><p>&#x8868;&#x660E;&#x5728; <a href="#http_response_end_data_encoding_callback"><code>response.end()</code></a> &#x88AB;&#x8C03;&#x7528;&#x6216;&#x80FD;&#x591F;&#x5237;&#x65B0;&#x4E4B;&#x524D;&#xFF0C;&#x5E95;&#x5C42;&#x8FDE;&#x63A5;&#x88AB;&#x7EC8;&#x6B62;&#x4E86;&#x3002;</p>
+<h3>&apos;finish&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_finish" id="http_event_finish">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_finish">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_finish.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span>
+</div><p>&#x5F53;&#x54CD;&#x5E94;&#x5DF2;&#x88AB;&#x53D1;&#x9001;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x66F4;&#x5177;&#x4F53;&#x5730;&#x8BF4;&#xFF0C;&#x5F53;&#x54CD;&#x5E94;&#x5934;&#x548C;&#x4E3B;&#x4F53;&#x7684;&#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x5DF2;&#x88AB;&#x4EA4;&#x7ED9;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x8FDB;&#x884C;&#x4F20;&#x8F93;&#x65F6;&#xFF0C;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;
+&#x8FD9;&#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x63A5;&#x6536;&#x5230;&#x4EFB;&#x4F55;&#x4E1C;&#x897F;&#x3002;</p>
+<p>&#x8BE5;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x540E;&#xFF0C;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x4E0A;&#x4E0D;&#x518D;&#x89E6;&#x53D1;&#x5176;&#x4ED6;&#x4E8B;&#x4EF6;&#x3002;</p>
+<h3>response.addTrailers(headers)<span><a class="mark" href="#http_response_addtrailers_headers" id="http_response_addtrailers_headers">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_addtrailers_headers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_addtrailers_headers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><code>headers</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x7ED9;&#x54CD;&#x5E94;&#x6DFB;&#x52A0; HTTP &#x8FFD;&#x8E2A;&#x8BF7;&#x6C42;&#x5934;&#xFF08;&#x4E00;&#x4E2A;&#x5728;&#x6D88;&#x606F;&#x5C3E;&#x90E8;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#xFF09;&#x3002;</p>
+<p>&#x8FFD;&#x8E2A;<strong>&#x4EC5;</strong>&#x5F53;&#x54CD;&#x5E94;&#x4F7F;&#x7528;&#x5206;&#x5757;&#x7F16;&#x7801;&#x65F6;&#x624D;&#x4F1A;&#x88AB;&#x53D1;&#x9001;&#xFF1B;&#x5982;&#x679C;&#x4E0D;&#x662F;&#xFF08;&#x6BD4;&#x5982;&#x8BF7;&#x6C42;&#x662F; HTTP/1.0&#xFF09;&#xFF0C;&#x5219;&#x5B83;&#x4EEC;&#x5C06;&#x88AB;&#x4E22;&#x5F03;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x53D1;&#x9001;&#x8FFD;&#x8E2A;&#xFF0C;&#x5219; HTTP &#x8981;&#x6C42;&#x53D1;&#x9001; <code>Trailer</code> &#x8BF7;&#x6C42;&#x5934;&#xFF0C;&#x4E14;&#x5728;&#x503C;&#x91CC;&#x5E26;&#x4E0A;&#x8BF7;&#x6C42;&#x5934;&#x5B57;&#x6BB5;&#x7684;&#x5217;&#x8868;&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">response.writeHead(200, { &apos;Content-Type&apos;: &apos;text/plain&apos;,
+                          &apos;Trailer&apos;: &apos;Content-MD5&apos; });
+response.write(fileData);
+response.addTrailers({&apos;Content-MD5&apos;: &apos;7895bf4b8828b55ceaf47747b4bca667&apos;});
+response.end();
+</code></pre>
+<p>&#x8BD5;&#x56FE;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x65E0;&#x6548;&#x5B57;&#x7B26;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&#x6216;&#x503C;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x4E00;&#x4E2A; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h3>response.end([data][, encoding][, callback])<span><a class="mark" href="#http_response_end_data_encoding_callback" id="http_response_end_data_encoding_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_end_data_encoding_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_end_data_encoding_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>data</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> | <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a></li>
+<li><code>encoding</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#x6240;&#x6709;&#x54CD;&#x5E94;&#x5934;&#x548C;&#x4E3B;&#x4F53;&#x90FD;&#x5DF2;&#x88AB;&#x53D1;&#x9001;&#xFF1B;&#x670D;&#x52A1;&#x5668;&#x5E94;&#x5C06;&#x6D88;&#x606F;&#x89C6;&#x4E3A;&#x5DF2;&#x5B8C;&#x6210;&#x3002;
+&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x54CD;&#x5E94;&#xFF0C;<code>response.end()</code> &#x65B9;&#x6CD5;<strong>&#x5FC5;&#x987B;</strong>&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>data</code>&#xFF0C;&#x5219;&#x5B83;&#x7B49;&#x540C;&#x4E8E;&#x8C03;&#x7528; <a href="#http_response_write_chunk_encoding_callback"><code>response.write(data, encoding)</code></a> &#x4E4B;&#x540E;&#x8C03;&#x7528; <code>response.end(callback)</code>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>callback</code>&#xFF0C;&#x5219;&#x5F53;&#x54CD;&#x5E94;&#x6D41;&#x7ED3;&#x675F;&#x65F6;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<h3>response.finished<span><a class="mark" href="#http_response_finished" id="http_response_finished">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_finished">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_finished.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.2</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x660E;&#x54CD;&#x5E94;&#x662F;&#x5426;&#x5DF2;&#x5B8C;&#x6210;&#x3002;
+&#x5F00;&#x59CB;&#x65F6;&#x4E3A; <code>false</code>&#x3002;
+&#x6267;&#x884C; <a href="#http_response_end_data_encoding_callback"><code>response.end()</code></a> &#x540E;&#xFF0C;&#x8BE5;&#x503C;&#x4F1A;&#x53D8;&#x4E3A; <code>true</code>&#x3002;</p>
+<h3>response.getHeader(name)<span><a class="mark" href="#http_response_getheader_name" id="http_response_getheader_name">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_getheader_name">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_getheader_name.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.4.0</span>
+</div><ul>
+<li><code>name</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x8BFB;&#x51FA;&#x5DF2;&#x7ECF;&#x6392;&#x961F;&#x4F46;&#x5C1A;&#x672A;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6D88;&#x606F;&#x5934;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x540D;&#x79F0;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x3002;
+&#x53EA;&#x80FD;&#x5728;&#x6D88;&#x606F;&#x5934;&#x88AB;&#x9690;&#x5F0F;&#x5730;&#x5237;&#x65B0;&#x524D;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">var contentType = response.getHeader(&apos;content-type&apos;);
+</code></pre>
+<h3>response.headersSent<span><a class="mark" href="#http_response_headerssent" id="http_response_headerssent">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_headerssent">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_headerssent.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.3</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>&#x5E03;&#x5C14;&#x503C;&#xFF08;&#x53EA;&#x8BFB;&#xFF09;&#x3002;
+&#x5982;&#x679C;&#x6D88;&#x606F;&#x5934;&#x5DF2;&#x88AB;&#x53D1;&#x9001;&#x5219;&#x4E3A; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x4E3A; <code>false</code>&#x3002;</p>
+<h3>response.removeHeader(name)<span><a class="mark" href="#http_response_removeheader_name" id="http_response_removeheader_name">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_removeheader_name">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_removeheader_name.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.4.0</span>
+</div><ul>
+<li><code>name</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x4ECE;&#x9690;&#x5F0F;&#x53D1;&#x9001;&#x7684;&#x961F;&#x5217;&#x4E2D;&#x79FB;&#x9664;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x5934;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">response.removeHeader(&apos;Content-Encoding&apos;);
+</code></pre>
+<h3>response.sendDate<span><a class="mark" href="#http_response_senddate" id="http_response_senddate">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_senddate">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_senddate.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>&#x5F53;&#x4E3A; <code>true</code> &#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6D88;&#x606F;&#x5934;&#x91CC;&#x8FD8;&#x4E0D;&#x5B58;&#x5728;&#x65E5;&#x671F;&#x6D88;&#x606F;&#x5934;&#xFF0C;&#x5219;&#x5B83;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5E76;&#x5728;&#x54CD;&#x5E94;&#x4E2D;&#x53D1;&#x9001;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>true</code>&#x3002;</p>
+<p>&#x8FD9;&#x5E94;&#x8BE5;&#x53EA;&#x5728;&#x6D4B;&#x8BD5;&#x4E2D;&#x624D;&#x88AB;&#x7981;&#x7528;&#xFF1B;HTTP &#x9700;&#x8981;&#x54CD;&#x5E94;&#x65E5;&#x671F;&#x6D88;&#x606F;&#x5934;&#x3002;</p>
+<h3>response.setHeader(name, value)<span><a class="mark" href="#http_response_setheader_name_value" id="http_response_setheader_name_value">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_setheader_name_value">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_setheader_name_value.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.4.0</span>
+</div><ul>
+<li><code>name</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>value</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x4E3A;&#x9690;&#x5F0F;&#x6D88;&#x606F;&#x5934;&#x96C6;&#x5408;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7684;&#x6D88;&#x606F;&#x5934;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x8BE5;&#x6D88;&#x606F;&#x5934;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x5C06;&#x8981;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;&#x5934;&#x96C6;&#x5408;&#x4E2D;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x4F1A;&#x88AB;&#x8986;&#x76D6;&#x3002;
+&#x5982;&#x679C;&#x9700;&#x8981;&#x53D1;&#x9001;&#x591A;&#x4E2A;&#x540D;&#x79F0;&#x76F8;&#x540C;&#x7684;&#x6D88;&#x606F;&#x5934;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">response.setHeader(&apos;Content-Type&apos;, &apos;text/html&apos;);
+</code></pre>
+<p>&#x6216;</p>
+<pre><code class="lang-js">response.setHeader(&apos;Set-Cookie&apos;, [&apos;type=ninja&apos;, &apos;language=javascript&apos;]);
+</code></pre>
+<p>&#x8BD5;&#x56FE;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x65E0;&#x6548;&#x5B57;&#x7B26;&#x7684;&#x6D88;&#x606F;&#x5934;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&#x6216;&#x503C;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x4E00;&#x4E2A; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<p>&#x5F53;&#x6D88;&#x606F;&#x5934;&#x5DF2;&#x4F7F;&#x7528; <a href="#http_response_setheader_name_value"><code>response.setHeader()</code></a> &#x8BBE;&#x7F6E;&#xFF0C;&#x5B83;&#x4EEC;&#x4F1A;&#x88AB;&#x4E0E;&#x5176;&#x4ED6;&#x6D88;&#x606F;&#x5934;&#x5408;&#x5E76;&#x4F20;&#x7ED9; <a href="#http_response_writehead_statuscode_statusmessage_headers"><code>response.writeHead()</code></a>&#xFF0C;&#x5E26;&#x6D88;&#x606F;&#x5934;&#x7684; <a href="#http_response_writehead_statuscode_statusmessage_headers"><code>response.writeHead()</code></a> &#x6709;&#x66F4;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x3002;</p>
+<pre><code class="lang-js">// &#x8FD4;&#x56DE; content-type = text/plain
+const server = http.createServer((req,res) =&gt; {
+  res.setHeader(&apos;Content-Type&apos;, &apos;text/html&apos;);
+  res.setHeader(&apos;X-Foo&apos;, &apos;bar&apos;);
+  res.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+  res.end(&apos;ok&apos;);
+});
+</code></pre>
+<h3>response.setTimeout(msecs, callback)<span><a class="mark" href="#http_response_settimeout_msecs_callback" id="http_response_settimeout_msecs_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_settimeout_msecs_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_settimeout_msecs_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.12</span>
+</div><ul>
+<li><code>msecs</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x8BBE;&#x7F6E; socket &#x7684;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A; <code>msecs</code>&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x5B83;&#x4F1A;&#x88AB;&#x4F5C;&#x4E3A;&#x76D1;&#x542C;&#x5668;&#x6DFB;&#x52A0;&#x5230;&#x54CD;&#x5E94;&#x5BF9;&#x8C61;&#x7684; <code>&apos;timeout&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709; <code>&apos;timeout&apos;</code> &#x76D1;&#x542C;&#x5668;&#x88AB;&#x6DFB;&#x52A0;&#x5230;&#x8BF7;&#x6C42;&#x3001;&#x54CD;&#x5E94;&#x6216;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5219; socket &#x4F1A;&#x5728;&#x8D85;&#x65F6;&#x540E;&#x88AB;&#x9500;&#x6BC1;&#x3002;
+&#x5982;&#x679C;&#x5728;&#x8BF7;&#x6C42;&#x3001;&#x54CD;&#x5E94;&#x6216;&#x670D;&#x52A1;&#x5668;&#x7684; <code>&apos;timeout&apos;</code> &#x4E8B;&#x4EF6;&#x4E0A;&#x5206;&#x914D;&#x4E86;&#x53E5;&#x67C4;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x8D1F;&#x8D23;&#x5904;&#x7406;&#x8D85;&#x65F6;&#x7684; socket&#x3002;</p>
+<p>&#x8FD4;&#x56DE; <code>response</code>&#x3002;</p>
+<h3>response.statusCode<span><a class="mark" href="#http_response_statuscode" id="http_response_statuscode">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_statuscode">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_statuscode.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.4.0</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+</ul>
+<p>&#x5F53;&#x4F7F;&#x7528;&#x9690;&#x5F0F;&#x7684;&#x6D88;&#x606F;&#x5934;&#x65F6;&#xFF08;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x5730;&#x8C03;&#x7528; <a href="#http_response_writehead_statuscode_statusmessage_headers"><code>response.writeHead()</code></a>&#xFF09;&#xFF0C;&#x5728;&#x6D88;&#x606F;&#x5934;&#x88AB;&#x5237;&#x65B0;&#x65F6;&#x8BE5;&#x5C5E;&#x6027;&#x4F1A;&#x63A7;&#x5236;&#x5C06;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x72B6;&#x6001;&#x7801;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">response.statusCode = 404;
+</code></pre>
+<p>&#x54CD;&#x5E94;&#x5934;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x540E;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x8868;&#x660E;&#x88AB;&#x53D1;&#x51FA;&#x7684;&#x72B6;&#x6001;&#x7801;&#x3002;</p>
+<h3>response.statusMessage<span><a class="mark" href="#http_response_statusmessage" id="http_response_statusmessage">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_statusmessage">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_statusmessage.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.8</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x5F53;&#x4F7F;&#x7528;&#x9690;&#x5F0F;&#x7684;&#x6D88;&#x606F;&#x5934;&#x65F6;&#xFF08;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x5730;&#x8C03;&#x7528; <a href="#http_response_writehead_statuscode_statusmessage_headers"><code>response.writeHead()</code></a>&#xFF09;&#xFF0C;&#x5728;&#x6D88;&#x606F;&#x5934;&#x88AB;&#x5237;&#x65B0;&#x65F6;&#x8BE5;&#x5C5E;&#x6027;&#x4F1A;&#x63A7;&#x5236;&#x5C06;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x3002;
+&#x5982;&#x679C;&#x8BE5;&#x503C;&#x4E3A; <code>undefined</code>&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x72B6;&#x6001;&#x7801;&#x7684;&#x6807;&#x51C6;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">response.statusMessage = &apos;Not found&apos;;
+</code></pre>
+<p>&#x54CD;&#x5E94;&#x5934;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x540E;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x8868;&#x660E;&#x88AB;&#x53D1;&#x51FA;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x3002;</p>
+<h3>response.write(chunk[, encoding][, callback])<span><a class="mark" href="#http_response_write_chunk_encoding_callback" id="http_response_write_chunk_encoding_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_write_chunk_encoding_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_write_chunk_encoding_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.29</span>
+</div><ul>
+<li><code>chunk</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> | <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a></li>
+<li><code>encoding</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>&#x5982;&#x679C;&#x8BE5;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x4E14; <a href="#http_response_writehead_statuscode_statusmessage_headers"><code>response.writeHead()</code></a> &#x8FD8;&#x672A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x5219;&#x5B83;&#x4F1A;&#x5207;&#x6362;&#x5230;&#x9690;&#x5F0F;&#x6D88;&#x606F;&#x5934;&#x6A21;&#x5F0F;&#x5E76;&#x5237;&#x65B0;&#x9690;&#x5F0F;&#x6D88;&#x606F;&#x5934;&#x3002;</p>
+<p>&#x5B83;&#x4F1A;&#x53D1;&#x9001;&#x4E00;&#x5757;&#x54CD;&#x5E94;&#x4E3B;&#x4F53;&#x3002;
+&#x8BE5;&#x65B9;&#x6CD5;&#x53EF;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#xFF0C;&#x4EE5;&#x4FBF;&#x63D0;&#x4F9B;&#x4E3B;&#x4F53;&#x8FDE;&#x7EED;&#x7684;&#x90E8;&#x5206;&#x3002;</p>
+<p><code>chunk</code> &#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x4E00;&#x4E2A; buffer&#x3002;
+&#x5982;&#x679C; <code>chunk</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x5982;&#x4F55;&#x5C06;&#x5B83;&#x7F16;&#x7801;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x6D41;&#x3002;
+<code>encoding</code> &#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;utf8&apos;</code>&#x3002;
+&#x5F53;&#x6570;&#x636E;&#x5757;&#x88AB;&#x5237;&#x65B0;&#x65F6;&#xFF0C;<code>callback</code> &#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x8FD9;&#x662F;&#x539F;&#x59CB;&#x7684; HTTP &#x4E3B;&#x4F53;&#xFF0C;&#x4E14;&#x4E0E;&#x53EF;&#x80FD;&#x4F7F;&#x7528;&#x7684;&#x66F4;&#x9AD8;&#x7EA7;&#x522B;&#x7684;&#x591A;&#x90E8;&#x5206;&#x4E3B;&#x4F53;&#x7F16;&#x7801;&#x65E0;&#x5173;&#x3002;</p>
+<p><a href="#http_response_write_chunk_encoding_callback"><code>response.write()</code></a> &#x9996;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x53D1;&#x9001;&#x7F13;&#x51B2;&#x7684;&#x5934;&#x4FE1;&#x606F;&#x548C;&#x7B2C;&#x4E00;&#x5757;&#x4E3B;&#x4F53;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x3002;
+<a href="#http_response_write_chunk_encoding_callback"><code>response.write()</code></a> &#x7B2C;&#x4E8C;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;Node.js &#x4F1A;&#x5047;&#x5B9A;&#x4F60;&#x8981;&#x6D41;&#x5316;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x5C06;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x53D1;&#x9001;&#x3002;
+&#x54CD;&#x5E94;&#x4F1A;&#x88AB;&#x7F13;&#x51B2;&#x5230;&#x4E3B;&#x4F53;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x88AB;&#x6210;&#x529F;&#x5237;&#x65B0;&#x5230;&#x5185;&#x6838;&#x7F13;&#x51B2;&#x533A;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>true</code>&#x3002;
+&#x5982;&#x679C;&#x5168;&#x90E8;&#x6216;&#x90E8;&#x5206;&#x6570;&#x636E;&#x5728;&#x7528;&#x6237;&#x5185;&#x5B58;&#x4E2D;&#x6392;&#x961F;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;
+&#x5F53;&#x7F13;&#x51B2;&#x533A;&#x518D;&#x6B21;&#x7A7A;&#x95F2;&#x65F6;&#xFF0C;&#x5219;&#x89E6;&#x53D1; <code>&apos;drain&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p>
+<h3>response.writeContinue()<span><a class="mark" href="#http_response_writecontinue" id="http_response_writecontinue">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_writecontinue">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_writecontinue.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><p>&#x53D1;&#x9001;&#x4E00;&#x4E2A; HTTP/1.1 100 Continue &#x6D88;&#x606F;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x8868;&#x660E;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#x5E94;&#x8BE5;&#x88AB;&#x53D1;&#x9001;&#x3002;&#x8BE6;&#x89C1; <code>Server</code> &#x7684; <a href="#http_event_checkcontinue"><code>&apos;checkContinue&apos;</code></a> &#x4E8B;&#x4EF6;&#x3002;</p>
+<h3>response.writeHead(statusCode[, statusMessage][, headers])<span><a class="mark" href="#http_response_writehead_statuscode_statusmessage_headers" id="http_response_writehead_statuscode_statusmessage_headers">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_response_writehead_statuscode_statusmessage_headers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_writehead_statuscode_statusmessage_headers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.30</span>
+</div><ul>
+<li><code>statusCode</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+<li><code>statusMessage</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>headers</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5934;&#x7ED9;&#x8BF7;&#x6C42;&#x3002;
+&#x72B6;&#x6001;&#x7801;&#x662F;&#x4E00;&#x4E2A; 3 &#x4E2A;&#x6570;&#x5B57;&#x7684; HTTP &#x72B6;&#x6001;&#x4EE3;&#x7801;&#xFF0C;&#x5982; <code>404</code>&#x3002;
+&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570; <code>headers</code> &#x662F;&#x54CD;&#x5E94;&#x5934;&#x3002;
+&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570; <code>statusMessage</code> &#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">var body = &apos;hello world&apos;;
+response.writeHead(200, {
+  &apos;Content-Length&apos;: Buffer.byteLength(body),
+  &apos;Content-Type&apos;: &apos;text/plain&apos; });
+</code></pre>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x6D88;&#x606F;&#x4E2D;&#x53EA;&#x80FD;&#x88AB;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x4E14;&#x5FC5;&#x987B;&#x5728; <a href="#http_response_end_data_encoding_callback"><code>response.end()</code></a> &#x88AB;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x8C03;&#x7528; <a href="#http_response_write_chunk_encoding_callback"><code>response.write()</code></a> &#x6216; <a href="#http_response_end_data_encoding_callback"><code>response.end()</code></a>&#xFF0C;&#x5219;&#x9690;&#x5F0F;&#x6216;&#x53EF;&#x53D8;&#x7684;&#x6D88;&#x606F;&#x5934;&#x4F1A;&#x88AB;&#x8BA1;&#x7B97;&#x5E76;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5F53;&#x6D88;&#x606F;&#x5934;&#x5DF2;&#x4F7F;&#x7528; <a href="#http_response_setheader_name_value"><code>response.setHeader()</code></a> &#x8BBE;&#x7F6E;&#xFF0C;&#x5B83;&#x4EEC;&#x4F1A;&#x88AB;&#x4E0E;&#x5176;&#x4ED6;&#x6D88;&#x606F;&#x5934;&#x5408;&#x5E76;&#x4F20;&#x7ED9; <a href="#http_response_writehead_statuscode_statusmessage_headers"><code>response.writeHead()</code></a>&#xFF0C;&#x5E26;&#x6D88;&#x606F;&#x5934;&#x7684; <a href="#http_response_writehead_statuscode_statusmessage_headers"><code>response.writeHead()</code></a> &#x6709;&#x66F4;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x3002;</p>
+<pre><code class="lang-js">// &#x8FD4;&#x56DE; content-type = text/plain
+const server = http.createServer((req,res) =&gt; {
+  res.setHeader(&apos;Content-Type&apos;, &apos;text/html&apos;);
+  res.setHeader(&apos;X-Foo&apos;, &apos;bar&apos;);
+  res.writeHead(200, {&apos;Content-Type&apos;: &apos;text/plain&apos;});
+  res.end(&apos;ok&apos;);
+});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;<code>Content-Length</code> &#x662F;&#x4EE5;&#x5B57;&#x8282;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#xFF09;&#x4E3A;&#x5355;&#x4F4D;&#x7ED9;&#x51FA;&#x7684;&#x3002;
+&#x4EE5;&#x4E0A;&#x7684;&#x4F8B;&#x5B50;&#x6709;&#x6548;&#x662F;&#x56E0;&#x4E3A;&#x5B57;&#x7B26;&#x4E32; <code>&apos;hello world&apos;</code> &#x4EC5;&#x5305;&#x542B;&#x5355;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x3002;
+&#x5982;&#x679C;&#x4E3B;&#x4F53;&#x5305;&#x542B;&#x66F4;&#x9AD8;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x5219; <code>Buffer.byteLength()</code> &#x5E94;&#x88AB;&#x7528;&#x6765;&#x786E;&#x5B9A;&#x5728;&#x7ED9;&#x5B9A;&#x7F16;&#x7801;&#x4E2D;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;
+Node.js &#x4E0D;&#x4F1A;&#x68C0;&#x67E5; <code>Content-Length</code> &#x4E0E;&#x5DF2;&#x53D1;&#x9001;&#x7684;&#x4E3B;&#x4F53;&#x957F;&#x5EA6;&#x662F;&#x5426;&#x76F8;&#x540C;&#x3002;</p>
+<p>&#x8BD5;&#x56FE;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x65E0;&#x6548;&#x5B57;&#x7B26;&#x7684;&#x6D88;&#x606F;&#x5934;&#x5B57;&#x6BB5;&#x540D;&#x79F0;&#x6216;&#x503C;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x4E00;&#x4E2A; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>http.IncomingMessage &#x7C7B;<span><a class="mark" href="#http_class_http_incomingmessage" id="http_class_http_incomingmessage">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_class_http_incomingmessage">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/class_http_incomingmessage.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.17</span>
+</div><p><code>IncomingMessage</code> &#x5BF9;&#x8C61;&#x7531; <a href="#http_class_http_server"><code>http.Server</code></a> &#x6216; <a href="#http_class_http_clientrequest"><code>http.ClientRequest</code></a> &#x521B;&#x5EFA;&#xFF0C;&#x5E76;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x9012;&#x7ED9; <a href="#http_event_request"><code>&apos;request&apos;</code></a> &#x548C; <a href="#http_event_response"><code>&apos;response&apos;</code></a> &#x4E8B;&#x4EF6;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8BBF;&#x95EE;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x3001;&#x6D88;&#x606F;&#x5934;&#x3001;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x5B83;&#x5B9E;&#x73B0;&#x4E86;[&#x53EF;&#x8BFB;&#x6D41;]&#x63A5;&#x53E3;&#xFF0C;&#x8FD8;&#x6709;&#x4EE5;&#x4E0B;&#x989D;&#x5916;&#x7684;&#x4E8B;&#x4EF6;&#x3001;&#x65B9;&#x6CD5;&#x3001;&#x4EE5;&#x53CA;&#x5C5E;&#x6027;&#x3002;</p>
+<h3>&apos;aborted&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_aborted_1" id="http_event_aborted_1">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_aborted_1">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_aborted_1.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.8</span>
+</div><p>&#x5F53;&#x8BF7;&#x6C42;&#x5DF2;&#x88AB;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x6B62;&#x4E14;&#x7F51;&#x7EDC; socket &#x5DF2;&#x5173;&#x95ED;&#x65F6;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>&apos;close&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#http_event_close_2" id="http_event_close_2">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_event_close_2">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_close_2.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.4.2</span>
+</div><p>&#x8868;&#x660E;&#x5E95;&#x5C42;&#x8FDE;&#x63A5;&#x88AB;&#x5173;&#x95ED;&#x3002;
+&#x5C31;&#x50CF; <code>&apos;end&apos;</code>&#xFF0C;&#x8BE5;&#x4E8B;&#x4EF6;&#x6BCF;&#x6B21;&#x54CD;&#x5E94;&#x53EA;&#x53D1;&#x751F;&#x4E00;&#x6B21;&#x3002;</p>
+<h3>message.destroy([error])<span><a class="mark" href="#http_message_destroy_error" id="http_message_destroy_error">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_destroy_error">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_destroy_error.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><code>error</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p>&#x8C03;&#x7528;&#x63A5;&#x6536; <code>IncomingMessage</code> &#x7684; socket &#x7684; <code>destroy()</code>&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86; <code>error</code>&#xFF0C;&#x5219;&#x89E6;&#x53D1; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x4E14;&#x628A; <code>error</code> &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x4E8B;&#x4EF6;&#x7684;&#x4EFB;&#x4F55;&#x76D1;&#x542C;&#x5668;&#x3002;</p>
+<h3>message.headers<span><a class="mark" href="#http_message_headers" id="http_message_headers">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_headers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_headers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.5</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x8BF7;&#x6C42;/&#x54CD;&#x5E94;&#x5934;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x62A5;&#x5934;&#x540D;&#x79F0;&#x548C;&#x503C;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x3002;
+&#x62A5;&#x5934;&#x540D;&#x79F0;&#x4E3A;&#x5C0F;&#x5199;&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">// &#x8F93;&#x51FA;&#x7C7B;&#x4F3C;&#x4EE5;&#x4E0B;&#x7684;&#x4E1C;&#x897F;&#xFF1A;
+//
+// { &apos;user-agent&apos;: &apos;curl/7.22.0&apos;,
+//   host: &apos;127.0.0.1:8000&apos;,
+//   accept: &apos;*/*&apos; }
+console.log(request.headers);
+</code></pre>
+<p>&#x539F;&#x59CB;&#x62A5;&#x5934;&#x4E2D;&#x7684;&#x91CD;&#x590D;&#x6570;&#x636E;&#x4F1A;&#x6309;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x6839;&#x636E;&#x62A5;&#x5934;&#x540D;&#x79F0;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF1A;</p>
+<ul>
+<li>&#x91CD;&#x590D;&#x7684; <code>age</code> &#x3001; <code>authorization</code> &#x3001; <code>content-length</code> &#x3001; <code>content-type</code> &#x3001; 
+<code>etag</code> &#x3001; <code>expires</code> &#x3001; <code>from</code> &#x3001; <code>host</code> &#x3001; <code>if-modified-since</code> &#x3001; <code>if-unmodified-since</code> &#x3001; 
+<code>last-modified</code> &#x3001; <code>location</code> &#x3001; <code>max-forwards</code> &#x3001; <code>proxy-authorization</code> &#x3001; <code>referer</code> &#x3001; 
+<code>retry-after</code> &#x3001;&#x6216; <code>user-agent</code> &#x4F1A;&#x88AB;&#x4E22;&#x5F03;&#x3002;</li>
+<li><code>set-cookie</code> &#x59CB;&#x7EC8;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x3002;&#x91CD;&#x590D;&#x7684;&#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x5230;&#x6570;&#x7EC4;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684;&#x5176;&#x4ED6;&#x62A5;&#x5934;&#xFF0C;&#x5176;&#x503C;&#x4F7F;&#x7528; &apos;, &apos; &#x8FDE;&#x63A5;&#x3002;</li>
+</ul>
+<h3>message.httpVersion<span><a class="mark" href="#http_message_httpversion" id="http_message_httpversion">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_httpversion">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_httpversion.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.1</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x5F53;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;HTTP &#x7248;&#x672C;&#x7531;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x3002;
+&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x54CD;&#x5E94;&#x65F6;&#xFF0C;HTTP &#x7248;&#x672C;&#x7531;&#x6240;&#x8FDE;&#x63A5;&#x7684;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x3002;
+&#x53EF;&#x80FD;&#x7684;&#x503C;&#x6709; <code>&apos;1.1&apos;</code> &#x6216; <code>&apos;1.0&apos;</code>&#x3002;</p>
+<p><code>message.httpVersionMajor</code> &#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#xFF0C;<code>message.httpVersionMinor</code> &#x662F;&#x7B2C;&#x4E8C;&#x4E2A;&#x6574;&#x6570;&#x3002;</p>
+<h3>message.method<span><a class="mark" href="#http_message_method" id="http_message_method">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_method">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_method.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.1</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><strong>&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x4ECE; <a href="#http_class_http_server"><code>http.Server</code></a> &#x83B7;&#x5F97;&#x7684;&#x8BF7;&#x6C42;&#x3002;</strong></p>
+<p>&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x53EA;&#x8BFB;&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;<code>&apos;GET&apos;</code>&#x3001;<code>&apos;DELETE&apos;</code>&#x3002;</p>
+<h3>message.rawHeaders<span><a class="mark" href="#http_message_rawheaders" id="http_message_rawheaders">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_rawheaders">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_rawheaders.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.6</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="type">&lt;Array&gt;</a></li>
+</ul>
+<p>&#x63A5;&#x6536;&#x5230;&#x7684;&#x539F;&#x59CB;&#x8BF7;&#x6C42;/&#x54CD;&#x5E94;&#x5934;&#x5217;&#x8868;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x952E;&#x548C;&#x503C;&#x662F;&#x5728;&#x540C;&#x4E00;&#x5217;&#x8868;&#x4E2D;&#x3002;
+&#x5B83;<strong>&#x4E0D;&#x662F;</strong>&#x4E00;&#x4E2A;&#x5143;&#x7EC4;&#x5217;&#x8868;&#x3002;
+&#x6240;&#x4EE5;&#xFF0C;&#x5076;&#x6570;&#x504F;&#x79FB;&#x91CF;&#x4E3A;&#x952E;&#xFF0C;&#x5947;&#x6570;&#x504F;&#x79FB;&#x91CF;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x62A5;&#x5934;&#x540D;&#x79F0;&#x6CA1;&#x6709;&#x8F6C;&#x6362;&#x4E3A;&#x5C0F;&#x5199;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x5408;&#x5E76;&#x53BB;&#x91CD;&#x3002;</p>
+<pre><code class="lang-js">// &#x8F93;&#x51FA;&#x7C7B;&#x4F3C;&#x4EE5;&#x4E0B;&#x7684;&#x4E1C;&#x897F;&#xFF1A;
+//
+// [ &apos;user-agent&apos;,
+//   &apos;this is invalid because there can be only one&apos;,
+//   &apos;User-Agent&apos;,
+//   &apos;curl/7.22.0&apos;,
+//   &apos;Host&apos;,
+//   &apos;127.0.0.1:8000&apos;,
+//   &apos;ACCEPT&apos;,
+//   &apos;*/*&apos; ]
+console.log(request.rawHeaders);
+</code></pre>
+<h3>message.rawTrailers<span><a class="mark" href="#http_message_rawtrailers" id="http_message_rawtrailers">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_rawtrailers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_rawtrailers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.6</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="type">&lt;Array&gt;</a></li>
+</ul>
+<p>&#x63A5;&#x6536;&#x5230;&#x7684;&#x539F;&#x59CB;&#x7684;&#x8BF7;&#x6C42;/&#x54CD;&#x5E94;&#x62A5;&#x5C3E;&#x7684;&#x952E;&#x548C;&#x503C;&#x3002;
+&#x53EA;&#x5728; <code>&apos;end&apos;</code> &#x4E8B;&#x4EF6;&#x65F6;&#x586B;&#x5165;&#x3002;</p>
+<h3>message.setTimeout(msecs, callback)<span><a class="mark" href="#http_message_settimeout_msecs_callback" id="http_message_settimeout_msecs_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_settimeout_msecs_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_settimeout_msecs_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div><ul>
+<li><code>msecs</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+</ul>
+<p>&#x8C03;&#x7528; <code>message.connection.setTimeout(msecs, callback)</code>&#x3002;</p>
+<p>&#x8FD4;&#x56DE; <code>message</code>&#x3002;</p>
+<h3>message.statusCode<span><a class="mark" href="#http_message_statuscode" id="http_message_statuscode">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_statuscode">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_statuscode.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.1</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+</ul>
+<p><strong>&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x4ECE; <a href="#http_class_http_clientrequest"><code>http.ClientRequest</code></a> &#x83B7;&#x5F97;&#x7684;&#x54CD;&#x5E94;&#x3002;</strong></p>
+<p>3 &#x4F4D;&#x6570;&#x5B57;&#x7684; HTTP &#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801;&#x3002;
+&#x5982; <code>404</code>&#x3002;</p>
+<h3>message.statusMessage<span><a class="mark" href="#http_message_statusmessage" id="http_message_statusmessage">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_statusmessage">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_statusmessage.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.10</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><strong>&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x4ECE; <a href="#http_class_http_clientrequest"><code>http.ClientRequest</code></a> &#x83B7;&#x5F97;&#x7684;&#x54CD;&#x5E94;&#x3002;</strong></p>
+<p>HTTP &#x54CD;&#x5E94;&#x72B6;&#x6001;&#x6D88;&#x606F;&#xFF08;&#x539F;&#x56E0;&#x63CF;&#x8FF0;&#xFF09;&#x3002;&#x5982; <code>OK</code> &#x6216; <code>Internal Server Error</code>&#x3002;</p>
+<h3>message.socket<span><a class="mark" href="#http_message_socket" id="http_message_socket">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_socket">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_socket.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><a href="net.html#net_class_net_socket" class="type">&lt;net.Socket&gt;</a></li>
+</ul>
+<p>&#x4E0E;&#x8FDE;&#x63A5;&#x6709;&#x5173;&#x7684; <a href="net.html#net_class_net_socket"><code>net.Socket</code></a> &#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x901A;&#x8FC7; HTTPS &#x7684;&#x652F;&#x6301;&#xFF0C;&#x4F7F;&#x7528; <a href="tls.html#tls_tlssocket_getpeercertificate_detailed"><code>request.socket.getPeerCertificate()</code></a> &#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x3002;</p>
+<h3>message.trailers<span><a class="mark" href="#http_message_trailers" id="http_message_trailers">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_trailers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_trailers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x8BF7;&#x6C42;/&#x54CD;&#x5E94;&#x62A5;&#x5C3E;&#x5BF9;&#x8C61;&#x3002;
+&#x53EA;&#x5728; <code>&apos;end&apos;</code> &#x4E8B;&#x4EF6;&#x65F6;&#x586B;&#x5165;&#x3002;</p>
+<h3>message.url<span><a class="mark" href="#http_message_url" id="http_message_url">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_message_url">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_url.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><strong>&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x4ECE; <a href="#http_class_http_server"><code>http.Server</code></a> &#x83B7;&#x5F97;&#x7684;&#x8BF7;&#x6C42;&#x3002;</strong></p>
+<p>&#x8BF7;&#x6C42;&#x7684; URL &#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x4EC5;&#x5305;&#x542B; HTTP &#x8BF7;&#x6C42;&#x5B9E;&#x9645;&#x5B58;&#x5728;&#x7684; URL&#x3002;
+&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-txt">GET /status?name=ryan HTTP/1.1\r\n
+Accept: text/plain\r\n
+\r\n
+</code></pre>
+<p>&#x5219; <code>request.url</code> &#x4F1A;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-js">&apos;/status?name=ryan&apos;
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;&#x5C06; URL &#x89E3;&#x6790;&#x6210;&#x5404;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>require(&apos;url&apos;).parse(request.url)</code>&#x3002;
+&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-txt">$ node
+&gt; require(&apos;url&apos;).parse(&apos;/status?name=ryan&apos;)
+{
+  href: &apos;/status?name=ryan&apos;,
+  search: &apos;?name=ryan&apos;,
+  query: &apos;name=ryan&apos;,
+  pathname: &apos;/status&apos;
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;&#x4ECE;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x63D0;&#x53D6;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>require(&apos;querystring&apos;).parse</code> &#x51FD;&#x6570;&#xFF0C;&#x6216;&#x4F20;&#x5165; <code>true</code> &#x4F5C;&#x4E3A; <code>require(&apos;url&apos;).parse</code> &#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x3002;
+&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-txt">$ node
+&gt; require(&apos;url&apos;).parse(&apos;/status?name=ryan&apos;, true)
+{
+  href: &apos;/status?name=ryan&apos;,
+  search: &apos;?name=ryan&apos;,
+  query: {name: &apos;ryan&apos;},
+  pathname: &apos;/status&apos;
+}
+</code></pre>
+<h2>http.METHODS<span><a class="mark" href="#http_http_methods" id="http_http_methods">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_http_methods">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_methods.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.8</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="type">&lt;Array&gt;</a></li>
+</ul>
+<p>&#x89E3;&#x6790;&#x5668;&#x652F;&#x6301;&#x7684; HTTP &#x65B9;&#x6CD5;&#x5217;&#x8868;&#x3002;</p>
+<h2>http.STATUS_CODES<span><a class="mark" href="#http_http_status_codes" id="http_http_status_codes">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_http_status_codes">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_status_codes.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.22</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p>&#x6240;&#x6709;&#x7684;&#x6807;&#x51C6; HTTP &#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x4EE5;&#x53CA;&#x5404;&#x81EA;&#x7684;&#x7B80;&#x77ED;&#x63CF;&#x8FF0;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<code>http.STATUS_CODES[404] === &apos;Not Found&apos;</code>&#x3002;</p>
+<h2>http.createClient([port][, host])<span><a class="mark" href="#http_http_createclient_port_host" id="http_http_createclient_port_host">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_http_createclient_port_host">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_createclient_port_host.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.13</span>
+<span>&#x5E9F;&#x5F03;&#x4E8E;: v0.3.6 </span>
+</div><pre class="api_stability api_stability_0">&#x7A33;&#x5B9A;&#x6027;: 0 - &#x5E9F;&#x5F03;&#x7684;: &#x4F7F;&#x7528; <a href="#http_http_request_options_callback"><code>http.request()</code></a> &#x4EE3;&#x66FF;&#x3002;</pre><p>Constructs a new HTTP client. <code>port</code> and <code>host</code> refer to the server to be
+connected to.</p>
+<h2>http.createServer([requestListener])<span><a class="mark" href="#http_http_createserver_requestlistener" id="http_http_createserver_requestlistener">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_http_createserver_requestlistener">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_createserver_requestlistener.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.13</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http.html#http_class_http_server" class="type">&lt;http.Server&gt;</a></li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x5EFA;&#x7684; <a href="#http_class_http_server"><code>http.Server</code></a> &#x5B9E;&#x4F8B;&#x3002;</p>
+<p><code>requestListener</code> &#x662F;&#x4E00;&#x4E2A;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5230; <a href="#http_event_request"><code>&apos;request&apos;</code></a> &#x4E8B;&#x4EF6;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<h2>http.get(options[, callback])<span><a class="mark" href="#http_http_get_options_callback" id="http_http_get_options_callback">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_http_get_options_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_get_options_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http.html#http_class_http_clientrequest" class="type">&lt;http.ClientRequest&gt;</a></li>
+</ul>
+<p>&#x56E0;&#x4E3A;&#x5927;&#x591A;&#x6570;&#x8BF7;&#x6C42;&#x90FD;&#x662F; GET &#x8BF7;&#x6C42;&#x4E14;&#x4E0D;&#x5E26;&#x4E3B;&#x4F53;&#xFF0C;&#x6240;&#x4EE5; Node.js &#x63D0;&#x4F9B;&#x4E86;&#x8FD9;&#x4E2A;&#x4FBF;&#x6377;&#x7684;&#x65B9;&#x6CD5;&#x3002;
+&#x8BE5;&#x65B9;&#x6CD5;&#x4E0E; <a href="#http_http_request_options_callback"><code>http.request()</code></a> &#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x662F;&#x5B83;&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x4E3A; GET &#x4E14;&#x81EA;&#x52A8;&#x8C03;&#x7528; <code>req.end()</code>&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x5FC5;&#x987B;&#x5728;&#x56DE;&#x8C03;&#x4E2D;&#x88AB;&#x6D88;&#x8017;&#xFF0C;&#x539F;&#x56E0;&#x8BE6;&#x89C1; <a href="#http_class_http_clientrequest"><code>http.ClientRequest</code></a> &#x7AE0;&#x8282;&#x3002;</p>
+<p><code>callback</code> &#x88AB;&#x8C03;&#x7528;&#x65F6;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x662F; <a href="#http_class_http_incomingmessage"><code>http.IncomingMessage</code></a> &#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x83B7;&#x53D6; JSON &#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">http.get(&apos;http://nodejs.org/dist/index.json&apos;, (res) =&gt; {
+  const statusCode = res.statusCode;
+  const contentType = res.headers[&apos;content-type&apos;];
+
+  let error;
+  if (statusCode !== 200) {
+    error = new Error(`&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x3002;\n` +
+                      `&#x72B6;&#x6001;&#x7801;: ${statusCode}`);
+  } else if (!/^application\/json/.test(contentType)) {
+    error = new Error(`&#x65E0;&#x6548;&#x7684; content-type.\n` +
+                      `&#x671F;&#x671B; application/json &#x4F46;&#x83B7;&#x53D6;&#x7684;&#x662F; ${contentType}`);
+  }
+  if (error) {
+    console.log(error.message);
+    // &#x6D88;&#x8017;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x4EE5;&#x91CA;&#x653E;&#x5185;&#x5B58;
+    res.resume();
+    return;
+  }
+
+  res.setEncoding(&apos;utf8&apos;);
+  let rawData = &apos;&apos;;
+  res.on(&apos;data&apos;, (chunk) =&gt; rawData += chunk);
+  res.on(&apos;end&apos;, () =&gt; {
+    try {
+      let parsedData = JSON.parse(rawData);
+      console.log(parsedData);
+    } catch (e) {
+      console.log(e.message);
+    }
+  });
+}).on(&apos;error&apos;, (e) =&gt; {
+  console.log(`&#x9519;&#x8BEF;: ${e.message}`);
+});
+</code></pre>
+<h2>http.globalAgent<span><a class="mark" href="#http_http_globalagent" id="http_http_globalagent">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_http_globalagent">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_globalagent.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div><ul>
+<li><a href="http.html#http_class_http_agent" class="type">&lt;http.Agent&gt;</a></li>
+</ul>
+<p>Agent &#x7684;&#x5168;&#x5C40;&#x5B9E;&#x4F8B;&#xFF0C;&#x505A;&#x4E3A;&#x6240;&#x6709; HTTP &#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;&#x9ED8;&#x8BA4; Agent&#x3002;</p>
+<h2>http.request(options[, callback])<span><a class="mark" href="#http_http_request_options_callback" id="http_http_request_options_callback">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/http.html#http_http_request_options_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_request_options_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a><ul>
+<li><code>protocol</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;http:&apos;</code>&#x3002;</li>
+<li><code>host</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x81F3;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7684;&#x57DF;&#x540D;&#x6216; IP &#x5730;&#x5740;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;localhost&apos;</code>&#x3002;</li>
+<li><code>hostname</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> <code>host</code> &#x7684;&#x522B;&#x540D;&#x3002;&#x4E3A;&#x4E86;&#x652F;&#x6301; <a href="url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost"><code>url.parse()</code></a>&#xFF0C;<code>hostname</code> &#x4F18;&#x4E8E; <code>host</code>&#x3002;</li>
+<li><code>family</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x5F53;&#x89E3;&#x6790; <code>host</code> &#x548C; <code>hostname</code> &#x65F6;&#x4F7F;&#x7528;&#x7684; IP &#x5730;&#x5740;&#x65CF;&#x3002;
+&#x6709;&#x6548;&#x503C;&#x662F; <code>4</code> &#x6216; <code>6</code>&#x3002;&#x5F53;&#x672A;&#x6307;&#x5B9A;&#x65F6;&#xFF0C;&#x5219;&#x540C;&#x65F6;&#x4F7F;&#x7528; IP v4 &#x548C; v6&#x3002;</li>
+<li><code>port</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>80</code>&#x3002;</li>
+<li><code>localAddress</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x8981;&#x7ED1;&#x5B9A;&#x5230;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x7684;&#x672C;&#x5730;&#x63A5;&#x53E3;&#x3002;</li>
+<li><code>socketPath</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> Unix &#x57DF; Socket&#xFF08;&#x4F7F;&#x7528; host:port &#x6216; socketPath &#x7684;&#x5176;&#x4E2D;&#x4E4B;&#x4E00;&#xFF09;&#x3002;</li>
+<li><code>method</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x4E00;&#x4E2A;&#x6307;&#x5B9A; HTTP &#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;GET&apos;</code>&#x3002;</li>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;/&apos;</code>&#x3002;
+&#x5E94;&#x5305;&#x62EC;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#xFF08;&#x5982;&#x6709;&#x7684;&#x8BDD;&#xFF09;&#x3002;&#x5982; <code>&apos;/index.html?page=12&apos;</code>&#x3002;
+&#x5F53;&#x8BF7;&#x6C42;&#x7684;&#x8DEF;&#x5F84;&#x4E2D;&#x5305;&#x542B;&#x975E;&#x6CD5;&#x5B57;&#x7B26;&#x65F6;&#xFF0C;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;
+&#x76EE;&#x524D;&#x53EA;&#x6709;&#x7A7A;&#x5B57;&#x7B26;&#x4F1A;&#x88AB;&#x62D2;&#x7EDD;&#xFF0C;&#x4F46;&#x672A;&#x6765;&#x53EF;&#x80FD;&#x4F1A;&#x53D8;&#x5316;&#x3002;</li>
+<li><code>headers</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> &#x4E00;&#x4E2A;&#x5305;&#x542B;&#x8BF7;&#x6C42;&#x5934;&#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+<li><code>auth</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x57FA;&#x672C;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#xFF0C;&#x5982; <code>&apos;user:password&apos;</code> &#x6765;&#x8BA1;&#x7B97; Authorization &#x5934;&#x3002;</li>
+<li><code>agent</code> <a href="http.html#http_class_http_agent" class="type">&lt;http.Agent&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a> &#x63A7;&#x5236; <a href="#http_class_http_agent"><code>Agent</code></a> &#x7684;&#x884C;&#x4E3A;&#x3002;
+&#x5F53;&#x4F7F;&#x7528; Agent &#x662F;&#xFF0C;&#x8BF7;&#x6C42;&#x9ED8;&#x8BA4;&#x4E3A; <code>Connection: keep-alive</code>&#x3002;
+&#x53EF;&#x80FD;&#x7684;&#x503C;&#x6709;&#xFF1A;<ul>
+<li><code>undefined</code> (&#x9ED8;&#x8BA4;): &#x5BF9;&#x8BE5;&#x4E3B;&#x673A;&#x548C;&#x7AEF;&#x53E3;&#x4F7F;&#x7528; <a href="#http_http_globalagent"><code>http.globalAgent</code></a>&#x3002;</li>
+<li><code>Agent</code> &#x5BF9;&#x8C61;&#xFF1A;&#x663E;&#x5F0F;&#x5730;&#x4F7F;&#x7528;&#x4F20;&#x5165;&#x7684; <code>Agent</code>&#x3002;</li>
+<li><code>false</code>: &#x4E0D;&#x5BF9;&#x8FDE;&#x63A5;&#x6C60;&#x4F7F;&#x7528; Agent&#xFF0C;&#x9ED8;&#x8BA4;&#x8BF7;&#x6C42; <code>Connection: close</code>&#x3002;</li>
+</ul>
+</li>
+<li><code>createConnection</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5F53;&#x4E0D;&#x4F7F;&#x7528; <code>agent</code> &#x9009;&#x9879;&#x65F6;&#xFF0C;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x8BF7;&#x6C42;&#x7684; socket/stream &#x7684;&#x51FD;&#x6570;&#x3002;
+&#x8FD9;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x907F;&#x514D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684; Agent &#x7C7B;&#xFF0C;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x8986;&#x76D6;&#x9ED8;&#x8BA4;&#x7684; <code>createConnection</code> &#x51FD;&#x6570;&#x3002;&#x8BE6;&#x89C1; <a href="#http_agent_createconnection_options_callback"><code>agent.createConnection()</code></a>&#x3002;</li>
+<li><code>timeout</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Integer&gt;</a>: &#x4E00;&#x4E2A;&#x6570;&#x503C;&#xFF0C;&#x6307;&#x5B9A; socket &#x8D85;&#x65F6;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x3002;
+&#x5B83;&#x4F1A;&#x5728; socket &#x88AB;&#x8FDE;&#x63A5;&#x65F6;&#x8BBE;&#x7F6E;&#x8D85;&#x65F6;&#x3002;</li>
+</ul>
+</li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http.html#http_class_http_clientrequest" class="type">&lt;http.ClientRequest&gt;</a></li>
+</ul>
+<p>Node.js &#x7EF4;&#x62A4;&#x6BCF;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x7684;&#x591A;&#x4E2A;&#x8FDE;&#x63A5;&#x6765;&#x8FDB;&#x884C; HTTP &#x8BF7;&#x6C42;&#x3002;
+&#x8BE5;&#x51FD;&#x6570;&#x5141;&#x8BB8;&#x663E;&#x5F0F;&#x5730;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x3002;</p>
+<p><code>options</code> &#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6216;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5982;&#x679C; <code>options</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5B83;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x4F7F;&#x7528; <a href="url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost"><code>url.parse()</code></a> &#x89E3;&#x6790;&#x3002;</p>
+<p>&#x53EF;&#x9009;&#x7684; <code>callback</code> &#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x4E3A; <a href="#http_event_response"><code>&apos;response&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x5355;&#x6B21;&#x76D1;&#x542C;&#x5668;&#x3002;</p>
+<p><code>http.request()</code> &#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <a href="#http_class_http_clientrequest"><code>http.ClientRequest</code></a> &#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;
+<code>ClientRequest</code> &#x5B9E;&#x4F8B;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x5199;&#x6D41;&#x3002;
+&#x5982;&#x679C;&#x9700;&#x8981;&#x901A;&#x8FC7; POST &#x8BF7;&#x6C42;&#x4E0A;&#x4F20;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x5199;&#x5165;&#x5230; <code>ClientRequest</code> &#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">var postData = querystring.stringify({
+  &apos;msg&apos; : &apos;Hello World!&apos;
+});
+
+var options = {
+  hostname: &apos;www.google.com&apos;,
+  port: 80,
+  path: &apos;/upload&apos;,
+  method: &apos;POST&apos;,
+  headers: {
+    &apos;Content-Type&apos;: &apos;application/x-www-form-urlencoded&apos;,
+    &apos;Content-Length&apos;: Buffer.byteLength(postData)
+  }
+};
+
+var req = http.request(options, (res) =&gt; {
+  console.log(`STATUS: ${res.statusCode}`);
+  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+  res.setEncoding(&apos;utf8&apos;);
+  res.on(&apos;data&apos;, (chunk) =&gt; {
+    console.log(`&#x4E3B;&#x4F53;: ${chunk}`);
+  });
+  res.on(&apos;end&apos;, () =&gt; {
+    console.log(&apos;&#x54CD;&#x5E94;&#x4E2D;&#x5DF2;&#x65E0;&#x6570;&#x636E;&#x3002;&apos;);
+  });
+});
+
+req.on(&apos;error&apos;, (e) =&gt; {
+  console.log(`&#x8BF7;&#x6C42;&#x9047;&#x5230;&#x95EE;&#x9898;: ${e.message}`);
+});
+
+// &#x5199;&#x5165;&#x6570;&#x636E;&#x5230;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;
+req.write(postData);
+req.end();
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x4F8B;&#x5B50;&#x4E2D;&#x8C03;&#x7528;&#x4E86; <code>req.end()</code>&#x3002;
+&#x4F7F;&#x7528; <code>http.request()</code> &#x5FC5;&#x987B;&#x603B;&#x662F;&#x8C03;&#x7528; <code>req.end()</code> &#x6765;&#x8868;&#x660E;&#x8BF7;&#x6C42;&#x5DF2;&#x7ECF;&#x7ED3;&#x675F;&#xFF0C;&#x5373;&#x4F7F;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x88AB;&#x5199;&#x5165;&#x8BF7;&#x6C42;&#x4E3B;&#x4F53;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x8FC7;&#x7A0B;&#x4E2D;&#x9047;&#x5230;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#xFF08;DNS &#x89E3;&#x6790;&#x9519;&#x8BEF;&#x3001;TCP &#x7EA7;&#x7684;&#x9519;&#x8BEF;&#x3001;&#x6216;&#x5B9E;&#x9645;&#x7684; HTTP &#x89E3;&#x6790;&#x9519;&#x8BEF;&#xFF09;&#xFF0C;&#x5219;&#x5728;&#x8FD4;&#x56DE;&#x7684;&#x8BF7;&#x6C42;&#x5BF9;&#x8C61;&#x4E2D;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x7684; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6CE8;&#x518C;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5219;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x51E0;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x3002;</p>
+<ul>
+<li><p>&#x53D1;&#x9001;&#x4E00;&#x4E2A; <code>&apos;Connection: keep-alive&apos;</code> &#x4F1A;&#x901A;&#x77E5; Node.js&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FDE;&#x63A5;&#x5E94;&#x4E00;&#x76F4;&#x6301;&#x7EED;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x3002;</p>
+</li>
+<li><p>&#x53D1;&#x9001;&#x4E00;&#x4E2A; <code>&apos;Content-length&apos;</code> &#x8BF7;&#x6C42;&#x5934;&#x4F1A;&#x7981;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x5757;&#x7F16;&#x7801;&#x3002;</p>
+</li>
+<li><p>&#x53D1;&#x9001;&#x4E00;&#x4E2A; <code>&apos;Expect&apos;</code> &#x8BF7;&#x6C42;&#x5934;&#x4F1A;&#x7ACB;&#x5373;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x5934;&#x3002;
+&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F53;&#x53D1;&#x9001; <code>&apos;Expect: 100-continue&apos;</code> &#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x8D85;&#x65F6;&#x5E76;&#x76D1;&#x542C; <code>&apos;continue&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x8BE6;&#x89C1; RFC2616 &#x7AE0;&#x8282; 8.2.3&#x3002;</p>
+</li>
+<li><p>&#x53D1;&#x9001;&#x4E00;&#x4E2A; Authorization &#x8BF7;&#x6C42;&#x5934;&#x4F1A;&#x8986;&#x76D6;&#x4F7F;&#x7528; <code>auth</code> &#x9009;&#x9879;&#x8BA1;&#x7B97;&#x57FA;&#x672C;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x3002;</p>
+</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>path | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-path">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path active" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="path" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/path.json">JSON格式</a> |-->
+            <!--<a href="/api/en/path.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#path_path">path (&#x8DEF;&#x5F84;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#path_windows_vs_posix">Windows &#x4E0E; POSIX</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_basename_path_ext">path.basename(path[, ext])</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_delimiter">path.delimiter</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_dirname_path">path.dirname(path)</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_extname_path">path.extname(path)</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_format_pathobject">path.format(pathObject)</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_isabsolute_path">path.isAbsolute(path)</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_join_paths">path.join([...paths])</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_normalize_path">path.normalize(path)</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_parse_path">path.parse(path)</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_posix">path.posix</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_relative_from_to">path.relative(from, to)</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_resolve_paths">path.resolve([...paths])</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_sep">path.sep</a></span></li>
+<li><span class="stability_undefined"><a href="#path_path_win32">path.win32</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>path (&#x8DEF;&#x5F84;)<span><a class="mark" href="#path_path" id="path_path">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><p><code>path</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x4E0E;&#x76EE;&#x5F55;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">const path = require(&apos;path&apos;);
+</code></pre>
+<h2>Windows &#x4E0E; POSIX<span><a class="mark" href="#path_windows_vs_posix" id="path_windows_vs_posix">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_windows_vs_posix">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/windows_vs_posix.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p><code>path</code> &#x6A21;&#x5757;&#x7684;&#x9ED8;&#x8BA4;&#x64CD;&#x4F5C;&#x4F1A;&#x6839;&#x636E; Node.js &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4E0D;&#x540C;&#x800C;&#x53D8;&#x5316;&#x3002;
+&#x6BD4;&#x5982;&#xFF0C;&#x5F53;&#x8FD0;&#x884C;&#x5728; Windows &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#x65F6;&#xFF0C;<code>path</code> &#x6A21;&#x5757;&#x4F1A;&#x8BA4;&#x4E3A;&#x4F7F;&#x7528;&#x7684;&#x662F; Windows &#x98CE;&#x683C;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5BF9; Windows &#x6587;&#x4EF6;&#x8DEF;&#x5F84; <code>C:\temp\myfile.html</code> &#x4F7F;&#x7528; <code>path.basename()</code> &#x51FD;&#x6570;&#xFF0C;&#x8FD0;&#x884C;&#x5728; POSIX &#x4E0A;&#x4E0E;&#x8FD0;&#x884C;&#x5728; Windows &#x4E0A;&#x4F1A;&#x4EA7;&#x751F;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#xFF1A;</p>
+<p>&#x5728; POSIX &#x4E0A;:</p>
+<pre><code class="lang-js">path.basename(&apos;C:\\temp\\myfile.html&apos;);
+// &#x8FD4;&#x56DE;: &apos;C:\\temp\\myfile.html&apos;
+</code></pre>
+<p>&#x5728; Windows &#x4E0A;:</p>
+<pre><code class="lang-js">path.basename(&apos;C:\\temp\\myfile.html&apos;);
+// &#x8FD4;&#x56DE;: &apos;myfile.html&apos;
+</code></pre>
+<p>&#x8981;&#x60F3;&#x5728;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#x5904;&#x7406; Windows &#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x65F6;&#x83B7;&#x5F97;&#x4E00;&#x81F4;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="#path_path_win32"><code>path.win32</code></a>&#xFF1A;</p>
+<p>&#x5728; POSIX &#x548C; Windows &#x4E0A;:</p>
+<pre><code class="lang-js">path.win32.basename(&apos;C:\\temp\\myfile.html&apos;);
+// &#x8FD4;&#x56DE;: &apos;myfile.html&apos;
+</code></pre>
+<p>&#x8981;&#x60F3;&#x5728;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#x5904;&#x7406; POSIX &#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x65F6;&#x83B7;&#x5F97;&#x4E00;&#x81F4;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="#path_path_posix"><code>path.posix</code></a>&#xFF1A;</p>
+<p>&#x5728; POSIX &#x548C; Windows &#x4E0A;:</p>
+<pre><code class="lang-js">path.posix.basename(&apos;/tmp/myfile.html&apos;);
+// &#x8FD4;&#x56DE;: &apos;myfile.html&apos;
+</code></pre>
+<h2>path.basename(path[, ext])<span><a class="mark" href="#path_path_basename_path_ext" id="path_path_basename_path_ext">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_basename_path_ext">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_basename_path_ext.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.25</span>
+</div><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>ext</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x53EF;&#x9009;&#x7684;&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;</li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>path.basename()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>path</code> &#x7684;&#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; Unix &#x4E2D;&#x7684; <code>basename</code> &#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)
+// &#x8FD4;&#x56DE;: &apos;quux.html&apos;
+
+path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)
+// &#x8FD4;&#x56DE;: &apos;quux&apos;
+</code></pre>
+<p>&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x63D0;&#x4F9B;&#x4E86; <code>ext</code> &#x4F46;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.delimiter<span><a class="mark" href="#path_path_delimiter" id="path_path_delimiter">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_delimiter">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_delimiter.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.3</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x63D0;&#x4F9B;&#x5E73;&#x53F0;&#x7279;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#xFF1A;</p>
+<ul>
+<li>Windows &#x4E0A;&#x662F; <code>;</code></li>
+<li>POSIX &#x4E0A;&#x662F; <code>:</code></li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">console.log(process.env.PATH)
+// &#x8F93;&#x51FA;: &apos;/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin&apos;
+
+process.env.PATH.split(path.delimiter)
+// &#x8FD4;&#x56DE;: [&apos;/usr/bin&apos;, &apos;/bin&apos;, &apos;/usr/sbin&apos;, &apos;/sbin&apos;, &apos;/usr/local/bin&apos;]
+</code></pre>
+<p>&#x5728; Windows &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">console.log(process.env.PATH)
+// &#x8F93;&#x51FA;: &apos;C:\Windows\system32;C:\Windows;C:\Program Files\node\&apos;
+
+process.env.PATH.split(path.delimiter)
+// &#x8FD4;&#x56DE;: [&apos;C:\\Windows\\system32&apos;, &apos;C:\\Windows&apos;, &apos;C:\\Program Files\\node\\&apos;]
+</code></pre>
+<h2>path.dirname(path)<span><a class="mark" href="#path_path_dirname_path" id="path_path_dirname_path">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_dirname_path">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_dirname_path.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>path.dirname()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>path</code> &#x7684;&#x76EE;&#x5F55;&#x540D;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; Unix &#x4E2D;&#x7684; <code>dirname</code> &#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">path.dirname(&apos;/foo/bar/baz/asdf/quux&apos;)
+// &#x8FD4;&#x56DE;: &apos;/foo/bar/baz/asdf&apos;
+</code></pre>
+<p>&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.extname(path)<span><a class="mark" href="#path_path_extname_path" id="path_path_extname_path">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_extname_path">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_extname_path.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.25</span>
+</div><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>path.extname()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE; <code>path</code> &#x7684;&#x6269;&#x5C55;&#x540D;&#xFF0C;&#x5373;&#x4ECE; <code>path</code> &#x7684;&#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x4E2D;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A; <code>.</code>&#xFF08;&#x53E5;&#x53F7;&#xFF09;&#x5B57;&#x7B26;&#x5230;&#x5B57;&#x7B26;&#x4E32;&#x7ED3;&#x675F;&#x3002;
+&#x5982;&#x679C; <code>path</code> &#x7684;&#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x6CA1;&#x6709; <code>.</code> &#x6216; <code>path</code> &#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF08;&#x89C1; <code>path.basename()</code>&#xFF09;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x662F; <code>.</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">path.extname(&apos;index.html&apos;)
+// &#x8FD4;&#x56DE;: &apos;.html&apos;
+
+path.extname(&apos;index.coffee.md&apos;)
+// &#x8FD4;&#x56DE;: &apos;.md&apos;
+
+path.extname(&apos;index.&apos;)
+// &#x8FD4;&#x56DE;: &apos;.&apos;
+
+path.extname(&apos;index&apos;)
+// &#x8FD4;&#x56DE;: &apos;&apos;
+
+path.extname(&apos;.index&apos;)
+// &#x8FD4;&#x56DE;: &apos;&apos;
+</code></pre>
+<p>&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.format(pathObject)<span><a class="mark" href="#path_path_format_pathobject" id="path_path_format_pathobject">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_format_pathobject">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_format_pathobject.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.15</span>
+</div><ul>
+<li><code>pathObject</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a><ul>
+<li><code>dir</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>root</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>base</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>name</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>ext</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>path.format()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x4ECE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x4E0E; <a href="#path_path_parse_path"><code>path.parse()</code></a> &#x76F8;&#x53CD;&#x3002;</p>
+<p>&#x5F53; <code>pathObject</code> &#x63D0;&#x4F9B;&#x7684;&#x5C5E;&#x6027;&#x6709;&#x7EC4;&#x5408;&#x65F6;&#xFF0C;&#x6709;&#x4E9B;&#x5C5E;&#x6027;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x6BD4;&#x5176;&#x4ED6;&#x7684;&#x9AD8;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86; <code>pathObject.dir</code>&#xFF0C;&#x5219; <code>pathObject.root</code> &#x4F1A;&#x88AB;&#x5FFD;&#x7565;</li>
+<li>&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86; <code>pathObject.base</code> &#x5B58;&#x5728;&#xFF0C;&#x5219; <code>pathObject.ext</code> &#x548C; <code>pathObject.name</code> &#x4F1A;&#x88AB;&#x5FFD;&#x7565;</li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">// &#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86; `dir`&#x3001;`root` &#x548C; `base`&#xFF0C;&#x5219;&#x8FD4;&#x56DE; `${dir}${path.sep}${base}`&#x3002;
+// `root` &#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;
+path.format({
+  root: &apos;/ignored&apos;,
+  dir: &apos;/home/user/dir&apos;,
+  base: &apos;file.txt&apos;
+});
+// &#x8FD4;&#x56DE;: &apos;/home/user/dir/file.txt&apos;
+
+// &#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A; `dir`&#xFF0C;&#x5219; `root` &#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#x3002;
+// &#x5982;&#x679C;&#x53EA;&#x63D0;&#x4F9B;&#x4E86; `root` &#x6216; `dir` &#x7B49;&#x4E8E; `root`&#xFF0C;&#x5219;&#x5E73;&#x53F0;&#x7684;&#x5206;&#x9694;&#x7B26;&#x4E0D;&#x4F1A;&#x88AB;&#x5305;&#x542B;&#x3002;
+// `ext` &#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;
+path.format({
+  root: &apos;/&apos;,
+  base: &apos;file.txt&apos;,
+  ext: &apos;ignored&apos;
+});
+// &#x8FD4;&#x56DE;: &apos;/file.txt&apos;
+
+// &#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A; `base`&#xFF0C;&#x5219; `name` + `ext` &#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#x3002;
+path.format({
+  root: &apos;/&apos;,
+  name: &apos;file&apos;,
+  ext: &apos;.txt&apos;
+});
+// &#x8FD4;&#x56DE;: &apos;/file.txt&apos;
+</code></pre>
+<p>&#x5728; Windows &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.format({
+  dir : &quot;C:\\path\\dir&quot;,
+  base : &quot;file.txt&quot;
+});
+// &#x8FD4;&#x56DE;: &apos;C:\\path\\dir\\file.txt&apos;
+</code></pre>
+<h2>path.isAbsolute(path)<span><a class="mark" href="#path_path_isabsolute_path" id="path_path_isabsolute_path">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_isabsolute_path">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_isabsolute_path.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.2</span>
+</div><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p><code>path.isAbsolute()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x5224;&#x5B9A; <code>path</code> &#x662F;&#x5426;&#x4E3A;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684; <code>path</code> &#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.isAbsolute(&apos;/foo/bar&apos;) // true
+path.isAbsolute(&apos;/baz/..&apos;)  // true
+path.isAbsolute(&apos;qux/&apos;)     // false
+path.isAbsolute(&apos;.&apos;)        // false
+</code></pre>
+<p>&#x5728; Windows &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.isAbsolute(&apos;//server&apos;)    // true
+path.isAbsolute(&apos;\\\\server&apos;)  // true
+path.isAbsolute(&apos;C:/foo/..&apos;)   // true
+path.isAbsolute(&apos;C:\\foo\\..&apos;) // true
+path.isAbsolute(&apos;bar\\baz&apos;)    // false
+path.isAbsolute(&apos;bar/baz&apos;)     // false
+path.isAbsolute(&apos;.&apos;)           // false
+</code></pre>
+<p>&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.join([...paths])<span><a class="mark" href="#path_path_join_paths" id="path_path_join_paths">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_join_paths">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_join_paths.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><code>...paths</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x7684;&#x5E8F;&#x5217;</li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>path.join()</code> &#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x5E73;&#x53F0;&#x7279;&#x5B9A;&#x7684;&#x5206;&#x9694;&#x7B26;&#x628A;&#x5168;&#x90E8;&#x7ED9;&#x5B9A;&#x7684; <code>path</code> &#x7247;&#x6BB5;&#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x5E76;&#x89C4;&#x8303;&#x5316;&#x751F;&#x6210;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684; <code>path</code> &#x7247;&#x6BB5;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;
+&#x5982;&#x679C;&#x8FDE;&#x63A5;&#x540E;&#x7684;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>&apos;.&apos;</code>&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">path.join(&apos;/foo&apos;, &apos;bar&apos;, &apos;baz/asdf&apos;, &apos;quux&apos;, &apos;..&apos;)
+// &#x8FD4;&#x56DE;: &apos;/foo/bar/baz/asdf&apos;
+
+path.join(&apos;foo&apos;, {}, &apos;bar&apos;)
+// &#x629B;&#x51FA; TypeError: path.join &#x7684;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;
+</code></pre>
+<p>&#x5982;&#x679C;&#x4EFB;&#x4E00;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.normalize(path)<span><a class="mark" href="#path_path_normalize_path" id="path_path_normalize_path">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_normalize_path">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_normalize_path.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.23</span>
+</div><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>path.normalize()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x89C4;&#x8303;&#x5316;&#x7ED9;&#x5B9A;&#x7684; <code>path</code>&#xFF0C;&#x5E76;&#x89E3;&#x6790; <code>&apos;..&apos;</code> &#x548C; <code>&apos;.&apos;</code> &#x7247;&#x6BB5;&#x3002;</p>
+<p>&#x5F53;&#x53D1;&#x73B0;&#x591A;&#x4E2A;&#x8FDE;&#x7EED;&#x7684;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#x65F6;&#xFF08;&#x5982; POSIX &#x4E0A;&#x7684; <code>/</code> &#x4E0E; Windows &#x4E0A;&#x7684; <code>\</code>&#xFF09;&#xFF0C;&#x5B83;&#x4EEC;&#x4F1A;&#x88AB;&#x5355;&#x4E00;&#x7684;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#x66FF;&#x6362;&#x3002;
+&#x672B;&#x5C3E;&#x7684;&#x591A;&#x4E2A;&#x5206;&#x9694;&#x7B26;&#x4F1A;&#x88AB;&#x4FDD;&#x7559;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>path</code> &#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>&apos;.&apos;</code>&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;)
+// &#x8FD4;&#x56DE;: &apos;/foo/bar/baz/asdf&apos;
+</code></pre>
+<p>&#x5728; Windows &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.normalize(&apos;C:\\temp\\\\foo\\bar\\..\\&apos;);
+// &#x8FD4;&#x56DE;: &apos;C:\\temp\\foo\\&apos;
+</code></pre>
+<p>&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.parse(path)<span><a class="mark" href="#path_path_parse_path" id="path_path_parse_path">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_parse_path">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_parse_path.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.15</span>
+</div><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p><code>path.parse()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x8868;&#x793A; <code>path</code> &#x7684;&#x5143;&#x7D20;&#x3002;</p>
+<p>&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x6709;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li><code>root</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>dir</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>base</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>ext</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>name</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.parse(&apos;/home/user/dir/file.txt&apos;)
+// &#x8FD4;&#x56DE;:
+// {
+//    root : &quot;/&quot;,
+//    dir : &quot;/home/user/dir&quot;,
+//    base : &quot;file.txt&quot;,
+//    ext : &quot;.txt&quot;,
+//    name : &quot;file&quot;
+// }
+</code></pre>
+<pre><code class="lang-text">&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502;          dir        &#x2502;    base    &#x2502;
+&#x251C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;              &#x251C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2524;
+&#x2502; root &#x2502;              &#x2502; name &#x2502; ext &#x2502;
+&quot;  /    home/user/dir / file  .txt &quot;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2534;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2534;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2534;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+(&#x8BF7;&#x65E0;&#x89C6;&#x4EE5;&#x4E0A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x7A7A;&#x683C;&#xFF0C;&#x5B83;&#x4EEC;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x5E03;&#x5C40;)
+</code></pre>
+<p>&#x5728; Windows &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.parse(&apos;C:\\path\\dir\\file.txt&apos;)
+// &#x8FD4;&#x56DE;:
+// {
+//    root : &quot;C:\\&quot;,
+//    dir : &quot;C:\\path\\dir&quot;,
+//    base : &quot;file.txt&quot;,
+//    ext : &quot;.txt&quot;,
+//    name : &quot;file&quot;
+// }
+</code></pre>
+<pre><code class="lang-text">&#x250C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+&#x2502;          dir        &#x2502;    base    &#x2502;
+&#x251C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;              &#x251C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2524;
+&#x2502; root &#x2502;              &#x2502; name &#x2502; ext &#x2502;
+&quot; C:\      path\dir   \ file  .txt &quot;
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2534;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2534;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2534;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+(&#x8BF7;&#x65E0;&#x89C6;&#x4EE5;&#x4E0A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x7A7A;&#x683C;&#xFF0C;&#x5B83;&#x4EEC;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x5E03;&#x5C40;)
+</code></pre>
+<p>&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.posix<span><a class="mark" href="#path_path_posix" id="path_path_posix">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_posix">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_posix.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.15</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p><code>path.posix</code> &#x5C5E;&#x6027;&#x63D0;&#x4F9B;&#x4E86; <code>path</code> &#x65B9;&#x6CD5;&#x9488;&#x5BF9; POSIX &#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<h2>path.relative(from, to)<span><a class="mark" href="#path_path_relative_from_to" id="path_path_relative_from_to">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_relative_from_to">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_relative_from_to.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.0</span>
+</div><ul>
+<li><code>from</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>to</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>path.relative()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4ECE; <code>from</code> &#x5230; <code>to</code> &#x7684;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+&#x5982;&#x679C; <code>from</code> &#x548C; <code>to</code> &#x5404;&#x81EA;&#x89E3;&#x6790;&#x5230;&#x540C;&#x4E00;&#x8DEF;&#x5F84;&#xFF08;&#x8C03;&#x7528; <code>path.resolve()</code>&#xFF09;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>from</code> &#x6216; <code>to</code> &#x4F20;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x4F1A;&#x88AB;&#x7528;&#x4E8E;&#x4EE3;&#x66FF;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&apos;)
+// &#x8FD4;&#x56DE;: &apos;../../impl/bbb&apos;
+</code></pre>
+<p>&#x5728; Windows &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">path.relative(&apos;C:\\orandea\\test\\aaa&apos;, &apos;C:\\orandea\\impl\\bbb&apos;)
+// &#x8FD4;&#x56DE;: &apos;..\\..\\impl\\bbb&apos;
+</code></pre>
+<p>&#x5982;&#x679C; <code>from</code> &#x6216; <code>to</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.resolve([...paths])<span><a class="mark" href="#path_path_resolve_paths" id="path_path_resolve_paths">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_resolve_paths">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_resolve_paths.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><ul>
+<li><code>...paths</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x6216;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x7684;&#x5E8F;&#x5217;</li>
+<li>&#x8FD4;&#x56DE;: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>path.resolve()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x628A;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x6216;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x7684;&#x5E8F;&#x5217;&#x89E3;&#x6790;&#x4E3A;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x7ED9;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x5E8F;&#x5217;&#x662F;&#x4ECE;&#x53F3;&#x5F80;&#x5DE6;&#x88AB;&#x5904;&#x7406;&#x7684;&#xFF0C;&#x540E;&#x9762;&#x6BCF;&#x4E2A; <code>path</code> &#x88AB;&#x4F9D;&#x6B21;&#x89E3;&#x6790;&#xFF0C;&#x76F4;&#x5230;&#x6784;&#x9020;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x7ED9;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x7684;&#x5E8F;&#x5217;&#x4E3A;&#xFF1A;<code>/foo</code>&#x3001;<code>/bar</code>&#x3001;<code>baz</code>&#xFF0C;&#x5219;&#x8C03;&#x7528; <code>path.resolve(&apos;/foo&apos;, &apos;/bar&apos;, &apos;baz&apos;)</code> &#x4F1A;&#x8FD4;&#x56DE; <code>/bar/baz</code>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5904;&#x7406;&#x5B8C;&#x5168;&#x90E8;&#x7ED9;&#x5B9A;&#x7684; <code>path</code> &#x7247;&#x6BB5;&#x540E;&#x8FD8;&#x672A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5219;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x4F1A;&#x88AB;&#x7528;&#x4E0A;&#x3002;</p>
+<p>&#x751F;&#x6210;&#x7684;&#x8DEF;&#x5F84;&#x662F;&#x89C4;&#x8303;&#x5316;&#x540E;&#x7684;&#xFF0C;&#x4E14;&#x672B;&#x5C3E;&#x7684;&#x659C;&#x6760;&#x4F1A;&#x88AB;&#x5220;&#x9664;&#xFF0C;&#x9664;&#x975E;&#x8DEF;&#x5F84;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#x6839;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684; <code>path</code> &#x7247;&#x6BB5;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F20;&#x5165; <code>path</code> &#x7247;&#x6BB5;&#xFF0C;&#x5219; <code>path.resolve()</code> &#x4F1A;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">path.resolve(&apos;/foo/bar&apos;, &apos;./baz&apos;)
+// &#x8FD4;&#x56DE;: &apos;/foo/bar/baz&apos;
+
+path.resolve(&apos;/foo/bar&apos;, &apos;/tmp/file/&apos;)
+// &#x8FD4;&#x56DE;: &apos;/tmp/file&apos;
+
+path.resolve(&apos;wwwroot&apos;, &apos;static_files/png/&apos;, &apos;../gif/image.gif&apos;)
+// &#x5982;&#x679C;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x4E3A; /home/myself/node&#xFF0C;
+// &#x5219;&#x8FD4;&#x56DE; &apos;/home/myself/node/wwwroot/static_files/gif/image.gif&apos;
+</code></pre>
+<p>&#x5982;&#x679C;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>path.sep<span><a class="mark" href="#path_path_sep" id="path_path_sep">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_sep">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_sep.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.9</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p>&#x63D0;&#x4F9B;&#x4E86;&#x5E73;&#x53F0;&#x7279;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x5206;&#x9694;&#x7B26;&#xFF1A;</p>
+<ul>
+<li>Windows &#x4E0A;&#x662F; <code>\</code></li>
+<li>POSIX &#x4E0A;&#x662F; <code>/</code></li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">&apos;foo/bar/baz&apos;.split(path.sep)
+// &#x8FD4;&#x56DE;: [&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;]
+</code></pre>
+<p>&#x5728; Windows &#x4E0A;&#xFF1A;</p>
+<pre><code class="lang-js">&apos;foo\\bar\\baz&apos;.split(path.sep)
+// &#x8FD4;&#x56DE;: [&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;]
+</code></pre>
+<h2>path.win32<span><a class="mark" href="#path_path_win32" id="path_path_win32">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/path.html#path_path_win32">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_win32.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.15</span>
+</div><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+<p><code>path.win32</code> &#x5C5E;&#x6027;&#x63D0;&#x4F9B;&#x4E86; <code>path</code> &#x65B9;&#x6CD5;&#x9488;&#x5BF9; Windows &#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5728; Windows &#x4E0A;&#xFF0C;&#x659C;&#x6760;&#x5B57;&#x7B26;&#xFF08;<code>/</code>&#xFF09;&#x548C;&#x53CD;&#x659C;&#x6760;&#x5B57;&#x7B26;&#xFF08;<code>\</code>&#xFF09;&#x90FD;&#x53EF;&#x4F5C;&#x4E3A;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#xFF1B;
+&#x4F46;&#x8FD4;&#x56DE;&#x503C;&#x4E2D;&#x53EA;&#x7528;&#x5230;&#x53CD;&#x659C;&#x6760;&#xFF08;<code>\</code>&#xFF09;&#x3002;</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

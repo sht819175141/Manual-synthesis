@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>dgram | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-dgram">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram active" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="dgram" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/dgram.json">JSON格式</a> |-->
+            <!--<a href="/api/en/dgram.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#dgram_udp_datagram_sockets">dgram (&#x6570;&#x636E;&#x62A5;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#dgram_class_dgram_socket">dgram.Socket &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#dgram_event_close">&apos;close&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_event_error">&apos;error&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_event_listening">&apos;listening&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_event_message">&apos;message&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_addmembership_multicastaddress_multicastinterface">socket.addMembership(multicastAddress[, multicastInterface])</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_address">socket.address()</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_bind_port_address_callback">socket.bind([port][, address][, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_bind_options_callback">socket.bind(options[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_close_callback">socket.close([callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_dropmembership_multicastaddress_multicastinterface">socket.dropMembership(multicastAddress[, multicastInterface])</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_send_msg_offset_length_port_address_callback">socket.send(msg, [offset, length,] port, address[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_setbroadcast_flag">socket.setBroadcast(flag)</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_setmulticastloopback_flag">socket.setMulticastLoopback(flag)</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_setmulticastttl_ttl">socket.setMulticastTTL(ttl)</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_setttl_ttl">socket.setTTL(ttl)</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_ref">socket.ref()</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_socket_unref">socket.unref()</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_change_to_asynchronous_socket_bind_behavior">Change to asynchronous <code>socket.bind()</code> behavior</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#dgram_dgram_module_functions"><code>dgram</code> module functions</a></span><ul>
+<li><span class="stability_undefined"><a href="#dgram_dgram_createsocket_options_callback">dgram.createSocket(options[, callback])</a></span></li>
+<li><span class="stability_undefined"><a href="#dgram_dgram_createsocket_type_callback">dgram.createSocket(type[, callback])</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>dgram (&#x6570;&#x636E;&#x62A5;)<span><a class="mark" href="#dgram_udp_datagram_sockets" id="dgram_udp_datagram_sockets">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_udp_datagram_sockets">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/udp_datagram_sockets.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><!-- name=dgram -->
+<p><code>dgram</code>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86; UDP &#x6570;&#x636E;&#x5305; socket &#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code class="lang-js">const dgram = require(&apos;dgram&apos;);
+const server = dgram.createSocket(&apos;udp4&apos;);
+
+server.on(&apos;error&apos;, (err) =&gt; {
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x5F02;&#x5E38;&#xFF1A;\n${err.stack}`);
+  server.close();
+});
+
+server.on(&apos;message&apos;, (msg, rinfo) =&gt; {
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x6536;&#x5230;&#xFF1A;${msg} &#x6765;&#x81EA; ${rinfo.address}:${rinfo.port}`);
+});
+
+server.on(&apos;listening&apos;, () =&gt; {
+  var address = server.address();
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x76D1;&#x542C; ${address.address}:${address.port}`);
+});
+
+server.bind(41234);
+// &#x670D;&#x52A1;&#x5668;&#x76D1;&#x542C; 0.0.0.0:41234
+</code></pre>
+<h2>dgram.Socket &#x7C7B;<span><a class="mark" href="#dgram_class_dgram_socket" id="dgram_class_dgram_socket">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_class_dgram_socket">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/class_dgram_socket.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><p><code>dgram.Socket</code>&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x5C01;&#x88C5;&#x4E86;&#x6570;&#x636E;&#x5305;&#x51FD;&#x6570;&#x529F;&#x80FD;&#x7684;<a href="events.html"><code>EventEmitter</code></a>&#x3002;</p>
+<p><code>dgram.Socket</code>&#x5B9E;&#x4F8B;&#x662F;&#x7531;<a href="#dgram_dgram_createsocket_options_callback"><code>dgram.createSocket()</code></a>&#x521B;&#x5EFA;&#x7684;&#x3002;&#x521B;&#x5EFA;<code>dgram.Socket</code>&#x5B9E;&#x4F8B;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;<code>new</code>&#x5173;&#x952E;&#x5B57;&#x3002;</p>
+<h3>&apos;close&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#dgram_event_close" id="dgram_event_close">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_event_close">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/event_close.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><p>The <code>&apos;close&apos;</code> event is emitted after a socket is closed with <a href="#dgram_socket_close_callback"><code>close()</code></a>.
+Once triggered, no new <code>&apos;message&apos;</code> events will be emitted on this socket.
+<code>&apos;close&apos;</code>&#x4E8B;&#x4EF6;&#x5C06;&#x5728;&#x4F7F;&#x7528;<a href="#dgram_socket_close_callback"><code>close()</code></a>&#x5173;&#x95ED;&#x4E00;&#x4E2A; socket &#x4E4B;&#x540E;&#x89E6;&#x53D1;&#x3002;&#x8BE5;&#x4E8B;&#x4EF6;&#x4E00;&#x65E6;&#x89E6;&#x53D1;&#xFF0C;&#x8FD9;&#x4E2A; socket &#x4E0A;&#x5C06;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x65B0;&#x7684;<code>&apos;message&apos;</code>&#x4E8B;&#x4EF6;&#x3002;</p>
+<h3>&apos;error&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#dgram_event_error" id="dgram_event_error">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_event_error">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/event_error.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><ul>
+<li><code>exception</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p>&#x5F53;&#x6709;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#x53D1;&#x751F;&#x65F6;&#xFF0C;<code>&apos;error&apos;</code>&#x4E8B;&#x4EF6;&#x5C06;&#x88AB;&#x89E6;&#x53D1;&#x3002;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x56DE;&#x6389;&#x51FD;&#x6570;&#x4EC5;&#x4F1A;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A; Error &#x53C2;&#x6570;&#x3002;</p>
+<h3>&apos;listening&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#dgram_event_listening" id="dgram_event_listening">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_event_listening">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/event_listening.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><p>&#x5F53;&#x4E00;&#x4E2A; socket &#x5F00;&#x59CB;&#x76D1;&#x542C;&#x6570;&#x636E;&#x5305;&#x4FE1;&#x606F;&#x65F6;&#xFF0C;<code>&apos;listening&apos;</code>&#x4E8B;&#x4EF6;&#x5C06;&#x88AB;&#x89E6;&#x53D1;&#x3002;&#x8BE5;&#x4E8B;&#x4EF6;&#x4F1A;&#x5728;&#x521B;&#x5EFA; UDP socket &#x4E4B;&#x540E;&#x88AB;&#x7ACB;&#x5373;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>&apos;message&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#dgram_event_message" id="dgram_event_message">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_event_message">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/event_message.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><ul>
+<li><code>msg</code> <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a> - &#x6D88;&#x606F;</li>
+<li><code>rinfo</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> - &#x8FDC;&#x7A0B;&#x5730;&#x5740;&#x4FE1;&#x606F;</li>
+</ul>
+<p>&#x5F53;&#x6709;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5305;&#x88AB; socket &#x63A5;&#x6536;&#x65F6;&#xFF0C;<code>&apos;message&apos;</code>&#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;<code>msg</code>&#x548C;<code>rinfo</code>&#x4F1A;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x5230;&#x8BE5;&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#x4E2D;&#x3002;<code>msg</code>&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A; <a href="buffer.html"><code>Buffer</code></a>&#xFF0C;<code>rinfo</code>&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x63D0;&#x4F9B;&#x4E86;&#x53D1;&#x9001;&#x8005;&#x5730;&#x5740;&#x4FE1;&#x606F;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;<code>address</code>&#x3001;<code>family</code>&#x548C;<code>port</code>&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-js">socket.on(&apos;message&apos;, (msg, rinfo) =&gt; {
+  console.log(&apos;&#x6536;&#x5230;&#x6765;&#x81EA; %s:%d &#x7684; %d bytes &#x6570;&#x636E;\n&apos;,
+              msg.length, rinfo.address, rinfo.port);
+});
+</code></pre>
+<h3>socket.addMembership(multicastAddress[, multicastInterface])<span><a class="mark" href="#dgram_socket_addmembership_multicastaddress_multicastinterface" id="dgram_socket_addmembership_multicastaddress_multicastinterface">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_addmembership_multicastaddress_multicastinterface">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_addmembership_multicastaddress_multicastinterface.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.9</span>
+</div><ul>
+<li><code>multicastAddress</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>multicastInterface</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a>, &#x53EF;&#x9009;&#x7684;</li>
+</ul>
+<p>&#x901A;&#x77E5;&#x5185;&#x6838;&#x5C06;<code>multicastAddress</code>&#x548C;<code>multicastInterface</code>&#x63D0;&#x4F9B;&#x7684;&#x591A;&#x8DEF;&#x4F20;&#x9001;&#x96C6;&#x5408;&#x901A;&#x8FC7;<code>IP_ADD_MEMBERSHIP</code>&#x8FD9;&#x4E2A; socket &#x9009;&#x9879;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x3002;&#x82E5;<code>multicastInterface</code>&#x53C2;&#x6570;&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5C06;&#x4F1A;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x5E76;&#x5411;&#x5176;&#x6DFB;&#x52A0;&#x6210;&#x5458;&#x3002;&#x8981;&#x4E3A;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684;&#x63A5;&#x53E3;&#x6DFB;&#x52A0;&#x6210;&#x5458;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6BCF;&#x4E2A;&#x63A5;&#x53E3;&#x4E0A;&#x8C03;&#x7528;&#x4E00;&#x6B21;<code>addMembership</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<h3>socket.address()<span><a class="mark" href="#dgram_socket_address" id="dgram_socket_address">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_address">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_address.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x542B; socket &#x5730;&#x5740;&#x4FE1;&#x606F;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5BF9;&#x4E8E; UDP socket&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x5C06;&#x5305;&#x542B;<code>address</code>&#x3001;<code>family</code>&#x548C;<code>port</code>&#x5C5E;&#x6027;&#x3002;</p>
+<h3>socket.bind([port][, address][, callback])<span><a class="mark" href="#dgram_socket_bind_port_address_callback" id="dgram_socket_bind_port_address_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_bind_port_address_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_bind_port_address_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><ul>
+<li><code>port</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> - &#x6574;&#x6570;&#xFF0C;&#x53EF;&#x9009;&#x7684;</li>
+<li><code>address</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a>, &#x53EF;&#x9009;&#x7684;</li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> (&#x6CA1;&#x6709;&#x53C2;&#x6570;)&#xFF0C;&#x53EF;&#x9009;&#x7684;&#x3002;&#x5F53;&#x7ED1;&#x5B9A;&#x5B8C;&#x6210;&#x65F6;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</li>
+</ul>
+<p>&#x5BF9;&#x4E8E; UDP socket&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x4EE4;<code>dgram.Socket</code>&#x5728;&#x6307;&#x5B9A;&#x7684;<code>port</code>&#x548C;&#x53EF;&#x9009;&#x7684;<code>address</code>&#x4E0A;&#x76D1;&#x542C;&#x6570;&#x636E;&#x5305;&#x4FE1;&#x606F;&#x3002;&#x82E5;<code>port</code>&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#x3002;&#x82E5;<code>address</code>&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x5728;&#x6240;&#x6709;&#x5730;&#x5740;&#x4E0A;&#x76D1;&#x542C;&#x3002;&#x7ED1;&#x5B9A;&#x5B8C;&#x6210;&#x65F6;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;<code>&apos;listening&apos;</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x4F1A;&#x8C03;&#x7528;<code>callback</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x540C;&#x65F6;&#x76D1;&#x542C;<code>&apos;listening&apos;</code>&#x4E8B;&#x4EF6;&#x548C;&#x5728;<code>socket.bind()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x4F20;&#x5165;<code>callback</code>&#x53C2;&#x6570;&#x5E76;&#x4E0D;&#x4F1A;&#x5E26;&#x6765;&#x574F;&#x5904;&#xFF0C;&#x4F46;&#x4E5F;&#x4E0D;&#x662F;&#x5F88;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x88AB;&#x7ED1;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x5305; socket &#x4F1A;&#x4EE4; Node.js &#x8FDB;&#x7A0B;&#x4FDD;&#x6301;&#x8FD0;&#x884C;&#x4EE5;&#x63A5;&#x6536;&#x6570;&#x636E;&#x5305;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x82E5;&#x7ED1;&#x5B9A;&#x5931;&#x8D25;&#xFF0C;&#x4E00;&#x4E2A;<code>&apos;error&apos;</code>&#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;&#x5728;&#x6781;&#x5C11;&#x6570;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;&#x4F8B;&#x5982;&#x5C1D;&#x8BD5;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x5DF2;&#x5173;&#x95ED;&#x7684; socket&#xFF09;&#xFF0C;&#x4E00;&#x4E2A; <a href="errors.html#errors_class_error"><code>Error</code></a> &#x4F1A;&#x88AB;&#x629B;&#x51FA;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x76D1;&#x542C; 41234 &#x7AEF;&#x53E3;&#x7684; UDP &#x670D;&#x52A1;&#x5668;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">const dgram = require(&apos;dgram&apos;);
+const server = dgram.createSocket(&apos;udp4&apos;);
+
+server.on(&apos;error&apos;, (err) =&gt; {
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x5F02;&#x5E38;&#xFF1A;\n${err.stack}`);
+  server.close();
+});
+
+server.on(&apos;message&apos;, (msg, rinfo) =&gt; {
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x6536;&#x5230;&#xFF1A;${msg} &#x6765;&#x81EA; ${rinfo.address}:${rinfo.port}`);
+});
+
+server.on(&apos;listening&apos;, () =&gt; {
+  var address = server.address();
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x76D1;&#x542C; ${address.address}:${address.port}`);
+});
+
+server.bind(41234);
+// &#x670D;&#x52A1;&#x5668;&#x76D1;&#x542C; 0.0.0.0:41234
+</code></pre>
+<h3>socket.bind(options[, callback])<span><a class="mark" href="#dgram_socket_bind_options_callback" id="dgram_socket_bind_options_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_bind_options_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_bind_options_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.14</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> - &#x5FC5;&#x8981;&#x7684;&#x3002;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#xFF1A;<ul>
+<li><code>port</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> - &#x5FC5;&#x8981;&#x7684;&#x3002;</li>
+<li><code>address</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> - &#x53EF;&#x9009;&#x7684;&#x3002;</li>
+<li><code>exclusive</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a> - &#x53EF;&#x9009;&#x7684;&#x3002;</li>
+</ul>
+</li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> - &#x53EF;&#x9009;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x5BF9;&#x4E8E; UDP socket&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x4EE4;<code>dgram.Socket</code>&#x5728;&#x6307;&#x5B9A;&#x7684;<code>port</code>&#x548C;&#x53EF;&#x9009;&#x7684;<code>address</code>&#x4E0A;&#x76D1;&#x542C;&#x6570;&#x636E;&#x5305;&#x4FE1;&#x606F;&#x3002;&#x82E5;<code>port</code>&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#x3002;&#x82E5;<code>address</code>&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x5728;&#x6240;&#x6709;&#x5730;&#x5740;&#x4E0A;&#x76D1;&#x542C;&#x3002;&#x7ED1;&#x5B9A;&#x5B8C;&#x6210;&#x65F6;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;<code>&apos;listening&apos;</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x4F1A;&#x8C03;&#x7528;<code>callback</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5728;&#x914D;&#x5408;<a href="cluster.html"><code>cluster</code></a>&#x6A21;&#x5757;&#x4F7F;&#x7528;<code>dgram.Socket</code>&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;<code>options</code>&#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x9644;&#x52A0;&#x7684;<code>exclusive</code>&#x5C5E;&#x6027;&#x3002;&#x5F53;<code>exclusive</code>&#x88AB;&#x8BBE;&#x4E3A;<code>false</code>(&#x9ED8;&#x8BA4;&#x503C;)&#x65F6;&#xFF0C;&#x96C6;&#x7FA4;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#x4F1A;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684; socket &#x53E5;&#x67C4;&#x6765;&#x5171;&#x4EAB;&#x8FDE;&#x63A5;&#x5904;&#x7406;&#x4F5C;&#x4E1A;&#x3002;&#x5F53;<code>exclusive</code>&#x88AB;&#x8BBE;&#x4E3A;<code>true</code>&#x65F6;&#xFF0C;&#x8BE5;&#x53E5;&#x67C4;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x5171;&#x4EAB;&#xFF0C;&#x800C;&#x5C1D;&#x8BD5;&#x5171;&#x4EAB;&#x7AEF;&#x53E3;&#x5219;&#x4F1A;&#x9020;&#x6210;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x4E0D;&#x5171;&#x4EAB;&#x7AEF;&#x53E3;&#x7684; socket &#x7684;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#x6587;&#x6240;&#x793A;&#x3002;</p>
+<pre><code class="lang-js">socket.bind({
+  address: &apos;localhost&apos;,
+  port: 8000,
+  exclusive: true
+});
+</code></pre>
+<h3>socket.close([callback])<span><a class="mark" href="#dgram_socket_close_callback" id="dgram_socket_close_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_close_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_close_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><p>&#x5173;&#x95ED;&#x8BE5; socket &#x5E76;&#x505C;&#x6B62;&#x76D1;&#x542C;&#x5176;&#x4E0A;&#x7684;&#x6570;&#x636E;&#x3002;&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x4E3A;<a href="#dgram_event_close"><code>&apos;close&apos;</code></a>&#x4E8B;&#x4EF6;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x3002;</p>
+<h3>socket.dropMembership(multicastAddress[, multicastInterface])<span><a class="mark" href="#dgram_socket_dropmembership_multicastaddress_multicastinterface" id="dgram_socket_dropmembership_multicastaddress_multicastinterface">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_dropmembership_multicastaddress_multicastinterface">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_dropmembership_multicastaddress_multicastinterface.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.9</span>
+</div><ul>
+<li><code>multicastAddress</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>multicastInterface</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a>, &#x53EF;&#x9009;&#x7684;</li>
+</ul>
+<p>&#x5F15;&#x5BFC;&#x5185;&#x6838;&#x901A;&#x8FC7;<code>IP_DROP_MEMBERSHIP</code>&#x8FD9;&#x4E2A; socket &#x9009;&#x9879;&#x5220;&#x9664;<code>multicastAddress</code>&#x6307;&#x5B9A;&#x7684;&#x591A;&#x8DEF;&#x4F20;&#x9001;&#x96C6;&#x5408;&#x3002;&#x5F53; socket &#x88AB;&#x5173;&#x95ED;&#x6216;&#x8FDB;&#x7A0B;&#x88AB;&#x7EC8;&#x6B62;&#x65F6;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x5185;&#x6838;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x5927;&#x591A;&#x6570;&#x7684;&#x5E94;&#x7528;&#x90FD;&#x4E0D;&#x7528;&#x81EA;&#x884C;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x82E5;<code>multicastInterface</code>&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x5220;&#x9664;&#x6240;&#x6709;&#x53EF;&#x7528;&#x63A5;&#x53E3;&#x4E0A;&#x7684;&#x6210;&#x5458;&#x3002;</p>
+<h3>socket.send(msg, [offset, length,] port, address[, callback])<span><a class="mark" href="#dgram_socket_send_msg_offset_length_port_address_callback" id="dgram_socket_send_msg_offset_length_port_address_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_send_msg_offset_length_port_address_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_send_msg_offset_length_port_address_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><ul>
+<li><code>msg</code> <a href="buffer.html#buffer_class_buffer" class="type">&lt;Buffer&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="type">&lt;Array&gt;</a> &#x8981;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;</li>
+<li><code>offset</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x6574;&#x6570;&#x3002;&#x53EF;&#x9009;&#x3002;&#x6307;&#x5B9A;&#x6D88;&#x606F;&#x7684;&#x5F00;&#x5934;&#x5728; buffer &#x4E2D;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x3002;</li>
+<li><code>length</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x6574;&#x6570;&#x3002;&#x53EF;&#x9009;&#x3002;&#x6D88;&#x606F;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</li>
+<li><code>port</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> &#x6574;&#x6570;&#x3002;&#x76EE;&#x6807;&#x7AEF;&#x53E3;&#x3002;</li>
+<li><code>address</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x76EE;&#x6807;&#x4E3B;&#x673A;&#x540D;&#x6216; IP &#x5730;&#x5740;&#x3002;</li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5F53;&#x6D88;&#x606F;&#x88AB;&#x53D1;&#x9001;&#x65F6;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x53EF;&#x9009;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x5728; socket &#x4E0A;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x3002;&#x76EE;&#x6807;<code>port</code>&#x548C;<code>address</code>&#x987B;&#x88AB;&#x6307;&#x5B9A;&#x3002;</p>
+<p><code>msg</code>&#x53C2;&#x6570;&#x5305;&#x542B;&#x4E86;&#x8981;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;&#x3002;&#x6839;&#x636E;&#x6D88;&#x606F;&#x7684;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x505A;&#x6CD5;&#x3002;&#x5982;&#x679C;<code>msg</code>&#x662F;&#x4E00;&#x4E2A;<code>Buffer</code>&#xFF0C;&#x5219;<code>offset</code>&#x548C;<code>length</code>&#x6307;&#x5B9A;&#x4E86;&#x6D88;&#x606F;&#x5728;<code>Buffer</code>&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x548C;&#x5B57;&#x8282;&#x6570;&#x3002;&#x5982;&#x679C;<code>msg</code>&#x662F;&#x4E00;&#x4E2A;<code>String</code>&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x5730;&#x6309;&#x7167;<code>utf8</code>&#x7F16;&#x7801;&#x8F6C;&#x6362;&#x4E3A;<code>Buffer</code>&#x3002;&#x5BF9;&#x4E8E;&#x5305;&#x542B;&#x4E86;&#x591A;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x7684;&#x6D88;&#x606F;&#xFF0C;<code>offset</code>&#x548C;<code>length</code>&#x4F1A;&#x6839;&#x636E;&#x5BF9;&#x5E94;&#x7684;<a href="buffer.html#buffer_class_method_buffer_bytelength_string_encoding">byte length</a>&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6839;&#x636E;&#x5B57;&#x7B26;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x5982;&#x679C;<code>msg</code>&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x90A3;&#x4E48;<code>offset</code>&#x548C;<code>length</code>&#x5FC5;&#x987B;&#x90FD;&#x4E0D;&#x80FD;&#x88AB;&#x6307;&#x5B9A;&#x3002;</p>
+<p><code>address</code>&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x82E5;<code>address</code>&#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x4E3B;&#x673A;&#x540D;&#xFF0C;&#x5219; DNS &#x4F1A;&#x88AB;&#x7528;&#x6765;&#x89E3;&#x6790;&#x4E3B;&#x673A;&#x7684;&#x5730;&#x5740;&#x3002;&#x82E5;<code>address</code>&#x672A;&#x88AB;&#x6307;&#x5B9A;&#x6216;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;<code>&apos;127.0.0.1&apos;</code>&#x6216;<code>&apos;::1&apos;</code>&#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x82E5;&#x5728;&#x4E4B;&#x524D; socket &#x672A;&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>bind</code>&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF0C;socket &#x5C06;&#x4F1A;&#x88AB;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#x8D4B;&#x503C;&#x5E76;&#x7ED1;&#x5B9A;&#x5230;&#x201C;&#x6240;&#x6709;&#x63A5;&#x53E3;&#x201D;&#x7684;&#x5730;&#x5740;&#x4E0A;&#xFF08;&#x5BF9;&#x4E8E;<code>udp4</code> socket &#x662F;<code>&apos;0.0.0.0&apos;</code>&#xFF0C;&#x5BF9;&#x4E8E;<code>udp6</code> socket &#x662F;<code>&apos;::0&apos;</code>&#xFF09;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;<code>callback</code>&#x65B9;&#x6CD5;&#x6765;&#x6C47;&#x62A5; DNS &#x9519;&#x8BEF;&#x6216;&#x5224;&#x65AD;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x5730;&#x91CD;&#x7528;<code>buf</code>&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x673A;&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x5728; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E2D;&#xFF0C;DNS &#x67E5;&#x8BE2;&#x4F1A;&#x5BF9;&#x53D1;&#x9001;&#x9020;&#x6210;&#x81F3;&#x5C11; 1 tick &#x7684;&#x5EF6;&#x8FDF;&#x3002;</p>
+<p>&#x786E;&#x5B9A;&#x6570;&#x636E;&#x5305;&#x88AB;&#x53D1;&#x9001;&#x7684;&#x552F;&#x4E00;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x6307;&#x5B9A;<code>callback</code>&#x3002;&#x82E5;&#x5728;<code>callback</code>&#x88AB;&#x6307;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6709;&#x9519;&#x8BEF;&#x53D1;&#x751F;&#xFF0C;&#x8BE5;&#x9519;&#x8BEF;&#x4F1A;&#x4F5C;&#x4E3A;<code>callback</code>&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;&#x82E5;<code>callback</code>&#x672A;&#x88AB;&#x6307;&#x5B9A;&#xFF0C;&#x8BE5;&#x9519;&#x8BEF;&#x4F1A;&#x4EE5;<code>&apos;error&apos;</code>&#x4E8B;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x6295;&#x5C04;&#x5230;<code>socket</code>&#x5BF9;&#x8C61;&#x4E0A;&#x3002;</p>
+<p>&#x504F;&#x79FB;&#x91CF;&#x548C;&#x957F;&#x5EA6;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4F46;&#x5982;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x88AB;&#x6307;&#x5B9A;&#x5219;&#x53E6;&#x4E00;&#x4E2A;&#x4E5F;&#x5FC5;&#x987B;&#x88AB;&#x6307;&#x5B9A;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x4ED6;&#x4EEC;&#x53EA;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;<code>Buffer</code>&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x624D;&#x80FD;&#x88AB;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x53D1;&#x9001; UDP &#x5305;&#x5230;<code>localhost</code>&#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x968F;&#x673A;&#x7AEF;&#x53E3;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">const dgram = require(&apos;dgram&apos;);
+const message = Buffer.from(&apos;Some bytes&apos;);
+const client = dgram.createSocket(&apos;udp4&apos;);
+client.send(message, 41234, &apos;localhost&apos;, (err) =&gt; {
+  client.close();
+});
+</code></pre>
+<p>&#x4E00;&#x4E2A;&#x53D1;&#x9001;&#x5305;&#x542B;&#x591A;&#x4E2A; buffer &#x7684; UDP &#x5305;&#x5230;<code>localhost</code>&#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x968F;&#x673A;&#x7AEF;&#x53E3;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">const dgram = require(&apos;dgram&apos;);
+const buf1 = Buffer.from(&apos;Some &apos;);
+const buf2 = Buffer.from(&apos;bytes&apos;);
+const client = dgram.createSocket(&apos;udp4&apos;);
+client.send([buf1, buf2], 41234, &apos;localhost&apos;, (err) =&gt; {
+  client.close();
+});
+</code></pre>
+<p>&#x53D1;&#x9001;&#x591A;&#x4E2A; buffer &#x7684;&#x901F;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x548C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF1A;&#x6700;&#x597D;&#x662F;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x53D1;&#x9001;&#x591A;&#x4E2A; buffer &#x4F1A;&#x66F4;&#x5FEB;&#x3002;</p>
+<p><strong>&#x5173;&#x4E8E; UDP &#x5305;&#x5927;&#x5C0F;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</strong></p>
+<p><code>IPv4/v6</code>&#x6570;&#x636E;&#x5305;&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;&#x53D6;&#x51B3;&#x4E8E;<code>MTU</code>(<em>Maximum Transmission Unit</em>, &#x6700;&#x5927;&#x4F20;&#x8F93;&#x5355;&#x5143;)&#x4E0E;<code>Payload Length</code>&#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x3002;</p>
+<ul>
+<li><p><code>Payload Length</code>&#x5B57;&#x6BB5;&#x6709;<code>16 &#x4F4D;</code>&#x5BBD;&#xFF0C;&#x6307;&#x4E00;&#x4E2A;&#x8D85;&#x8FC7; 64K &#x7684;<em>&#x5305;&#x542B;</em> IP &#x5934;&#x90E8;&#x548C;&#x6570;&#x636E;&#x7684;&#x8D1F;&#x8F7D; (65,507 &#x5B57;&#x8282; = 65,535 &#x2212; 8 &#x5B57;&#x8282; UDP &#x5934; &#x2212; 20 &#x5B57;&#x8282; IP &#x5934;&#x90E8;)&#xFF1B;&#x901A;&#x5E38;&#x5BF9;&#x4E8E;&#x73AF;&#x56DE;&#x5730;&#x5740;&#x6765;&#x8BF4;&#x662F;&#x8FD9;&#x6837;&#xFF0C;&#x4F46;&#x8FD9;&#x4E2A;&#x957F;&#x5EA6;&#x7684;&#x6570;&#x636E;&#x5305;&#x5BF9;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x7684;&#x4E3B;&#x673A;&#x548C;&#x7F51;&#x7EDC;&#x6765;&#x8BF4;&#x4E0D;&#x5207;&#x5B9E;&#x9645;&#x3002;</p>
+</li>
+<li><p><code>MTU</code>&#x6307;&#x7684;&#x662F;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x4E3A;&#x6570;&#x636E;&#x5305;&#x63D0;&#x4F9B;&#x7684;&#x6700;&#x5927;&#x5927;&#x5C0F;&#x3002;&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x94FE;&#x8DEF;&#xFF0C;<code>IPv4</code>&#x6240;&#x6258;&#x7BA1;&#x7684;<code>MTU</code>&#x6700;&#x5C0F;&#x4E3A;<code>68</code>&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x63A8;&#x8350;&#x4E3A;<code>576</code>&#xFF08;&#x5178;&#x578B;&#x5730;&#xFF0C;&#x4F5C;&#x4E3A;&#x62E8;&#x53F7;&#x4E0A;&#x7F51;&#x5E94;&#x7528;&#x7684;&#x63A8;&#x8350;&#x503C;&#xFF09;&#xFF0C;&#x65E0;&#x8BBA;&#x5B83;&#x4EEC;&#x662F;&#x5B8C;&#x6574;&#x5730;&#x8FD8;&#x662F;&#x5206;&#x5757;&#x5730;&#x62B5;&#x8FBE;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;<code>IPv6</code>&#xFF0C;<code>MTU</code>&#x7684;&#x6700;&#x5C0F;&#x503C;&#x662F;<code>1280</code>&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x7136;&#x800C;&#xFF0C;&#x53D7;&#x6258;&#x7BA1;&#x7684;&#x6700;&#x5C0F;&#x7684;&#x788E;&#x7247;&#x91CD;&#x7EC4;&#x7F13;&#x51B2;&#x5927;&#x5C0F;&#x4E3A;<code>1500</code>&#x4E2A;&#x5B57;&#x8282;&#x3002;&#x73B0;&#x4ECA;&#x5927;&#x591A;&#x6570;&#x7684;&#x6570;&#x636E;&#x94FE;&#x8DEF;&#x5C42;&#x6280;&#x672F;&#xFF08;&#x5982;&#x4EE5;&#x592A;&#x7F51;&#xFF09;&#xFF0C;&#x90FD;&#x6709;<code>1500</code>&#x7684;<code>MTU</code>&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x56E0;&#x800C;<code>68</code>&#x4E2A;&#x5B57;&#x8282;&#x663E;&#x5F97;&#x975E;&#x5E38;&#x5C0F;&#x3002;</p>
+</li>
+</ul>
+<p>&#x8981;&#x63D0;&#x524D;&#x77E5;&#x9053;&#x6570;&#x636E;&#x5305;&#x53EF;&#x80FD;&#x7ECF;&#x8FC7;&#x7684;&#x6BCF;&#x4E2A;&#x94FE;&#x8DEF;&#x7684; MTU &#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x7684;&#x3002;&#x53D1;&#x9001;&#x5927;&#x4E8E;&#x63A5;&#x53D7;&#x8005;<code>MTU</code>&#x5927;&#x5C0F;&#x7684;&#x6570;&#x636E;&#x5305;&#x5C06;&#x4E0D;&#x4F1A;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x6570;&#x636E;&#x5305;&#x4F1A;&#x88AB;&#x9759;&#x9ED8;&#x5730;&#x4E22;&#x5931;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x901A;&#x77E5;&#x53D1;&#x9001;&#x8005;&#x8BE5;&#x5305;&#x672A;&#x62B5;&#x8FBE;&#x76EE;&#x7684;&#x5730;&#x3002;</p>
+<h3>socket.setBroadcast(flag)<span><a class="mark" href="#dgram_socket_setbroadcast_flag" id="dgram_socket_setbroadcast_flag">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_setbroadcast_flag">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_setbroadcast_flag.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.9</span>
+</div><ul>
+<li><code>flag</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>Sets or clears the <code>SO_BROADCAST</code> socket option.  When set to <code>true</code>, UDP
+packets may be sent to a local interface&apos;s broadcast address.</p>
+<h3>socket.setMulticastLoopback(flag)<span><a class="mark" href="#dgram_socket_setmulticastloopback_flag" id="dgram_socket_setmulticastloopback_flag">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_setmulticastloopback_flag">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_setmulticastloopback_flag.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.8</span>
+</div><ul>
+<li><code>flag</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;Boolean&gt;</a></li>
+</ul>
+<p>Sets or clears the <code>IP_MULTICAST_LOOP</code> socket option.  When set to <code>true</code>,
+multicast packets will also be received on the local interface.</p>
+<h3>socket.setMulticastTTL(ttl)<span><a class="mark" href="#dgram_socket_setmulticastttl_ttl" id="dgram_socket_setmulticastttl_ttl">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_setmulticastttl_ttl">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_setmulticastttl_ttl.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.8</span>
+</div><ul>
+<li><code>ttl</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> Integer</li>
+</ul>
+<p>Sets the <code>IP_MULTICAST_TTL</code> socket option.  While TTL generally stands for
+&quot;Time to Live&quot;, in this context it specifies the number of IP hops that a
+packet is allowed to travel through, specifically for multicast traffic.  Each
+router or gateway that forwards a packet decrements the TTL. If the TTL is
+decremented to 0 by a router, it will not be forwarded.</p>
+<p>The argument passed to to <code>socket.setMulticastTTL()</code> is a number of hops
+between 0 and 255. The default on most systems is <code>1</code> but can vary.</p>
+<h3>socket.setTTL(ttl)<span><a class="mark" href="#dgram_socket_setttl_ttl" id="dgram_socket_setttl_ttl">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_setttl_ttl">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_setttl_ttl.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.101</span>
+</div><ul>
+<li><code>ttl</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a> Integer</li>
+</ul>
+<p>Sets the <code>IP_TTL</code> socket option. While TTL generally stands for &quot;Time to Live&quot;,
+in this context it specifies the number of IP hops that a packet is allowed to
+travel through.  Each router or gateway that forwards a packet decrements the
+TTL.  If the TTL is decremented to 0 by a router, it will not be forwarded.
+Changing TTL values is typically done for network probes or when multicasting.</p>
+<p>The argument to <code>socket.setTTL()</code> is a number of hops between 1 and 255.
+The default on most systems is 64 but can vary.</p>
+<h3>socket.ref()<span><a class="mark" href="#dgram_socket_ref" id="dgram_socket_ref">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_ref">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_ref.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div><p>By default, binding a socket will cause it to block the Node.js process from
+exiting as long as the socket is open. The <code>socket.unref()</code> method can be used
+to exclude the socket from the reference counting that keeps the Node.js
+process active. The <code>socket.ref()</code> method adds the socket back to the reference
+counting and restores the default behavior.</p>
+<p>Calling <code>socket.ref()</code> multiples times will have no additional effect.</p>
+<p>The <code>socket.ref()</code> method returns a reference to the socket so calls can be
+chained.</p>
+<h3>socket.unref()<span><a class="mark" href="#dgram_socket_unref" id="dgram_socket_unref">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_socket_unref">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_unref.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div><p>By default, binding a socket will cause it to block the Node.js process from
+exiting as long as the socket is open. The <code>socket.unref()</code> method can be used
+to exclude the socket from the reference counting that keeps the Node.js
+process active, allowing the process to exit even if the socket is still
+listening.</p>
+<p>Calling <code>socket.unref()</code> multiple times will have no addition effect.</p>
+<p>The <code>socket.unref()</code> method returns a reference to the socket so calls can be
+chained.</p>
+<h3>Change to asynchronous <code>socket.bind()</code> behavior<span><a class="mark" href="#dgram_change_to_asynchronous_socket_bind_behavior" id="dgram_change_to_asynchronous_socket_bind_behavior">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_change_to_asynchronous_socket_bind_behavior">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/change_to_asynchronous_socket_bind_behavior.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>As of Node.js v0.10, <a href="#dgram_socket_bind_options_callback"><code>dgram.Socket#bind()</code></a> changed to an asynchronous
+execution model. Legacy code that assumes synchronous behavior, as in the
+following example:</p>
+<pre><code class="lang-js">const s = dgram.createSocket(&apos;udp4&apos;);
+s.bind(1234);
+s.addMembership(&apos;224.0.0.114&apos;);
+</code></pre>
+<p>Must be changed to pass a callback function to the <a href="#dgram_socket_bind_options_callback"><code>dgram.Socket#bind()</code></a>
+function:</p>
+<pre><code class="lang-js">const s = dgram.createSocket(&apos;udp4&apos;);
+s.bind(1234, () =&gt; {
+  s.addMembership(&apos;224.0.0.114&apos;);
+});
+</code></pre>
+<h2><code>dgram</code> module functions<span><a class="mark" href="#dgram_dgram_module_functions" id="dgram_dgram_module_functions">#</a></span></h2>
+<h3>dgram.createSocket(options[, callback])<span><a class="mark" href="#dgram_dgram_createsocket_options_callback" id="dgram_dgram_createsocket_options_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_dgram_createsocket_options_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/dgram_createsocket_options_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.13</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> Attached as a listener to <code>&apos;message&apos;</code> events.</li>
+<li>Returns: <a href="dgram.html#dgram_class_dgram_socket" class="type">&lt;dgram.Socket&gt;</a></li>
+</ul>
+<p>Creates a <code>dgram.Socket</code> object. The <code>options</code> argument is an object that
+should contain a <code>type</code> field of either <code>udp4</code> or <code>udp6</code> and an optional
+boolean <code>reuseAddr</code> field.</p>
+<p>When <code>reuseAddr</code> is <code>true</code> <a href="#dgram_socket_bind_port_address_callback"><code>socket.bind()</code></a> will reuse the address, even if
+another process has already bound a socket on it. <code>reuseAddr</code> defaults to
+<code>false</code>. An optional <code>callback</code> function can be passed specified which is added
+as a listener for <code>&apos;message&apos;</code> events.</p>
+<p>Once the socket is created, calling <a href="#dgram_socket_bind_port_address_callback"><code>socket.bind()</code></a> will instruct the
+socket to begin listening for datagram messages. When <code>address</code> and <code>port</code> are
+not passed to  <a href="#dgram_socket_bind_port_address_callback"><code>socket.bind()</code></a> the method will bind the socket to the &quot;all
+interfaces&quot; address on a random port (it does the right thing for both <code>udp4</code>
+and <code>udp6</code> sockets). The bound address and port can be retrieved using
+<a href="#dgram_socket_address"><code>socket.address().address</code></a> and <a href="#dgram_socket_address"><code>socket.address().port</code></a>.</p>
+<h3>dgram.createSocket(type[, callback])<span><a class="mark" href="#dgram_dgram_createsocket_type_callback" id="dgram_dgram_createsocket_type_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/dgram.html#dgram_dgram_createsocket_type_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/dgram_createsocket_type_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><ul>
+<li><code>type</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> - Either &apos;udp4&apos; or &apos;udp6&apos;</li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> - Attached as a listener to <code>&apos;message&apos;</code> events.
+Optional</li>
+<li>Returns: <a href="dgram.html#dgram_class_dgram_socket" class="type">&lt;dgram.Socket&gt;</a></li>
+</ul>
+<p>Creates a <code>dgram.Socket</code> object of the specified <code>type</code>. The <code>type</code> argument
+can be either <code>udp4</code> or <code>udp6</code>. An optional <code>callback</code> function can be passed
+which is added as a listener for <code>&apos;message&apos;</code> events.</p>
+<p>Once the socket is created, calling <a href="#dgram_socket_bind_port_address_callback"><code>socket.bind()</code></a> will instruct the
+socket to begin listening for datagram messages. When <code>address</code> and <code>port</code> are
+not passed to  <a href="#dgram_socket_bind_port_address_callback"><code>socket.bind()</code></a> the method will bind the socket to the &quot;all
+interfaces&quot; address on a random port (it does the right thing for both <code>udp4</code>
+and <code>udp6</code> sockets). The bound address and port can be retrieved using
+<a href="#dgram_socket_address"><code>socket.address().address</code></a> and <a href="#dgram_socket_address"><code>socket.address().port</code></a>.</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>readline | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-readline">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline active" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="readline" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/readline.json">JSON格式</a> |-->
+            <!--<a href="/api/en/readline.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#readline_readline">readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#readline_class_interface">Interface &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#readline_event_close">&apos;close&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_event_line">&apos;line&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_event_pause">&apos;pause&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_event_resume">&apos;resume&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_event_sigcont">&apos;SIGCONT&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_event_sigint">&apos;SIGINT&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_event_sigtstp">&apos;SIGTSTP&apos; &#x4E8B;&#x4EF6;</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_rl_close">rl.close()</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_rl_pause">rl.pause()</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_rl_prompt_preservecursor">rl.prompt([preserveCursor])</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_rl_question_query_callback">rl.question(query, callback)</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_rl_resume">rl.resume()</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_rl_setprompt_prompt">rl.setPrompt(prompt)</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_rl_write_data_key">rl.write(data[, key])</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#readline_readline_clearline_stream_dir">readline.clearLine(stream, dir)</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_readline_clearscreendown_stream">readline.clearScreenDown(stream)</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_readline_createinterface_options">readline.createInterface(options)</a></span><ul>
+<li><span class="stability_undefined"><a href="#readline_use_of_the_completer_function"><code>completer</code> &#x51FD;&#x6570;&#x7684;&#x4F7F;&#x7528;</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#readline_readline_cursorto_stream_x_y">readline.cursorTo(stream, x, y)</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_readline_emitkeypressevents_stream_interface">readline.emitKeypressEvents(stream[, interface])</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_readline_movecursor_stream_dx_dy">readline.moveCursor(stream, dx, dy)</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_example_tiny_cli">&#x4F8B;&#x5B50;&#xFF1A;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;</a></span></li>
+<li><span class="stability_undefined"><a href="#readline_example_read_file_stream_line_by_line">&#x4F8B;&#x5B50;&#xFF1A;&#x9010;&#x884C;&#x5730;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x6D41;</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)<span><a class="mark" href="#readline_readline" id="readline_readline">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_readline">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><p><code>require(&apos;readline&apos;)</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x4E8E;&#x4ECE;<a href="stream.html">&#x53EF;&#x8BFB;&#x6D41;</a>&#xFF08;&#x5982; <a href="process.html#process_process_stdin"><code>process.stdin</code></a>&#xFF09;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x6BCF;&#x6B21;&#x8BFB;&#x53D6;&#x4E00;&#x884C;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">const readline = require(&apos;readline&apos;);
+</code></pre>
+<p>&#x4F8B;&#x5B50;&#xFF0C;<code>readline</code> &#x6A21;&#x5757;&#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-js">const readline = require(&apos;readline&apos;);
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question(&apos;&#x4F60;&#x8BA4;&#x4E3A; Node.js &#x4E2D;&#x6587;&#x7F51;&#x600E;&#x4E48;&#x6837;&#xFF1F;&apos;, (answer) =&gt; {
+  // &#x5BF9;&#x7B54;&#x6848;&#x8FDB;&#x884C;&#x5904;&#x7406;
+  console.log(`&#x591A;&#x8C22;&#x4F60;&#x7684;&#x53CD;&#x9988;&#xFF1A;${answer}`);
+
+  rl.close();
+});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5F53;&#x8C03;&#x7528;&#x8BE5;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;Node.js &#x7A0B;&#x5E8F;&#x4E0D;&#x4F1A;&#x7EC8;&#x6B62;&#xFF0C;&#x76F4;&#x5230; <code>readline.Interface</code> &#x88AB;&#x5173;&#x95ED;&#xFF0C;&#x56E0;&#x4E3A;&#x63A5;&#x53E3;&#x5728;&#x7B49;&#x5F85; <code>input</code> &#x6D41;&#x4E2D;&#x8981;&#x88AB;&#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h2>Interface &#x7C7B;<span><a class="mark" href="#readline_class_interface" id="readline_class_interface">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_class_interface">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/class_interface.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.104</span>
+</div><p><code>readline.Interface</code> &#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x662F;&#x4F7F;&#x7528; <code>readline.createInterface()</code> &#x65B9;&#x6CD5;&#x6784;&#x9020;&#x7684;&#x3002;
+&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x90FD;&#x5173;&#x8054;&#x4E00;&#x4E2A; <code>input</code> <a href="stream.html">&#x53EF;&#x8BFB;&#x6D41;</a>&#x548C;&#x4E00;&#x4E2A; <code>output</code> <a href="stream.html">&#x53EF;&#x5199;&#x6D41;</a>&#x3002;
+<code>output</code> &#x6D41;&#x7528;&#x4E8E;&#x4E3A;&#x5230;&#x8FBE;&#x7684;&#x7528;&#x6237;&#x8F93;&#x5165;&#x6253;&#x5370;&#x63D0;&#x793A;&#xFF0C;&#x4E14;&#x4ECE; <code>input</code> &#x6D41;&#x8BFB;&#x53D6;&#x3002;</p>
+<h3>&apos;close&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#readline_event_close" id="readline_event_close">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_event_close">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_close.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><p>&#x5F53;&#x4EE5;&#x4E0B;&#x4E4B;&#x4E00;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x89E6;&#x53D1; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li><code>rl.close()</code> &#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x4E14; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x5DF2;&#x64A4;&#x56DE;&#x5BF9; <code>input</code> &#x6D41;&#x548C; <code>output</code> &#x6D41;&#x7684;&#x63A7;&#x5236;&#xFF1B;</li>
+<li><code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230; <code>&apos;end&apos;</code> &#x4E8B;&#x4EF6;&#xFF1B;</li>
+<li><code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x8868;&#x793A;&#x7ED3;&#x675F;&#x4F20;&#x8F93;&#x7684; <code>&lt;ctrl&gt;-D</code>&#xFF1B;</li>
+<li><code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x8868;&#x793A; <code>SIGINT</code> &#x7684; <code>&lt;ctrl&gt;-C</code>&#xFF0C;&#x4E14; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x4E0A;&#x6CA1;&#x6709;&#x6CE8;&#x518C; <code>SIGINT</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x3002;</li>
+</ul>
+<p>&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x5F53; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;<code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x5E94;&#x5F53;&#x88AB;&#x89C6;&#x4E3A;&#x5DF2;&#x7ED3;&#x675F;&#x3002;</p>
+<h3>&apos;line&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#readline_event_line" id="readline_event_line">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_event_line">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_line.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><p>&#x6BCF;&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x63A5;&#x6536;&#x884C;&#x7ED3;&#x675F;&#x7B26;&#xFF08;<code>\n</code>&#x3001;<code>\r</code> &#x6216; <code>\r\n</code>&#xFF09;&#x65F6;&#x89E6;&#x53D1; <code>&apos;line&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x901A;&#x5E38;&#x53D1;&#x751F;&#x5728;&#x7528;&#x6237;&#x6309;&#x4E0B; <code>&lt;Enter&gt;</code> &#x952E;&#x6216; <code>&lt;Return&gt;</code> &#x952E;&#x3002;</p>
+<p>&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4F1A;&#x5E26;&#x4E0A;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x63A5;&#x6536;&#x7684;&#x90A3;&#x4E00;&#x884C;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">rl.on(&apos;line&apos;, (input) =&gt; {
+  console.log(`&#x63A5;&#x6536;&#x5230;&#xFF1A;${input}`);
+});
+</code></pre>
+<h3>&apos;pause&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#readline_event_pause" id="readline_event_pause">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_event_pause">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_pause.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+</div><p>&#x5F53;&#x4EE5;&#x4E0B;&#x4E4B;&#x4E00;&#x53D1;&#x751F;&#x65F6;&#x89E6;&#x53D1; <code>&apos;pause&apos;</code> &#x4E8B;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li><code>input</code> &#x6D41;&#x88AB;&#x6682;&#x505C;&#x3002;</li>
+<li><code>input</code> &#x6D41;&#x4E0D;&#x662F;&#x6682;&#x505C;&#x7684;&#xFF0C;&#x4E14;&#x63A5;&#x6536;&#x5230; <code>SIGCONT</code> &#x4E8B;&#x4EF6;&#x3002;&#xFF08;&#x8BE6;&#x89C1; <a href="readline.html#readline_event_sigtstp"><code>SIGTSTP</code></a> &#x4E8B;&#x4EF6;&#x548C; <a href="readline.html#readline_event_sigcont"><code>SIGCONT</code></a> &#x4E8B;&#x4EF6;&#xFF09;</li>
+</ul>
+<p>&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">rl.on(&apos;pause&apos;, () =&gt; {
+  console.log(&apos;Readline &#x88AB;&#x6682;&#x505C;&#x3002;&apos;);
+});
+</code></pre>
+<h3>&apos;resume&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#readline_event_resume" id="readline_event_resume">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_event_resume">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_resume.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+</div><p>&#x6BCF;&#x5F53; <code>input</code> &#x6D41;&#x88AB;&#x6062;&#x590D;&#x65F6;&#x89E6;&#x53D1; <code>&apos;resume&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">rl.on(&apos;resume&apos;, () =&gt; {
+  console.log(&apos;Readline &#x88AB;&#x6062;&#x590D;&#x3002;&apos;);
+});
+</code></pre>
+<h3>&apos;SIGCONT&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#readline_event_sigcont" id="readline_event_sigcont">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_event_sigcont">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_sigcont.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+</div><p>&#x5F53;&#x4E00;&#x4E2A; Node.js &#x8FDB;&#x7A0B;&#x4F7F;&#x7528; <code>&lt;ctrl&gt;-Z</code>&#xFF08;&#x4E5F;&#x5C31;&#x662F; <code>SIGTSTP</code>&#xFF09;&#x79FB;&#x5165;&#x540E;&#x53F0;&#x4E4B;&#x540E;&#x518D;&#x4F7F;&#x7528; <a href="http://man7.org/linux/man-pages/man1/fg.1.html">fg(1)</a> &#x79FB;&#x56DE;&#x524D;&#x53F0;&#x65F6;&#xFF0C;&#x89E6;&#x53D1; <code>&apos;SIGCONT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5728; <code>SIGTSTP</code> &#x8BF7;&#x6C42;&#x4E4B;&#x524D;&#x88AB;&#x6682;&#x505C;&#xFF0C;&#x5219;&#x4E8B;&#x4EF6;&#x4E0D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<p>&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">rl.on(&apos;SIGCONT&apos;, () =&gt; {
+  // `prompt` &#x4F1A;&#x81EA;&#x52A8;&#x6062;&#x590D;&#x6D41;
+  rl.prompt();
+});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;Windows &#x7CFB;&#x7EDF;&#x4E0D;&#x652F;&#x6301; <code>&apos;SIGCONT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p>
+<h3>&apos;SIGINT&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#readline_event_sigint" id="readline_event_sigint">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_event_sigint">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_sigint.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><p>&#x6BCF;&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A; <code>&lt;ctrl&gt;-C</code> &#x8F93;&#x5165;&#xFF08;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A; <code>SIGINT</code>&#xFF09;&#x65F6;&#xFF0C;&#x89E6;&#x53D1; <code>&apos;SIGINT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A; <code>SIGINT</code> &#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6CE8;&#x518C; <code>&apos;SIGINT&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5219; <code>&apos;pause&apos;</code> &#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<p>&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">rl.on(&apos;SIGINT&apos;, () =&gt; {
+  rl.question(&apos;&#x786E;&#x5B9A;&#x8981;&#x9000;&#x51FA;&#x5417;&#xFF1F;&apos;, (answer) =&gt; {
+    if (answer.match(/^y(es)?$/i)) rl.pause();
+  });
+});
+</code></pre>
+<h3>&apos;SIGTSTP&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="#readline_event_sigtstp" id="readline_event_sigtstp">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_event_sigtstp">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_sigtstp.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+</div><p>&#x6BCF;&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A; <code>&lt;ctrl&gt;-Z</code> &#x8F93;&#x5165;&#xFF08;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A; <code>SIGTSTP</code>&#xFF09;&#x65F6;&#xFF0C;&#x89E6;&#x53D1; <code>&apos;SIGTSTP&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A; <code>SIGTSTP</code> &#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6CE8;&#x518C; <code>&apos;SIGTSTP&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5219; Node.js &#x8FDB;&#x7A0B;&#x4F1A;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x540E;&#x53F0;&#x3002;</p>
+<p>&#x5F53;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528; <a href="http://man7.org/linux/man-pages/man1/fg.1.html">fg(1)</a> &#x6062;&#x590D;&#x65F6;&#xFF0C;<code>&apos;pause&apos;</code> &#x548C; <code>SIGCONT</code> &#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;
+&#x8FD9;&#x53EF;&#x88AB;&#x7528;&#x6765;&#x6062;&#x590D; <code>input</code> &#x6D41;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5728;&#x8FDB;&#x7A0B;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x540E;&#x53F0;&#x4E4B;&#x524D;&#x88AB;&#x6682;&#x505C;&#xFF0C;&#x5219; <code>&apos;pause&apos;</code> &#x548C; <code>SIGCONT</code> &#x4E8B;&#x4EF6;&#x4E0D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<p>&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">rl.on(&apos;SIGTSTP&apos;, () =&gt; {
+  // &#x8FD9;&#x4F1A;&#x91CD;&#x5199; SIGTSTP&#xFF0C;&#x4E14;&#x9632;&#x6B62;&#x7A0B;&#x5E8F;&#x8FDB;&#x5165;&#x540E;&#x53F0;&#x3002;
+  console.log(&apos;&#x6355;&#x83B7; SIGTSTP&#x3002;&apos;);
+});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;Windows &#x7CFB;&#x7EDF;&#x4E0D;&#x652F;&#x6301; <code>&apos;SIGTSTP&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p>
+<h3>rl.close()<span><a class="mark" href="#readline_rl_close" id="readline_rl_close">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_rl_close">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_close.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><p><code>rl.close()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x5173;&#x95ED; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x4E14;&#x64A4;&#x56DE;&#x5BF9; <code>input</code> &#x548C; <code>output</code> &#x6D41;&#x7684;&#x63A7;&#x5236;&#x3002;
+&#x4F46;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;<code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>rl.pause()<span><a class="mark" href="#readline_rl_pause" id="readline_rl_pause">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_rl_pause">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_pause.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><p><code>rl.pause()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x6682;&#x505C; <code>input</code> &#x6D41;&#xFF0C;&#x4E14;&#x7A0D;&#x540E;&#x9700;&#x8981;&#x65F6;&#x53EF;&#x88AB;&#x6062;&#x590D;&#x3002;</p>
+<p>&#x8C03;&#x7528; <code>rl.pause()</code> &#x4E0D;&#x4F1A;&#x7ACB;&#x523B;&#x6682;&#x505C;&#x5176;&#x4ED6;&#x4E8B;&#x4EF6;&#xFF08;&#x5305;&#x62EC; <code>&apos;line&apos;</code>&#xFF09;&#x88AB; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>rl.prompt([preserveCursor])<span><a class="mark" href="#readline_rl_prompt_preservecursor" id="readline_rl_prompt_preservecursor">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_rl_prompt_preservecursor">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_prompt_preservecursor.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><ul>
+<li><code>preserveCursor</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x963B;&#x6B62;&#x5149;&#x6807;&#x843D;&#x70B9;&#x88AB;&#x8BBE;&#x4E3A; <code>0</code>&#x3002;</li>
+</ul>
+<p><code>rl.prompt()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x5728; <code>output</code> &#x6D41;&#x4E2D;&#x65B0;&#x7684;&#x4E00;&#x884C;&#x5199;&#x5165; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x914D;&#x7F6E;&#x540E;&#x7684; <code>prompt</code>&#xFF0C;&#x7528;&#x4E8E;&#x4E3A;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53EF;&#x4F9B;&#x8F93;&#x5165;&#x7684;&#x65B0;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x5F53;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5DF2;&#x88AB;&#x6682;&#x505C;&#xFF0C;&#x5219; <code>rl.prompt()</code> &#x4F1A;&#x6062;&#x590D; <code>input</code> &#x6D41;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>readline.Interface</code> &#x88AB;&#x521B;&#x5EFA;&#x65F6; <code>output</code> &#x88AB;&#x8BBE;&#x4E3A; <code>null</code> &#x6216; <code>undefined</code>&#xFF0C;&#x5219;&#x63D0;&#x793A;&#x4E0D;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x3002;</p>
+<h3>rl.question(query, callback)<span><a class="mark" href="#readline_rl_question_query_callback" id="readline_rl_question_query_callback">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_rl_question_query_callback">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_question_query_callback.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.3</span>
+</div><ul>
+<li><code>query</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x4E00;&#x4E2A;&#x5728;&#x63D0;&#x793A;&#x7B26;&#x4E4B;&#x524D;&#x3001;&#x8981;&#x5199;&#x5165; <code>output</code> &#x7684;&#x53D9;&#x8FF0;&#x6216;&#x8BE2;&#x95EE;&#x3002;</li>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x5E76;&#x5E26;&#x4E0A;&#x7528;&#x6237;&#x54CD;&#x5E94; <code>query</code> &#x7684;&#x8F93;&#x5165;&#x3002;</li>
+</ul>
+<p><code>rl.question()</code> &#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x5199;&#x5165;&#x5230; <code>output</code> &#x6765;&#x5C55;&#x793A; <code>query</code>&#xFF0C;&#x5E76;&#x7B49;&#x5F85;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x5230; <code>input</code> &#x7684;&#x8F93;&#x5165;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528; <code>callback</code> &#x51FD;&#x6570;&#x5E76;&#x4F20;&#x5165;&#x63D0;&#x4F9B;&#x7684;&#x8F93;&#x5165;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x5F53;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5DF2;&#x88AB;&#x6682;&#x505C;&#xFF0C;&#x5219; <code>rl.question()</code> &#x4F1A;&#x6062;&#x590D; <code>input</code> &#x6D41;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>readline.Interface</code> &#x88AB;&#x521B;&#x5EFA;&#x65F6; <code>output</code> &#x88AB;&#x8BBE;&#x4E3A; <code>null</code> &#x6216; <code>undefined</code>&#xFF0C;&#x5219; <code>query</code> &#x4E0D;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">rl.question(&apos;&#x4F60;&#x6700;&#x559C;&#x6B22;&#x7684;&#x98DF;&#x7269;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&apos;, (answer) =&gt; {
+  console.log(`&#x4F60;&#x6700;&#x559C;&#x6B22;&#x7684;&#x98DF;&#x7269;&#x662F; ${answer}`);
+});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4F20;&#x5165;&#x7684; <code>rl.question()</code> &#x7684; <code>callback</code> &#x51FD;&#x6570;&#x4E0D;&#x9075;&#x5FAA;&#x63A5;&#x53D7;&#x4E00;&#x4E2A; <code>Error</code> &#x5BF9;&#x8C61;&#x6216; <code>null</code> &#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x6807;&#x51C6;&#x6A21;&#x5F0F;&#x3002;
+<code>callback</code> &#x88AB;&#x8C03;&#x7528;&#x65F6;&#x53EA;&#x5E26;&#x4E0A;&#x63D0;&#x4F9B;&#x7684;&#x7B54;&#x6848;&#x4F5C;&#x4E3A;&#x552F;&#x4E00;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<h3>rl.resume()<span><a class="mark" href="#readline_rl_resume" id="readline_rl_resume">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_rl_resume">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_resume.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><p>&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5DF2;&#x88AB;&#x6682;&#x505C;&#xFF0C;&#x5219; <code>rl.resume()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x6062;&#x590D; <code>input</code> &#x6D41;&#x3002;</p>
+<h3>rl.setPrompt(prompt)<span><a class="mark" href="#readline_rl_setprompt_prompt" id="readline_rl_setprompt_prompt">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_rl_setprompt_prompt">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_setprompt_prompt.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><ul>
+<li><code>prompt</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+</ul>
+<p><code>rl.setPrompt()</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x6BCF;&#x5F53; <code>rl.prompt()</code> &#x88AB;&#x8C03;&#x7528;&#x65F6;&#x8981;&#x88AB;&#x5199;&#x5165;&#x5230; <code>output</code> &#x7684;&#x63D0;&#x793A;&#x3002;</p>
+<h3>rl.write(data[, key])<span><a class="mark" href="#readline_rl_write_data_key" id="readline_rl_write_data_key">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_rl_write_data_key">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_write_data_key.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><ul>
+<li><code>data</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a></li>
+<li><code>key</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a><ul>
+<li><code>ctrl</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code> &#x5219;&#x8868;&#x793A; <code>&lt;ctrl&gt;</code> &#x952E;&#x3002;</li>
+<li><code>meta</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code> &#x5219;&#x8868;&#x793A; <code>&lt;Meta&gt;</code> &#x952E;&#x3002;</li>
+<li><code>shift</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C;&#x4E3A; <code>true</code> &#x5219;&#x8868;&#x793A; <code>&lt;Shift&gt;</code> &#x952E;&#x3002;</li>
+<li><code>name</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;String&gt;</a> &#x4E00;&#x4E2A;&#x6309;&#x952E;&#x7684;&#x540D;&#x79F0;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p><code>rl.write()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x628A; <code>data</code> &#x6216;&#x4E00;&#x4E2A;&#x7531; <code>key</code> &#x6307;&#x5B9A;&#x7684;&#x6309;&#x952E;&#x5E8F;&#x5217;&#x5199;&#x5165;&#x5230; <code>output</code>&#x3002;
+&#x53EA;&#x6709;&#x5F53; <code>output</code> &#x662F;&#x4E00;&#x4E2A; <a href="tty.html">TTY</a> &#x6587;&#x672C;&#x7EC8;&#x7AEF;&#x65F6;&#xFF0C;<code>key</code> &#x53C2;&#x6570;&#x624D;&#x88AB;&#x652F;&#x6301;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>key</code>&#xFF0C;&#x5219; <code>data</code> &#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p>
+<p>&#x5F53;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5DF2;&#x88AB;&#x6682;&#x505C;&#xFF0C;&#x5219; <code>rl.write()</code> &#x4F1A;&#x6062;&#x590D; <code>input</code> &#x6D41;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>readline.Interface</code> &#x88AB;&#x521B;&#x5EFA;&#x65F6; <code>output</code> &#x88AB;&#x8BBE;&#x4E3A; <code>null</code> &#x6216; <code>undefined</code>&#xFF0C;&#x5219; <code>data</code> &#x548C; <code>key</code> &#x4E0D;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">rl.write(&apos;&#x5220;&#x9664;&#x8FD9;&#x4E2A;&#xFF01;&apos;);
+// &#x6A21;&#x62DF; Ctrl+u &#x5220;&#x9664;&#x5199;&#x5165;&#x7684;&#x524D;&#x4E00;&#x884C;&#x3002;
+rl.write(null, {ctrl: true, name: &apos;u&apos;});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;<code>rl.write()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x5199;&#x5165;&#x6570;&#x636E;&#x5230; <code>readline</code> &#x63A5;&#x53E3;&#x7684; <code>input</code>&#xFF0C;&#x72B9;&#x5982;&#x5B83;&#x662F;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x7684;&#x3002;</p>
+<h2>readline.clearLine(stream, dir)<span><a class="mark" href="#readline_readline_clearline_stream_dir" id="readline_readline_clearline_stream_dir">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_readline_clearline_stream_dir">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline_clearline_stream_dir.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><ul>
+<li><code>stream</code> <span class="type">&lt;Writable&gt;</span></li>
+<li><code>dir</code> <span class="type">&lt;number&gt;</span><ul>
+<li><code>-1</code> - &#x5149;&#x6807;&#x5DE6;&#x8FB9;</li>
+<li><code>1</code> - &#x5149;&#x6807;&#x53F3;&#x8FB9;</li>
+<li><code>0</code> - &#x6574;&#x884C;</li>
+</ul>
+</li>
+</ul>
+<p><code>readline.clearLine()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x4EE5; <code>dir</code> &#x6307;&#x5B9A;&#x7684;&#x65B9;&#x5411;&#x6E05;&#x9664;&#x7ED9;&#x5B9A;&#x7684; <a href="tty.html">TTY</a> &#x6D41;&#x7684;&#x5F53;&#x524D;&#x884C;&#x3002;</p>
+<h2>readline.clearScreenDown(stream)<span><a class="mark" href="#readline_readline_clearscreendown_stream" id="readline_readline_clearscreendown_stream">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_readline_clearscreendown_stream">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline_clearscreendown_stream.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><ul>
+<li><code>stream</code> <span class="type">&lt;Writable&gt;</span></li>
+</ul>
+<p><code>readline.clearScreenDown()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x4ECE;&#x5149;&#x6807;&#x7684;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x5411;&#x4E0B;&#x6E05;&#x9664;&#x7ED9;&#x5B9A;&#x7684; <a href="tty.html">TTY</a> &#x6D41;&#x3002;</p>
+<h2>readline.createInterface(options)<span><a class="mark" href="#readline_readline_createinterface_options" id="readline_readline_createinterface_options">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_readline_createinterface_options">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline_createinterface_options.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><ul>
+<li><code>options</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a><ul>
+<li><code>input</code> <span class="type">&lt;Readable&gt;</span> &#x8981;&#x76D1;&#x542C;&#x7684;<a href="stream.html">&#x53EF;&#x8BFB;&#x6D41;</a>&#x3002;&#x8BE5;&#x9009;&#x9879;&#x662F;&#x5FC5;&#x9700;&#x7684;&#x3002;</li>
+<li><code>output</code> <span class="type">&lt;Writable&gt;</span> &#x8981;&#x5199;&#x5165;&#x9010;&#x884C;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;<a href="stream.html">&#x53EF;&#x5199;&#x6D41;</a>&#x3002;</li>
+<li><code>completer</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E; Tab &#x81EA;&#x52A8;&#x8865;&#x5168;&#x3002;</li>
+<li><code>terminal</code> <span class="type">&lt;boolean&gt;</span> &#x5982;&#x679C; <code>input</code> &#x548C; <code>output</code> &#x5E94;&#x88AB;&#x5F53;&#x4F5C;&#x4E00;&#x4E2A; TTY&#xFF0C;&#x4E14;&#x8981;&#x5199;&#x5165; ANSI/VT100 &#x8F6C;&#x6362;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5219;&#x8BBE;&#x4E3A; <code>true</code>&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x5728; <code>output</code> &#x6D41;&#x4E0A;&#x68C0;&#x67E5; <code>isTTY</code>&#x3002;</li>
+<li><code>historySize</code> <span class="type">&lt;number&gt;</span> &#x4FDD;&#x7559;&#x7684;&#x5386;&#x53F2;&#x884C;&#x6570;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;
+&#x8BBE;&#x4E3A; <code>0</code> &#x53EF;&#x7981;&#x7528;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>30</code>&#x3002;
+&#x8BE5;&#x9009;&#x9879;&#x53EA;&#x6709;&#x5F53; <code>terminal</code> &#x88AB;&#x7528;&#x6237;&#x6216;&#x5185;&#x90E8; <code>output</code> &#x8BBE;&#x4E3A; <code>true</code> &#x65F6;&#x624D;&#x6709;&#x610F;&#x4E49;&#xFF0C;&#x5426;&#x5219;&#x5386;&#x53F2;&#x7F13;&#x5B58;&#x673A;&#x5236;&#x4E0D;&#x4F1A;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x3002;</li>
+<li><code>prompt</code> - &#x8981;&#x4F7F;&#x7528;&#x7684;&#x63D0;&#x793A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;&gt; &apos;</code>&#x3002;</li>
+<li><code>crlfDelay</code> <span class="type">&lt;number&gt;</span> &#x5982;&#x679C; <code>\r</code> &#x4E0E; <code>\n</code> &#x4E4B;&#x95F4;&#x7684;&#x5EF6;&#x8FDF;&#x8D85;&#x8FC7; <code>crlfDelay</code> &#x6BEB;&#x79D2;&#xFF0C;&#x5219; <code>\r</code> &#x548C; <code>\n</code> &#x90FD;&#x4F1A;&#x88AB;&#x5F53;&#x4F5C;&#x6362;&#x884C;&#x5206;&#x9694;&#x7B26;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>100</code> &#x6BEB;&#x79D2;&#x3002;
+<code>crlfDelay</code> &#x7684;&#x8303;&#x56F4;&#x4E3A; <code>[100, 2000]</code>&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p><code>readline.createInterface()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-js">const readline = require(&apos;readline&apos;);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+</code></pre>
+<p>&#x4E00;&#x65E6; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x88AB;&#x521B;&#x5EFA;&#xFF0C;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x6CD5;&#x662F;&#x76D1;&#x542C; <code>&apos;line&apos;</code> &#x4E8B;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-js">rl.on(&apos;line&apos;, (line) =&gt; {
+  console.log(`&#x63A5;&#x6536;&#x5230;&#xFF1A;${line}`);
+});
+</code></pre>
+<p>&#x5982;&#x679C;&#x8BE5;&#x5B9E;&#x4F8B;&#x7684; <code>terminal</code> &#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x82E5;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; <code>output.columns</code> &#x5C5E;&#x6027;&#x5219; <code>output</code> &#x6D41;&#x4F1A;&#x83B7;&#x5F97;&#x6700;&#x4F73;&#x517C;&#x5BB9;&#x6027;&#xFF0C;&#x4E14;&#x5982;&#x679C;&#x6216;&#x5F53;&#x5217;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;<code>output</code> &#x4E0A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; <code>&apos;resize&apos;</code> &#x4E8B;&#x4EF6;&#xFF08;&#x5F53;&#x5B83;&#x4E3A;&#x4E00;&#x4E2A; TTY &#x65F6;&#xFF0C;<a href="process.html#process_process_stdout"><code>process.stdout</code></a> &#x4F1A;&#x81EA;&#x52A8;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#xFF09;&#x3002;</p>
+<h3><code>completer</code> &#x51FD;&#x6570;&#x7684;&#x4F7F;&#x7528;<span><a class="mark" href="#readline_use_of_the_completer_function" id="readline_use_of_the_completer_function">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_use_of_the_completer_function">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/use_of_the_completer_function.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x5F53;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x5F53;&#x524D;&#x884C;&#x4F1A;&#x88AB;&#x63D0;&#x4F9B;&#x7ED9; <code>completer</code> &#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x6761;&#x76EE;&#x7684;&#x6570;&#x7EC4;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5339;&#x914D;&#x8865;&#x5168;&#x8F93;&#x5165;&#x7684;&#x6570;&#x7EC4;&#x3002;</li>
+<li>&#x7528;&#x4E8E;&#x5339;&#x914D;&#x7684;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF1A;<code>[[substr1, substr2, ...], originalsubstring]</code>&#x3002;</p>
+<pre><code class="lang-js">function completer(line) {
+  const completions = &apos;.help .error .exit .quit .q&apos;.split(&apos; &apos;);
+  const hits = completions.filter((c) =&gt; { return c.indexOf(line) === 0 });
+  // &#x5982;&#x679C;&#x6CA1;&#x5339;&#x914D;&#x5230;&#x5219;&#x5C55;&#x793A;&#x5168;&#x90E8;&#x8865;&#x5168;
+  return [hits.length ? hits : completions, line];
+}
+</code></pre>
+<p>&#x5982;&#x679C; <code>completer</code> &#x51FD;&#x6570;&#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x53EF;&#x88AB;&#x5F02;&#x6B65;&#x5730;&#x8C03;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">function completer(linePartial, callback) {
+  callback(null, [[&apos;123&apos;], linePartial]);
+}
+</code></pre>
+<h2>readline.cursorTo(stream, x, y)<span><a class="mark" href="#readline_readline_cursorto_stream_x_y" id="readline_readline_cursorto_stream_x_y">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_readline_cursorto_stream_x_y">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline_cursorto_stream_x_y.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><ul>
+<li><code>stream</code> <span class="type">&lt;Writable&gt;</span></li>
+<li><code>x</code> <span class="type">&lt;number&gt;</span></li>
+<li><code>y</code> <span class="type">&lt;number&gt;</span></li>
+</ul>
+<p><code>readline.cursorTo()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x79FB;&#x52A8;&#x5149;&#x6807;&#x5230;&#x7ED9;&#x5B9A;&#x7684; <a href="tty.html">TTY</a> <code>stream</code> &#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<h2>readline.emitKeypressEvents(stream[, interface])<span><a class="mark" href="#readline_readline_emitkeypressevents_stream_interface" id="readline_readline_emitkeypressevents_stream_interface">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_readline_emitkeypressevents_stream_interface">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline_emitkeypressevents_stream_interface.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><ul>
+<li><code>stream</code> <span class="type">&lt;Readable&gt;</span></li>
+<li><code>interface</code> <span class="type">&lt;readline.Interface&gt;</span></li>
+</ul>
+<p><code>readline.emitKeypressEvents()</code> &#x65B9;&#x6CD5;&#x4F7F;&#x7ED9;&#x5B9A;&#x7684;<a href="stream.html">&#x53EF;&#x5199;&#x6D41;</a> <code>stream</code> &#x76F8;&#x5E94;&#x4E8E;&#x63A5;&#x6536;&#x5230;&#x7684;&#x8F93;&#x5165;&#x89E6;&#x53D1; <code>&apos;keypress&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x53EF;&#x9009;&#x7684; <code>interface</code> &#x6307;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x7528;&#x4E8E;&#x5F53;&#x81EA;&#x52A8;&#x8865;&#x5168;&#x88AB;&#x7981;&#x7528;&#x65F6;&#x68C0;&#x6D4B;&#x5230;&#x590D;&#x5236;&#x7C98;&#x8D34;&#x8F93;&#x5165;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>stream</code> &#x662F;&#x4E00;&#x4E2A; <a href="tty.html">TTY</a>&#xFF0C;&#x5219;&#x5B83;&#x5FC5;&#x987B;&#x4E3A;&#x539F;&#x59CB;&#x6A21;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-js">readline.emitKeypressEvents(process.stdin);
+if (process.stdin.isTTY)
+  process.stdin.setRawMode(true);
+</code></pre>
+<h2>readline.moveCursor(stream, dx, dy)<span><a class="mark" href="#readline_readline_movecursor_stream_dx_dy" id="readline_readline_movecursor_stream_dx_dy">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_readline_movecursor_stream_dx_dy">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline_movecursor_stream_dx_dy.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><ul>
+<li><code>stream</code> <span class="type">&lt;Writable&gt;</span></li>
+<li><code>dx</code> <span class="type">&lt;number&gt;</span></li>
+<li><code>dy</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;Number&gt;</a></li>
+</ul>
+<p><code>readline.moveCursor()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x79FB;&#x52A8;&#x5149;&#x6807;&#x5230;&#x7ED9;&#x5B9A;&#x7684; <a href="tty.html">TTY</a> <code>stream</code> &#x4E2D;&#x76F8;&#x5BF9;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<h2>&#x4F8B;&#x5B50;&#xFF1A;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;<span><a class="mark" href="#readline_example_tiny_cli" id="readline_example_tiny_cli">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_example_tiny_cli">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/example_tiny_cli.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x4F7F;&#x7528; <code>readline.Interface</code> &#x7C7B;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;&#xFF1A;</p>
+<pre><code class="lang-js">const readline = require(&apos;readline&apos;);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: &apos;&#x8BF7;&#x8F93;&#x5165;&gt; &apos;
+});
+
+rl.prompt();
+
+rl.on(&apos;line&apos;, (line) =&gt; {
+  switch(line.trim()) {
+    case &apos;hello&apos;:
+      console.log(&apos;world!&apos;);
+      break;
+    default:
+      console.log(`&#x4F60;&#x8F93;&#x5165;&#x7684;&#x662F;&#xFF1A;&apos;${line.trim()}&apos;`);
+      break;
+  }
+  rl.prompt();
+}).on(&apos;close&apos;, () =&gt; {
+  console.log(&apos;&#x518D;&#x89C1;!&apos;);
+  process.exit(0);
+});
+</code></pre>
+<h2>&#x4F8B;&#x5B50;&#xFF1A;&#x9010;&#x884C;&#x5730;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x6D41;<span><a class="mark" href="#readline_example_read_file_stream_line_by_line" id="readline_example_read_file_stream_line_by_line">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/readline.html#readline_example_read_file_stream_line_by_line">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/readline/example_read_file_stream_line_by_line.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x4F8B;&#x5B50;&#xFF0C;&#x4ECE;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;<a href="stream.html">&#x53EF;&#x8BFB;&#x6D41;</a>&#x4E2D;&#x6BCF;&#x6B21;&#x4E00;&#x884C;&#x5730;&#x6D88;&#x8017;&#x8F93;&#x5165;&#xFF1A;</p>
+<pre><code class="lang-js">const readline = require(&apos;readline&apos;);
+const fs = require(&apos;fs&apos;);
+
+const rl = readline.createInterface({
+  input: fs.createReadStream(&apos;sample.txt&apos;)
+});
+
+rl.on(&apos;line&apos;, (line) =&gt; {
+  console.log(`&#x6587;&#x4EF6;&#x7684;&#x5355;&#x884C;&#x5185;&#x5BB9;&#xFF1A;${line}`);
+});
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

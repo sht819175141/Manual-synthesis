@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>C/C++ &#x63D2;&#x4EF6; | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-addons">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons active" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="addons" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/addons.json">JSON格式</a> |-->
+            <!--<a href="/api/en/addons.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_undefined"><a href="#addons_addons">C/C++ &#x63D2;&#x4EF6;</a></span><ul>
+<li><span class="stability_undefined"><a href="#addons_hello_world">Hello world</a></span><ul>
+<li><span class="stability_undefined"><a href="#addons_building">&#x6784;&#x5EFA;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_linking_to_node_js_own_dependencies">&#x94FE;&#x63A5;&#x5230; Node.js &#x81EA;&#x6709;&#x7684;&#x4F9D;&#x8D56;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_loading_addons_using_require">&#x4F7F;&#x7528; require() &#x52A0;&#x8F7D;&#x63D2;&#x4EF6;</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#addons_native_abstractions_for_node_js">Node.js &#x7684;&#x539F;&#x751F;&#x62BD;&#x8C61;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_addon_examples">&#x63D2;&#x4EF6;&#x793A;&#x4F8B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#addons_function_arguments">&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_callbacks">&#x56DE;&#x8C03;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_object_factory">&#x5BF9;&#x8C61;&#x5DE5;&#x5382;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_function_factory">&#x51FD;&#x6570;&#x5DE5;&#x5382;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_wrapping_c_objects">&#x5305;&#x88C5; C++ &#x5BF9;&#x8C61;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_factory_of_wrapped_objects">&#x5305;&#x88C5;&#x5BF9;&#x8C61;&#x7684;&#x5DE5;&#x5382;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_passing_wrapped_objects_around">&#x4F20;&#x9012;&#x5305;&#x88C5;&#x7684;&#x5BF9;&#x8C61;</a></span></li>
+<li><span class="stability_undefined"><a href="#addons_atexit_hooks">AtExit &#x94A9;&#x5B50;</a></span><ul>
+<li><span class="stability_undefined"><a href="#addons_void_atexit_callback_args">void AtExit(callback, args)</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>C/C++ &#x63D2;&#x4EF6;<span><a class="mark" href="#addons_addons" id="addons_addons">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_addons">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/addons.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>Node.js &#x63D2;&#x4EF6;&#x662F;&#x7528; C &#x6216; C++ &#x7F16;&#x5199;&#x7684;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5171;&#x4EAB;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="globals.html#globals_require"><code>require()</code></a> &#x51FD;&#x6570;&#x52A0;&#x8F7D;&#x5230; Node.js &#x4E2D;&#xFF0C;&#x4E14;&#x50CF;&#x666E;&#x901A;&#x7684; Node.js &#x6A21;&#x5757;&#x4E00;&#x6837;&#x88AB;&#x4F7F;&#x7528;&#x3002;
+&#x5B83;&#x4EEC;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x4E3A;&#x8FD0;&#x884C;&#x4E8E; Node.js &#x7684; JavaScript &#x548C; C/C++ &#x5E93;&#x4E4B;&#x95F4;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#x3002;</p>
+<p>&#x76EE;&#x524D;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x63D2;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#x76F8;&#x5F53;&#x590D;&#x6742;&#xFF0C;&#x6D89;&#x53CA;&#x591A;&#x4E2A;&#x7EC4;&#x4EF6;&#x548C; API &#x7684;&#x77E5;&#x8BC6;&#xFF1A;</p>
+<ul>
+<li><p>V8&#xFF1A;Node.js &#x5F53;&#x524D;&#x7528;&#x4E8E;&#x63D0;&#x4F9B; JavaScript &#x5B9E;&#x73B0;&#x7684; C++ &#x5E93;&#x3002;
+V8 &#x63D0;&#x4F9B;&#x4E86;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x3001;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7B49;&#x673A;&#x5236;&#x3002;
+V8 &#x7684; API &#x6587;&#x6863;&#x4E3B;&#x8981;&#x5728; <code>v8.h</code> &#x5934;&#x6587;&#x4EF6;&#x4E2D;&#xFF08;Node.js &#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x7684; <code>deps/v8/include/v8.h</code>&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x67E5;&#x770B; <a href="https://v8docs.nodesource.com/">V8 &#x5728;&#x7EBF;&#x6587;&#x6863;</a>&#x3002;</p>
+</li>
+<li><p><a href="https://github.com/libuv/libuv">libuv</a>&#xFF1A;&#x5B9E;&#x73B0;&#x4E86; Node.js &#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3001;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3001;&#x4E0E;&#x5E73;&#x53F0;&#x6240;&#x6709;&#x7684;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684; C &#x5E93;&#x3002;
+&#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x62BD;&#x8C61;&#x5E93;&#xFF0C;&#x4F7F;&#x6240;&#x6709;&#x4E3B;&#x6D41;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x53EF;&#x4EE5;&#x50CF; POSIX &#x4E00;&#x6837;&#x8BBF;&#x95EE;&#x5E38;&#x7528;&#x7684;&#x7CFB;&#x7EDF;&#x4EFB;&#x52A1;&#xFF0C;&#x6BD4;&#x5982;&#x4E0E;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x3001;socket&#x3001;&#x5B9A;&#x65F6;&#x5668;&#x548C;&#x7CFB;&#x7EDF;&#x4E8B;&#x4EF6;&#x7684;&#x4EA4;&#x4E92;&#x3002;
+libuv &#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C; POSIX &#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x7EBF;&#x7A0B;&#x62BD;&#x8C61;&#xFF0C;&#x53EF;&#x88AB;&#x7528;&#x4E8E;&#x5F3A;&#x5316;&#x66F4;&#x590D;&#x6742;&#x7684;&#x9700;&#x8981;&#x8D85;&#x8D8A;&#x6807;&#x51C6;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x5F02;&#x6B65;&#x63D2;&#x4EF6;&#x3002;
+&#x9F13;&#x52B1;&#x63D2;&#x4EF6;&#x5F00;&#x53D1;&#x8005;&#x591A;&#x601D;&#x8003;&#x5982;&#x4F55;&#x901A;&#x8FC7;&#x5728; libuv &#x7684;&#x975E;&#x963B;&#x585E;&#x7CFB;&#x7EDF;&#x64CD;&#x4F5C;&#x3001;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3001;&#x6216;&#x81EA;&#x5B9A;&#x4E49;&#x7684; libuv &#x7EBF;&#x7A0B;&#x4E2D;&#x964D;&#x4F4E;&#x5DE5;&#x4F5C;&#x8D1F;&#x8F7D;&#x6765;&#x907F;&#x514D;&#x5728; I/O &#x6216;&#x5176;&#x4ED6;&#x65F6;&#x95F4;&#x5BC6;&#x96C6;&#x578B;&#x4EFB;&#x52A1;&#x4E2D;&#x963B;&#x585E;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;</p>
+</li>
+<li><p>&#x5185;&#x7F6E;&#x7684; Node.js &#x5E93;&#x3002;Node.js &#x81EA;&#x8EAB;&#x5F00;&#x653E;&#x4E86;&#x4E00;&#x4E9B;&#x63D2;&#x4EF6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684; C/C++ API&#x3002;
+&#x5176;&#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F; <code>node::ObjectWrap</code> &#x7C7B;&#x3002;</p>
+</li>
+<li><p>Node.js &#x5305;&#x542B;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684;&#x9759;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#xFF0C;&#x5982; OpenSSL&#x3002;
+&#x8FD9;&#x4E9B;&#x5E93;&#x4F4D;&#x4E8E; Node.js &#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x7684; <code>deps/</code> &#x76EE;&#x5F55;&#x3002;
+&#x53EA;&#x6709; V8 &#x548C; OpenSSL &#x7B26;&#x53F7;&#x662F;&#x88AB; Node.js &#x6709;&#x76EE;&#x7684;&#x5730;&#x518D;&#x5BFC;&#x51FA;&#xFF0C;&#x5E76;&#x4E14;&#x901A;&#x8FC7;&#x63D2;&#x4EF6;&#x88AB;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x573A;&#x666F;&#x3002;
+&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x8BF7;&#x67E5;&#x770B;<a href="#addons_linking_to_node_js_own_dependencies">&#x94FE;&#x63A5;&#x5230; Node.js &#x81EA;&#x8EAB;&#x7684;&#x4F9D;&#x8D56;</a>&#x3002;</p>
+</li>
+</ul>
+<p>&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#x53EF;&#x4ECE; <a href="https://github.com/nodejs/node-addon-examples">Node &#x63D2;&#x4EF6;&#x793A;&#x4F8B;</a>&#x4E0B;&#x8F7D;&#xFF0C;&#x5E76;&#x4F5C;&#x4E3A;&#x4F60;&#x81EA;&#x5DF1;&#x63D2;&#x4EF6;&#x7684;&#x8D77;&#x70B9;&#x3002;</p>
+<h2>Hello world<span><a class="mark" href="#addons_hello_world" id="addons_hello_world">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_hello_world">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/hello_world.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x201C;Hello World&#x201D; &#x793A;&#x4F8B;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x7528; C++ &#x7F16;&#x5199;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x4EE5;&#x4E0B; JavaScript &#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-js">module.exports.hello = () =&gt; &apos;world&apos;;
+</code></pre>
+<p>&#x9996;&#x5148;&#xFF0C;&#x521B;&#x5EFA; <code>hello.cc</code> &#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-cpp">// hello.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void Method(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, &quot;world&quot;));
+}
+
+void init(Local&lt;Object&gt; exports) {
+  NODE_SET_METHOD(exports, &quot;hello&quot;, Method);
+}
+
+NODE_MODULE(addon, init)
+
+}  // namespace demo
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x6240;&#x6709;&#x7684; Node.js &#x63D2;&#x4EF6;&#x5FC5;&#x987B;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x5982;&#x4E0B;&#x6A21;&#x5F0F;&#x7684;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-cpp">void Initialize(Local&lt;Object&gt; exports);
+NODE_MODULE(module_name, Initialize)
+</code></pre>
+<p><code>NODE_MODULE</code> &#x540E;&#x9762;&#x6CA1;&#x6709;&#x5206;&#x53F7;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF08;&#x8BE6;&#x89C1; <code>node.h</code>&#xFF09;&#x3002;</p>
+<p><code>module_name</code> &#x5FC5;&#x987B;&#x5339;&#x914D;&#x6700;&#x7EC8;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x540D;&#xFF08;&#x4E0D;&#x5305;&#x62EC; .node &#x540E;&#x7F00;&#xFF09;&#x3002;</p>
+<p>&#x5728; <code>hello.cc</code> &#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#x662F; <code>init</code>&#xFF0C;&#x63D2;&#x4EF6;&#x6A21;&#x5757;&#x540D;&#x662F; <code>addon</code>&#x3002;</p>
+<h3>&#x6784;&#x5EFA;<span><a class="mark" href="#addons_building" id="addons_building">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_building">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/building.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x5F53;&#x6E90;&#x4EE3;&#x7801;&#x5DF2;&#x88AB;&#x7F16;&#x5199;&#xFF0C;&#x5B83;&#x5FC5;&#x987B;&#x88AB;&#x7F16;&#x8BD1;&#x6210;&#x4E8C;&#x8FDB;&#x5236; <code>addon.node</code> &#x6587;&#x4EF6;&#x3002;
+&#x8981;&#x505A;&#x5230;&#x8FD9;&#x70B9;&#xFF0C;&#x9700;&#x5728;&#x9879;&#x76EE;&#x7684;&#x9876;&#x5C42;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>binding.gyp</code> &#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C; JSON &#x7684;&#x683C;&#x5F0F;&#x6765;&#x63CF;&#x8FF0;&#x4F60;&#x7684;&#x6A21;&#x5757;&#x7684;&#x6784;&#x5EFA;&#x914D;&#x7F6E;&#x3002;
+&#x8BE5;&#x6587;&#x4EF6;&#x4F1A;&#x88AB; <a href="https://github.com/nodejs/node-gyp">node-gyp</a>&#xFF08;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x7F16;&#x8BD1; Node.js &#x63D2;&#x4EF6;&#x7684;&#x5DE5;&#x5177;&#xFF09;&#x4F7F;&#x7528;&#x3002;</p>
+<pre><code class="lang-json">{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [ &quot;hello.cc&quot; ]
+    }
+  ]
+}
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;Node.js &#x4F1A;&#x6346;&#x7ED1;&#x4E0E;&#x53D1;&#x5E03;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x7684; <code>node-gyp</code> &#x5DE5;&#x5177;&#x4F5C;&#x4E3A; <code>npm</code> &#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;
+&#x8BE5;&#x7248;&#x672C;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x88AB;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;&#xFF0C;&#x4EC5;&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x4F7F;&#x7528; <code>npm install</code> &#x547D;&#x4EE4;&#x7F16;&#x8BD1;&#x4E0E;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;&#x7684;&#x80FD;&#x529B;&#x3002;
+&#x9700;&#x8981;&#x76F4;&#x63A5;&#x4F7F;&#x7528; <code>node-gyp</code> &#x7684;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>npm install -g node-gyp</code> &#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x3002;
+&#x67E5;&#x770B; <code>node-gyp</code> <a href="https://github.com/nodejs/node-gyp#installation">&#x5B89;&#x88C5;&#x8BF4;&#x660E;</a>&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x62EC;&#x5E73;&#x53F0;&#x7279;&#x5B9A;&#x7684;&#x8981;&#x6C42;&#x3002;</p>
+<p>&#x4F46; <code>binding.gyp</code> &#x6587;&#x4EF6;&#x5DF2;&#x88AB;&#x521B;&#x5EFA;&#xFF0C;&#x4F7F;&#x7528; <code>node-gyp configure</code> &#x4E3A;&#x5F53;&#x524D;&#x5E73;&#x53F0;&#x751F;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x9879;&#x76EE;&#x6784;&#x5EFA;&#x6587;&#x4EF6;&#x3002;
+&#x8FD9;&#x4F1A;&#x5728; <code>build/</code> &#x76EE;&#x5F55;&#x4E0B;&#x751F;&#x6210;&#x4E00;&#x4E2A; <code>Makefile</code> &#x6587;&#x4EF6;&#xFF08;&#x5728; Unix &#x5E73;&#x53F0;&#x4E0A;&#xFF09;&#x6216; <code>vcxproj</code> &#x6587;&#x4EF6;&#xFF08;&#x5728; Windows &#x4E0A;&#xFF09;&#x3002;</p>
+<p>&#x4E0B;&#x4E00;&#x6B65;&#xFF0C;&#x8C03;&#x7528; <code>node-gyp build</code> &#x547D;&#x4EE4;&#x751F;&#x6210;&#x7F16;&#x8BD1;&#x540E;&#x7684; <code>addon.node</code> &#x7684;&#x6587;&#x4EF6;&#x3002;
+&#x5B83;&#x4F1A;&#x88AB;&#x653E;&#x8FDB; <code>build/Release/</code> &#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x5F53;&#x4F7F;&#x7528; <code>npm install</code> &#x5B89;&#x88C5;&#x4E00;&#x4E2A; Node.js &#x63D2;&#x4EF6;&#x65F6;&#xFF0C;npm &#x4F1A;&#x4F7F;&#x7528;&#x81EA;&#x8EAB;&#x6346;&#x7ED1;&#x7684; <code>node-gyp</code> &#x7248;&#x672C;&#x6765;&#x6267;&#x884C;&#x540C;&#x6837;&#x7684;&#x4E00;&#x5957;&#x52A8;&#x4F5C;&#xFF0C;&#x4E3A;&#x7528;&#x6237;&#x8981;&#x6C42;&#x7684;&#x5E73;&#x53F0;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x7248;&#x672C;&#x3002;</p>
+<p>&#x5F53;&#x6784;&#x5EFA;&#x5B8C;&#x6210;&#x65F6;&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#x63D2;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x5728; Node.js &#x4E2D;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x901A;&#x8FC7; <a href="globals.html#globals_require"><code>require()</code></a> &#x6784;&#x5EFA;&#x540E;&#x7684; <code>addon.node</code> &#x6A21;&#x5757;&#xFF1A;</p>
+<pre><code class="lang-js">// hello.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+console.log(addon.hello());
+// &#x6253;&#x5370;: &apos;world&apos;
+</code></pre>
+<p>&#x8BF7;&#x67E5;&#x770B; <a href="https://github.com/arturadib/node-qt">https://github.com/arturadib/node-qt</a> &#x4E86;&#x89E3;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x63D2;&#x4EF6;&#x7684;&#x786E;&#x5207;&#x8DEF;&#x5F84;&#x53D6;&#x51B3;&#x4E8E;&#x5B83;&#x5982;&#x4F55;&#x88AB;&#x7F16;&#x8BD1;&#xFF08;&#x6BD4;&#x5982;&#x6709;&#x65F6;&#x5B83;&#x53EF;&#x80FD;&#x5728; <code>./build/Debug/</code> &#x4E2D;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x63D2;&#x4EF6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="https://github.com/TooTallNate/node-bindings">bindings</a> &#x5305;&#x52A0;&#x8F7D;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x867D;&#x7136; <code>bindings</code> &#x5305;&#x5728;&#x5982;&#x4F55;&#x5B9A;&#x4F4D;&#x63D2;&#x4EF6;&#x6A21;&#x5757;&#x7684;&#x5B9E;&#x73B0;&#x4E0A;&#x66F4;&#x590D;&#x6742;&#xFF0C;&#x4F46;&#x5B83;&#x672C;&#x8D28;&#x4E0A;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A; <code>try-catch</code> &#x6A21;&#x5F0F;&#xFF0C;&#x7C7B;&#x4F3C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-js">try {
+  return require(&apos;./build/Release/addon.node&apos;);
+} catch (err) {
+  return require(&apos;./build/Debug/addon.node&apos;);
+}
+</code></pre>
+<h3>&#x94FE;&#x63A5;&#x5230; Node.js &#x81EA;&#x6709;&#x7684;&#x4F9D;&#x8D56;<span><a class="mark" href="#addons_linking_to_node_js_own_dependencies" id="addons_linking_to_node_js_own_dependencies">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_linking_to_node_js_own_dependencies">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/linking_to_node_js_own_dependencies.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>Node.js &#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E9B;&#x9759;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#xFF0C;&#x6BD4;&#x5982; V8 &#x5F15;&#x64CE;&#x3001;libuv &#x548C; OpenSSL&#x3002;
+&#x6240;&#x6709;&#x7684;&#x63D2;&#x4EF6;&#x90FD;&#x9700;&#x8981;&#x94FE;&#x63A5;&#x5230; V8&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x94FE;&#x63A5;&#x5230;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x3002;
+&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EA;&#x8981;&#x7B80;&#x5355;&#x5730;&#x5305;&#x542B;&#x76F8;&#x5E94;&#x7684; <code>#include &lt;...&gt;</code> &#x58F0;&#x660E;&#xFF08;&#x5982; <code>#include &lt;v8.h&gt;</code>&#xFF09;&#xFF0C;&#x5219; <code>node-gyp</code> &#x4F1A;&#x81EA;&#x52A8;&#x5B9A;&#x4F4D;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x5934;&#x6587;&#x4EF6;&#x3002;
+&#x4F46;&#x662F;&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;</p>
+<ul>
+<li><p>&#x5F53; <code>node-gyp</code> &#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x68C0;&#x6D4B;&#x6307;&#x5B9A;&#x7684; Node.js &#x53D1;&#x884C;&#x7248;&#x672C;&#xFF0C;&#x5E76;&#x4E0B;&#x8F7D;&#x5B8C;&#x6574;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x5305;&#x6216;&#x53EA;&#x662F;&#x5934;&#x6587;&#x4EF6;&#x3002;
+&#x5982;&#x679C;&#x4E0B;&#x8F7D;&#x4E86;&#x5B8C;&#x6574;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x5219;&#x63D2;&#x4EF6;&#x5BF9;&#x5168;&#x5957;&#x7684; Node.js &#x4F9D;&#x8D56;&#x6709;&#x5B8C;&#x5168;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3002;
+&#x5982;&#x679C;&#x53EA;&#x4E0B;&#x8F7D;&#x4E86; Node.js &#x7684;&#x6587;&#x4EF6;&#x5934;&#xFF0C;&#x5219;&#x53EA;&#x6709; Node.js &#x5BFC;&#x51FA;&#x7684;&#x7B26;&#x53F7;&#x53EF;&#x7528;&#x3002;</p>
+</li>
+<li><p><code>node-gyp</code> &#x53EF;&#x4F7F;&#x7528;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x672C;&#x5730; Node.js &#x6E90;&#x4EE3;&#x7801;&#x955C;&#x50CF;&#x7684; <code>--nodedir</code> &#x6807;&#x5FD7;&#x6765;&#x8FD0;&#x884C;&#x3002;
+&#x5982;&#x679C;&#x4F7F;&#x7528;&#x8BE5;&#x9009;&#x9879;&#xFF0C;&#x5219;&#x63D2;&#x4EF6;&#x6709;&#x5168;&#x5957;&#x4F9D;&#x8D56;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x3002;</p>
+</li>
+</ul>
+<h3>&#x4F7F;&#x7528; require() &#x52A0;&#x8F7D;&#x63D2;&#x4EF6;<span><a class="mark" href="#addons_loading_addons_using_require" id="addons_loading_addons_using_require">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_loading_addons_using_require">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/loading_addons_using_require.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x63D2;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;&#x662F; <code>.node</code>&#xFF08;&#x800C;&#x4E0D;&#x662F; <code>.dll</code> &#x6216; <code>.so</code>&#xFF09;&#x3002;
+<a href="globals.html#globals_require"><code>require()</code></a> &#x51FD;&#x6570;&#x7528;&#x4E8E;&#x67E5;&#x627E;&#x5177;&#x6709; <code>.node</code> &#x6587;&#x4EF6;&#x6269;&#x5C55;&#x540D;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#x3002;</p>
+<p>&#x5F53;&#x8C03;&#x7528; <a href="globals.html#globals_require"><code>require()</code></a> &#x65F6;&#xFF0C;<code>.node</code> &#x62D3;&#x5C55;&#x540D;&#x901A;&#x5E38;&#x53EF;&#x88AB;&#x7701;&#x7565;&#xFF0C;Node.js &#x4ECD;&#x4F1A;&#x627E;&#x5230;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x8BE5;&#x63D2;&#x4EF6;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;Node.js &#x4F1A;&#x4F18;&#x5148;&#x5C1D;&#x8BD5;&#x67E5;&#x627E;&#x5E76;&#x52A0;&#x8F7D;&#x540C;&#x540D;&#x7684;&#x6A21;&#x5757;&#x6216; JavaScript &#x6587;&#x4EF6;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x4E0E;&#x4E8C;&#x8FDB;&#x5236;&#x7684; <code>addon.node</code> &#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x6709;&#x4E00;&#x4E2A; <code>addon.js</code> &#x6587;&#x4EF6;&#xFF0C;&#x5219; <a href="globals.html#globals_require"><code>require(&apos;addon&apos;)</code></a> &#x4F1A;&#x4F18;&#x5148;&#x52A0;&#x8F7D; <code>addon.js</code> &#x6587;&#x4EF6;&#x3002;</p>
+<h2>Node.js &#x7684;&#x539F;&#x751F;&#x62BD;&#x8C61;<span><a class="mark" href="#addons_native_abstractions_for_node_js" id="addons_native_abstractions_for_node_js">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_native_abstractions_for_node_js">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/native_abstractions_for_node_js.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x6587;&#x6863;&#x4E2D;&#x6240;&#x793A;&#x7684;&#x6BCF;&#x4E2A;&#x4F8B;&#x5B50;&#x90FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528; Node.js &#x548C; V8 &#x7684; API &#x6765;&#x5B9E;&#x73B0;&#x63D2;&#x4EF6;&#x3002;
+V8 &#x7684; API &#x53EF;&#x80FD;&#x5E76;&#x4E14;&#x5DF2;&#x7ECF;&#x4E0E;&#x4E0B;&#x4E00;&#x4E2A; V8 &#x7684;&#x53D1;&#x884C;&#x7248;&#x672C;&#x6709;&#x663E;&#x8457;&#x7684;&#x53D8;&#x5316;&#x3002;
+&#x4F34;&#x968F;&#x7740;&#x6BCF;&#x6B21;&#x53D8;&#x5316;&#xFF0C;&#x63D2;&#x4EF6;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x7EE7;&#x7EED;&#x5DE5;&#x4F5C;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x548C;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x3002;
+Node.js &#x7684;&#x53D1;&#x5E03;&#x8BA1;&#x5212;&#x4F1A;&#x5C3D;&#x91CF;&#x51CF;&#x5C11;&#x8FD9;&#x79CD;&#x53D8;&#x5316;&#x7684;&#x9891;&#x7387;&#x548C;&#x5F71;&#x54CD;&#xFF0C;&#x4F46; Node.js &#x76EE;&#x524D;&#x53EF;&#x4EE5;&#x786E;&#x4FDD; V8 API &#x7684;&#x7A33;&#x5B9A;&#x6027;&#x3002;</p>
+<p><a href="https://github.com/nodejs/nan">Node.js &#x7684;&#x539F;&#x751F;&#x62BD;&#x8C61;</a>&#xFF08;&#x6216;&#x79F0;&#x4E3A; <code>nan</code>&#xFF09;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7EC4;&#x5DE5;&#x5177;&#xFF0C;&#x5EFA;&#x8BAE;&#x63D2;&#x4EF6;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x6765;&#x4FDD;&#x6301;&#x63D2;&#x4EF6;&#x5728;&#x8FC7;&#x5F80;&#x4E0E;&#x5C06;&#x6765;&#x7684; V8 &#x548C; Node.js &#x7684;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x3002;
+&#x67E5;&#x770B; <a href="https://github.com/nodejs/nan/tree/master/examples/"><code>nan</code> &#x793A;&#x4F8B;</a>&#x4E86;&#x89E3;&#x5B83;&#x662F;&#x5982;&#x4F55;&#x88AB;&#x4F7F;&#x7528;&#x7684;&#x3002;</p>
+<h2>&#x63D2;&#x4EF6;&#x793A;&#x4F8B;<span><a class="mark" href="#addons_addon_examples" id="addons_addon_examples">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_addon_examples">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/addon_examples.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E9B;&#x63D2;&#x4EF6;&#x793A;&#x4F8B;&#xFF0C;&#x7528;&#x4E8E;&#x5E2E;&#x52A9;&#x5F00;&#x53D1;&#x8005;&#x5165;&#x95E8;&#x3002;
+&#x8FD9;&#x4E9B;&#x4F8B;&#x5B50;&#x4F7F;&#x7528;&#x4E86; V8 &#x7684; API&#x3002;
+&#x67E5;&#x770B;&#x5728;&#x7EBF;&#x7684; <a href="https://v8docs.nodesource.com/">V8 &#x6587;&#x6863;</a>&#x6709;&#x52A9;&#x4E8E;&#x4E86;&#x89E3;&#x5404;&#x79CD; V8 &#x8C03;&#x7528;&#xFF0C;V8 &#x7684;<a href="https://developers.google.com/v8/embed">&#x5D4C;&#x5165;&#x5668;&#x6307;&#x5357;</a>&#x89E3;&#x91CA;&#x4E86;&#x53E5;&#x67C4;&#x3001;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x51FD;&#x6570;&#x6A21;&#x677F;&#x7B49;&#x7684;&#x4E00;&#x4E9B;&#x6982;&#x5FF5;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x793A;&#x4F8B;&#x90FD;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x7684; <code>binding.gyp</code> &#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-json">{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [ &quot;addon.cc&quot; ]
+    }
+  ]
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x4EE5;&#x4E0A;&#x7684; <code>.cc</code> &#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x53EA;&#x9700;&#x6DFB;&#x52A0;&#x989D;&#x5916;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x5230; <code>sources</code> &#x6570;&#x7EC4;&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-json">&quot;sources&quot;: [&quot;addon.cc&quot;, &quot;myexample.cc&quot;]
+</code></pre>
+<p>&#x5F53; <code>binding.gyp</code> &#x6587;&#x4EF6;&#x51C6;&#x5907;&#x5C31;&#x7EEA;&#xFF0C;&#x5219;&#x63D2;&#x4EF6;&#x793A;&#x4F8B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>node-gyp</code> &#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x548C;&#x6784;&#x5EFA;&#xFF1A;</p>
+<pre><code class="lang-console">$ node-gyp configure build
+</code></pre>
+<h3>&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;<span><a class="mark" href="#addons_function_arguments" id="addons_function_arguments">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_function_arguments">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/function_arguments.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x63D2;&#x4EF6;&#x901A;&#x5E38;&#x4F1A;&#x5F00;&#x653E;&#x4E00;&#x4E9B;&#x5BF9;&#x8C61;&#x548C;&#x51FD;&#x6570;&#xFF0C;&#x4F9B;&#x8FD0;&#x884C;&#x5728; Node.js &#x4E2D;&#x7684; JavaScript &#x8BBF;&#x95EE;&#x3002;
+&#x5F53;&#x4ECE; JavaScript &#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x5FC5;&#x987B;&#x4E0E; C/C++ &#x4EE3;&#x7801;&#x76F8;&#x4E92;&#x6620;&#x5C04;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#x63CF;&#x8FF0;&#x4E86;&#x5982;&#x4F55;&#x8BFB;&#x53D6;&#x4ECE; JavaScript &#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4E0E;&#x5982;&#x4F55;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-cpp">// addon.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::Exception;
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Number;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+// &#x8FD9;&#x662F; &quot;add&quot; &#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;
+// &#x8F93;&#x5165;&#x53C2;&#x6570;&#x4F7F;&#x7528; const FunctionCallbackInfo&lt;Value&gt;&amp; args &#x7ED3;&#x6784;&#x4F20;&#x5165;
+void Add(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  // &#x68C0;&#x67E5;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x7684;&#x4E2A;&#x6570;
+  if (args.Length() &lt; 2) {
+    // &#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x5E76;&#x4F20;&#x56DE;&#x5230; JavaScript
+    isolate-&gt;ThrowException(Exception::TypeError(
+        String::NewFromUtf8(isolate, &quot;&#x53C2;&#x6570;&#x7684;&#x6570;&#x91CF;&#x9519;&#x8BEF;&quot;)));
+    return;
+  }
+
+  // &#x68C0;&#x67E5;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;
+  if (!args[0]-&gt;IsNumber() || !args[1]-&gt;IsNumber()) {
+    isolate-&gt;ThrowException(Exception::TypeError(
+        String::NewFromUtf8(isolate, &quot;&#x53C2;&#x6570;&#x9519;&#x8BEF;&quot;)));
+    return;
+  }
+
+  // &#x6267;&#x884C;&#x64CD;&#x4F5C;
+  double value = args[0]-&gt;NumberValue() + args[1]-&gt;NumberValue();
+  Local&lt;Number&gt; num = Number::New(isolate, value);
+
+  // &#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x503C;
+  args.GetReturnValue().Set(num);
+}
+
+void Init(Local&lt;Object&gt; exports) {
+  NODE_SET_METHOD(exports, &quot;add&quot;, Add);
+}
+
+NODE_MODULE(addon, Init)
+
+}  // namespace demo
+</code></pre>
+<p>&#x4F46;&#x5DF2;&#x88AB;&#x7F16;&#x8BD1;&#xFF0C;&#x793A;&#x4F8B;&#x63D2;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x5728; Node.js &#x4E2D;&#x5F15;&#x5165;&#x548C;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+console.log(&apos;This should be eight:&apos;, addon.add(3, 5));
+</code></pre>
+<h3>&#x56DE;&#x8C03;<span><a class="mark" href="#addons_callbacks" id="addons_callbacks">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_callbacks">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/callbacks.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x628A; JavaScript &#x51FD;&#x6570;&#x4F20;&#x5165;&#x5230;&#x4E00;&#x4E2A; C++ &#x51FD;&#x6570;&#x5E76;&#x5728;&#x90A3;&#x91CC;&#x6267;&#x884C;&#x5B83;&#x4EEC;&#xFF0C;&#x8FD9;&#x5728;&#x63D2;&#x4EF6;&#x91CC;&#x662F;&#x5E38;&#x89C1;&#x7684;&#x505A;&#x6CD5;&#x3002;
+&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#x63CF;&#x8FF0;&#x4E86;&#x5982;&#x4F55;&#x8C03;&#x7528;&#x8FD9;&#x4E9B;&#x56DE;&#x8C03;&#xFF1A;</p>
+<pre><code class="lang-cpp">// addon.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Null;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void RunCallback(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  Local&lt;Function&gt; cb = Local&lt;Function&gt;::Cast(args[0]);
+  const unsigned argc = 1;
+  Local&lt;Value&gt; argv[argc] = { String::NewFromUtf8(isolate, &quot;hello world&quot;) };
+  cb-&gt;Call(Null(isolate), argc, argv);
+}
+
+void Init(Local&lt;Object&gt; exports, Local&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, RunCallback);
+}
+
+NODE_MODULE(addon, Init)
+
+}  // namespace demo
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x4F8B;&#x5B50;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x7684; <code>Init()</code>&#xFF0C;&#x5B83;&#x63A5;&#x6536;&#x5B8C;&#x6574;&#x7684; <code>module</code> &#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x3002;
+&#x8FD9;&#x4F7F;&#x5F97;&#x63D2;&#x4EF6;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x51FD;&#x6570;&#x5B8C;&#x5168;&#x5730;&#x91CD;&#x5199; <code>exports</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6DFB;&#x52A0;&#x51FD;&#x6570;&#x4F5C;&#x4E3A; <code>exports</code> &#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x9A8C;&#x8BC1;&#x5B83;&#xFF0C;&#x8FD0;&#x884C;&#x4EE5;&#x4E0B; JavaScript&#xFF1A;</p>
+<pre><code class="lang-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+addon((msg) =&gt; {
+  console.log(msg);
+// &#x6253;&#x5370;: &apos;hello world&apos;
+});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x662F;&#x88AB;&#x540C;&#x6B65;&#x5730;&#x8C03;&#x7528;&#x3002;</p>
+<h3>&#x5BF9;&#x8C61;&#x5DE5;&#x5382;<span><a class="mark" href="#addons_object_factory" id="addons_object_factory">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_object_factory">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/object_factory.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x63D2;&#x4EF6;&#x53EF;&#x4ECE; C++ &#x51FD;&#x6570;&#x4E2D;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#x6240;&#x793A;&#x3002;
+&#x4E00;&#x4E2A;&#x5E26;&#x6709; <code>msg</code> &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x88AB;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x4F1A;&#x8F93;&#x51FA;&#x4F20;&#x5165; <code>createObject()</code> &#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p>
+<pre><code class="lang-cpp">// addon.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void CreateObject(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  Local&lt;Object&gt; obj = Object::New(isolate);
+  obj-&gt;Set(String::NewFromUtf8(isolate, &quot;msg&quot;), args[0]-&gt;ToString());
+
+  args.GetReturnValue().Set(obj);
+}
+
+void Init(Local&lt;Object&gt; exports, Local&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateObject);
+}
+
+NODE_MODULE(addon, Init)
+
+}  // namespace demo
+</code></pre>
+<p>&#x5728; JavaScript &#x4E2D;&#x6D4B;&#x8BD5;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const obj1 = addon(&apos;hello&apos;);
+const obj2 = addon(&apos;world&apos;);
+console.log(obj1.msg, obj2.msg);
+// &#x6253;&#x5370;: &apos;hello world&apos;
+</code></pre>
+<h3>&#x51FD;&#x6570;&#x5DE5;&#x5382;<span><a class="mark" href="#addons_function_factory" id="addons_function_factory">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_function_factory">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/function_factory.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x60C5;&#x51B5;&#x662F;&#x521B;&#x5EFA; JavaScript &#x51FD;&#x6570;&#x6765;&#x5305;&#x88C5; C++ &#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5230; JavaScript&#xFF1A;</p>
+<pre><code class="lang-cpp">// addon.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::FunctionTemplate;
+using v8::Isolate;
+using v8::Local;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void MyFunction(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, &quot;hello world&quot;));
+}
+
+void CreateFunction(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(isolate, MyFunction);
+  Local&lt;Function&gt; fn = tpl-&gt;GetFunction();
+
+  // &#x53EF;&#x4EE5;&#x7701;&#x7565;&#x8FD9;&#x6B65;&#x4F7F;&#x5B83;&#x533F;&#x540D;
+  fn-&gt;SetName(String::NewFromUtf8(isolate, &quot;theFunction&quot;));
+
+  args.GetReturnValue().Set(fn);
+}
+
+void Init(Local&lt;Object&gt; exports, Local&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateFunction);
+}
+
+NODE_MODULE(addon, Init)
+
+}  // namespace demo
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const fn = addon();
+console.log(fn());
+// &#x6253;&#x5370;: &apos;hello world&apos;
+</code></pre>
+<h3>&#x5305;&#x88C5; C++ &#x5BF9;&#x8C61;<span><a class="mark" href="#addons_wrapping_c_objects" id="addons_wrapping_c_objects">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_wrapping_c_objects">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/wrapping_c_objects.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x5305;&#x88C5; C++ &#x5BF9;&#x8C61;/&#x7C7B;&#x4F7F;&#x5176;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; JavaScript &#x7684; <code>new</code> &#x64CD;&#x4F5C;&#x6765;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-cpp">// addon.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::Local;
+using v8::Object;
+
+void InitAll(Local&lt;Object&gt; exports) {
+  MyObject::Init(exports);
+}
+
+NODE_MODULE(addon, InitAll)
+
+}  // namespace demo
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5728; <code>myobject.h</code> &#x4E2D;&#xFF0C;&#x5305;&#x88C5;&#x7C7B;&#x7EE7;&#x627F;&#x81EA; <code>node::ObjectWrap</code>&#xFF1A;</p>
+<pre><code class="lang-cpp">// myobject.h
+#ifndef MYOBJECT_H
+#define MYOBJECT_H
+
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+
+namespace demo {
+
+class MyObject : public node::ObjectWrap {
+ public:
+  static void Init(v8::Local&lt;v8::Object&gt; exports);
+
+ private:
+  explicit MyObject(double value = 0);
+  ~MyObject();
+
+  static void New(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static void PlusOne(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static v8::Persistent&lt;v8::Function&gt; constructor;
+  double value_;
+};
+
+}  // namespace demo
+
+#endif
+</code></pre>
+<p>&#x5728; <code>myobject.cc</code> &#x4E2D;&#xFF0C;&#x5B9E;&#x73B0;&#x8981;&#x88AB;&#x5F00;&#x653E;&#x7684;&#x5404;&#x79CD;&#x65B9;&#x6CD5;&#x3002;
+&#x4E0B;&#x9762;&#xFF0C;&#x901A;&#x8FC7;&#x628A; <code>plusOne()</code> &#x6DFB;&#x52A0;&#x5230;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x6765;&#x5F00;&#x653E;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-cpp">// myobject.cc
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::Context;
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::FunctionTemplate;
+using v8::Isolate;
+using v8::Local;
+using v8::Number;
+using v8::Object;
+using v8::Persistent;
+using v8::String;
+using v8::Value;
+
+Persistent&lt;Function&gt; MyObject::constructor;
+
+MyObject::MyObject(double value) : value_(value) {
+}
+
+MyObject::~MyObject() {
+}
+
+void MyObject::Init(Local&lt;Object&gt; exports) {
+  Isolate* isolate = exports-&gt;GetIsolate();
+
+  // &#x51C6;&#x5907;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x7248;
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(isolate, New);
+  tpl-&gt;SetClassName(String::NewFromUtf8(isolate, &quot;MyObject&quot;));
+  tpl-&gt;InstanceTemplate()-&gt;SetInternalFieldCount(1);
+
+  // &#x539F;&#x578B;
+  NODE_SET_PROTOTYPE_METHOD(tpl, &quot;plusOne&quot;, PlusOne);
+
+  constructor.Reset(isolate, tpl-&gt;GetFunction());
+  exports-&gt;Set(String::NewFromUtf8(isolate, &quot;MyObject&quot;),
+               tpl-&gt;GetFunction());
+}
+
+void MyObject::New(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  if (args.IsConstructCall()) {
+    // &#x50CF;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x8C03;&#x7528;&#xFF1A;`new MyObject(...)`
+    double value = args[0]-&gt;IsUndefined() ? 0 : args[0]-&gt;NumberValue();
+    MyObject* obj = new MyObject(value);
+    obj-&gt;Wrap(args.This());
+    args.GetReturnValue().Set(args.This());
+  } else {
+    // &#x50CF;&#x666E;&#x901A;&#x65B9;&#x6CD5; `MyObject(...)` &#x4E00;&#x6837;&#x8C03;&#x7528;&#xFF0C;&#x8F6C;&#x4E3A;&#x6784;&#x9020;&#x8C03;&#x7528;&#x3002;
+    const int argc = 1;
+    Local&lt;Value&gt; argv[argc] = { args[0] };
+    Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+    Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+    Local&lt;Object&gt; result =
+        cons-&gt;NewInstance(context, argc, argv).ToLocalChecked();
+    args.GetReturnValue().Set(result);
+  }
+}
+
+void MyObject::PlusOne(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  MyObject* obj = ObjectWrap::Unwrap&lt;MyObject&gt;(args.Holder());
+  obj-&gt;value_ += 1;
+
+  args.GetReturnValue().Set(Number::New(isolate, obj-&gt;value_));
+}
+
+}  // namespace demo
+</code></pre>
+<p>&#x8981;&#x6784;&#x5EFA;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;<code>myobject.cc</code> &#x6587;&#x4EF6;&#x5FC5;&#x987B;&#x88AB;&#x6DFB;&#x52A0;&#x5230; <code>binding.gyp</code>&#xFF1A;</p>
+<pre><code class="lang-json">{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [
+        &quot;addon.cc&quot;,
+        &quot;myobject.cc&quot;
+      ]
+    }
+  ]
+}
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<pre><code class="lang-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const obj = new addon.MyObject(10);
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 11
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 12
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 13
+</code></pre>
+<h3>&#x5305;&#x88C5;&#x5BF9;&#x8C61;&#x7684;&#x5DE5;&#x5382;<span><a class="mark" href="#addons_factory_of_wrapped_objects" id="addons_factory_of_wrapped_objects">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_factory_of_wrapped_objects">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/factory_of_wrapped_objects.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#xFF0C;&#x907F;&#x514D;&#x663E;&#x5F0F;&#x5730;&#x4F7F;&#x7528; JavaScript &#x7684; <code>new</code> &#x64CD;&#x4F5C;&#x6765;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-js">const obj = addon.createObject();
+// &#x800C;&#x4E0D;&#x662F;&#xFF1A;
+// const obj = new addon.Object();
+</code></pre>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5728; <code>addon.cc</code> &#x4E2D;&#x5B9E;&#x73B0; <code>createObject()</code> &#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-cpp">// addon.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void CreateObject(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  MyObject::NewInstance(args);
+}
+
+void InitAll(Local&lt;Object&gt; exports, Local&lt;Object&gt; module) {
+  MyObject::Init(exports-&gt;GetIsolate());
+
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateObject);
+}
+
+NODE_MODULE(addon, InitAll)
+
+}  // namespace demo
+</code></pre>
+<p>&#x5728; <code>myobject.h</code> &#x4E2D;&#xFF0C;&#x6DFB;&#x52A0;&#x9759;&#x6001;&#x65B9;&#x6CD5; <code>NewInstance()</code> &#x6765;&#x5904;&#x7406;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x3002;
+&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x4EE3;&#x66FF;&#x5728; JavaScript &#x4E2D;&#x4F7F;&#x7528; <code>new</code>&#xFF1A;</p>
+<pre><code class="lang-cpp">// myobject.h
+#ifndef MYOBJECT_H
+#define MYOBJECT_H
+
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+
+namespace demo {
+
+class MyObject : public node::ObjectWrap {
+ public:
+  static void Init(v8::Isolate* isolate);
+  static void NewInstance(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+
+ private:
+  explicit MyObject(double value = 0);
+  ~MyObject();
+
+  static void New(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static void PlusOne(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static v8::Persistent&lt;v8::Function&gt; constructor;
+  double value_;
+};
+
+}  // namespace demo
+
+#endif
+</code></pre>
+<p><code>myobject.cc</code> &#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#x4E0E;&#x4E4B;&#x524D;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-cpp">// myobject.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::Context;
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::FunctionTemplate;
+using v8::Isolate;
+using v8::Local;
+using v8::Number;
+using v8::Object;
+using v8::Persistent;
+using v8::String;
+using v8::Value;
+
+Persistent&lt;Function&gt; MyObject::constructor;
+
+MyObject::MyObject(double value) : value_(value) {
+}
+
+MyObject::~MyObject() {
+}
+
+void MyObject::Init(Isolate* isolate) {
+  // &#x51C6;&#x5907;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x7248;
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(isolate, New);
+  tpl-&gt;SetClassName(String::NewFromUtf8(isolate, &quot;MyObject&quot;));
+  tpl-&gt;InstanceTemplate()-&gt;SetInternalFieldCount(1);
+
+  // &#x539F;&#x578B;
+  NODE_SET_PROTOTYPE_METHOD(tpl, &quot;plusOne&quot;, PlusOne);
+
+  constructor.Reset(isolate, tpl-&gt;GetFunction());
+}
+
+void MyObject::New(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  if (args.IsConstructCall()) {
+    // &#x50CF;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x8C03;&#x7528;&#xFF1A;`new MyObject(...)`
+    double value = args[0]-&gt;IsUndefined() ? 0 : args[0]-&gt;NumberValue();
+    MyObject* obj = new MyObject(value);
+    obj-&gt;Wrap(args.This());
+    args.GetReturnValue().Set(args.This());
+  } else {
+    // &#x50CF;&#x666E;&#x901A;&#x65B9;&#x6CD5; `MyObject(...)` &#x4E00;&#x6837;&#x8C03;&#x7528;&#xFF0C;&#x8F6C;&#x4E3A;&#x6784;&#x9020;&#x8C03;&#x7528;&#x3002;
+    const int argc = 1;
+    Local&lt;Value&gt; argv[argc] = { args[0] };
+    Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+    Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+    Local&lt;Object&gt; instance =
+        cons-&gt;NewInstance(context, argc, argv).ToLocalChecked();
+    args.GetReturnValue().Set(instance);
+  }
+}
+
+void MyObject::NewInstance(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  const unsigned argc = 1;
+  Local&lt;Value&gt; argv[argc] = { args[0] };
+  Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+  Local&lt;Object&gt; instance =
+      cons-&gt;NewInstance(context, argc, argv).ToLocalChecked();
+
+  args.GetReturnValue().Set(instance);
+}
+
+void MyObject::PlusOne(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  MyObject* obj = ObjectWrap::Unwrap&lt;MyObject&gt;(args.Holder());
+  obj-&gt;value_ += 1;
+
+  args.GetReturnValue().Set(Number::New(isolate, obj-&gt;value_));
+}
+
+}  // namespace demo
+</code></pre>
+<p>&#x8981;&#x6784;&#x5EFA;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;<code>myobject.cc</code> &#x6587;&#x4EF6;&#x5FC5;&#x987B;&#x88AB;&#x6DFB;&#x52A0;&#x5230; <code>binding.gyp</code>&#xFF1A;</p>
+<pre><code class="lang-json">{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [
+        &quot;addon.cc&quot;,
+        &quot;myobject.cc&quot;
+      ]
+    }
+  ]
+}
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<pre><code class="lang-js">// test.js
+const createObject = require(&apos;./build/Release/addon&apos;);
+
+const obj = createObject(10);
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 11
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 12
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 13
+
+const obj2 = createObject(20);
+console.log(obj2.plusOne());
+// &#x6253;&#x5370;: 21
+console.log(obj2.plusOne());
+// &#x6253;&#x5370;: 22
+console.log(obj2.plusOne());
+// &#x6253;&#x5370;: 23
+</code></pre>
+<h3>&#x4F20;&#x9012;&#x5305;&#x88C5;&#x7684;&#x5BF9;&#x8C61;<span><a class="mark" href="#addons_passing_wrapped_objects_around" id="addons_passing_wrapped_objects_around">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_passing_wrapped_objects_around">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/passing_wrapped_objects_around.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x9664;&#x4E86;&#x5305;&#x88C5;&#x548C;&#x8FD4;&#x56DE; C++ &#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528; Node.js &#x7684;&#x8F85;&#x52A9;&#x51FD;&#x6570; <code>node::ObjectWrap::Unwrap</code> &#x8FDB;&#x884C;&#x53BB;&#x5305;&#x88C5;&#x6765;&#x4F20;&#x9012;&#x5305;&#x88C5;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#x5C55;&#x793A;&#x4E86;&#x4E00;&#x4E2A; <code>add()</code> &#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x628A;&#x4E24;&#x4E2A; <code>MyObject</code> &#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-cpp">// addon.cc
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Number;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void CreateObject(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  MyObject::NewInstance(args);
+}
+
+void Add(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  MyObject* obj1 = node::ObjectWrap::Unwrap&lt;MyObject&gt;(
+      args[0]-&gt;ToObject());
+  MyObject* obj2 = node::ObjectWrap::Unwrap&lt;MyObject&gt;(
+      args[1]-&gt;ToObject());
+
+  double sum = obj1-&gt;value() + obj2-&gt;value();
+  args.GetReturnValue().Set(Number::New(isolate, sum));
+}
+
+void InitAll(Local&lt;Object&gt; exports) {
+  MyObject::Init(exports-&gt;GetIsolate());
+
+  NODE_SET_METHOD(exports, &quot;createObject&quot;, CreateObject);
+  NODE_SET_METHOD(exports, &quot;add&quot;, Add);
+}
+
+NODE_MODULE(addon, InitAll)
+
+}  // namespace demo
+</code></pre>
+<p>&#x5728; <code>myobject.h</code> &#x4E2D;&#xFF0C;&#x65B0;&#x589E;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x516C;&#x5171;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5728;&#x53BB;&#x5305;&#x88C5;&#x5BF9;&#x8C61;&#x540E;&#x8BBF;&#x95EE;&#x79C1;&#x6709;&#x503C;&#x3002;</p>
+<pre><code class="lang-cpp">// myobject.h
+#ifndef MYOBJECT_H
+#define MYOBJECT_H
+
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+
+namespace demo {
+
+class MyObject : public node::ObjectWrap {
+ public:
+  static void Init(v8::Isolate* isolate);
+  static void NewInstance(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  inline double value() const { return value_; }
+
+ private:
+  explicit MyObject(double value = 0);
+  ~MyObject();
+
+  static void New(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static v8::Persistent&lt;v8::Function&gt; constructor;
+  double value_;
+};
+
+}  // namespace demo
+
+#endif
+</code></pre>
+<p><code>myobject.cc</code> &#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#x4E4B;&#x524D;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-cpp">// myobject.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::Context;
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::FunctionTemplate;
+using v8::Isolate;
+using v8::Local;
+using v8::Object;
+using v8::Persistent;
+using v8::String;
+using v8::Value;
+
+Persistent&lt;Function&gt; MyObject::constructor;
+
+MyObject::MyObject(double value) : value_(value) {
+}
+
+MyObject::~MyObject() {
+}
+
+void MyObject::Init(Isolate* isolate) {
+  // Prepare constructor template
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(isolate, New);
+  tpl-&gt;SetClassName(String::NewFromUtf8(isolate, &quot;MyObject&quot;));
+  tpl-&gt;InstanceTemplate()-&gt;SetInternalFieldCount(1);
+
+  constructor.Reset(isolate, tpl-&gt;GetFunction());
+}
+
+void MyObject::New(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  if (args.IsConstructCall()) {
+    // &#x50CF;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x8C03;&#x7528;&#xFF1A;`new MyObject(...)`
+    double value = args[0]-&gt;IsUndefined() ? 0 : args[0]-&gt;NumberValue();
+    MyObject* obj = new MyObject(value);
+    obj-&gt;Wrap(args.This());
+    args.GetReturnValue().Set(args.This());
+  } else {
+    // &#x50CF;&#x666E;&#x901A;&#x65B9;&#x6CD5; `MyObject(...)` &#x4E00;&#x6837;&#x8C03;&#x7528;&#xFF0C;&#x8F6C;&#x4E3A;&#x6784;&#x9020;&#x8C03;&#x7528;&#x3002;
+    const int argc = 1;
+    Local&lt;Value&gt; argv[argc] = { args[0] };
+    Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+    Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+    Local&lt;Object&gt; instance =
+        cons-&gt;NewInstance(context, argc, argv).ToLocalChecked();
+    args.GetReturnValue().Set(instance);
+  }
+}
+
+void MyObject::NewInstance(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  const unsigned argc = 1;
+  Local&lt;Value&gt; argv[argc] = { args[0] };
+  Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+  Local&lt;Object&gt; instance =
+      cons-&gt;NewInstance(context, argc, argv).ToLocalChecked();
+
+  args.GetReturnValue().Set(instance);
+}
+
+}  // namespace demo
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<pre><code class="lang-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const obj1 = addon.createObject(10);
+const obj2 = addon.createObject(20);
+const result = addon.add(obj1, obj2);
+
+console.log(result);
+// &#x6253;&#x5370;: 30
+</code></pre>
+<h3>AtExit &#x94A9;&#x5B50;<span><a class="mark" href="#addons_atexit_hooks" id="addons_atexit_hooks">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_atexit_hooks">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/atexit_hooks.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x201C;AtExit&#x201D; &#x94A9;&#x5B50;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x5728; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x540E;&#x3001;&#x4F46;&#x5728; JavaScript &#x865A;&#x62DF;&#x673A;&#x88AB;&#x7EC8;&#x6B62;&#x4E0E; Node.js &#x5173;&#x95ED;&#x524D;&#x88AB;&#x8C03;&#x7528;&#x3002;
+&#x201C;AtExit&#x201D; &#x94A9;&#x5B50;&#x4F7F;&#x7528; <code>node::AtExit</code> API &#x6CE8;&#x518C;&#x3002;</p>
+<h4>void AtExit(callback, args)<span><a class="mark" href="#addons_void_atexit_callback_args" id="addons_void_atexit_callback_args">#</a></span></h4><p style="font-size:12px;margin-top:-1em"><a href="/api/en/addons.html#addons_void_atexit_callback_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/addons/void_atexit_callback_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="signature"><ul>
+<li><code>callback</code>: <code>void (*)(void*)</code> - &#x4E00;&#x4E2A;&#x9000;&#x51FA;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#x3002;</li>
+<li><code>args</code>: <code>void*</code> - &#x4E00;&#x4E2A;&#x9000;&#x51FA;&#x65F6;&#x4F20;&#x9012;&#x7ED9;&#x56DE;&#x8C03;&#x7684;&#x6307;&#x9488;&#x3002;</li>
+</ul>
+</div><p>&#x6CE8;&#x518C;&#x7684; AtExit &#x94A9;&#x5B50;&#x4F1A;&#x5728;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x4F46;&#x865A;&#x62DF;&#x673A;&#x88AB;&#x7EC8;&#x6B62;&#x4E4B;&#x524D;&#x9000;&#x51FA;&#x3002;</p>
+<p>AtExit &#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x4E00;&#x4E2A;&#x9000;&#x51FA;&#x65F6;&#x8FD0;&#x884C;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x548C;&#x4E00;&#x4E2A;&#x8981;&#x4F20;&#x5165;&#x56DE;&#x8C03;&#x7684;&#x65E0;&#x7C7B;&#x578B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x636E;&#x7684;&#x6307;&#x9488;&#x3002;</p>
+<p>&#x56DE;&#x8C03;&#x6309;&#x7167;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#x7684;&#x987A;&#x5E8F;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B; <code>addon.cc</code> &#x5B9E;&#x73B0;&#x4E86; AtExit&#xFF1A;</p>
+<pre><code class="lang-cpp">// addon.cc
+#undef NDEBUG
+#include &lt;assert.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using node::AtExit;
+using v8::HandleScope;
+using v8::Isolate;
+using v8::Local;
+using v8::Object;
+
+static char cookie[] = &quot;yum yum&quot;;
+static int at_exit_cb1_called = 0;
+static int at_exit_cb2_called = 0;
+
+static void at_exit_cb1(void* arg) {
+  Isolate* isolate = static_cast&lt;Isolate*&gt;(arg);
+  HandleScope scope(isolate);
+  Local&lt;Object&gt; obj = Object::New(isolate);
+  assert(!obj.IsEmpty()); // assert VM is still alive
+  assert(obj-&gt;IsObject());
+  at_exit_cb1_called++;
+}
+
+static void at_exit_cb2(void* arg) {
+  assert(arg == static_cast&lt;void*&gt;(cookie));
+  at_exit_cb2_called++;
+}
+
+static void sanity_check(void*) {
+  assert(at_exit_cb1_called == 1);
+  assert(at_exit_cb2_called == 2);
+}
+
+void init(Local&lt;Object&gt; exports) {
+  AtExit(sanity_check);
+  AtExit(at_exit_cb2, cookie);
+  AtExit(at_exit_cb2, cookie);
+  AtExit(at_exit_cb1, exports-&gt;GetIsolate());
+}
+
+NODE_MODULE(addon, init);
+
+}  // namespace demo
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<pre><code class="lang-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>debugger | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-debugger">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger active" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="debugger" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/debugger.json">JSON格式</a> |-->
+            <!--<a href="/api/en/debugger.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_2"><a href="#debugger_debugger">debugger (&#x8C03;&#x8BD5;&#x5668;)</a></span><ul>
+<li><span class="stability_undefined"><a href="#debugger_watchers">&#x76D1;&#x89C6;&#x5668;</a></span></li>
+<li><span class="stability_undefined"><a href="#debugger_command_reference">&#x547D;&#x4EE4;&#x53C2;&#x8003;&#x624B;&#x518C;</a></span><ul>
+<li><span class="stability_undefined"><a href="#debugger_stepping">&#x6B65;&#x8FDB;</a></span></li>
+<li><span class="stability_undefined"><a href="#debugger_breakpoints">&#x65AD;&#x70B9;</a></span></li>
+<li><span class="stability_undefined"><a href="#debugger_information">&#x4FE1;&#x606F;</a></span></li>
+<li><span class="stability_undefined"><a href="#debugger_execution_control">&#x6267;&#x884C;&#x63A7;&#x5236;</a></span></li>
+<li><span class="stability_undefined"><a href="#debugger_various">&#x6742;&#x9879;</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#debugger_advanced_usage">&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;</a></span></li>
+<li><span class="stability_undefined"><a href="#debugger_v8_inspector_integration_for_node_js">Node.js &#x7684; V8 &#x68C0;&#x67E5;&#x5668;&#x96C6;&#x5408;</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>debugger (&#x8C03;&#x8BD5;&#x5668;)<span><a class="mark" href="#debugger_debugger" id="debugger_debugger">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_debugger">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/debugger.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_2">&#x7A33;&#x5B9A;&#x6027;: 2 - &#x7A33;&#x5B9A;&#x7684;</pre><!-- type=misc -->
+<p>Node.js &#x5305;&#x542B;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5916;&#x7684;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<a href="https://github.com/v8/v8/wiki/Debugging-Protocol">&#x57FA;&#x4E8E; TCP &#x7684;&#x534F;&#x8BAE;</a>&#x548C;&#x5185;&#x7F6E;&#x8C03;&#x8BD5;&#x5BA2;&#x6237;&#x7AEF;&#x8BBF;&#x95EE;&#x3002;
+&#x8981;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x53EF;&#x4EE5;&#x5E26;&#x4E0A; <code>debug</code> &#x53C2;&#x6570;&#x542F;&#x52A8; Node.js&#xFF0C;&#x5E76;&#x5E26;&#x4E0A;&#x9700;&#x8981;&#x8C03;&#x8BD5;&#x7684;&#x811A;&#x672C;&#x7684;&#x8DEF;&#x5F84;&#xFF1B;&#x7136;&#x540E;&#x4F1A;&#x663E;&#x793A;&#x4E00;&#x4E2A;&#x63D0;&#x793A;&#xFF0C;&#x8868;&#x660E;&#x6210;&#x529F;&#x542F;&#x52A8;&#x8C03;&#x8BD5;&#x5668;&#xFF1A;</p>
+<pre><code class="lang-txt">$ node debug myscript.js
+&lt; debugger listening on port 5858
+connecting... ok
+break in /home/indutny/Code/git/indutny/myscript.js:1
+  1 x = 5;
+  2 setTimeout(() =&gt; {
+  3   debugger;
+debug&gt;
+</code></pre>
+<p>Node.js &#x7684;&#x8C03;&#x8BD5;&#x5668;&#x5BA2;&#x6237;&#x7AEF;&#x8FD8;&#x672A;&#x652F;&#x6301;&#x5168;&#x90E8;&#x7279;&#x6027;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x505A;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x6B65;&#x9AA4;&#x548C;&#x68C0;&#x6D4B;&#x3002;</p>
+<p>&#x5728;&#x811A;&#x672C;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x63D2;&#x5165; <code>debugger;</code> &#x8BED;&#x53E5;&#xFF0C;&#x5219;&#x4F1A;&#x5728;&#x4EE3;&#x7801;&#x7684;&#x90A3;&#x4E2A;&#x4F4D;&#x7F6E;&#x542F;&#x7528;&#x4E00;&#x4E2A;&#x65AD;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-js">// myscript.js
+x = 5;
+setTimeout(() =&gt; {
+  debugger;
+  console.log(&apos;world&apos;);
+}, 1000);
+console.log(&apos;hello&apos;);
+</code></pre>
+<p>&#x4E00;&#x65E6;&#x8FD0;&#x884C;&#x8C03;&#x8BD5;&#x5668;&#xFF0C;&#x5219;&#x4F1A;&#x5728;&#x7B2C; 4 &#x884C;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x65AD;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-txt">$ node debug myscript.js
+&lt; debugger listening on port 5858
+connecting... ok
+break in /home/indutny/Code/git/indutny/myscript.js:1
+  1 x = 5;
+  2 setTimeout(() =&gt; {
+  3   debugger;
+debug&gt; cont
+&lt; hello
+break in /home/indutny/Code/git/indutny/myscript.js:3
+  1 x = 5;
+  2 setTimeout(() =&gt; {
+  3   debugger;
+  4   console.log(&apos;world&apos;);
+  5 }, 1000);
+debug&gt; next
+break in /home/indutny/Code/git/indutny/myscript.js:4
+  2 setTimeout(() =&gt; {
+  3   debugger;
+  4   console.log(&apos;world&apos;);
+  5 }, 1000);
+  6 console.log(&apos;hello&apos;);
+debug&gt; repl
+Press Ctrl + C to leave debug repl
+&gt; x
+5
+&gt; 2+2
+4
+debug&gt; next
+&lt; world
+break in /home/indutny/Code/git/indutny/myscript.js:5
+  3   debugger;
+  4   console.log(&apos;world&apos;);
+  5 }, 1000);
+  6 console.log(&apos;hello&apos;);
+  7
+debug&gt; quit
+</code></pre>
+<p><code>repl</code> &#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x3002;
+<code>next</code> &#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x6B65;&#x5165;&#x4E0B;&#x4E00;&#x884C;&#x3002;
+&#x8F93;&#x5165; <code>help</code> &#x53EF;&#x67E5;&#x770B;&#x5176;&#x4ED6;&#x53EF;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x6309;&#x4E0B; <code>enter</code> &#x952E;&#x4E14;&#x4E0D;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x91CD;&#x590D;&#x4E0A;&#x4E00;&#x4E2A;&#x8C03;&#x8BD5;&#x547D;&#x4EE4;&#x3002;</p>
+<h2>&#x76D1;&#x89C6;&#x5668;<span><a class="mark" href="#debugger_watchers" id="debugger_watchers">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_watchers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/watchers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x8C03;&#x8BD5;&#x65F6;&#x76D1;&#x89C6;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x3002;
+&#x5728;&#x6BCF;&#x4E2A;&#x65AD;&#x70B9;&#x4E0A;&#xFF0C;&#x76D1;&#x89C6;&#x5668;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x90FD;&#x4F1A;&#x5728;&#x5F53;&#x524D;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x5728;&#x65AD;&#x70B9;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x5217;&#x8868;&#x4E4B;&#x524D;&#x7ACB;&#x5373;&#x663E;&#x793A;&#x3002;</p>
+<p>&#x8F93;&#x5165; <code>watch(&apos;my_expression&apos;)</code> &#x5F00;&#x59CB;&#x76D1;&#x89C6;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x3002;
+<code>watchers</code> &#x547D;&#x4EE4;&#x4F1A;&#x6253;&#x5370;&#x5DF2;&#x6FC0;&#x6D3B;&#x7684;&#x76D1;&#x89C6;&#x5668;&#x3002;
+&#x8F93;&#x5165; <code>unwatch(&apos;my_expression&apos;)</code> &#x6765;&#x79FB;&#x9664;&#x4E00;&#x4E2A;&#x76D1;&#x89C6;&#x5668;&#x3002;</p>
+<h2>&#x547D;&#x4EE4;&#x53C2;&#x8003;&#x624B;&#x518C;<span><a class="mark" href="#debugger_command_reference" id="debugger_command_reference">#</a></span></h2>
+<h3>&#x6B65;&#x8FDB;<span><a class="mark" href="#debugger_stepping" id="debugger_stepping">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_stepping">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/stepping.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="signature"><ul>
+<li><code>cont</code>, <code>c</code> - &#x7EE7;&#x7EED;&#x6267;&#x884C;</li>
+<li><code>next</code>, <code>n</code> - &#x4E0B;&#x4E00;&#x6B65;</li>
+<li><code>step</code>, <code>s</code> - &#x8DF3;&#x8FDB;&#x51FD;&#x6570;</li>
+<li><code>out</code>, <code>o</code> - &#x8DF3;&#x51FA;&#x51FD;&#x6570;</li>
+<li><code>pause</code> - &#x6682;&#x505C;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#xFF08;&#x7C7B;&#x4F3C;&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x4E2D;&#x7684;&#x6682;&#x505C;&#x6309;&#x94AE;&#xFF09;</li>
+</ul>
+</div><h3>&#x65AD;&#x70B9;<span><a class="mark" href="#debugger_breakpoints" id="debugger_breakpoints">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_breakpoints">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/breakpoints.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="signature"><ul>
+<li><code>setBreakpoint()</code>, <code>sb()</code> - &#x5728;&#x5F53;&#x524D;&#x884C;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;</li>
+<li><code>setBreakpoint(line)</code>, <code>sb(line)</code> - &#x5728;&#x6307;&#x5B9A;&#x884C;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;</li>
+<li><code>setBreakpoint(&apos;fn()&apos;)</code>, <code>sb(...)</code> - &#x5728;&#x51FD;&#x6570;&#x4F53;&#x7684;&#x7B2C;&#x4E00;&#x6761;&#x8BED;&#x53E5;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;</li>
+<li><code>setBreakpoint(&apos;script.js&apos;, 1)</code>, <code>sb(...)</code> - &#x5728; script.js &#x7684;&#x7B2C; 1 &#x884C;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;</li>
+<li><code>clearBreakpoint(&apos;script.js&apos;, 1)</code>, <code>cb(...)</code> - &#x6E05;&#x9664; script.js &#x7B2C; 1 &#x884C;&#x7684;&#x65AD;&#x70B9;</li>
+</ul>
+</div><p>&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x8FD8;&#x672A;&#x88AB;&#x52A0;&#x8F7D;&#x7684;&#x6587;&#x4EF6;&#xFF08;&#x6A21;&#x5757;&#xFF09;&#x4E2D;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#xFF1A;</p>
+<pre><code class="lang-txt">$ node debug test/fixtures/break-in-module/main.js
+&lt; debugger listening on port 5858
+connecting to port 5858... ok
+break in test/fixtures/break-in-module/main.js:1
+  1 var mod = require(&apos;./mod.js&apos;);
+  2 mod.hello();
+  3 mod.hello();
+debug&gt; setBreakpoint(&apos;mod.js&apos;, 23)
+Warning: script &apos;mod.js&apos; was not loaded yet.
+  1 var mod = require(&apos;./mod.js&apos;);
+  2 mod.hello();
+  3 mod.hello();
+debug&gt; c
+break in test/fixtures/break-in-module/mod.js:23
+ 21
+ 22 exports.hello = () =&gt; {
+ 23   return &apos;hello from module&apos;;
+ 24 };
+ 25
+debug&gt;
+</code></pre>
+<h3>&#x4FE1;&#x606F;<span><a class="mark" href="#debugger_information" id="debugger_information">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_information">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/information.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="signature"><ul>
+<li><code>backtrace</code>, <code>bt</code> - &#x6253;&#x5370;&#x5F53;&#x524D;&#x6267;&#x884C;&#x6846;&#x67B6;&#x7684;&#x56DE;&#x6EAF;</li>
+<li><code>list(5)</code> - &#x5217;&#x51FA;&#x811A;&#x672C;&#x6E90;&#x4EE3;&#x7801;&#x7684; 5 &#x884C;&#x4E0A;&#x4E0B;&#x6587;&#xFF08;&#x524D;&#x540E;&#x5404; 5 &#x884C;&#xFF09;</li>
+<li><code>watch(expr)</code> - &#x6DFB;&#x52A0;&#x8868;&#x8FBE;&#x5F0F;&#x5230;&#x76D1;&#x89C6;&#x5217;&#x8868;</li>
+<li><code>unwatch(expr)</code> - &#x4ECE;&#x76D1;&#x89C6;&#x5217;&#x8868;&#x79FB;&#x9664;&#x8868;&#x8FBE;&#x5F0F;</li>
+<li><code>watchers</code> - &#x5217;&#x51FA;&#x6240;&#x6709;&#x76D1;&#x89C6;&#x5668;&#x548C;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#xFF08;&#x6BCF;&#x4E2A;&#x65AD;&#x70B9;&#x4F1A;&#x81EA;&#x52A8;&#x5217;&#x51FA;&#xFF09;</li>
+<li><code>repl</code> - &#x6253;&#x5F00;&#x8C03;&#x8BD5;&#x5668;&#x7684; repl&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x6240;&#x8C03;&#x8BD5;&#x7684;&#x811A;&#x672C;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x8FDB;&#x884C;&#x6267;&#x884C;</li>
+<li><code>exec expr</code> - &#x5728;&#x6240;&#x8C03;&#x8BD5;&#x7684;&#x811A;&#x672C;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;</li>
+</ul>
+</div><h3>&#x6267;&#x884C;&#x63A7;&#x5236;<span><a class="mark" href="#debugger_execution_control" id="debugger_execution_control">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_execution_control">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/execution_control.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="signature"><ul>
+<li><code>run</code> - &#x8FD0;&#x884C;&#x811A;&#x672C;&#xFF08;&#x8C03;&#x8BD5;&#x5668;&#x5F00;&#x59CB;&#x65F6;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#xFF09;</li>
+<li><code>restart</code> - &#x91CD;&#x65B0;&#x542F;&#x52A8;&#x811A;&#x672C;</li>
+<li><code>kill</code> - &#x7EC8;&#x6B62;&#x811A;&#x672C;</li>
+</ul>
+</div><h3>&#x6742;&#x9879;<span><a class="mark" href="#debugger_various" id="debugger_various">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_various">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/various.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="signature"><ul>
+<li><code>scripts</code> - &#x5217;&#x51FA;&#x6240;&#x6709;&#x5DF2;&#x52A0;&#x8F7D;&#x7684;&#x811A;&#x672C;</li>
+<li><code>version</code> - &#x663E;&#x793A; V8 &#x5F15;&#x64CE;&#x7684;&#x7248;&#x672C;&#x53F7;</li>
+</ul>
+</div><h2>&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;<span><a class="mark" href="#debugger_advanced_usage" id="debugger_advanced_usage">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_advanced_usage">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/advanced_usage.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x542F;&#x7528;&#x548C;&#x8BBF;&#x95EE;&#x8C03;&#x8BD5;&#x5668;&#x7684;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x662F;&#x542F;&#x52A8; Node.js &#x65F6;&#x5E26;&#x4E0A; <code>--debug</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x5FD7;&#xFF0C;&#x6216;&#x5411;&#x4E00;&#x4E2A;&#x5DF2;&#x5B58;&#x5728;&#x7684; Node.js &#x8FDB;&#x7A0B;&#x53D1;&#x9001; <code>SIGUSR1</code> &#x4FE1;&#x53F7;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x88AB;&#x8BBE;&#x4E3A;&#x8C03;&#x8BD5;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x5C31;&#x53EF;&#x4EE5;&#x88AB; Node.js &#x8C03;&#x8BD5;&#x5668;&#x4F7F;&#x7528;&#xFF0C;&#x901A;&#x8FC7;&#x8FDE;&#x63A5;&#x5230;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x7684; <code>pid</code> &#x6216;&#x901A;&#x8FC7;&#x6B63;&#x5728;&#x76D1;&#x542C;&#x7684;&#x8C03;&#x8BD5;&#x5668;&#x7684; URI &#x5F15;&#x7528;&#xFF1A;</p>
+<ul>
+<li><code>node debug -p &lt;pid&gt;</code> - &#x901A;&#x8FC7; <code>pid</code> &#x8FDE;&#x63A5;&#x8FDB;&#x7A0B;</li>
+<li><code>node debug &lt;URI&gt;</code> - &#x901A;&#x8FC7; URI &#x8FDE;&#x63A5;&#x8FDB;&#x7A0B;&#xFF0C;&#x5982; localhost:5858</li>
+</ul>
+<h2>Node.js &#x7684; V8 &#x68C0;&#x67E5;&#x5668;&#x96C6;&#x5408;<span><a class="mark" href="#debugger_v8_inspector_integration_for_node_js" id="debugger_v8_inspector_integration_for_node_js">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/debugger.html#debugger_v8_inspector_integration_for_node_js">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/v8_inspector_integration_for_node_js.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x8BD5;&#x9A8C;&#x7684;&#x7279;&#x6027;&#x3002;</strong></p>
+<p>V8 &#x7684;&#x68C0;&#x67E5;&#x5668;&#x96C6;&#x6210;&#x53EF;&#x4EE5;&#x9644;&#x52A0; Chrome &#x7684;&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x5230; Node.js &#x5B9E;&#x4F8B;&#x4EE5;&#x7528;&#x4E8E;&#x8C03;&#x8BD5;&#x548C;&#x6027;&#x80FD;&#x5206;&#x6790;&#x3002;</p>
+<p>&#x5F53;&#x542F;&#x52A8;&#x4E00;&#x4E2A; Node.js &#x5E94;&#x7528;&#x65F6;&#xFF0C;V8 &#x68C0;&#x67E5;&#x5668;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F20;&#x5165; <code>--inspect</code> &#x6807;&#x5FD7;&#x542F;&#x7528;&#x3002;
+&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BE5;&#x6807;&#x5FD7;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x5982; <code>--inspect=9222</code> &#x4F1A;&#x5728; 9222 &#x7AEF;&#x53E3;&#x63A5;&#x53D7;&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x8FDE;&#x63A5;&#x3002;</p>
+<p>&#x8981;&#x60F3;&#x5728;&#x5E94;&#x7528;&#x4EE3;&#x7801;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x65AD;&#x5F00;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x9664; <code>--inspect</code> &#x4E4B;&#x5916;&#x518D;&#x63D0;&#x4F9B; <code>--debug-brk</code> &#x6807;&#x5FD7;&#x3002;</p>
+<pre><code class="lang-txt">$ node --inspect index.js
+Debugger listening on port 9229.
+Warning: This is an experimental feature and could change at any time.
+To start debugging, open the following URL in Chrome:
+    chrome-devtools://devtools/remote/serve_file/@60cd6e859b9f557d2312f5bf532f6aec5f284980/inspector.html?experiments=true&amp;v8only=true&amp;ws=localhost:9229/node
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>

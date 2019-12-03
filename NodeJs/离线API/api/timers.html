@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+  <title>&#x5B9A;&#x65F6;&#x5668; | Node.js API &#x6587;&#x6863;</title>
+  <link rel="stylesheet" href="../static/api.css?20170216">
+  <link rel="icon" sizes="32x32" type="image/png" href="../static/favicon.png">
+</head>
+<body class="alt apidoc" id="api-section-timers">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="index.html">
+          Node.js &#x4E2D;&#x6587;&#x7F51;
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-documentation" href="documentation.html">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a class="nav-synopsis" href="synopsis.html">&#x7528;&#x6CD5;&#x4E0E;&#x4F8B;&#x5B50;</a></li>
+</ul>
+<div class="line"></div>
+
+<ul>
+<li><a class="nav-assert" href="assert.html">Assert (&#x65AD;&#x8A00;)</a></li>
+<li><a class="nav-buffer" href="buffer.html">Buffer</a></li>
+<li><a class="nav-addons" href="addons.html">C/C++ &#x63D2;&#x4EF6;</a></li>
+<li><a class="nav-child_process" href="child_process.html">Child Processes (&#x5B50;&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-cluster" href="cluster.html">Cluster (&#x96C6;&#x7FA4;)</a></li>
+<li><a class="nav-cli" href="cli.html">CLI (&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;)</a></li>
+<li><a class="nav-console" href="console.html">Console (&#x63A7;&#x5236;&#x53F0;)</a></li>
+<li><a class="nav-crypto" href="crypto.html">Crypto (&#x52A0;&#x5BC6;)</a></li>
+<li><a class="nav-debugger" href="debugger.html">Debugger (&#x8C03;&#x8BD5;&#x5668;)</a></li>
+<li><a class="nav-dns" href="dns.html">DNS (&#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;)</a></li>
+<li><a class="nav-domain" href="domain.html">Domain (&#x57DF;)</a></li>
+<li><a class="nav-errors" href="errors.html">Error (&#x9519;&#x8BEF;)</a></li>
+<li><a class="nav-events" href="events.html">Events (&#x4E8B;&#x4EF6;)</a></li>
+<li><a class="nav-fs" href="fs.html">File System (&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-globals" href="globals.html">Global (&#x5168;&#x5C40;&#x53D8;&#x91CF;)</a></li>
+<li><a class="nav-http" href="http.html">HTTP</a></li>
+<li><a class="nav-https" href="https.html">HTTPS</a></li>
+<li><a class="nav-modules" href="modules.html">Module (&#x6A21;&#x5757;)</a></li>
+<li><a class="nav-net" href="net.html">Net (&#x7F51;&#x7EDC;)</a></li>
+<li><a class="nav-os" href="os.html">OS (&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;)</a></li>
+<li><a class="nav-path" href="path.html">Path (&#x8DEF;&#x5F84;)</a></li>
+<li><a class="nav-process" href="process.html">Process (&#x8FDB;&#x7A0B;)</a></li>
+<li><a class="nav-punycode" href="punycode.html">Punycode</a></li>
+<li><a class="nav-querystring" href="querystring.html">Query Strings (&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;)</a></li>
+<li><a class="nav-readline" href="readline.html">Readline (&#x9010;&#x884C;&#x8BFB;&#x53D6;)</a></li>
+<li><a class="nav-repl" href="repl.html">REPL (&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;)</a></li>
+<li><a class="nav-stream" href="stream.html">Stream (&#x6D41;)</a></li>
+<li><a class="nav-string_decoder" href="string_decoder.html">String Decoder (&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;)</a></li>
+<li><a class="nav-timers active" href="timers.html">Timer (&#x5B9A;&#x65F6;&#x5668;)</a></li>
+<li><a class="nav-tls" href="tls.html">TLS/SSL</a></li>
+<li><a class="nav-tty" href="tty.html">TTY (&#x7EC8;&#x7AEF;)</a></li>
+<li><a class="nav-dgram" href="dgram.html">UDP/Datagram (&#x6570;&#x636E;&#x62A5;)</a></li>
+<li><a class="nav-url" href="url.html">URL</a></li>
+<li><a class="nav-util" href="util.html">Util (&#x5B9E;&#x7528;&#x5DE5;&#x5177;)</a></li>
+<li><a class="nav-v8" href="v8.html">V8</a></li>
+<li><a class="nav-vm" href="vm.html">VM (&#x865A;&#x62DF;&#x673A;)</a></li>
+<li><a class="nav-zlib" href="zlib.html">ZLIB (&#x538B;&#x7F29;)</a></li>
+</ul>
+<div class="line"></div>
+
+
+    </div>
+
+    <div id="column1" data-id="timers" class="interior">
+      <header>
+        <h1>Node.js v6.10.0 &#x6587;&#x6863;</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+            <!--<a href="/api/all.html">单页面显示</a> |-->
+            <!--<a href="/api/timers.json">JSON格式</a> |-->
+            <!--<a href="/api/en/timers.html">查看英文版</a>-->
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>&#x76EE;&#x5F55;</h2>
+        <ul>
+<li><span class="stability_3"><a href="#timers_timers">&#x5B9A;&#x65F6;&#x5668;</a></span><ul>
+<li><span class="stability_undefined"><a href="#timers_class_immediate">Immediate &#x7C7B;</a></span></li>
+<li><span class="stability_undefined"><a href="#timers_class_timeout">Timeout &#x7C7B;</a></span><ul>
+<li><span class="stability_undefined"><a href="#timers_timeout_ref">timeout.ref()</a></span></li>
+<li><span class="stability_undefined"><a href="#timers_timeout_unref">timeout.unref()</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#timers_scheduling_timers">&#x9884;&#x5B9A;&#x5B9A;&#x65F6;&#x5668;</a></span><ul>
+<li><span class="stability_undefined"><a href="#timers_setimmediate_callback_args">setImmediate(callback[, ...args])</a></span></li>
+<li><span class="stability_undefined"><a href="#timers_setinterval_callback_delay_args">setInterval(callback, delay[, ...args])</a></span></li>
+<li><span class="stability_undefined"><a href="#timers_settimeout_callback_delay_args">setTimeout(callback, delay[, ...args])</a></span></li>
+</ul>
+</li>
+<li><span class="stability_undefined"><a href="#timers_cancelling_timers">&#x53D6;&#x6D88;&#x5B9A;&#x65F6;&#x5668;</a></span><ul>
+<li><span class="stability_undefined"><a href="#timers_clearimmediate_immediate">clearImmediate(immediate)</a></span></li>
+<li><span class="stability_undefined"><a href="#timers_clearinterval_timeout">clearInterval(timeout)</a></span></li>
+<li><span class="stability_undefined"><a href="#timers_cleartimeout_timeout">clearTimeout(timeout)</a></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>&#x5B9A;&#x65F6;&#x5668;<span><a class="mark" href="#timers_timers" id="timers_timers">#</a></span></h1><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_timers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<pre class="api_stability api_stability_3">&#x7A33;&#x5B9A;&#x6027;: 3 - &#x9501;&#x5B9A;&#x7684;</pre><p><code>timer</code> &#x6A21;&#x5757;&#x66B4;&#x9732;&#x4E86;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684; API&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x67D0;&#x4E2A;&#x672A;&#x6765;&#x65F6;&#x95F4;&#x6BB5;&#x8C03;&#x7528;&#x8C03;&#x5EA6;&#x51FD;&#x6570;&#x3002;
+&#x56E0;&#x4E3A;&#x5B9A;&#x65F6;&#x5668;&#x51FD;&#x6570;&#x662F;&#x5168;&#x5C40;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5; API &#x65E0;&#x9700;&#x8C03;&#x7528; <code>require(&apos;timers&apos;)</code>&#x3002;</p>
+<p>Node.js &#x4E2D;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x4E86;&#x4E0E; Web &#x6D4F;&#x89C8;&#x5668;&#x63D0;&#x4F9B;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x7C7B;&#x4F3C;&#x7684; API&#xFF0C;&#x9664;&#x4E86;&#x5B83;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#xFF0C;&#x5B83;&#x662F;&#x57FA;&#x4E8E; <a href="https://github.com/nodejs/node/blob/master/doc/topics/event-loop-timers-and-nexttick.md">Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</a>&#x6784;&#x5EFA;&#x7684;&#x3002;</p>
+<h2>Immediate &#x7C7B;<span><a class="mark" href="#timers_class_immediate" id="timers_class_immediate">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_class_immediate">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/class_immediate.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x8BE5;&#x5BF9;&#x8C61;&#x662F;&#x5185;&#x90E8;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x5E76;&#x4ECE; <a href="timers.html#timers_setimmediate_callback_args"><code>setImmediate()</code></a> &#x8FD4;&#x56DE;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x4F20;&#x7ED9; <a href="timers.html#timers_clearimmediate_immediate"><code>clearImmediate()</code></a> &#x4EE5;&#x4FBF;&#x53D6;&#x6D88;&#x9884;&#x5B9A;&#x7684;&#x52A8;&#x4F5C;&#x3002;</p>
+<h2>Timeout &#x7C7B;<span><a class="mark" href="#timers_class_timeout" id="timers_class_timeout">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_class_timeout">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/class_timeout.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>&#x8BE5;&#x5BF9;&#x8C61;&#x662F;&#x5185;&#x90E8;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x5E76;&#x4ECE; <a href="timers.html#timers_settimeout_callback_delay_args"><code>setTimeout()</code></a> &#x548C; <a href="timers.html#timers_setinterval_callback_delay_args"><code>setInterval()</code></a> &#x8FD4;&#x56DE;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x4F20;&#x7ED9; <a href="timers.html#timers_cleartimeout_timeout"><code>clearTimeout()</code></a> &#x6216; <a href="timers.html#timers_clearinterval_timeout"><code>clearInterval()</code></a> &#x4EE5;&#x4FBF;&#x53D6;&#x6D88;&#x9884;&#x5B9A;&#x7684;&#x52A8;&#x4F5C;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F53;&#x4F7F;&#x7528; <a href="timers.html#timers_settimeout_callback_delay_args"><code>setTimeout()</code></a> &#x6216; <a href="timers.html#timers_setinterval_callback_delay_args"><code>setInterval()</code></a> &#x9884;&#x5B9A;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x5B9A;&#x65F6;&#x5668;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#xFF0C;Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5C31;&#x4F1A;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x3002;
+&#x6BCF;&#x4E2A;&#x7531;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x90FD;&#x5BFC;&#x51FA;&#x4E86;&#x53EF;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x8FD9;&#x4E2A;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x7684; <code>timeout.ref()</code> &#x548C; <code>timeout.unref()</code> &#x51FD;&#x6570;&#x3002;</p>
+<h3>timeout.ref()<span><a class="mark" href="#timers_timeout_ref" id="timers_timeout_ref">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_timeout_ref">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timeout_ref.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div><p>&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x53EA;&#x8981; <code>Timeout</code> &#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x5C31;&#x8981;&#x6C42; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E0D;&#x8981;&#x9000;&#x51FA;&#x3002;
+&#x591A;&#x6B21;&#x8C03;&#x7528; <code>timeout.ref()</code> &#x6CA1;&#x6709;&#x6548;&#x679C;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6240;&#x6709; <code>Timeout</code> &#x5BF9;&#x8C61;&#x90FD;&#x662F; &quot;ref&apos;d&quot; &#x7684;&#xFF0C;&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x8C03;&#x7528; <code>timeout.ref()</code>&#xFF0C;&#x9664;&#x975E;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x4E86; <code>timeout.unref()</code>&#x3002;</p>
+<p>&#x8FD4;&#x56DE; <code>Timeout</code> &#x7684;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x3002;</p>
+<h3>timeout.unref()<span><a class="mark" href="#timers_timeout_unref" id="timers_timeout_unref">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_timeout_unref">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timeout_unref.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div><p>&#x5F53;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x6D3B;&#x52A8;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x4E0D;&#x8981;&#x6C42; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4FDD;&#x6301;&#x6D3B;&#x52A8;&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x6D3B;&#x52A8;&#x4FDD;&#x6301;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x8FDB;&#x7A0B;&#x53EF;&#x80FD;&#x5728; <code>Timeout</code> &#x5BF9;&#x8C61;&#x7684;&#x56DE;&#x8C03;&#x88AB;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#x9000;&#x51FA;&#x3002;
+&#x591A;&#x6B21;&#x8C03;&#x7528; <code>timeout.unref()</code> &#x6CA1;&#x6709;&#x6548;&#x679C;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8C03;&#x7528; <code>timeout.unref()</code> &#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x5B83;&#x4F1A;&#x5524;&#x9192; Node.js &#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;
+&#x521B;&#x5EFA;&#x592A;&#x591A;&#x8FD9;&#x7C7B;&#x5B9A;&#x65F6;&#x5668;&#x53EF;&#x80FD;&#x4F1A;&#x5BF9; Node.js &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6027;&#x80FD;&#x4EA7;&#x751F;&#x8D1F;&#x9762;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x8FD4;&#x56DE;&#x5BF9; <code>Timeout</code> &#x7684;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x3002;</p>
+<h2>&#x9884;&#x5B9A;&#x5B9A;&#x65F6;&#x5668;<span><a class="mark" href="#timers_scheduling_timers" id="timers_scheduling_timers">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_scheduling_timers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/scheduling_timers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p>Node.js &#x4E2D;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#x662F;&#x4E00;&#x79CD;&#x4F1A;&#x5728;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#x8C03;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x6784;&#x9020;&#x3002;
+&#x5B9A;&#x65F6;&#x5668;&#x51FD;&#x6570;&#x4F55;&#x65F6;&#x88AB;&#x8C03;&#x7528;&#x53D6;&#x51B3;&#x4E8E;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x65B9;&#x6CD5;&#x4EE5;&#x53CA; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x6B63;&#x5728;&#x505A;&#x7684;&#x5176;&#x4ED6;&#x5DE5;&#x4F5C;&#x3002;</p>
+<h3>setImmediate(callback[, ...args])<span><a class="mark" href="#timers_setimmediate_callback_args" id="timers_setimmediate_callback_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_setimmediate_callback_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/setimmediate_callback_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div><ul>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5728; <a href="https://github.com/nodejs/node/blob/master/doc/topics/event-loop-timers-and-nexttick.md">Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</a>&#x7684;&#x5F53;&#x524D;&#x56DE;&#x5408;&#x7ED3;&#x675F;&#x65F6;&#x8981;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>...args</code> <span class="type">&lt;any&gt;</span> &#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x8981;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p>&#x9884;&#x5B9A;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684; <code>callback</code>&#xFF0C;&#x5B83;&#x662F;&#x5728; I/O &#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x4E4B;&#x540E;&#x3001;&#x5728;&#x4F7F;&#x7528; <a href="timers.html#timers_settimeout_callback_delay_args"><code>setTimeout()</code></a> &#x548C; <a href="timers.html#timers_setinterval_callback_delay_args"><code>setInterval()</code></a> &#x521B;&#x5EFA;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#x4E4B;&#x524D;&#x88AB;&#x89E6;&#x53D1;&#x3002;
+&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7528;&#x4E8E; <a href="timers.html#timers_clearimmediate_immediate"><code>clearImmediate()</code></a> &#x7684; <code>Immediate</code>&#x3002;</p>
+<p>&#x5F53;&#x591A;&#x6B21;&#x8C03;&#x7528; <code>setImmediate()</code> &#x65F6;&#xFF0C;<code>callback</code> &#x51FD;&#x6570;&#x4F1A;&#x6309;&#x7167;&#x5B83;&#x4EEC;&#x88AB;&#x521B;&#x5EFA;&#x7684;&#x987A;&#x5E8F;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x3002;
+&#x6BCF;&#x6B21;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x90FD;&#x4F1A;&#x5904;&#x7406;&#x6574;&#x4E2A;&#x56DE;&#x8C03;&#x961F;&#x5217;&#x3002;
+&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7ACB;&#x5373;&#x5B9A;&#x65F6;&#x5668;&#x662F;&#x88AB;&#x4E00;&#x4E2A;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x56DE;&#x8C03;&#x6392;&#x5165;&#x961F;&#x5217;&#x7684;&#xFF0C;&#x5219;&#x8BE5;&#x5B9A;&#x65F6;&#x5668;&#x76F4;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x624D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>callback</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h3>setInterval(callback, delay[, ...args])<span><a class="mark" href="#timers_setinterval_callback_delay_args" id="timers_setinterval_callback_delay_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_setinterval_callback_delay_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/setinterval_callback_delay_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div><ul>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5F53;&#x5B9A;&#x65F6;&#x5668;&#x5230;&#x70B9;&#x65F6;&#x8981;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>delay</code> <span class="type">&lt;number&gt;</span> &#x8C03;&#x7528; <code>callback</code> &#x4E4B;&#x524D;&#x8981;&#x7B49;&#x5F85;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x3002;</li>
+<li><code>...args</code> <span class="type">&lt;any&gt;</span> &#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x8981;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p>&#x9884;&#x5B9A;&#x6BCF;&#x9694; <code>delay</code> &#x6BEB;&#x79D2;&#x91CD;&#x590D;&#x6267;&#x884C;&#x7684; <code>callback</code>&#x3002;
+&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7528;&#x4E8E; <a href="timers.html#timers_clearinterval_timeout"><code>clearInterval()</code></a> &#x7684; <code>Timeout</code>&#x3002;</p>
+<p>&#x5F53; <code>delay</code> &#x5927;&#x4E8E; <code>2147483647</code> &#x6216;&#x5C0F;&#x4E8E; <code>1</code> &#x65F6;&#xFF0C;<code>delay</code> &#x4F1A;&#x88AB;&#x8BBE;&#x4E3A; <code>1</code>&#x3002;</p>
+<p>&#x5982;&#x679C; <code>callback</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h3>setTimeout(callback, delay[, ...args])<span><a class="mark" href="#timers_settimeout_callback_delay_args" id="timers_settimeout_callback_delay_args">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_settimeout_callback_delay_args">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/settimeout_callback_delay_args.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div><ul>
+<li><code>callback</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> &#x5F53;&#x5B9A;&#x65F6;&#x5668;&#x5230;&#x70B9;&#x65F6;&#x8981;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>delay</code> <span class="type">&lt;number&gt;</span> &#x8C03;&#x7528; <code>callback</code> &#x4E4B;&#x524D;&#x8981;&#x7B49;&#x5F85;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x3002;</li>
+<li><code>...args</code> <span class="type">&lt;any&gt;</span> &#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x8981;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p>&#x9884;&#x5B9A;&#x5728; <code>delay</code> &#x6BEB;&#x79D2;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x7684;&#x5355;&#x6B21; <code>callback</code>&#x3002;
+&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7528;&#x4E8E; <a href="timers.html#timers_cleartimeout_timeout"><code>clearTimeout()</code></a> &#x7684; <code>Timeout</code>&#x3002;</p>
+<p><code>callback</code> &#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x7CBE;&#x786E;&#x5730;&#x5728; <code>delay</code> &#x6BEB;&#x79D2;&#x88AB;&#x8C03;&#x7528;&#x3002;
+Node.js &#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x56DE;&#x8C03;&#x88AB;&#x89E6;&#x53D1;&#x7684;&#x786E;&#x5207;&#x65F6;&#x95F4;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x5B83;&#x4EEC;&#x7684;&#x987A;&#x5E8F;&#x3002;
+&#x56DE;&#x8C03;&#x4F1A;&#x5728;&#x5C3D;&#x53EF;&#x80FD;&#x63A5;&#x8FD1;&#x6240;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x4E0A;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5F53; <code>delay</code> &#x5927;&#x4E8E; <code>2147483647</code> &#x6216;&#x5C0F;&#x4E8E; <code>1</code> &#x65F6;&#xFF0C;<code>delay</code> &#x4F1A;&#x88AB;&#x8BBE;&#x4E3A; <code>1</code>&#x3002;</p>
+<p>&#x5982;&#x679C; <code>callback</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="errors.html#errors_class_typeerror"><code>TypeError</code></a>&#x3002;</p>
+<h2>&#x53D6;&#x6D88;&#x5B9A;&#x65F6;&#x5668;<span><a class="mark" href="#timers_cancelling_timers" id="timers_cancelling_timers">#</a></span></h2><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_cancelling_timers">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/cancelling_timers.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<p><a href="timers.html#timers_setimmediate_callback_args"><code>setImmediate()</code></a>&#x3001;<a href="timers.html#timers_setinterval_callback_delay_args"><code>setInterval()</code></a> &#x548C; <a href="timers.html#timers_settimeout_callback_delay_args"><code>setTimeout()</code></a> &#x65B9;&#x6CD5;&#x6BCF;&#x6B21;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x8868;&#x793A;&#x9884;&#x5B9A;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x5B83;&#x4EEC;&#x53EF;&#x7528;&#x4E8E;&#x53D6;&#x6D88;&#x5B9A;&#x65F6;&#x5668;&#x5E76;&#x9632;&#x6B62;&#x89E6;&#x53D1;&#x3002;</p>
+<h3>clearImmediate(immediate)<span><a class="mark" href="#timers_clearimmediate_immediate" id="timers_clearimmediate_immediate">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_clearimmediate_immediate">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/clearimmediate_immediate.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div><ul>
+<li><code>immediate</code> <span class="type">&lt;Immediate&gt;</span> &#x4E00;&#x4E2A; <a href="timers.html#timers_setimmediate_callback_args"><code>setImmediate()</code></a> &#x8FD4;&#x56DE;&#x7684; <code>Immediate</code> &#x5BF9;&#x8C61;&#x3002; </li>
+</ul>
+<p>&#x53D6;&#x6D88;&#x4E00;&#x4E2A;&#x7531; <a href="timers.html#timers_setimmediate_callback_args"><code>setImmediate()</code></a> &#x521B;&#x5EFA;&#x7684; <code>Immediate</code> &#x5BF9;&#x8C61;&#x3002;</p>
+<h3>clearInterval(timeout)<span><a class="mark" href="#timers_clearinterval_timeout" id="timers_clearinterval_timeout">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_clearinterval_timeout">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/clearinterval_timeout.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div><ul>
+<li><code>timeout</code> <span class="type">&lt;Timeout&gt;</span> &#x4E00;&#x4E2A; <a href="timers.html#timers_setinterval_callback_delay_args"><code>setInterval()</code></a> &#x8FD4;&#x56DE;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x3002; </li>
+</ul>
+<p>&#x53D6;&#x6D88;&#x4E00;&#x4E2A;&#x7531; <a href="timers.html#timers_setinterval_callback_delay_args"><code>setInterval()</code></a> &#x521B;&#x5EFA;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x3002;</p>
+<h3>clearTimeout(timeout)<span><a class="mark" href="#timers_cleartimeout_timeout" id="timers_cleartimeout_timeout">#</a></span></h3><p style="font-size:12px;margin-top:-1em"><a href="/api/en/timers.html#timers_cleartimeout_timeout">&#x67E5;&#x770B;&#x82F1;&#x6587;&#x7248;</a> / <a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/cleartimeout_timeout.md">&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div><ul>
+<li><code>timeout</code> <span class="type">&lt;Timeout&gt;</span> &#x4E00;&#x4E2A; <a href="timers.html#timers_settimeout_callback_delay_args"><code>setTimeout()</code></a> &#x8FD4;&#x56DE;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x3002; </li>
+</ul>
+<p>&#x53D6;&#x6D88;&#x4E00;&#x4E2A;&#x7531; <a href="timers.html#timers_settimeout_callback_delay_args"><code>setTimeout()</code></a> &#x521B;&#x5EFA;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x3002;</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="../static/api.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+</body>
+</html>
